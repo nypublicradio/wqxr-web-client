@@ -1,16 +1,14 @@
 import { test } from 'qunit';
-import moduleForAcceptance from 'wnyc-web-client/tests/helpers/module-for-acceptance';
+import moduleForAcceptance from 'wqxr-web-client/tests/helpers/module-for-acceptance';
 import {
   authenticateSession,
   currentSession
-} from 'wnyc-web-client/tests/helpers/ember-simple-auth';
-import 'wnyc-web-client/tests/helpers/with-feature';
+} from 'wqxr-web-client/tests/helpers/ember-simple-auth';
+import 'wqxr-web-client/tests/helpers/with-feature';
 
 moduleForAcceptance('Acceptance | settings', {
   beforeEach() {
-    server.create('user');
-    authenticateSession(this.application, {access_token: 'foo'});
-    
+    authenticateSession(this.application);
     let session = currentSession(this.application);
     session.set('data.user-prefs-active-stream', {slug: 'wqxr', name: 'WQXR New York'});
     session.set('data.user-prefs-active-autoplay', 'default_stream');

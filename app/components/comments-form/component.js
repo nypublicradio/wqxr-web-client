@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import ENV from 'wnyc-web-client/config/environment';
+import ENV from 'wqxr-web-client/config/environment';
 import fetch from 'fetch';
 
 export default Ember.Component.extend({
@@ -26,7 +26,7 @@ export default Ember.Component.extend({
       'comment'
     ];
 
-    if ( !this.get('isStaff') ) {
+    if ( !this.get('user.is_staff') ) {
       requiredFields.push('email');
     }
 

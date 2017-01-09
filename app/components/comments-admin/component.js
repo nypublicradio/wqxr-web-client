@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import ENV from 'wnyc-web-client/config/environment';
+import ENV from 'wqxr-web-client/config/environment';
 
 export default Ember.Component.extend({
   adminURL: `${ENV.wnycAdminRoot}/admin`,
