@@ -2,13 +2,13 @@ import Component from 'ember-component';
 import get from 'ember-metal/get';
 import set from 'ember-metal/set';
 import Changeset from 'ember-changeset';
-import PasswordValidations from 'wnyc-web-client/validations/password';
+import PasswordValidations from 'wqxr-web-client/validations/password';
 import lookupValidator from 'ember-changeset-validations';
 import service from 'ember-service/inject';
-import ENV from 'wnyc-web-client/config/environment';
+import ENV from 'wqxr-web-client/config/environment';
 import RSVP from 'rsvp';
 import fetch from 'fetch';
-import { rejectUnsuccessfulResponses } from 'wnyc-web-client/utils/fetch-utils';
+import { rejectUnsuccessfulResponses } from 'wqxr-web-client/utils/fetch-utils';
 
 const FLASH_MESSAGES = {
   reset: 'Your password has been successfully updated.'

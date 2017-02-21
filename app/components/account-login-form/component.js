@@ -2,11 +2,11 @@ import Component from 'ember-component';
 import set from 'ember-metal/set';
 import get from 'ember-metal/get';
 import Changeset from 'ember-changeset';
-import LoginValidations from 'wnyc-web-client/validations/login';
+import LoginValidations from 'wqxr-web-client/validations/login';
 import lookupValidator from 'ember-changeset-validations';
-import ENV from 'wnyc-web-client/config/environment';
+import ENV from 'wqxr-web-client/config/environment';
 import service from 'ember-service/inject';
-import messages from 'wnyc-web-client/validations/custom-messages';
+import messages from 'wqxr-web-client/validations/custom-messages';
 
 export default Component.extend({
   resendEndpoint: `${ENV.wnycAuthAPI}/v1/confirm/resend`,

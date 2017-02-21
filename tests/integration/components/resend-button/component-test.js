@@ -1,6 +1,6 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-import { startMirage }  from 'wnyc-web-client/initializers/ember-cli-mirage';
+import { startMirage }  from 'wqxr-web-client/initializers/ember-cli-mirage';
 import wait from 'ember-test-helpers/wait';
 
 moduleForComponent('resend-button', 'Integration | Component | resend button', {
