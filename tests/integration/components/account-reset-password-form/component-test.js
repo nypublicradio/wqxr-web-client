@@ -1,7 +1,7 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-import ENV from 'wnyc-web-client/config/environment';
-import { startMirage }  from 'wnyc-web-client/initializers/ember-cli-mirage';
+import ENV from 'wqxr-web-client/config/environment';
+import { startMirage }  from 'wqxr-web-client/initializers/ember-cli-mirage';
 import wait from 'ember-test-helpers/wait';
 
 moduleForComponent('account-reset-password-form', 'Integration | Component | account reset password form', {

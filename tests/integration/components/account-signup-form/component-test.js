@@ -1,8 +1,8 @@
 import { moduleForComponent, test, skip } from 'ember-qunit';
 import wait from 'ember-test-helpers/wait';
 import hbs from 'htmlbars-inline-precompile';
-import ENV from 'wnyc-web-client/config/environment';
-import { startMirage }  from 'wnyc-web-client/initializers/ember-cli-mirage';
+import ENV from 'wqxr-web-client/config/environment';
+import { startMirage }  from 'wqxr-web-client/initializers/ember-cli-mirage';
 import sinon from 'sinon';
 
 moduleForComponent('account-signup-form', 'Integration | Component | account signup form', {

@@ -3,13 +3,13 @@ import Component from 'ember-component';
 import get from 'ember-metal/get';
 import set from 'ember-metal/set';
 import Changeset from 'ember-changeset';
-import SignupValidations from 'wnyc-web-client/validations/signup';
+import SignupValidations from 'wqxr-web-client/validations/signup';
 import lookupValidator from 'ember-changeset-validations';
 import service from 'ember-service/inject';
-import ENV from 'wnyc-web-client/config/environment';
+import ENV from 'wqxr-web-client/config/environment';
 import fetch from 'fetch';
-import { rejectUnsuccessfulResponses } from 'wnyc-web-client/utils/fetch-utils';
-import messages from 'wnyc-web-client/validations/custom-messages';
+import { rejectUnsuccessfulResponses } from 'wqxr-web-client/utils/fetch-utils';
+import messages from 'wqxr-web-client/validations/custom-messages';
 
 export default Component.extend({
   store: service(),
