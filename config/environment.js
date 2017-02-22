@@ -99,9 +99,6 @@ module.exports = function(environment) {
     googleAPIv3Key: process.env.GOOGLE_API_V3_KEY,
     typekit: { kitId: 'ifl2zxi' },
     wnycAPI: process.env.WQXR_API,
-    discoverStation: "wnyc-v2",
-    discoverAPIKey: "trident",
-    discoverTopicsKey: "wnyc",
     showsDiscoverStation: "active-shows",
     showsAPIKey: "hummingbird",
     moreShowsDiscoverStation: "archived-shows",
@@ -117,8 +114,6 @@ module.exports = function(environment) {
     // put beta host at the root so it can be overridden by Django
     wnycBetaURL: process.env.WNYC_BETA_URL,
     featureFlags: {
-      'discover': true,
-      'other-discover': process.env.OTHER_DISCOVER,
       'autoplay-prefs': true
     },
     betaTrials: {
