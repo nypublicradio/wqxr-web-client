@@ -31,6 +31,7 @@
         @include flexbox((
           flex-direction: column
         ));
+        margin: 0; // TODO: may remove that before launch
       }
 
       li {
@@ -158,8 +159,35 @@
               font-weight: normal;
             }
 
-            .story__icons__trending,
-            .story__icons__trending
+            .story__icons__video {
+              display: none;
+            }
+
+            &.story--video {
+              h2:before {
+                content: $video;
+                width: 36px;
+                display: inline-block;
+                top: 5px;
+                position: relative;
+              }
+            }
+
+            &.story--trending {
+              .story__icons {
+                position: absolute;
+                right: 25px;
+                top: 25px;
+
+                &__trending {
+                  color: $lightgray;
+
+                  svg {
+                    display: none;
+                  }
+                }
+              }
+            }
 
             &:before {
               background: none;
