@@ -13,4 +13,5 @@ export default function(server) {
 
    server.create('user', {id: 'current'});
 
+   server.create('bucket', {slug: 'wqxr-home'});
 }
