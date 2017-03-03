@@ -349,7 +349,7 @@
     background: $wqxrblue;
     color: white;
     line-height: 36px;
-  
+
 
     &:hover,
     &:focus {
@@ -370,7 +370,7 @@
 }
 
 .sitechrome-footer {
-  background-color: $black;
+  background-color: black;
 
   .text-body{
     font-family: 'Open Sans', sans-serif;
@@ -389,8 +389,8 @@
 
     @include mq($medium-and-up) {
       font-size: 24px;
-      line-height: 1.4;   
-    } 
+      line-height: 1.4;
+    }
 
     &.inline {
       padding-right: 25px;
@@ -399,16 +399,16 @@
 
   a {
     font-family: 'Open Sans', sans-serif;
-    font-size: 12px; 
+    font-size: 12px;
     font-weight: 600;
     color: white;
     line-height: normal;
     border-bottom: none;
 
     @include mq($medium-and-up) {
-      font-size: 14px; 
-      line-height: 1.5;   
-    } 
+      font-size: 14px;
+      line-height: 1.5;
+    }
 
     &:hover,
     &:focus {
