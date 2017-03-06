@@ -19,18 +19,18 @@
       <div class="sitechrome-topbody-right">
           {{#if media.isLargeAndUp}}
           <div class="sitechrome-search">
-            {{search-box placeholder="I heard something... Help me find it" enter=(action "routeSearch") searchbox-class="searchbox--chrome"}}
+            {{search-box placeholder="Search" enter=(action "routeSearch") searchbox-class="searchbox--chrome"}}
           </div>
           {{else}}
           <div>
             <h1>
-              <span class="for-screenreaders">WNYC Navigation</span>
+              <span class="for-screenreaders">WQXR Navigation</span>
               <a href="/"
                 class="link--nodecor"
-                title="WNYC | New York Public Radio Home Page"
-                data-tracking-category="WNYC Menu"
-                data-tracking-action="Clicked WNYC Logo">
-                WQXR
+                title="WQXR | New York Public Radio Home Page"
+                data-tracking-category="WQXR Menu"
+                data-tracking-action="Clicked WQXR Logo">
+                {{nypr-svg icon='wqxr-logo' className='icon--wqxr-logo-nav'}}
               </a>
             </h1>
           </div>
@@ -60,17 +60,17 @@
   </div>
   <!-- .sitechrome-top -->
 
-  <nav class="l-page-nav sitechrome-nav {{if isHomepage 'nav--homepage'}} {{unless media.isLargeAndUp 'x-scrollable'}}" style="background: lightblue;">
+  <nav class="l-page-nav sitechrome-nav {{if isHomepage 'nav--homepage'}} {{unless media.isLargeAndUp 'x-scrollable'}}">
     {{#if media.isLargeAndUp}}
     <div class="sitechrome-corner">
       <h1>
-        <span class="for-screenreaders">WNYC Navigation</span>
+        <span class="for-screenreaders">WQXR Navigation</span>
         <a href="/"
           class="link--nodecor"
-          title="WNYC | New York Public Radio Home Page"
-          data-tracking-category="WNYC Menu"
-          data-tracking-action="Clicked WNYC Logo">
-          WQXR
+          title="WQXR | New York Public Radio Home Page"
+          data-tracking-category="WQXR Menu"
+          data-tracking-action="Clicked WQXR Logo">
+          {{nypr-svg icon='wqxr-logo' className='icon--wqxr-logo-nav'}}
         </a>
       </h1>
     </div>
@@ -83,7 +83,7 @@
         <li class="list-item list-item--nav">
           {{#if media.isLargeAndUp}}
             {{#listen-button
-              type=(if isHomepage 'white-hollow-small' 'red-hollow-small')
+              type='white-hollow-small'
               state=(if (eq preferredStream.slug audio.currentAudio.id) audio.playState)
               itemPK=preferredStream.slug
               itemTitle=preferredStream.name
@@ -109,16 +109,24 @@
           {{link-to 'All Streams' 'stream' class="inherit" preventDefault=false}}
         {{/link-to}}
 
+        {{#link-to 'djangorendered' 'playlist-daily' tagName='li' href=false class="list-item list-item--nav"}}
+          {{link-to 'Playlists' 'djangorendered' 'playlist-daily' class="inherit" preventDefault=false}}
+        {{/link-to}}
+
         {{#link-to 'schedule' current-when="schedule.date" tagName='li' href=false class="list-item list-item--nav"}}
           {{link-to 'Schedule' 'schedule' class="inherit" preventDefault=false}}
         {{/link-to}}
 
         {{#link-to 'shows' current-when="shows show" tagName="li" href=false class="list-item list-item--nav"}}
-          {{link-to 'Shows' 'shows' class="inherit" preventDefault=false}}
+          {{link-to 'Programs' 'shows' class="inherit" preventDefault=false}}
         {{/link-to}}
 
-        {{#link-to 'topics' current-when='topics tag' tagName='li' href=false class="list-item list-item--nav"}}
-          {{link-to 'Topics' 'topics' class="inherit" preventDefault=false}}
+        {{#link-to 'serie' 'q2' tagName='li' href=false class="list-item list-item--nav"}}
+            {{link-to 'Q2 Music' 'serie' 'q2' class="inherit" preventDefault=false}}
+          {{/link-to}}
+
+        {{#link-to 'djangorendered' 'events/' tagName='li' href=false class="list-item list-item--nav"}}
+          {{link-to 'Events' 'djangorendered' 'events/' class="inherit" preventDefault=false}}
         {{/link-to}}
 
         {{#unless media.isLargeAndUp}}
@@ -126,12 +134,6 @@
           {{#link-to 'djangorendered' 'search/' tagName='li' href=false class="list-item list-item--nav"}}
             {{link-to 'Search' 'djangorendered' 'search/' class="inherit" preventDefault=false}}
           {{/link-to}}
-
-          {{#if features.autoplayPrefs}}
-            {{#link-to 'settings' tagName='li' href=false class="list-item list-item--nav"}}
-              {{link-to 'Settings' 'settings' class="inherit" preventDefault=false}}
-            {{/link-to}}
-          {{/if}}
 
         {{/unless}}
       </ul>
@@ -141,25 +143,11 @@
     <!-- .x-scrollable-body -->
 
     {{#if media.isLargeAndUp}}
-    <div class="l-bottom">
-        <div class="box box--nopad">
-
-
-          <ul class="list list--noborder flush alignright">
-            {{!-- <div class="h5 text--heavy alignright"> --}}
-            {{#if features.autoplayPrefs}}
-              {{#link-to 'settings' tagName='li' href=false class="list-item list-item--nav"}}
-                {{link-to 'Settings' 'settings' class="inherit" preventDefault=false}}
-              {{/link-to}}
-            {{/if}}
-          </ul>
-            {{!-- </div>
-            <!-- .text --> --}}
-        </div>
-        <!-- .box -->
-    </div>
-    <!-- .l-bottom -->
+      <div class="sitechrome__nav-footer">
+        {{social-icon-list class="social-icon-list"}}
+      </div>
     {{/if}}
+
   </nav>
 
   <div class="l-full sitechrome-page-content-area">

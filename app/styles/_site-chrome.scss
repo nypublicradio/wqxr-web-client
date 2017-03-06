@@ -1,28 +1,26 @@
+@import 'mixins/_layout';
+@import 'mixins/_transitions';
+
 .sitechrome-corner {
 
   > h1 {
     margin: 0;
+    padding: 0;
 
     > a:hover {
       opacity: 1;
     }
   }
 
-  .icon--wnyc-logo-nav #wnyc-logo{
-    fill: $red;
-  }
-
-  .nav--homepage & {
-    .icon--wnyc-logo-nav #wnyc-logo{
-      fill: white;
-    }
+  .icon--wqxr-logo-nav #wnyc-logo{
+    fill: white;
   }
 }
 
 .sitechrome-top {
   padding-top: 20px;
   @extend %vertical-rhythm;
-  background: $red;
+  background: $wqxrblue;
 
   @include mq($up-to-large) {
     margin-bottom: 0;
@@ -31,7 +29,7 @@
   @include mq($large-and-up) {
     background: white;
     padding-top: 0;
-    height: 83px;
+    height: 115px;
   }
 
   .profile & {
@@ -68,7 +66,7 @@
 }
 
 .sitechrome-nav {
-  background-color: white;
+  background-color: $wqxrblue;
   @include transition(all 50ms ease);
   //for mobile header snap
   width: 100%;
@@ -77,11 +75,24 @@
   z-index: $zIndex--fixedNav;
   margin-bottom: 24px;
 
+  .new {
+    color: $gold;
+  }
+
+  ul.alignright {
+    border-color: $wqxrblue;
+  }
+
   a,
   button {
     color: white;
-    font-family: 'Museo Sans Rounded', 'Open Sans', sans-serif;
-  }
+    font-family: 'Lato', 'Open Sans', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.4;
+    }
 
   a {
     padding-bottom: 10px;
@@ -89,6 +100,8 @@
     @include mq($medium-only) {
       font-weight: 600;
     }
+
+
   }
 
   a:hover,
@@ -97,30 +110,39 @@
   button:focus {
     opacity: 0.8;
     color: white;
+    text-decoration: none;
+  }
+
+  &.x-scrollable {
+    a, button {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
   }
 
   h1 {
     a,
     a:hover {
-      border: 1px dotted rgba(0, 0, 0, 0);
-      padding: 22px 10px 26px 28px;
+      //border: 1px dotted rgba(0, 0, 0, 0);
+      padding: 45px 17px 26px 19px;
     }
 
     a:focus {
       opacity: 1;
-      border: 1px dotted rgba(0, 0, 0, .2);
     }
   }
 
   .list-item > a {
-    border-bottom-color: $red;
+    border-bottom-color: $blue;
   }
 
   .list-item.active a {
     opacity: 1;
 
     @include mq($medium-only) {
-      border-bottom: 4px solid $red;
+      border-bottom: 4px solid $blue;
     }
   }
 
@@ -135,20 +157,11 @@
       padding-bottom: 0;
     }
 
-    a,
-    button,
-    a:hover,
-    button:hover,
-    a:focus,
-    button:focus {
-      color: $darkestgray;
-    }
-
     .new {
       font-size: 12px;
       font-weight: 600;
       letter-spacing: 1.7px;
-      color: $red;
+      color: $blue;
     }
 
   }
@@ -177,37 +190,12 @@
   ul.alignright {
     margin: 0;
     float: none;
-    border-right: 1px solid $nearwhite;
-  }
-
-  &.nav--homepage {
-    background-color: $red;
-
-    @include mq($large-and-up) {
-      a,
-      button,
-      a:focus,
-      button:focus,
-      a:hover,
-      button:hover {
-        color: white;
-        font-weight: 600;
-      }
-
-      .new {
-        color: $gold;
-      }
-
-      ul.alignright {
-        border-color: $red;
-      }
-    }
   }
 
   &:not(.x-scrollable) {
     .list-item {
-      padding: 1px 18px 1px 0;
-      margin: 13px 0;
+      padding: 6px 18px 6px 0;
+      margin: 8px 0;
     }
     .list--noborder {
         > .list-heading {
@@ -215,10 +203,10 @@
         }
     }
     .list-item.active {
-      border-right: 3px solid $red;
+      border-right: 3px solid white;
+      background-color: rgba($wqxrdarkblue, .15);
 
       a {
-        color: $red;
         border: none;
       }
     }
@@ -337,32 +325,50 @@
 .sitechrome-btn {
   display: inline-block;
   border-radius: 25px;
-  color: white;
-  border: 2px solid white;
+  color: $wqxrblue;
   padding: 2px 18px 2px 18px;
-  background: $red;
+  background: white;
   white-space: nowrap;
+  font-family: 'Open Sans', sans-serif;
 
-  @include fontsize(14);
+  @include fontsize(12);
   font-weight: 600;
   line-height: 30px;
 
   cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background: rgba(white, 0.8);
+    text-decoration: none;
+  }
 
   @include transition(background-color $transition-timing, color $transition-timing);
 
   @include flex-shrink(0);
 
   @include mq($large-and-up) {
+    font-size: 16px;
+    background: $wqxrblue;
+    color: white;
     line-height: 36px;
-    border: 0;
-  }
+  
 
-  &:hover,
-  &:focus {
-    background: rgba($red, 0.8);
-    border-color: rgba(white, 0.5);
+    &:hover,
+    &:focus {
+      background: rgba($wqxrblue, 0.8);
+    }
   }
+}
+
+.sitechrome__nav-footer {
+  @include l-bottom;
+  @include player-reveal-transition;
+  @include player-reveal-transition--closed;
+}
+
+.sitechrome--player-open .sitechrome__nav-footer {
+  @include player-reveal-transition--open;
 }
 
 .sitechrome-page-content-area {
@@ -372,4 +378,55 @@
     padding-top: 25px;
     background-color: $nearwhite;
   }
+}
+
+.sitechrome-footer {
+  background-color: $black;
+
+  .text-body{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  h2 {
+    color: white;
+    font-family: 'Lato', 'Open Sans', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+
+    @include mq($medium-and-up) {
+      font-size: 24px;
+      line-height: 1.4;   
+    } 
+
+    &.inline {
+      padding-right: 25px;
+    }
+  }
+
+  a {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px; 
+    font-weight: 600;
+    color: white;
+    line-height: normal;
+    border-bottom: none;
+
+    @include mq($medium-and-up) {
+      font-size: 14px; 
+      line-height: 1.5;   
+    } 
+
+    &:hover,
+    &:focus {
+      color: rgba(white, 0.8);
+      text-decoration: none;
+      border-bottom: none;
+    }
+  }
+
 }
