@@ -74,7 +74,7 @@ test('after visiting settings, user can toggle off autoplay settings', function(
 
 test('if feature flag for autoplay-autoprefs is present, then the link should be clickable and then take you to /settings', function(assert) {
   withFeature('autoplay-prefs');
-  visit('/');
+  visit('/fake');
   click('.l-bottom .list-item:contains("Settings")');
   andThen(() => {
     assert.equal(currentURL(), '/settings');
@@ -83,7 +83,7 @@ test('if feature flag for autoplay-autoprefs is present, then the link should be
 });
 
 test('if feature flag for autoplay-autoprefs is absent, then the link should be not be present', function(assert) {
-  visit('/');
+  visit('/fake');
   const el = $('.l-bottom .list-item:contains("Settings")');
   andThen(() => {
     const expectedElementCount = 0;
