@@ -24,8 +24,8 @@ test('it does not log a pageview when opening and closing the queue', function(a
     trackPage: pageViewEvent
   });
 
-  server.create('django-page', {id: '/'});
-  visit('/');
+  server.create('django-page', {id: 'fake/'});
+  visit('/fake');
   click('.floating-queuebutton');
 
   andThen(() => {
@@ -69,9 +69,9 @@ skip('it logs a homepage bucket event when you click a story on the home page', 
       </div>
     </div>`;
   server.create('django-page', {id});
-  server.create('django-page', {id: '/', testMarkup});
+  server.create('django-page', {id: 'fake/', testMarkup});
 
-  visit('/');
+  visit('/fake');
   click('#test-link');
 
   andThen(() => {
