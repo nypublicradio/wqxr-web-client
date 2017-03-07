@@ -43,7 +43,7 @@ export default function() {
 
   this.get(`/api/v3/shows`);
   this.get(`${baseUrl}/api/v3/shows`);
-  this.get(`${baseUrl}/api/v3/bucket/:slug`, 'bucket');
+  this.get(`${baseUrl}/api/v3/buckets/:slug`, 'bucket');
   this.get(`${baseUrl}/api/v3/story/detail/:id`, 'story');
   this.get(`${baseUrl}/api/v3/channel/\*id`, 'api-response');
 
@@ -169,7 +169,7 @@ export default function() {
   /*-------------------------------------------------------------
   analytics microservice
   ---------------------------------------------------------------*/
-  
+
   this.post(`${config.wnycAPI}/analytics/v1/events/viewed`, {});
   this.post(`${config.wnycAPI}/analytics/v1/events/listened`, {});
 }
