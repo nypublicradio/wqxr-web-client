@@ -4,6 +4,6 @@ export default Route.extend({
   classNames: ['home'],
 
   model() {
-    return this.get('store').findRecord('bucket', 'wqxr-home');
+    return this.get('store').findRecord('buckets', 'wqxr-home');
   }
 });
