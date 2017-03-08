@@ -63,8 +63,8 @@ test('loading a page with the ?play param', function(assert) {
   visit(`bar?play=${id}`);
 
   andThen(() => {
-    assert.ok(Ember.$('.persistent-player').length, 'persistent player should be visible');
-    assert.equal(Ember.$('[data-test-selector=persistent-player-story-title]').text(), 'Foo', 'Foo story should be loaded in player UI');
+    assert.ok(Ember.$('.nypr-player').length, 'persistent player should be visible');
+    assert.equal(Ember.$('[data-test-selector=nypr-player-story-title]').text(), 'Foo', 'Foo story should be loaded in player UI');
   });
 });
 
@@ -74,6 +74,6 @@ test('loading a page with a bad ?play param', function(assert) {
 
   visit(`bar?play=${id}`);
   andThen(() => {
-    assert.notOk(Ember.$('.persistent-player').length, 'persistent player should not be visible');
+    assert.notOk(Ember.$('.nypr-player').length, 'persistent player should not be visible');
   });
 });

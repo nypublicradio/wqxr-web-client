@@ -47,7 +47,7 @@
 @include mq($medium-and-up, $h-medium-and-up) {
   .login {
     .account-form {
-      height: 470px;
+      height: 560px;
     }
 
     .account-promo {
@@ -57,7 +57,7 @@
 
   .signup {
     .account-form {
-      height: 770px;
+      height: 825px;
     }
 
     .account-promo {
@@ -213,7 +213,7 @@
     background-color: $lightestgray;
     content: "";
     display: inline-block;
-    height: 0.5px;
+    height: 1px;
     position: relative;
     vertical-align: middle;
     width: 50%;
@@ -237,6 +237,21 @@
       @include link--gray;
     }
   }
+  &-error {
+    color: $red;
+    font-size: 12px;
+    text-align: center;
+    margin-bottom: 13px;
+    a {
+      color: $red;
+      border-bottom: 1px solid $red;
+    }
+    a:hover,
+    a:focus {
+      color: $rouge;
+      border-bottom: 1px solid $rouge;
+    }
+  }
 
   @include mq($middle-narrow-and-up) {
     &-row {
@@ -251,6 +266,12 @@
     }
   }
 }
+
+.account-form-btn--facebook {
+  @include btn--facebook;
+  margin-bottom: 14px;
+}
+
 
 .account-header {
   @include flexbox((
@@ -327,5 +348,17 @@
     @include flexbox((
       justify-content: flex-start
     ));
+  }
+}
+
+@include mq($medium-and-up) {
+  .account-screen--player-open {
+    .account-main,
+    .account-promo {
+      height: calc(100vh - 80px);
+    }
+    .account-promo-blurb {
+      bottom: 115px;
+    }
   }
 }
