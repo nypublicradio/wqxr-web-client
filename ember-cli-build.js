@@ -10,7 +10,7 @@ module.exports = function(defaults) {
     autoprefixer: {
       browsers: ['last 3 versions']
     },
-    babel: { includePolyfill: true },
+    'ember-cli-babel': { includePolyfill: true },
     fingerprint: {
       enabled: env === 'production',
       prepend: process.env.FINGERPRINT_PREPEND_URL

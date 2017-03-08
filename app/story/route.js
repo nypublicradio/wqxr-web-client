@@ -11,6 +11,7 @@ export default Ember.Route.extend(PlayParamMixin, {
   session:      service(),
   googleAds:    service(),
   dataPipeline: service(),
+  currentUser:  service(),
   
   titleToken(model) {
     return `${get(model, 'story.title')} - ${get(model, 'story.headers.brand.title')}`;
@@ -28,8 +29,7 @@ export default Ember.Route.extend(PlayParamMixin, {
         story,
         getComments: () => comments,
         getRelatedStories: () => relatedStories,
-        isStaff: get(this, 'session.data.isStaff'),
-        browserId: get(this, 'session.data.browserId')
+        adminURL: `${config.wnycAdminRoot}/admin`
       });
     });
   },
@@ -71,6 +71,7 @@ export default Ember.Route.extend(PlayParamMixin, {
   setupController(controller) {
     controller.set('isMobile', window.Modernizr.touchevents);
     controller.set('session', get(this, 'session'));
+    controller.set('user', get(this, 'currentUser.user'));
     return this._super(...arguments);
   },
   

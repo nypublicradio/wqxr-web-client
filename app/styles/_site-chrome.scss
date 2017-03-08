@@ -157,13 +157,14 @@
       padding-bottom: 0;
     }
 
-    .new {
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 1.7px;
-      color: $blue;
+    a,
+    button,
+    a:hover,
+    button:hover,
+    a:focus,
+    button:focus {
+      color: $darkestgray;
     }
-
   }
 
   .list-item:last-child {
@@ -190,19 +191,44 @@
   ul.alignright {
     margin: 0;
     float: none;
+    border-right: 1px solid $nearwhite;
+  }
+
+  &.nav--homepage {
+    background-color: $wqxrblue;
+
+    @include mq($large-and-up) {
+      a,
+      button,
+      a:focus,
+      button:focus,
+      a:hover,
+      button:hover {
+        color: white;
+        font-weight: 600;
+      }
+
+      ul.alignright {
+        border-color: $wqxrblue;
+      }
+    }
   }
 
   &:not(.x-scrollable) {
     .list-item {
-      padding: 6px 18px 6px 0;
-      margin: 8px 0;
+      padding: 1px 18px 1px 0;
+      margin: 13px 0;
+
+      a {
+        @include transition(none);
+      }
     }
     .list--noborder {
         > .list-heading {
             @extend %vertical-rhythm;
         }
     }
-    .list-item.active {
+    .list-item.active, .list-item.ember-transitioning-in {
       border-right: 3px solid white;
       background-color: rgba($wqxrdarkblue, .15);
 
@@ -210,6 +236,14 @@
         border: none;
       }
     }
+    .list-item.active.ember-transitioning-out {
+      border-right: 0;
+      a {
+        color :initial;
+        border: none;
+      }
+    }
+
   }
 }
 
@@ -352,7 +386,7 @@
     background: $wqxrblue;
     color: white;
     line-height: 36px;
-
+  
 
     &:hover,
     &:focus {
@@ -381,7 +415,7 @@
 }
 
 .sitechrome-footer {
-  background-color: black;
+  background-color: $black;
 
   .text-body{
     font-family: 'Open Sans', sans-serif;

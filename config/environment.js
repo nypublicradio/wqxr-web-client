@@ -29,6 +29,11 @@ module.exports = function(environment) {
       config: {
         id: 'UA-18188937-11'
       }
+    }, {
+      name: 'GoogleTagManager',
+      config: {
+        id: process.env.GOOGLE_TAG_MANAGER_ID || (environment === 'production' ? 'GTM-PM94N2' : 'GTM-KJZRH7H')
+      }
     }],
     EmberENV: {
       FEATURES: {
@@ -114,7 +119,7 @@ module.exports = function(environment) {
     // put beta host at the root so it can be overridden by Django
     wnycBetaURL: process.env.WNYC_BETA_URL,
     featureFlags: {
-      'autoplay-prefs': true
+      'social-auth': process.env.SOCIAL_AUTH,
     },
     betaTrials: {
       betaInviteLanding: '#full-page-transforms-wrapper',
@@ -130,6 +135,15 @@ module.exports = function(environment) {
       'object-src': "'self' *.wnyc.net:* *.wnyc.org *.moatads.com *.googlesyndication.com",
       'font-src': "'self' data: fonts.gstatic.com",
       'frame-src': "'self' *"
+    },
+    torii: {
+      providers: {
+        'facebook-connect': {
+          appId: process.env.FB_APP || '151261804904925',
+          scope: 'user_friends,email',
+          version: 'v2.8'
+        }
+      }
     }
   };
 
@@ -156,7 +170,6 @@ module.exports = function(environment) {
     // Testem prefers this...
     ENV.locationType = 'none';
 
-    ENV.featureFlags['autoplay-prefs'] = true;
     ENV.queueAudioBumperURL = 'http://audio-bumper.com/thucyides.mp3';
 
     // keep test console output quieter

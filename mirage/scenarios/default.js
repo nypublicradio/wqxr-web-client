@@ -11,7 +11,8 @@ export default function(server) {
    });
    server.createList('show', 100);
 
-   server.create('user', {id: 'current'});
+   server.create('user');
+   server.createList('stream', 7);
 
    server.create('bucket', {slug: 'wqxr-home'});
 }

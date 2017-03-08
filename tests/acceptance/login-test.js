@@ -4,6 +4,7 @@ import moduleForAcceptance from 'wqxr-web-client/tests/helpers/module-for-accept
 import { Response } from 'ember-cli-mirage';
 import config from 'wqxr-web-client/config/environment';
 import { currentSession } from 'wqxr-web-client/tests/helpers/ember-simple-auth';
+import 'wqxr-web-client/tests/helpers/with-feature';
 
 moduleForAcceptance('Acceptance | login', {
   beforeEach() {
@@ -23,7 +24,7 @@ test('visiting /login', function(assert) {
 test('Log in button is visible at load', function(assert) {
   visit('/login');
 
-  andThen(() => assert.equal(find('button:contains(Log in)').length, 1));
+  andThen(() => assert.equal(find('button[type=submit]:contains(Log in)').length, 1));
 });
 
 test('Submitting valid credentials redirects to previous route', function(assert) {
@@ -45,7 +46,7 @@ test('Submitting valid credentials redirects to previous route', function(assert
 
   fillIn('input[name=email]', 'foo@example.com');
   fillIn('input[name=password]', 'password1');
-  click('button:contains(Log in)');
+  click('button[type=submit]:contains(Log in)');
 
   andThen(() => {
     assert.equal(currentSession(this.application).get('isAuthenticated'), true);
@@ -53,7 +54,7 @@ test('Submitting valid credentials redirects to previous route', function(assert
   });
 });
 
-test('Submitting invalid credentials shows error messages', function(assert) {
+test('Submitting invalid credentials shows form level error message', function(assert) {
   server.post(`${config.wnycAuthAPI}/v1/session`, () => {
     return new Response(400, {}, {errors: {code: "UnauthorizedAccess"}});
   });
@@ -62,12 +63,12 @@ test('Submitting invalid credentials shows error messages', function(assert) {
 
   fillIn('input[name=email]', 'foo@example.com');
   fillIn('input[name=password]', 'badpassword2');
-  click('button:contains(Log in)');
+  click('button[type=submit]:contains(Log in)');
 
   andThen(() => {
     assert.equal(currentSession(this.application).get('isAuthenticated'), false);
     assert.equal(find('.account-form-heading').text().trim(), 'Log in to WNYC');
-    assert.equal(find('.nypr-input-error').length, 1);
+    assert.equal(find('.account-form-error').length, 1);
   });
 });
 
@@ -87,4 +88,11 @@ skip('Clicking logout hides privileged links', function(assert) {
   andThen(() => {
     assert.equal(find('a[href*=login]').text().trim(), 'Sign In');
   });
+});
+
+test('Log in with Facebook button is visible at load', function(assert) {
+  withFeature('socialAuth');
+  visit('/login');
+
+  andThen(() => assert.equal(find('button:contains(Log in with Facebook)').length, 1));
 });
