@@ -16,6 +16,7 @@ dependencies:
     - npm i
     - grunt modernizr:dist
     - bower i
+    - npm install nypr-ui # make sure to install specified hash
   cache_directories:
     - /opt/circleci/nodejs/v6.9.2/bin/
     - /opt/circleci/nodejs/v6.9.2/lib/node_modules

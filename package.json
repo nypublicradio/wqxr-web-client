@@ -60,6 +60,7 @@
     "ember-cli-release": "^0.2.9",
     "ember-cli-sentry": "2.4.2",
     "ember-cli-sri": "^2.1.0",
+    "ember-cli-swiper": "0.5.0",
     "ember-cli-test-loader": "^1.1.0",
     "ember-cli-typekit": "0.0.4",
     "ember-cli-uglify": "^1.2.0",
@@ -97,9 +98,9 @@
     "liquid-fire": "0.26.4",
     "loader.js": "^4.0.10",
     "morgan": "^1.6.1",
-    "nypr-ui": "nypublicradio/nypr-ui#cc301d4",
-    "nypr-account-settings": "nypublicradio/nypr-account-settings#55efa0b3ed02a6639c45743804ef5ae91035c2d0",
+    "nypr-account-settings": "nypublicradio/nypr-account-settings",
     "nypr-player": "nypublicradio/nypr-player",
+    "nypr-ui": "nypublicradio/nypr-ui#361c30d",
     "torii": "0.8.1"
   },
   "ember-addon": {
