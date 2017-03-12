@@ -98,9 +98,9 @@
     "liquid-fire": "0.26.4",
     "loader.js": "^4.0.10",
     "morgan": "^1.6.1",
-    "nypr-account-settings": "github:nypublicradio/nypr-account-settings",
-    "nypr-player": "github:nypublicradio/nypr-player",
-    "nypr-ui": "github:nypublicradio/nypr-ui#b2bfeebfd369a0f415e740f9a6da2fde2b6a90e3",
+    "nypr-account-settings": "nypublicradio/nypr-account-settings",
+    "nypr-player": "nypublicradio/nypr-player",
+    "nypr-ui": "nypublicradio/nypr-ui#b2bfeebfd369a0f415e740f9a6da2fde2b6a90e3",
     "torii": "0.8.1"
   },
   "ember-addon": {
