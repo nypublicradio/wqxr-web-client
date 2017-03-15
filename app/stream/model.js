@@ -4,6 +4,10 @@ import { belongsTo } from 'ember-data/relationships';
 import computed, { readOnly } from 'ember-computed';
 import { shareMetadata } from 'wqxr-web-client/helpers/share-metadata';
 
+const WQXR_slugs = ["wqxr","q2","jonathan-channel","wqxr-special","wqxr-special2"];
+// wqxr-special = Operavore, 
+// wqxr-special2 = Holiday Channel
+
 export default Model.extend({
   audioType:            'stream',
 
@@ -27,16 +31,14 @@ export default Model.extend({
 
   story:                readOnly('currentStory'),
   audioBumper:          attr('string'),
-  source_tags:          attr('string'), 
   
-  isWQXR:               computed('source_tags', function(){
-    return this.get('source_tags') === 'wqxr_app';
+  isWQXR:               computed('slug', function(){
+    return WQXR_slugs.includes(this.get('slug'));
   }),
 
-  liveWQXR:             computed('isWQXR', 'audioBumper', function(){
-    return this.get('isWQXR') && this.get('audioBumper') != null;
-  }),
-
+  liveWQXR:             computed('isWQXR', 'whatsOn', function(){
+    return this.get('isWQXR') && (this.get('whatsOn') > 0);
+  }), 
 
   shareMetadata:        computed('currentShow', 'currentPlaylistItem', function() {
     return shareMetadata(this);
