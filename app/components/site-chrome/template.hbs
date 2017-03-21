@@ -120,7 +120,7 @@
         {{/link-to}}
 
         {{#link-to 'shows' current-when="shows show" tagName="li" href=false class="list-item list-item--nav"}}
-          {{link-to 'Programs' 'shows' class="inherit" preventDefault=false}}
+          {{link-to 'Shows' 'shows' class="inherit" preventDefault=false}}
         {{/link-to}}
 
         {{#link-to 'serie' 'q2' tagName='li' href=false class="list-item list-item--nav"}}
@@ -129,6 +129,10 @@
 
         {{#link-to 'events'  tagName='li' href=false class="list-item list-item--nav"}}
           {{link-to 'Events' 'events' class="inherit" preventDefault=false}}
+        {{/link-to}}
+
+        {{#link-to 'djangorendered' 'videos/' tagName='li' href=false class="list-item list-item--nav"}}
+          {{link-to 'Videos' 'djangorendered' 'videos/' class="inherit" preventDefault=false}}
         {{/link-to}}
 
         {{#link-to 'djangorendered' 'videos/' tagName='li' href=false class="list-item list-item--nav"}}
