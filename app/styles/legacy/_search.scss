@@ -20,6 +20,7 @@
     a {
       border: none;
       font-size: 12px;
+      line-height: 18px;
       padding: 2px 0;
       
       &:hover {
@@ -135,8 +136,16 @@
     .gs-title {
       text-decoration: none;
       font-size: 20px;
+      line-height: 1.5;
       color: $blue;
     }    
+    .gs-snippet {
+      font-size: 13px;
+      line-height: 20px;
+    }
+    .gsc-url-bottom {
+      line-height: 1.5;
+    }
   }
   
   .gcsc-branding-text {
