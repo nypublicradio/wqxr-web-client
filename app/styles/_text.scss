@@ -20,6 +20,7 @@
     @include fontsize($base-font*2); /* 32px */
     font-weight: 600;
     line-height: 2.6rem;
+    font-family: 'Lato','Open Sans', sans-serif;
 }
 .h1--mq-small {
     @include transition(font-size $transition-timing ease, line-height $transition-timing ease);
@@ -37,6 +38,7 @@
   @include fontsize($base-font*1.5); /* 24px */
   font-weight: 600;
   line-height: 2.125rem;
+  font-family: 'Lato','Open Sans', sans-serif;
 }
 .h2 {
   @include h2;
@@ -52,6 +54,7 @@
 .h3 {
     @include fontsize($base-font); /* 16px */
     font-weight: 600;
+    font-family: 'Lato','Open Sans', sans-serif;
 
     @include mq($small-only) {
         @include fontsize($base-font*0.875);
@@ -61,16 +64,20 @@
 .h4 {
     @include fontsize($base-font*0.875); /* 14px */
     font-weight: 600;
+    font-family: 'Lato','Open Sans', sans-serif;
 }
 .h5 {
     @include fontsize($base-font*0.75); /* 12px */
     font-weight: 600;
+    font-family: 'Lato','Open Sans', sans-serif;
 }
 .h6 {
     @include fontsize($base-font*0.6875); /* 11px  TODO: phase out this size */
     font-weight: 600;
+    font-family: 'Lato','Open Sans', sans-serif;
 }
 .h-featured {
+  font-family: 'Lato','Open Sans', sans-serif;
   @include fontsize(32);
   font-weight: 600;
   line-height: 2.688rem;

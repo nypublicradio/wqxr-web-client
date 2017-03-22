@@ -98,7 +98,7 @@
     "loader.js": "^4.0.10",
     "morgan": "^1.6.1",
     "nypr-ui": "nypublicradio/nypr-ui#demo",
-    "nypr-account-settings": "nypublicradio/nypr-account-settings#demo",
+    "nypr-account-settings": "nypublicradio/nypr-account-settings#f780cc57cfcee02b5438a25d11990f4403ea6d17",
     "nypr-player": "nypublicradio/nypr-player#demo",
     "nypr-stream-carousel": "nypublicradio/nypr-stream-carousel#demo",
     "torii": "0.8.1"
