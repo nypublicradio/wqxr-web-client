@@ -2,11 +2,6 @@ article header#storyHeader {
   .media-body {
     font-family: "Lato", sans-serif;
     font-weight: bold;
-    a {
-      display: block;
-      line-height: 1.2;
-      margin-bottom: 2px;
-    }
   }
   h1 {
     margin-bottom: 22px;
@@ -32,10 +27,6 @@ article section {
     font-size: 18px;
     line-height: 1.6em;
     font-weight: bold;
-  }
-
-  p {
-    margin-bottom: 24px;
   }
 
   .storify, p > iframe, .embedded-image {
