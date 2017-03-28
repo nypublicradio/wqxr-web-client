@@ -351,12 +351,12 @@
   display: inline-block;
   border-radius: 25px;
   color: $wqxrblue;
+  border: none;
   padding: 2px 18px 2px 18px;
   background: white;
   white-space: nowrap;
-  font-family: 'Open Sans', sans-serif;
 
-  @include fontsize(12);
+  @include fontsize(14);
   font-weight: 600;
   line-height: 30px;
 
@@ -365,7 +365,6 @@
   &:hover,
   &:focus {
     background: rgba(white, 0.8);
-    text-decoration: none;
   }
 
   @include transition(background-color $transition-timing, color $transition-timing);
@@ -373,17 +372,17 @@
   @include flex-shrink(0);
 
   @include mq($large-and-up) {
-    font-size: 16px;
     background: $wqxrblue;
     color: white;
     line-height: 36px;
-  
 
     &:hover,
     &:focus {
       background: rgba($wqxrblue, 0.8);
     }
   }
+
+
 }
 
 .sitechrome__nav-footer {
