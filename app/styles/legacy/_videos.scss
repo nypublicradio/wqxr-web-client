@@ -33,7 +33,7 @@
       }
 
       a {
-        border: 0;
+        border: 0 !important;
 
         &:not(.btn):hover {
           color: $wqxrblue;
