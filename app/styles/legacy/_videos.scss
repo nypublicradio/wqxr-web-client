@@ -35,8 +35,9 @@
       a {
         border: 0;
 
-        &:hover {
+        &:not(.btn):hover {
           color: $wqxrblue;
+          border: 0;
         }
       }
     }
