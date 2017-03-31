@@ -372,13 +372,14 @@
   @include flex-shrink(0);
 
   @include mq($large-and-up) {
-    background: $wqxrblue;
+    font-size: 16px;
+    background: $wqxrdarkblue;
     color: white;
     line-height: 36px;
 
     &:hover,
     &:focus {
-      background: rgba($wqxrblue, 0.8);
+      background: rgba($wqxrdarkblue, 0.8);
     }
   }
 
