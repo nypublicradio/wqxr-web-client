@@ -2,7 +2,7 @@
   <div class="l-flexrow--mqmd">
     <div class="l-col2of3">
       <div class="flag">
-        {{#if model.logoImage}}
+         {{#if model.logoImage}}
         <div class="flag-image channel-logo {{if model.hasMarquee 'flag-image--squeeze'}}">
           <img class="badge squarebadge badge--mq-tomed badge--shadow" alt={{model.logoImage.caption}}
               src={{image-template model.logoImage.template 129 129 model.logoImage.crop}}
@@ -14,14 +14,14 @@
         {{/if}}
 
         <div class="flag-body">
-         <div class="text text--heading {{unless model.logoImage 'text--extrapadding'}}"> 
-            <h1 id="channelTitle" class="channel-title">{{model.title}}</h1>
-            <p class="text-body text--medium text-body--forceline text-body--nopad">
+         <div class="{{unless model.logoImage 'header-no-logo' 'text--extrapadding' }}"> 
+            <h1 id="channelTitle" class="h1 h1--mq-small channel-title">{{model.title}}</h1>
+            <div class="text-body text--medium text-body--forceline text-body--nopad">
                 {{#if model.producingOrganizations}}    
                     Produced by {{producing-orgs model.producingOrganizations}}.
                 {{/if}}    
                 {{airings}}
-            </p>
+            </div>
           </div>
         </div>
         <!-- .flag-body -->
