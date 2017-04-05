@@ -9,4 +9,3 @@ test('it works', function(assert) {
   let result = removeLeadingSlash(['/musicians/maya-beiser/']);
   assert.equal('musicians/maya-beiser/', result, "should remove leading slash");
 });
-
