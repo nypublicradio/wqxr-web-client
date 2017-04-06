@@ -17,16 +17,10 @@
     margin: 5px 0 30px 0;
     padding: 0;
 
-    .selected a {
-      font-weight: bold;
-    }
-
     a {
       border: none;
       font-size: 12px;
       padding: 2px 0;
-      display: block;
-      color: $gray;
 
       &:hover {
         color: $wqxrlink;
@@ -40,9 +34,6 @@
       font-size: 12px;
       margin: 15px 0;
       border: none;
-      color: $gray;
-      display: block;
-      text-align: right;
 
       &:hover {
         color: $wqxrlink;
@@ -63,16 +54,10 @@
         border-radius: 0;
         border:none;
         background: $graywhite;
-        padding: 0 10px;
       }
 
       .submit {
         background-color: white;
-        background: #ffffff url(/media/img/icons/search-glass.png) no-repeat 16px 12px;
-        border: 1px solid #ddd;
-        width: 50px;
-        height: 42px;
-        margin: 0 5px;
 
         &:hover {
           background-color: $graywhite;
@@ -90,30 +75,16 @@
     margin: 0;
     font-size: 12px;
 
-
     ul {
       margin: 0;
       padding: 0;
       list-style: none;
-
-      li {
-        float: left;
-      }
-    }
-
-    .selected a {
-      font-weight: bold;
     }
 
     a {
       font-size: 12px;
       width: auto;
       border: none;
-      display: block;
-      padding: 6px;
-      color: $gray;
-      text-align: center;
-
 
       &:hover {
         background: none;
@@ -122,20 +93,9 @@
     }
 
     label {
-      float: left;
       padding: 6px 0 0 0;
       color: $lightgray;
     }
-  }
-
-  .search-results {
-    padding-top: 20px;
-    width: 550px;
-  }
-
-  form.more_filters {
-    margin: 5px 0 5px 8px;
-    display: none;
   }
 
   .gsc-above-wrapper-area-container {
@@ -177,15 +137,6 @@
       font-size: 20px;
       color: $wqxrlink;
     }
-  }
-
-  .gsc-webResult .gsc-result {
-    border: 0 !important;
-    margin: 20px 0 !important;
-  }
-
-  .gs-result a.gs-visibleUrl, .gs-result .gs-visibleUrl {
-    color: #999 !important;
   }
 
   .gcsc-branding-text {
