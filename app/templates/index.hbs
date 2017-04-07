@@ -25,7 +25,45 @@
   {{/if}}
 
   <section class="home__stories">
-    {{nypr-brick-layout audio=audio items=model.featuredItems}}
+    {{#nypr-brick-layout audio=audio as |layout|}}
+
+      {{#if membershipChunk}}
+        {{#layout.blowout as |big small|}}
+          {{big item=model.featuredItems.[0]}}
+          {{django-page page=membershipChunk}}
+        {{/layout.blowout}}
+
+        {{#layout.row as |card|}}
+          {{card item=model.featuredItems[1]}}
+          {{card item=model.featuredItems[2]}}
+          {{#card}}
+            {{dfp-ad
+              slot=''
+              sizes=''
+            }}
+          {{/card}}
+        {{/layout.row}}
+        {{layout.blowout items=(slice model.featuredItems 4 7)}}
+
+      {{else}}
+
+        {{layout.blowout items=(slice model.featuredItems 0 3)}}
+        {{#layout.row as |card|}}
+          {{card item=model.featuredItems[3]}}
+          {{card item=model.featuredItems[4]}}
+          {{#card}}
+            {{dfp-ad
+              slot=''
+              sizes=''
+            }}
+          {{/card}}
+        {{/layout.row}}
+
+        {{layout.blowout items=(slice model.featuredItems 5 8)}}
+
+      {{/if}}
+
+    {{/nypr-brick-layout}}
     {{nypr-brick-grid audio=audio items=model.otherItems}}
   </section>
 
