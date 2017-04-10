@@ -33,31 +33,31 @@
           {{django-page page=membershipChunk}}
         {{/layout.blowout}}
 
-        {{#layout.row as |card|}}
+        {{#layout.cards as |row|}}
           {{card item=model.featuredItems[1]}}
           {{card item=model.featuredItems[2]}}
-          {{#card}}
+          {{#row.brick}}
             {{dfp-ad
               slot=''
               sizes=''
             }}
-          {{/card}}
-        {{/layout.row}}
+          {{/row.brick}}
+        {{/layout.cards}}
         {{layout.blowout items=(slice model.featuredItems 4 7)}}
 
       {{else}}
 
         {{layout.blowout items=(slice model.featuredItems 0 3)}}
-        {{#layout.row as |card|}}
           {{card item=model.featuredItems[3]}}
           {{card item=model.featuredItems[4]}}
-          {{#card}}
+        {{#layout.cards as |row|}}
+          {{#row.brick class='brick__item--sponsored'}}
             {{dfp-ad
               slot=''
               sizes=''
             }}
-          {{/card}}
-        {{/layout.row}}
+          {{/row.brick}}
+        {{/layout.cards}}
 
         {{layout.blowout items=(slice model.featuredItems 5 8)}}
 
