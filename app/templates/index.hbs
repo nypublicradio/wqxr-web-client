@@ -30,17 +30,17 @@
       {{#if membershipChunk}}
         {{#layout.blowout as |big small|}}
           {{big item=model.featuredItems.[0]}}
-          {{django-page page=membershipChunk}}
+          {{django-page page=model.membershipChunk}}
         {{/layout.blowout}}
 
         {{#layout.cards as |row|}}
-          {{card item=model.featuredItems[1]}}
-          {{card item=model.featuredItems[2]}}
+          {{row.brick item=model.featuredItems.[1]}}
+          {{row.brick item=model.featuredItems.[2]}}
           {{#row.brick}}
             {{dfp-ad
-              slot=''
-              sizes=''
-            }}
+              slot="/6483581/rectangle/wqxr_rectangle"
+              sizes=(array (array 300 250))
+              target="wqxr_bigbox_ad"}}
           {{/row.brick}}
         {{/layout.cards}}
         {{layout.blowout items=(slice model.featuredItems 4 7)}}
@@ -48,14 +48,14 @@
       {{else}}
 
         {{layout.blowout items=(slice model.featuredItems 0 3)}}
-          {{card item=model.featuredItems[3]}}
-          {{card item=model.featuredItems[4]}}
         {{#layout.cards as |row|}}
+          {{row.brick audio=audio item=model.featuredItems.[3]}}
+          {{row.brick audio=audio item=model.featuredItems.[4]}}
           {{#row.brick class='brick__item--sponsored'}}
             {{dfp-ad
-              slot=''
-              sizes=''
-            }}
+              slot="/6483581/rectangle/wqxr_rectangle"
+              sizes=(array (array 300 250))
+              target="wqxr_bigbox_ad"}}
           {{/row.brick}}
         {{/layout.cards}}
 
