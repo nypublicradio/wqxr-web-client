@@ -22,9 +22,17 @@
         Music playlist &raquo;
       {{/link-to}}
     {{/stream-carousel}}
+    
+    <section class="home__leaderboard">
+      {{dfp-ad
+        slot="/6483581/leaderboard/wqxr_leaderboard"
+        sizes=(array (array 300 50))
+        target="leaderboard"
+        slotClassNames="home__leaderboard__slot"}}
+    </section>
   {{/if}}
 
-  <section class="home__stories">
+  <section>
     {{#nypr-brick-layout audio=audio as |layout|}}
 
       {{#if membershipChunk}}
