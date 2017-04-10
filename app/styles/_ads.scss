@@ -12,14 +12,3 @@ iframe[name=google_conversion_frame] {
 .super-pixel {
   display: none;
 }
-
-.leaderboard {
-  overflow-y: hidden;
-  max-height: 90px;
-  margin-bottom: 1.5rem;
-
-  &.is-collapsed {
-    max-height: 0;
-    margin-bottom: 0;
-  }
-}
