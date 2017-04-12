@@ -1,6 +1,8 @@
 <main class="l-container l-container--touch-full">
     {{#if model.wartopChunk}}
-      {{django-page page=model.wartopChunk.pagecontent}}
+      <section class="wartop-chunk">
+        {{django-page page=model.wartopChunk.pagecontent}}
+      </section>
     {{/if}}
 
   {{#if media.isMediumAndUp}}
@@ -61,19 +63,22 @@
 
         {{#layout.blowout as |blowout|}}
       
-          {{blowout.main item=model.featuredItems.[0]}}
-          
-          {{#if model.membershipChunk}}
-            {{#blowout.column}}
+        {{blowout.main item=model.featuredItems.[0]}}
+        
+        {{#if model.membershipChunk}}
+          {{#blowout.column}}
+            <div class="chunk__item">
               {{django-page page=model.membershipChunk.pagecontent}}
-            {{/blowout.column}}
-          {{else}}
-            {{#blowout.column as |column|}}
-              {{column.brick item=model.featuredItems.[1]}}
-              {{column.brick item=model.featuredItems.[2]}}
-            {{/blowout.column}}
-          {{/if}}
-        {{/layout.blowout}}
+            </div>
+          {{/blowout.column}}
+        {{else}}
+          {{#blowout.column as |column|}}
+            {{column.brick item=model.featuredItems.[1]}}
+            {{column.brick item=model.featuredItems.[2]}}
+          {{/blowout.column}}
+        {{/if}}
+        
+      {{/layout.blowout}}
 
         {{#layout.cards as |row|}}
           {{row.brick audio=audio item=model.featuredItems.[3]}}
