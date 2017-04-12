@@ -48,7 +48,7 @@
       {{/slide.footer}}
 
     {{/stream-carousel}}
-    
+
     <section class="home__leaderboard">
       {{dfp-ad
         slot="/6483581/leaderboard/wqxr_leaderboard"
@@ -62,9 +62,9 @@
     {{#nypr-brick-layout audio=audio as |layout|}}
 
         {{#layout.blowout as |blowout|}}
-      
+
         {{blowout.main item=model.featuredItems.[0]}}
-        
+
         {{#if model.membershipChunk}}
           {{#blowout.column}}
             <div class="chunk__item">
@@ -77,7 +77,7 @@
             {{column.brick item=model.featuredItems.[2]}}
           {{/blowout.column}}
         {{/if}}
-        
+
       {{/layout.blowout}}
 
         {{#layout.cards as |row|}}
