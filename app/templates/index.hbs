@@ -1,52 +1,52 @@
-<main class="l-container l-container--touch-full">
+<main>
   <!-- <section>here goes the technical chunk</section> -->
 
-  {{#if media.isMediumAndUp}}
-    {{#stream-banner audio=audio streams=streams as |currentStream|}}
-      {{#if (and currentStream.currentComposer.name currentStream.currentPiece)}}
-        <h3>{{currentStream.currentComposer.name}}, {{currentStream.currentPiece}}</h3>
-        {{#link-to 'playlist' currentStream.slug class='text--small text--white'}}
-          Recently played &raquo;
-        {{/link-to}}
-      {{else if currentStream.isWNYC}}
-        <h3>{{currentStream.currentShow.showTitle}}{{#if currentStream.currentShow.episodeTitle}} - {{currentStream.currentShow.episodeTitle}}{{/if}}</h3>
-      {{/if}}
-    {{/stream-banner}}
-  {{else}}
-    {{#stream-carousel streams=streams background=carouselBg as |stream slide|}}
-      {{#slide.header}}{{stream.name}}{{/slide.header}}
-
-      {{#if (and stream.currentComposer.name stream.currentPiece)}}
-        {{#slide.body}}
-          {{stream.currentComposer.name}}
-          {{#if stream.currentComposer}}<br />{{/if}}
-          {{stream.currentPiece}}
-        {{/slide.body}}
-      {{else}}
-        {{slide.body}}
-      {{/if}}
-
-      {{#slide.footer}}
-        {{#listen-button
-          audio=audio
-          type='blue-boss'
-          state=(if (eq stream.slug audio.currentId) audio.playState)
-          itemPK=stream.slug
-          itemTitle=stream.name}}
-          Listen Live
-        {{/listen-button}}
-
-        {{#if (and stream.currentComposer.name stream.currentPiece)}}
-          {{#link-to 'playlist' stream.slug (query-params scheduleStation=stream.slug) class="text--small text--white"}}
+  <section class="l-container l-container--touch-full">
+    {{#if media.isMediumAndUp}}
+      {{#stream-banner audio=audio streams=streams as |currentStream|}}
+        {{#if (and currentStream.currentComposer.name currentStream.currentPiece)}}
+          <h3>{{currentStream.currentComposer.name}}, {{currentStream.currentPiece}}</h3>
+          {{#link-to 'playlist' currentStream.slug class='text--small text--white'}}
             Recently played &raquo;
           {{/link-to}}
+        {{else if currentStream.isWNYC}}
+          <h3>{{currentStream.currentShow.showTitle}}{{#if currentStream.currentShow.episodeTitle}} - {{currentStream.currentShow.episodeTitle}}{{/if}}</h3>
         {{/if}}
-      {{/slide.footer}}
+      {{/stream-banner}}
+    {{else}}
+      {{#stream-carousel streams=streams background=carouselBg as |stream slide|}}
+        {{#slide.header}}{{stream.name}}{{/slide.header}}
 
-    {{/stream-carousel}}
-  {{/if}}
+        {{#if (and stream.currentComposer.name stream.currentPiece)}}
+          {{#slide.body}}
+            {{stream.currentComposer.name}}
+            {{#if stream.currentComposer}}<br />{{/if}}
+            {{stream.currentPiece}}
+          {{/slide.body}}
+        {{else}}
+          {{slide.body}}
+        {{/if}}
 
-  <section class="home__stories">
+        {{#slide.footer}}
+          {{#listen-button
+            audio=audio
+            type='blue-boss'
+            state=(if (eq stream.slug audio.currentId) audio.playState)
+            itemPK=stream.slug
+            itemTitle=stream.name}}
+            Listen Live
+          {{/listen-button}}
+
+          {{#if (and stream.currentComposer.name stream.currentPiece)}}
+            {{#link-to 'playlist' stream.slug (query-params scheduleStation=stream.slug) class="text--small text--white"}}
+              Recently played &raquo;
+            {{/link-to}}
+          {{/if}}
+        {{/slide.footer}}
+
+      {{/stream-carousel}}
+    {{/if}}
+
     {{#nypr-brick-layout as |layout|}}
 
       {{layout.blowout audio=audio items=(slice model.featuredItems 0 3)}}
@@ -56,7 +56,13 @@
       {{layout.blowout audio=audio items=(slice model.featuredItems 5 8)}}
 
     {{/nypr-brick-layout}}
+  </section>
+
+  {{ newsletter-signup }}
+
+  <section class="l-container l-container--touch-full">
     {{nypr-brick-grid audio=audio items=model.otherItems}}
   </section>
+
 
 </main>
