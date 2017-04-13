@@ -46,15 +46,14 @@
 
         {{#if (and stream.currentComposer.name stream.currentPiece)}}
           {{#link-to 'playlist' stream.slug (query-params scheduleStation=stream.slug) class="text--small text--white"}}
-            Recently played &raquo;
-          {{/link-to}}
-        {{/if}}
-      {{/slide.footer}}
+              Recently played &raquo;
+            {{/link-to}}
+          {{/if}}
+        {{/slide.footer}}
 
-    {{/stream-carousel}}
-  {{/if}}
+      {{/stream-carousel}}
+    {{/if}}
 
-  <section class="home__stories">
     {{#nypr-brick-layout as |layout|}}
 
       {{#layout.blowout as |blowout|}}
@@ -81,7 +80,13 @@
       {{layout.blowout audio=audio items=(slice model.wqxrHome.featuredItems 5)}}
       
     {{/nypr-brick-layout}}
-    {{nypr-brick-grid audio=audio items=model.wqxrHome.otherItems}}
   </section>
+
+  {{ newsletter-signup }}
+
+  <section class="l-container l-container--touch-full">
+    {{nypr-brick-grid audio=audio items=model.otherItems}}
+  </section>
+
 
 </main>
