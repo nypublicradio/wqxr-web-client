@@ -60,6 +60,7 @@ body {
 a {
     //display: inline-block; // this causes line breaking issues
     color: $wqxrlink;
+    color: #009de6; //new blue;
     text-decoration: none;
     border-bottom: 1px solid rgba($wqxrlink, 0);
     @include transition(border-color $transition-timing, color $transition-timing);
