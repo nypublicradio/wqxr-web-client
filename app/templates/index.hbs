@@ -61,7 +61,7 @@
 
         {{#layout.blowout as |blowout|}}
 
-        {{blowout.main item=model.featuredItems.[0]}}
+        {{blowout.main item=model.wqxrHome.featuredItems.[0]}}
 
         {{#if model.membershipChunk}}
           {{#blowout.column}}
@@ -71,16 +71,16 @@
           {{/blowout.column}}
         {{else}}
           {{#blowout.column as |column|}}
-            {{column.brick item=model.featuredItems.[1]}}
-            {{column.brick item=model.featuredItems.[2]}}
+            {{column.brick item=model.wqxrHome.featuredItems.[1]}}
+            {{column.brick item=model.wqxrHome.featuredItems.[2]}}
           {{/blowout.column}}
         {{/if}}
 
       {{/layout.blowout}}
 
         {{#layout.cards as |row|}}
-          {{row.brick audio=audio item=model.featuredItems.[3]}}
-          {{row.brick audio=audio item=model.featuredItems.[4]}}
+          {{row.brick audio=audio item=model.wqxrHome.featuredItems.[3]}}
+          {{row.brick audio=audio item=model.wqxrHome.featuredItems.[4]}}
           {{#row.brick class='brick__item--sponsored'}}
             {{dfp-ad
               slot="/6483581/rectangle/wqxr_rectangle"
@@ -89,7 +89,7 @@
           {{/row.brick}}
         {{/layout.cards}}
 
-        {{layout.blowout items=(slice model.featuredItems 5 8)}}
+        {{layout.blowout items=(slice model.wqxrHome.featuredItems 5 8)}}
 
       {{/nypr-brick-layout}}
     </section>
@@ -98,6 +98,6 @@
   {{newsletter-signup}}
 
   <section class="l-container l-container--touch-full">
-    {{nypr-brick-grid audio=audio items=model.otherItems}}
+    {{nypr-brick-grid audio=audio items=model.wqxrHome.otherItems}}
   </section>
 </main>
