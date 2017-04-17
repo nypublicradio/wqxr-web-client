@@ -398,8 +398,10 @@
 
 .sitechrome-page-content-area {
   position: relative;
+  margin-bottom: 2.4rem;
 
   .profile & {
+    margin-bottom: 0;
     padding-top: 25px;
     background-color: $nearwhite;
   }
