@@ -25,6 +25,7 @@ export default Route.extend(PlayParamMixin, {
 
   setupController(controller) {
     this._super(...arguments);
+
     let streams = DS.PromiseArray.create({
       promise: this.store.findAll('stream', {reload: true}).then(s => {
         return s.filterBy('liveWQXR').concat(s.filterBy('isWNYC'));
