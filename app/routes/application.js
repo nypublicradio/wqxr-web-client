@@ -13,6 +13,7 @@ export default Route.extend(ApplicationRouteMixin, {
   poll: service(),
   store: service(),
   audio: service(),
+  routing: service('wnyc-routing'),
   title(tokens) {
     if (tokens && tokens.length > 0) {
       let lastToken = tokens.slice(-1);
@@ -23,7 +24,12 @@ export default Route.extend(ApplicationRouteMixin, {
   },
 
   beforeModel() {
-
+    if (location.hash) {
+      let router = this.get('routing');
+      let href = location.hash.split('/').slice(1).join('/');
+      let { routeName, params, queryParams } = router.recognize(href);
+      router.transitionTo(routeName, params, queryParams);
+    }
     let metrics = get(this, 'metrics');
 
     get(this, 'session').syncBrowserId();
