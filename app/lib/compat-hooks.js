@@ -135,5 +135,11 @@ export function retryFromServer(error, destinationPath) {
   if (response && (response.status === 404 || response.status === 500)) {
     throw error;
   }
-  assign(`${canonicalize(config.wnycURL)}/${destinationPath}`);
+  let url;
+  if (destinationPath.startsWith('http')) {
+    url = destinationPath;
+  } else {
+    url = `${canonicalize(config.wnycURL)}/${destinationPath}`;
+  }
+  assign(url);
 }

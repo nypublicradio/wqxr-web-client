@@ -3,6 +3,7 @@ import fetch from 'fetch';
 import ENV from '../config/environment';
 import { isInDom } from '../lib/alien-dom';
 import { canonicalize } from 'wqxr-web-client/services/script-loader';
+import { retryFromServer }  from 'wqxr-web-client/lib/compat-hooks';
 
 export default DS.Adapter.extend({
   findRecord(store, type, id /*, snapshot */) {
@@ -40,7 +41,9 @@ export default DS.Adapter.extend({
 });
 
 function checkStatus(response) {
-  if (response.status >= 200 && response.status < 300) {
+  if (response.redirected) {
+    retryFromServer({response}, response.url);
+  } else if (response.status >= 200 && response.status < 300) {
     return response;
   } else {
     var error = new Error(response);
