@@ -8,6 +8,7 @@ $gradient: linear-gradient(20deg ,rgba(0, 0, 0, .4), rgba(0, 0, 0, .4));
     left: 0;
     width: 100%;
     position: relative;
+    
 }
 
 @mixin classic-gradient($gradient-style) {
