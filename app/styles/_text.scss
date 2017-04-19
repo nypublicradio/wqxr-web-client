@@ -42,7 +42,9 @@
   line-height: 2.125rem;
   font-family: 'Lato','Open Sans', sans-serif;
 }
+
 .h2 {
+  font-family: "Lato", sans-serif;
   @include h2;
 }
 .h2--mq-small {
@@ -53,16 +55,19 @@
         line-height: 1.5;
     }
 }
+
 .h3 {
-    @include fontsize($base-font); /* 16px */
+    font-family: "Lato", sans-serif;
+    @include fontsize($base-font*1.25); /* 20px */
     font-weight: 600;
     font-family: 'Lato','Open Sans', sans-serif;
 
     @include mq($small-only) {
-        @include fontsize($base-font*0.875);
+        @include fontsize($base-font*1.125); /* 18px */
         line-height: 1.5rem;
     }
 }
+
 .h4 {
     @include fontsize($base-font*0.875); /* 14px */
     font-weight: 600;
@@ -379,6 +384,18 @@
     &:focus {
         border-bottom-color: white;
     }
+}
+
+.link--blue {
+  color: $wqxrblue;
+
+  &:hover {
+    border-color: $wqxrblue;
+  }
+
+  path {
+    fill: $wqxrblue;
+  }
 }
 
 .link--underline {

@@ -1,39 +1,23 @@
-<main>
-  {{#if model.wartopChunk}}
-    <section class="l-container l-container--touch-full wartop-chunk">
-      {{django-page page=model.wartopChunk.pagecontent}}
-    </section>
-  {{/if}}
+<main class="l-container l-container--touch-full">
+    {{#if model.wartopChunk}}
+      <section class="wartop-chunk">
+        {{django-page page=model.wartopChunk.pagecontent}}
+      </section>
+    {{/if}}
 
-  <section class="l-container l-container--touch-full">
-    {{#if media.isMediumAndUp}}
-      {{#stream-banner audio=audio streams=streams as |currentStream|}}
-        {{#if (and currentStream.currentComposer.name currentStream.currentPiece)}}
-          <h3>{{currentStream.currentComposer.name}}, {{currentStream.currentPiece}}</h3>
-          {{#link-to 'playlist' currentStream.slug class='text--small text--white'}}
-            Recently played &raquo;
-          {{/link-to}}
-        {{else if currentStream.isWNYC}}
-          <h3>{{currentStream.currentShow.showTitle}}{{#if currentStream.currentShow.episodeTitle}} - {{currentStream.currentShow.episodeTitle}}{{/if}}</h3>
-        {{/if}}
-      {{/stream-banner}}
-    {{else}}
-      {{#stream-carousel streams=streams background=carouselBg as |stream slide|}}
-        {{#slide.header}}{{stream.name}}{{/slide.header}}
-
-        {{#if (and stream.currentComposer.name stream.currentPiece)}}
-          {{#slide.body}}
-            {{#if (and stream.currentComposer.name stream.currentPiece)}}
-              {{stream.currentComposer.name}}<br />
-              {{stream.currentPiece}}
-            {{else if stream.isWNYC}}
-              {{stream.currentShow.showTitle}}{{#if stream.currentShow.episodeTitle}}<br />{{/if}}
-              {{stream.currentShow.episodeTitle}}
-            {{/if}}
-          {{/slide.body}}
-        {{else}}
-          {{slide.body}}
-        {{/if}}
+    {{#stream-banner audio=audio streams=streams as |currentStream|}}
+      <h2 class="h2">Johann Sebastian Bach</h2>
+      <h3 class="h3">Keyboard Concerto No. 4 in A Major, BWV 1055</h3>
+      {{#if (and currentStream.currentComposer.name currentStream.currentPiece)}}
+        <h2 class="h2">{{currentStream.currentComposer.name}}</h2>
+        <h3 class="h3">{{currentStream.currentPiece}}</h3>
+      {{else if currentStream.isWNYC}}
+        <h2 class="h2">{{currentStream.currentShow.showTitle}}</h2>
+          {{#if currentStream.currentShow.episodeTitle}}
+            <h3 class="h3">{{currentStream.currentShow.episodeTitle}}</h3>
+          {{/if}}
+      {{/if}}
+    {{/stream-banner}}
 
         {{#slide.footer}}
           {{#listen-button
