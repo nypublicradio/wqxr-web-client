@@ -19,30 +19,6 @@
       {{/if}}
     {{/stream-banner}}
 
-        {{#slide.footer}}
-          {{#listen-button
-            audio=audio
-            type='blue-boss'
-            state=(if (eq stream.slug audio.currentId) audio.playState)
-            itemPK=stream.slug
-            itemTitle=stream.name}}
-            Listen Live
-          {{/listen-button}}
-        {{/slide.footer}}
-      {{/stream-carousel}}
-
-      <section class="home__leaderboard">
-        {{dfp-ad
-          slot="/6483581/leaderboard/wqxr_leaderboard"
-          sizes=(array (array 300 50))
-          target="leaderboard"
-          slotClassNames="home__leaderboard__slot"}}
-      </section>
-    {{/if}}
-
-    <section class="home__stories">
-      {{#nypr-brick-layout audio=audio as |layout|}}
-
         {{#layout.blowout as |blowout|}}
 
         {{blowout.main item=model.wqxrHome.featuredItems.[0]}}
