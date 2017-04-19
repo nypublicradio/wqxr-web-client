@@ -4622,6 +4622,13 @@ istextorbinary@2.1.0:
     editions "^1.1.1"
     textextensions "1 || 2"
 
+ivy-tabs@3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/ivy-tabs/-/ivy-tabs-3.1.0.tgz#07eae83bf46c974bf7de2f4d9404a7abaebe39fe"
+  dependencies:
+    ember-cli-babel "^5.1.7"
+    ember-cli-htmlbars "^1.0.10"
+
 jju@^1.1.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/jju/-/jju-1.3.0.tgz#dadd9ef01924bc728b03f2f7979bdbd62f7a2aaa"
@@ -5723,7 +5730,7 @@ number-is-nan@^1.0.0:
 
 nypr-account-settings@nypublicradio/nypr-account-settings#demo:
   version "0.0.0"
-  resolved "https://codeload.github.com/nypublicradio/nypr-account-settings/tar.gz/bc19fa1b9c9cde82127c6e3c606b244caa0b11ac"
+  resolved "https://codeload.github.com/nypublicradio/nypr-account-settings/tar.gz/562b46e0c57848fecc682c879655bfce2a3e5a0b"
   dependencies:
     ember-changeset "1.2.0"
     ember-changeset-validations "1.2.4"
@@ -5734,7 +5741,7 @@ nypr-account-settings@nypublicradio/nypr-account-settings#demo:
 
 nypr-ads@nypublicradio/nypr-ads#demo:
   version "0.0.0"
-  resolved "https://codeload.github.com/nypublicradio/nypr-ads/tar.gz/68ddb628992b6bebf37583c79f497453861a1bf7"
+  resolved "https://codeload.github.com/nypublicradio/nypr-ads/tar.gz/15322384f0a1bdfe2cc26436dff16203762fdebb"
   dependencies:
     ember-cli-babel "^5.1.7"
     ember-cli-htmlbars "^1.1.1"
@@ -5757,7 +5764,7 @@ nypr-stream-carousel@nypublicradio/nypr-stream-carousel#demo:
 
 nypr-ui@nypublicradio/nypr-ui#demo:
   version "0.0.0"
-  resolved "https://codeload.github.com/nypublicradio/nypr-ui/tar.gz/bd304e85a20c1cd7e8e174092ab18b07a8b01eb2"
+  resolved "https://codeload.github.com/nypublicradio/nypr-ui/tar.gz/fadbfb6b0300b75281a65abb7b31fbf663f6d113"
   dependencies:
     ember-cli-babel "^5.1.7"
     ember-cli-compass-compiler "^0.5.0"
@@ -5765,6 +5772,7 @@ nypr-ui@nypublicradio/nypr-ui#demo:
     ember-cli-htmlbars-inline-precompile "^0.3.6"
     ember-holygrail-layout "^0.1.4"
     ember-power-select "1.6.0"
+    ivy-tabs "3.1.0"
 
 oauth-sign@~0.8.1:
   version "0.8.2"
