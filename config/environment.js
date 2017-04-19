@@ -125,6 +125,7 @@ module.exports = function(environment) {
     wnycBetaURL: process.env.WNYC_BETA_URL,
     featureFlags: {
       'social-auth': process.env.SOCIAL_AUTH,
+      'member-center': process.env.SOCIAL_AUTH,
     },
     betaTrials: {
       betaInviteLanding: '#full-page-transforms-wrapper',
