@@ -294,6 +294,10 @@
   font-weight: 200;
 }
 
+.text--italic {
+  font-style: italic;
+}
+
 /* Sizes */
 
 @mixin text--largest {
