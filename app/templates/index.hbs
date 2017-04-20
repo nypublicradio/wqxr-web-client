@@ -63,12 +63,12 @@
         {{/row.brick}}
       {{/layout.cards}}
 
-      {{layout.blowout items=(slice model.wqxrHome.featuredItems 5 8)}}
+      {{layout.blowout flip=true items=(slice model.wqxrHome.featuredItems 5 8)}}
 
     {{/nypr-brick-layout}}
   </section>
 
-  {{ newsletter-signup }} 
+  {{ newsletter-signup }}
 
   <section class="l-container l-container--touch-full">
     {{nypr-brick-grid audio=audio items=model.wqxrHome.otherItems}}
