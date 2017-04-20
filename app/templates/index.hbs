@@ -1,10 +1,11 @@
-<main class="l-container l-container--touch-full">
-    {{#if model.wartopChunk}}
-      <section class="wartop-chunk">
-        {{django-page page=model.wartopChunk.pagecontent}}
-      </section>
-    {{/if}}
+<main>
+  {{#if model.wartopChunk}}
+    <section class="l-container l-container--touch-full wartop-chunk">
+      {{django-page page=model.wartopChunk.pagecontent}}
+    </section>
+  {{/if}}
 
+  <section class="l-container l-container--touch-full">
     {{#stream-banner audio=audio streams=streams as |currentStream|}}
       <h2 class="h2">Johann Sebastian Bach</h2>
       <h3 class="h3">Keyboard Concerto No. 4 in A Major, BWV 1055</h3>
@@ -18,8 +19,22 @@
           {{/if}}
       {{/if}}
     {{/stream-banner}}
+  </section>
 
-        {{#layout.blowout as |blowout|}}
+  {{#if media.isSmallOnly}}
+    <section class="home__leaderboard">
+      {{dfp-ad
+        slot="/6483581/leaderboard/wqxr_leaderboard"
+        sizes=(array (array 300 50))
+        target="leaderboard"
+        slotClassNames="home__leaderboard__slot"}}
+    </section>
+  {{/if}}
+
+  <section class="l-container l-container--touch-full">
+    {{#nypr-brick-layout audio=audio as |layout|}}
+
+      {{#layout.blowout as |blowout|}}
 
         {{blowout.main item=model.wqxrHome.featuredItems.[0]}}
 
@@ -38,21 +53,20 @@
 
       {{/layout.blowout}}
 
-        {{#layout.cards as |row|}}
-          {{row.brick audio=audio item=model.wqxrHome.featuredItems.[3]}}
-          {{row.brick audio=audio item=model.wqxrHome.featuredItems.[4]}}
-          {{#row.brick class='brick__item--sponsored'}}
-            {{dfp-ad
-              slot="/6483581/rectangle/wqxr_rectangle"
-              sizes=(array (array 300 250))
-              target="wqxr_bigbox_ad"}}
-          {{/row.brick}}
-        {{/layout.cards}}
+      {{#layout.cards as |row|}}
+        {{row.brick audio=audio item=model.wqxrHome.featuredItems.[3]}}
+        {{row.brick audio=audio item=model.wqxrHome.featuredItems.[4]}}
+        {{#row.brick class='brick__item--sponsored'}}
+          {{dfp-ad
+            slot="/6483581/rectangle/wqxr_rectangle"
+            sizes=(array (array 300 250))
+            target="wqxr_bigbox_ad"}}
+        {{/row.brick}}
+      {{/layout.cards}}
 
-        {{layout.blowout items=(slice model.wqxrHome.featuredItems 5 8)}}
+      {{layout.blowout items=(slice model.wqxrHome.featuredItems 5 8)}}
 
-      {{/nypr-brick-layout}}
-    </section>
+    {{/nypr-brick-layout}}
   </section>
 
   {{newsletter-signup}}
