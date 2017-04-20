@@ -2988,6 +2988,9 @@ ember-getowner-polyfill@1.0.1:
 ember-getowner-polyfill@^1.0.0, ember-getowner-polyfill@^1.1.0, ember-getowner-polyfill@^1.1.1, ember-getowner-polyfill@^1.2.2:
 =======
 ember-getowner-polyfill@^1.1.0, ember-getowner-polyfill@^1.1.1, ember-getowner-polyfill@^1.2.2:
+<<<<<<< HEAD
+>>>>>>> feat/add-flipped-homepage
+=======
 >>>>>>> feat/add-flipped-homepage
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/ember-getowner-polyfill/-/ember-getowner-polyfill-1.2.3.tgz#ea70f4a48b1c05b91056371d1878bbafe018222e"
@@ -3011,6 +3014,9 @@ ember-hifi@nypublicradio/ember-hifi#master:
 ember-hifi@^1.7.3:
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/ember-hifi/-/ember-hifi-1.8.0.tgz#dca9a25d9b22cdcca60887f6e0cb17f117a74d74"
+<<<<<<< HEAD
+>>>>>>> feat/add-flipped-homepage
+=======
 >>>>>>> feat/add-flipped-homepage
   dependencies:
     ember-cli-babel "^5.1.7"
@@ -5778,6 +5784,7 @@ nypr-player@nypublicradio/nypr-player#demo:
     ember-cli-htmlbars "^1.0.10"
     ember-keyboard "2.1.9"
 
+<<<<<<< HEAD
 nypr-ui@nypublicradio/nypr-ui#demo:
   version "0.0.0"
 <<<<<<< HEAD
@@ -5789,6 +5796,11 @@ nypr-ui@nypublicradio/nypr-ui#demo:
     ember-cli-compass-compiler "^0.5.0"
     ember-cli-htmlbars "^1.1.1"
 
+nypr-ui@nypublicradio/nypr-ui:
+  version "0.0.0"
+  resolved "https://codeload.github.com/nypublicradio/nypr-ui/tar.gz/1e6c6f4093f197e453ecd167493b68941030d043"
+>>>>>>> feat/add-flipped-homepage
+=======
 nypr-ui@nypublicradio/nypr-ui:
   version "0.0.0"
   resolved "https://codeload.github.com/nypublicradio/nypr-ui/tar.gz/1e6c6f4093f197e453ecd167493b68941030d043"
@@ -6933,7 +6945,7 @@ source-map-url@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/source-map-url/-/source-map-url-0.3.0.tgz#7ecaf13b57bcd09da8a40c5d269db33799d4aaf9"
 
-source-map@0.1.32, source-map@~0.1.7:
+source-map@0.1.32:
   version "0.1.32"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.1.32.tgz#c8b6c167797ba4740a8ea33252162ff08591b266"
   dependencies:
@@ -6948,6 +6960,12 @@ source-map@0.4.x, source-map@^0.4.2, source-map@^0.4.4:
 source-map@^0.5.0, source-map@^0.5.6, source-map@~0.5.0, source-map@~0.5.1:
   version "0.5.6"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.5.6.tgz#75ce38f52bf0733c5a7f0c118d81334a2bb5f412"
+
+source-map@~0.1.7:
+  version "0.1.43"
+  resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.1.43.tgz#c24bc146ca517c1471f5dacbe2571b2b7f9e3346"
+  dependencies:
+    amdefine ">=0.0.4"
 
 source-map@~0.2.0:
   version "0.2.0"
