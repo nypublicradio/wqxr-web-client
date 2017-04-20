@@ -26,7 +26,6 @@ dependencies:
     - grunt modernizr:dist
   cache_directories:
     - ~/.cache/yarn
-    - /usr/lib/ruby/vendor_ruby
     - /usr/bin/scss      
     - /usr/bin/sass
     - /usr/bin/sass-convert
