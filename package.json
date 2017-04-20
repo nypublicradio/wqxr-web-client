@@ -98,7 +98,6 @@
     "nypr-account-settings": "nypublicradio/nypr-account-settings#demo",
     "nypr-ads": "nypublicradio/nypr-ads#demo",
     "nypr-player": "nypublicradio/nypr-player#demo",
-    "nypr-stream-carousel": "nypublicradio/nypr-stream-carousel#demo",
     "nypr-ui": "nypublicradio/nypr-ui#demo",
     "torii": "0.8.1"
   },
