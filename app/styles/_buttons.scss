@@ -85,6 +85,10 @@
 
 .btn {
   @include btn;
+  
+  > i {
+    pointer-events: none;
+  }
 }
 
 /**
@@ -1116,6 +1120,7 @@
   .listen-ui {
     display: inline-block;
     position: relative;
+    pointer-events: none;
 
     > svg {
       position: absolute;
