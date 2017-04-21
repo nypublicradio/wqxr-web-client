@@ -11,7 +11,7 @@
     "build": "ember build",
     "start": "ember server",
     "test": "ember test",
-    "upgrade-nypr": "yarn add nypublicradio/nypr-ads#demo nypublicradio/nypr-ui#demo nypublicradio/nypr-account-settings#demo nypublicradio/nypr-player#demo"
+    "upgrade-nypr": "yarn upgrade nypublicradio/nypr-ads#demo nypublicradio/nypr-ui#demo nypublicradio/nypr-account-settings#demo nypublicradio/nypr-player#demo"
   },
   "repository": "",
   "engines": {
