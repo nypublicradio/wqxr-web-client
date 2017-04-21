@@ -12,7 +12,7 @@
     mapping=(array (array 758 (array 728 90)) (array 1203 (array 970 415)))
     sizes=(array (array 970 415) (array 728 90))}}
 {{/if}}
-  
+
 {{#django-page page=model.page}}
 
   {{#if model.story.commentsEnabled}}
@@ -29,7 +29,7 @@
   {{#ember-wormhole to="related"}}
     {{related-stories getStories=model.getRelatedStories}}
   {{/ember-wormhole}}
-  
+
   {{#if session.data.isStaff}}
     {{#ember-wormhole to="edit-story"}}
         <a href="{{model.adminURL}}/{{model.story.editLink}}" class="btn btn--green" target="_blank" data-test-selector="admin-link">Edit this</a>
