@@ -1,10 +1,17 @@
 import Route from 'ember-route';
+import service from 'ember-service/inject';
+import get from 'ember-metal/get';
 
 export default Route.extend({
-  model({ slug }) {
-    return this.store.findRecord('stream', slug);
-  },
+  googleAds: service(),
+  
   titleToken(model) {
     return `Playlist for ${model.get('name')}`;
   },
+  model({ slug }) {
+    return this.store.findRecord('stream', slug);
+  },
+  afterModel() {
+    get(this, 'googleAds').doTargeting();
+  }
 });
