@@ -21,12 +21,25 @@
 
   ul.schedule-tabs {
     width: 100%;
+    overflow-x: scroll;
+    white-space: nowrap;
+    @include flexbox((
+      display: flex
+    ));
 
     li a {
       font-weight: 600;
       @include fontsize(16);
       padding: 0 0 30px 0;
       margin: 0 20px 0 0;
+
+      @include mq($mobile) {
+        padding-bottom: 40px;
+      }
+    }
+
+    li:last-child a {
+      margin: 0;
     }
   }
   ul.schedule-tabs li.ui-tabs-selected a {
@@ -127,6 +140,11 @@ ul.schedule-table {
     height: auto;
     padding: 0;
     line-height: 27px;
+    @include flexbox((
+      display: flex,
+      flex-direction: column,
+      align-items: flex-start
+    ));
 
     div.program {
       height: auto;
@@ -147,10 +165,14 @@ ul.schedule-table {
     div.time,
     div.time-playlist {
       width: auto;
-      color: $lightergray;
+      color: $lightgray;
       font-weight: 600;
-      letter-spacing: 1px;
-      font-size: 16px;
+      @include fontsize(14);
+    }
+
+    div.scheduled-item-shortlink a {
+      @include h3;
+      @include link--dark;
     }
 
     .arrow {
