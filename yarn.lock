@@ -1552,8 +1552,8 @@ can-symlink@^1.0.0:
     tmp "0.0.28"
 
 caniuse-db@^1.0.30000634, caniuse-db@^1.0.30000639:
-  version "1.0.30000659"
-  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000659.tgz#6775220394d464c8efa4a25cafd2ed9b0c60b11c"
+  version "1.0.30000660"
+  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000660.tgz#d2d57b309dc5a11bb5b46018f51855f7a41efee5"
 
 capture-exit@^1.0.7:
   version "1.2.0"
@@ -5762,7 +5762,7 @@ nypr-account-settings@nypublicradio/nypr-account-settings#demo:
 
 nypr-ads@nypublicradio/nypr-ads#demo:
   version "0.0.0"
-  resolved "https://codeload.github.com/nypublicradio/nypr-ads/tar.gz/14f9acf4a7d20d6a7ff899d73f3038fd6582a446"
+  resolved "https://codeload.github.com/nypublicradio/nypr-ads/tar.gz/59c711cac238c36665be16beefc69cfbb6bd5f06"
   dependencies:
     ember-cli-babel "^5.1.7"
     ember-cli-htmlbars "^1.1.1"
