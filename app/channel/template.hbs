@@ -1,10 +1,4 @@
 {{#django-page page=model.page}}
-  {{#unless model.channel.altLayout}}
-    {{expandable-responsive-leaderboard
-      site='wqxr'
-      smallBreakpoint=media.isSmallOnly}}
-  {{/unless}}
-
   {{#if model.channel.altLayout}}
     {{#alt-channel-layout
       navSlugTransition=(action 'navSlugTransition')
