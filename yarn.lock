@@ -5767,6 +5767,7 @@ nypr-player@nypublicradio/nypr-player#demo:
   dependencies:
     ember-cli-babel "^5.1.7"
     ember-cli-htmlbars "^1.0.10"
+    ember-keyboard "2.1.9"
 
 nypr-ui@nypublicradio/nypr-ui#demo:
   version "0.0.0"
@@ -5778,6 +5779,7 @@ nypr-ui@nypublicradio/nypr-ui#demo:
     ember-cli-htmlbars-inline-precompile "^0.3.6"
     ember-holygrail-layout "^0.1.4"
     ember-power-select "1.6.0"
+    ivy-tabs "3.1.0"
 
 oauth-sign@~0.8.1:
   version "0.8.2"
