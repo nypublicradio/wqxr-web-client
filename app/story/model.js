@@ -31,6 +31,7 @@ export default Model.extend({
   largeTeaseLayout: attr('boolean'),
   slug: attr('string'),
   tease: attr('string'),
+  shortTitle: attr('string'),
   title: attr('string'),
   url: attr('string'),
   extendedStory: attr(),
