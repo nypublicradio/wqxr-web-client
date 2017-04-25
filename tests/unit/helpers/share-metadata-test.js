@@ -34,7 +34,7 @@ test('it produces the correct metadata for stories', function(assert) {
   },{
     description: 'Stream Show',
     story: {
-      audioType: 'stream',
+      audioType: 'livestream',
       currentShow: {
         title: 'Cool Show',
         url: 'http://wqxr.org/shows/cool-show'
@@ -49,7 +49,7 @@ test('it produces the correct metadata for stories', function(assert) {
   },{
     description: 'Stream Song',
     story: {
-      audioType: 'stream',
+      audioType: 'livestream',
       slug: 'test',
       currentPlaylistItem: {catalogEntry: {
         title: 'Masterpiece',

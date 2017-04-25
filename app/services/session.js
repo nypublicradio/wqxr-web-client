@@ -9,17 +9,19 @@ export default SessionService.extend({
     let legacyId;
     try {
       legacyId = window.localStorage.getItem('browserId');
-      // some clients save their browserId with quotes
-      legacyId = legacyId.replace(/"/g, '');
-      // TODO: when other clients update to ESA, we can get rid of this key
-      window.localStorage.setItem('browserId', legacyId);
+      if (legacyId) {
+        // some clients save their browserId with quotes
+        legacyId = legacyId.replace(/"/g, '');
+        // TODO: when other clients update to ESA, we can get rid of this key
+        window.localStorage.setItem('browserId', legacyId);
+      }
     } catch(e) {
       if (e.name === "SecurityError") {
         console.warn("Cookies are disabled. No local settings allowed.");
         return RSVP.Promise.resolve(null);
       }
     }
-    
+
     let { browserId } = this.get('data');
     if (legacyId || browserId) {
       if (report) {
@@ -32,7 +34,7 @@ export default SessionService.extend({
         .then( ({ browser_id }) => this.set('data.browserId', browser_id));
     }
   },
-  
+
   staffAuth() {
     fetch(`${config.wnycAdminRoot}/api/v1/is_logged_in/?bust_cache=${Math.random()}`, {
       credentials: 'include'
@@ -45,11 +47,12 @@ export default SessionService.extend({
       });
     });
   },
-  
+
   verify(email, password) {
     let authenticator = getOwner(this).lookup('authenticator:nypr');
     return authenticator.authenticate(email, password);
   }
+
 });
 
 function reportBrowserId(knownId) {

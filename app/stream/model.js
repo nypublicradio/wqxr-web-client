@@ -10,7 +10,7 @@ const WQXR_slugs = ["wqxr","q2","jonathan-channel","wqxr-special","wqxr-special2
 const WNYC_slugs = ["wnyc-fm939", "wnyc-am820"];
 
 export default Model.extend({
-  audioType:            'stream',
+  audioType:            'livestream',
 
   hasPlaylists:         attr('boolean'),
   imageLogo:            attr('string'),
@@ -21,6 +21,7 @@ export default Model.extend({
   whatsOn:              attr('number'),
   position:             attr('number'),
   playlistUrl:          attr('string'),
+  cmsPK:                attr('number'),
   twitterHandle:        attr('string'),
 
   currentShow:          attr(),
@@ -60,12 +61,12 @@ export default Model.extend({
 
   forListenAction(data) {
     return this.get('currentStory').then(s => {
+      data.current_audio_position = 0; // stream should always report 0
       return Object.assign({
-        audio_type: 'stream',
+        audio_type: 'livestream',
         cms_id: s && s.get('id'),
-        site_id: s && s.get('siteId'),
         item_type: s && s.get('itemType'),
-        stream_id: this.get('id')
+        stream_id: this.get('cmsPK'),
       }, data);
     });
   }

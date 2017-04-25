@@ -5,7 +5,8 @@ import service from 'ember-service/inject';
 
 const Router = Ember.Router.extend(AnalyticsMixin, {
   location: config.locationType,
-  session: service(),
+  session:  service(),
+  
   willTransition(oldInfos, newInfos, transition) {
     this._super(...arguments);
     if (!['login', 'signup', 'validate', 'forgot', 'reset'].includes(transition.targetName)) {

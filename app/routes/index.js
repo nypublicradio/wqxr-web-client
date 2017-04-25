@@ -1,7 +1,7 @@
 import Route from 'ember-route';
 import service from 'ember-service/inject';
-import DS from 'ember-data';
 import PlayParamMixin from 'wqxr-web-client/mixins/play-param';
+import DS from 'ember-data';
 import RSVP from 'rsvp';
 import get from 'ember-metal/get';
 
@@ -29,7 +29,6 @@ export default Route.extend(PlayParamMixin, {
 
   setupController(controller) {
     this._super(...arguments);
-
     let streams = DS.PromiseArray.create({
       promise: this.store.findAll('stream', {reload: true}).then(s => {
         return s.filterBy('liveWQXR').concat(s.filterBy('isWNYC'));

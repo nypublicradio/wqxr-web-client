@@ -44,7 +44,7 @@
               <a class="sitechrome-btn"
               href={{donateURL}}
               title="Donate"
-              data-tracking-category="WNYC Menu"
+              data-tracking-category="WQXR Menu"
               data-tracking-action="Clicked Donate Button"
               target="_blank">Donate</a>
             {{/if}}
@@ -120,7 +120,7 @@
         {{/link-to}}
 
         {{#link-to 'shows' current-when="shows show" tagName="li" href=false class="list-item list-item--nav"}}
-          {{link-to 'Shows' 'shows' class="inherit" preventDefault=false}}
+          {{link-to 'Programs' 'shows' class="inherit" preventDefault=false}}
         {{/link-to}}
 
         {{#link-to 'serie' 'q2' tagName='li' href=false class="list-item list-item--nav"}}
@@ -153,10 +153,13 @@
         {{nypr-social-icons title="Follow WQXR" items=socialIcons}}
       </div>
     {{/if}}
-
   </nav>
 
   <div class="l-full sitechrome-page-content-area{{if error ' is-error'}}">
+
+    {{#each flashMessages.queue as |flash|}}
+       {{flash-message flash=flash}}
+    {{/each}}
 
     {{yield}}
 

@@ -27,11 +27,10 @@
         target="leaderboard"
         slotClassNames="home__leaderboard__slot"}}
     </section>
-
   {{/if}}
 
   <section class="l-container l-container--touch-full">
-    {{#nypr-brick-layout audio=audio as |layout|}}
+    {{#nypr-brick-layout as |layout|}}
 
       {{#layout.blowout as |blowout|}}
 
@@ -63,7 +62,7 @@
         {{/row.brick}}
       {{/layout.cards}}
 
-      {{layout.blowout flip=true items=(slice model.wqxrHome.featuredItems 5 8)}}
+      {{layout.blowout audio=audio flip=true items=(slice model.wqxrHome.featuredItems 5 8)}}
 
     {{/nypr-brick-layout}}
   </section>
@@ -73,4 +72,5 @@
   <section class="l-container l-container--touch-full">
     {{nypr-brick-grid audio=audio items=model.wqxrHome.otherItems}}
   </section>
+
 </main>

@@ -15,7 +15,7 @@ test('visiting /', function(assert) {
 
   andThen(function() {
     assert.equal(find('.stream-banner').length, 1, 'stream banner should render');
-  });
+  });  
 });
 
 skip('using stream banner', function(assert) {

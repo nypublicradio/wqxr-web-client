@@ -8,7 +8,7 @@ export function shareMetadata(story) {
     let via = '';
 
     if (story) {
-      if (get(story, 'audioType') === 'stream') {
+      if (get(story, 'audioType') === 'livestream') {
         let entry = get(story, 'currentPlaylistItem.catalogEntry');
         if (entry) {
           shareText = 'I\'m listening to ' + entry.composer.name + ' - ' + entry.title;

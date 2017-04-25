@@ -1,7 +1,7 @@
-import DS from 'ember-data';
+import JSONAPISerializer from 'ember-data/serializers/json-api';
 
-export default DS.JSONAPISerializer.extend({
-  extractId(modelClass, resourceHash) {
-    return resourceHash.attributes.slug;
+export default JSONAPISerializer.extend({
+  extractId(modelClass, {attributes}) {
+    return attributes.slug;
   }
 });

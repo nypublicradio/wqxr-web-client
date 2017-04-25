@@ -1,6 +1,6 @@
 import config from 'wqxr-web-client/config/environment';
-import test from 'ember-sinon-qunit/test-support/test';
 import { skip } from 'qunit';
+import test from 'ember-sinon-qunit/test-support/test';
 import { plantBetaTrial } from 'wqxr-web-client/tests/helpers/beta';
 import moduleForAcceptance from 'wqxr-web-client/tests/helpers/module-for-acceptance';
 import djangoPage from 'wqxr-web-client/tests/pages/django-page';
