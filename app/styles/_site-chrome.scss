@@ -170,6 +170,13 @@
 
     .listen-ui {
       width: 24px;
+      height: 24px;
+    }
+    .listen-spinner {
+      /* Alignment hacks. */
+      transform: scale(0.75) translateX(-11px) translateY(-3px);
+      width: 40px;
+      height: 20px;
     }
 
     span {
@@ -372,7 +379,6 @@
   @include flex-shrink(0);
 
   @include mq($large-and-up) {
-    font-size: 16px;
     background: $wqxrdarkblue;
     color: white;
     line-height: 36px;
@@ -405,7 +411,7 @@
     padding-top: 25px;
     background-color: $nearwhite;
   }
-  
+
   &.is-error {
     margin-bottom:  0;
   }
