@@ -1,0 +1,35 @@
+{{nypr-svg icon='close' className="nypr-player-icon nypr-player-share-icon mod-close"}}
+{{nypr-svg icon='share-arrow' className="nypr-player-icon nypr-player-share-icon mod-open"}}
+<span class="nypr-player-share-label">Share</span>
+
+
+{{#popup-menu text=text icon="share" as |closePopup|}}
+  <ul class="sharebutton-list">
+    <li class="sharebutton-listitem">
+      <button {{action 'popupShareWindow' 'Facebook' (share-url 'Facebook' metadata)}}
+      onclick={{action closePopup}}
+      >Facebook</button>
+    </li>
+    <li class="sharebutton-listitem">
+      <button {{action 'popupShareWindow' 'Twitter' (share-url 'Twitter' metadata)}}
+      onclick={{action closePopup}}
+      >Twitter</button>
+    </li>
+    <li class="sharebutton-listitem">
+      <a href={{share-url 'Email' metadata}}
+        data-tracking-category="Persistent Player"
+        data-tracking-action='Shared Story "{{metadata.shareText}}"'
+        data-tracking-label='{{region}}|{{metadata.analyticsCode}}|{{type}}|Email'
+        onclick={{action closePopup}}
+        >Email</a>
+    </li>
+      <li class="sharebutton-listitem">
+      <a href={{share-url 'Email' metadata}}
+        data-tracking-category="Persistent Player"
+        data-tracking-action='Shared Story "{{metadata.shareText}}"'
+        data-tracking-label='{{region}}|{{metadata.analyticsCode}}|{{type}}|Email'
+        onclick={{action closePopup}}
+        >Link</a>
+    </li>
+  </ul>
+{{/popup-menu}}

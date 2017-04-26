@@ -71,13 +71,29 @@
           }}
         {{/content.for}}
 
-        {{#content.for 'aux' as |args|}}
-          {{args.queueButton
-            queueLength = audio.queue.items.length
-            showModal   = (action 'showModal' 'queue-history')
-            closeModal  = (action 'closeModal')
-            isOpenModal = modal}}
-        {{/content.for}}
+        
+        {{#unless media.isLargeAndUp}}
+          {{#unless hifi.isLoading}} {{! only show the share button when the audio has loaded}}
+            {{#if integration.currentAudio.shareMetadata}}
+              {{#content.for 'shareButton'}}
+                  {{player-share-button
+                    story  = integration.currentAudio
+                    type   = (if integration.isStream 'stream' 'ondemand')
+                    region = "Player"
+                    text   = "Share"}}
+              {{/content.for}}
+            {{/if}}
+          {{/unless}}
+        {{else}}
+          {{#content.for 'queueButton' as |args|}}
+            {{args.queueButton
+              queueLength = audio.queue.items.length
+              showModal   = (action 'showModal' 'queue-history')
+              closeModal  = (action 'closeModal')
+              isOpenModal = modal}}
+            {{/content.for}}
+        {{/unless}}
+        
     {{/nypr-player}}
   {{/liquid-if}}
 {{/nypr-player-integration}}
