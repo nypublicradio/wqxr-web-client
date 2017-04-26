@@ -5763,7 +5763,7 @@ nypr-ads@nypublicradio/nypr-ads#demo:
 
 nypr-player@nypublicradio/nypr-player#demo:
   version "0.0.2"
-  resolved "https://codeload.github.com/nypublicradio/nypr-player/tar.gz/67a6219f3391bd6aa01cf0b27677a3cf99e04a8e"
+  resolved "https://codeload.github.com/nypublicradio/nypr-player/tar.gz/633c0b477f9da137ef342d428d430a059ab02091"
   dependencies:
     ember-cli-babel "^5.1.7"
     ember-cli-htmlbars "^1.0.10"
