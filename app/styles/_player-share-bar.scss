@@ -1,0 +1,26 @@
+.player-share-bar {
+  @include transform(none);
+  @include fontsize(12);
+  background-color: rgba($wqxrblue,.5);
+  position: fixed;
+  bottom: 80px;
+  width: 100%;
+  height: 58px;
+  font-weight: 600;
+  display: flex;
+  align-content: center;
+  padding: 0 21px;
+  z-index: $nypr-player-zindex;
+}
+
+.player-share-wrapper.liquid-container {
+  @include transform(none);
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .player-share-bar {
+    bottom: 80px;
+  }
+}
+
+

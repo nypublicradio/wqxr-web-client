@@ -16,6 +16,7 @@
 
 {{#nypr-player-integration as |integration|}}
   {{#liquid-if showPlayer class="nypr-player-wrapper"}}
+
     {{#liquid-if integration.revealNotificationBar class='player-notification-wrapper'}}
       {{#player-notification onDismiss=integration.onDismissNotification}}
         {{player-notification/autoplay-message
@@ -25,6 +26,12 @@
           isLoggedIn = session.isAuthenticated
         }}
       {{/player-notification}}
+    {{/liquid-if}}
+
+    {{#liquid-if showShareBar class="player-share-wrapper"}}
+      {{player-share-bar
+          onDismiss = (action 'closeShareBar')
+      }}
     {{/liquid-if}}
 
     {{#nypr-player
@@ -38,6 +45,7 @@
       storyTitle=integration.storyTitle
       showTitle=integration.showTitle
       as |content|}}
+
         {{#content.for 'trackInfo'}}
           {{nypr-player-integration/track-info
             currentAudio    = integration.currentAudio
@@ -75,12 +83,20 @@
         {{#unless media.isLargeAndUp}}
           {{#unless hifi.isLoading}} {{! only show the share button when the audio has loaded}}
             {{#if integration.currentAudio.shareMetadata}}
-              {{#content.for 'shareButton'}}
-                  {{player-share-button
-                    story  = integration.currentAudio
-                    type   = (if integration.isStream 'stream' 'ondemand')
-                    region = "Player"
-                    text   = "Share"}}
+              {{#content.for 'shareButton' as |args|}}
+              {{args.shareButton
+                story  = integration.currentAudio
+                type   = (if integration.isStream 'stream' 'ondemand')
+                openShareBar = (action 'openShareBar')
+                closeShareBar = (action 'closeShareBar')
+                isShareOpen = showShareBar
+                }}
+                {{!-- {{player-share-button
+                story  = integration.currentAudio
+                type   = (if integration.isStream 'stream' 'ondemand')
+                region = "Player"
+                text   = "Share"
+                class = "nypr-player-share-button nypr-player-button"}} --}}
               {{/content.for}}
             {{/if}}
           {{/unless}}

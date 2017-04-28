@@ -15,6 +15,7 @@ export default Controller.extend({
 
   noErrors:     not('audio.hasErrors'),
   showPlayer:   and('noErrors', 'audio.playedOnce'),
+  showShareBar:  false,
 
   isHomepage: Ember.computed.match('currentRouteName', /^index(_loading)?$/),
 
@@ -26,9 +27,13 @@ export default Controller.extend({
   isAudioStream: equal('currentAudio.audioType', 'livestream'), // unused?
 
 
-
   actions: {
-
+    openShareBar(){
+      this.set('showShareBar', true);
+    },
+    closeShareBar(){
+      this.set('showShareBar', false);
+    },
 
     showModal(which) {
       this._scrollY = window.scrollY;
