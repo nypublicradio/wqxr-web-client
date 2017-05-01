@@ -1,30 +1,27 @@
 {{#if isOpen}}
-  <ul class="sharebutton-list">
-    <li class="sharebutton-listitem">
+    <div class="btn-group">
       <button {{action 'popupShareWindow' 'Facebook' (share-url 'Facebook' metadata)}}
-      onclick={{action 'closeBar'}}
-      >Facebook</button>
-    </li>
-    <li class="sharebutton-listitem">
+       class="btn btn--large btn--white"
+      ><i class="fa fa-facebook"></i></button>
+    
       <button {{action 'popupShareWindow' 'Twitter' (share-url 'Twitter' metadata)}}
-      onclick={{action 'closeBar'}}
-      >Twitter</button>
-    </li>
-    <li class="sharebutton-listitem">
+      onclick={{action 'closeBar'}} class="btn btn--large btn--white"
+      ><i class="fa fa-twitter"></i></button>
+
       <a href={{share-url 'Email' metadata}}
+        class="btn btn--large btn--white"
         data-tracking-category="Persistent Player"
         data-tracking-action='Shared Story "{{metadata.shareText}}"'
         data-tracking-label='{{region}}|{{metadata.analyticsCode}}|{{type}}|Email'
         onclick={{action 'closeBar'}}
-        >Email</a>
-    </li>
-    <li class="sharebutton-listitem">
+        ><i class="fa fa-envelope"></i></a>
+
       <a href={{share-url 'Email' metadata}}
+        class="btn btn--large btn--white"
         data-tracking-category="Persistent Player"
         data-tracking-action='Shared Story "{{metadata.shareText}}"'
         data-tracking-label='{{region}}|{{metadata.analyticsCode}}|{{type}}|Email'
         onclick={{action 'closeBar'}}
-        >Link</a>
-    </li>
-  </ul>
+        ><i class="fa fa-link"></i></a>
+    </div>
 {{/if}}

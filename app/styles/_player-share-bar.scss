@@ -1,7 +1,7 @@
 .player-share-bar {
   @include transform(none);
   @include fontsize(12);
-  background-color: rgba($wqxrblue,.5);
+  background-color: black; //rgba($wqxrblue,.5);
   position: fixed;
   bottom: 80px;
   width: 100%;
@@ -11,6 +11,31 @@
   align-content: center;
   padding: 0 21px;
   z-index: $nypr-player-zindex;
+
+  .btn-group {
+    width: 100%;
+    @include flexbox ((
+      display: flex,
+      flex-direction: row,
+      flex-wrap: nowrap,
+      justify-content: flex-end,
+      align-items: center,
+    ));
+
+    .btn {
+      font-size: 18px;
+      line-height: 30px;
+      padding: 3px 11px;
+      margin-right: 20px;
+      border-color: rgba(white, 1);
+      &:last-child {
+        margin-right: 0;
+      }
+      &:hover {
+        opacity: .5;
+      }
+    }
+  }
 }
 
 .player-share-wrapper.liquid-container {

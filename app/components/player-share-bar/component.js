@@ -12,6 +12,7 @@ export default Ember.Component.extend({
   isOpen: true,
   actions: {
     popupShareWindow(destination, href) {
+      console.log("popupsharewindow");
       const heights = {
         'Twitter': 433,
         'Facebook': 620
