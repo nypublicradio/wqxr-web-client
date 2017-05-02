@@ -2,13 +2,15 @@ import { test } from 'qunit';
 import moduleForAcceptance from 'wqxr-web-client/tests/helpers/module-for-acceptance';
 import Test from 'ember-test';
 
-moduleForAcceptance('Acceptance | analytics');
+moduleForAcceptance('Acceptance | Selectors for GTM Analytics');
+
+function waitForStreams() {
+  return find('.stream-banner-station').length;
+}
 
 test('test for analytics selectors', function(assert) {
-    
-  Test.registerWaiter(function() {
-    return find('.stream-banner-station').length;
-  });
+  Test.registerWaiter(waitForStreams);
+  
   server.create('bucket', {slug: 'wqxr-home'});
   server.createList('stream', 7);
   server.createList('whats-on', 7);
@@ -16,6 +18,8 @@ test('test for analytics selectors', function(assert) {
   visit('/');
 
   andThen(function() {
+    Test.unregisterWaiter(waitForStreams);
+    
     assert.equal(currentURL(), '/');
     // UA, User clicks on a link in a homepage bucket
     let show = findWithAssert('.brick__item .item__head__brand').first();
