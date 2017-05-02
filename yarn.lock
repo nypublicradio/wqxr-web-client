@@ -2996,7 +2996,7 @@ ember-hifi@nypublicradio/ember-hifi#master:
   resolved "https://codeload.github.com/nypublicradio/ember-hifi/tar.gz/af89ee3636ee932e33b33b498c0c5677a37991fd"
   dependencies:
     ember-cli-babel "^5.1.7"
-    ember-getowner-polyfill "1.0.1"
+    ember-getowner-polyfill "^1.0.1"
     ember-poll "^1.0.1"
 
 ember-holygrail-layout@^0.1.4:
