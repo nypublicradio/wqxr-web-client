@@ -41,7 +41,7 @@ Router.map(function() {
     this.route('date', {path: ':year/:month/:day'});
   });
   this.route('events', function() {
-    this.route('event', {path: '*url_path'});
+    this.route('event', {path: '*url_path', resetNamespace: true});
   });
   
   this.route('videos');
