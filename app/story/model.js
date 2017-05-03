@@ -1,3 +1,4 @@
+import ContentBase from 'wqxr-web-client/models/content-base';
 import Ember from 'ember';
 import DS from 'ember-data';
 import ENV from '../config/environment';
@@ -5,9 +6,9 @@ import get, { getProperties } from 'ember-metal/get';
 import computed from 'ember-computed';
 import parseAnalyticsCode from '../utils/analytics-code-parser';
 import { shareMetadata } from 'wqxr-web-client/helpers/share-metadata';
-const { attr, Model } = DS;
+const { attr } = DS;
 
-export default Model.extend({
+export default ContentBase.extend({
   analyticsCode: attr('string'),
   audio: attr(),
   audioType: 'on_demand',
@@ -19,21 +20,10 @@ export default Model.extend({
   audioShowOptions: attr('boolean'),
   commentsCount: attr('number'),
   commentsEnabled: attr('boolean'),
-  cmsPK: attr('string'),
-  dateLine: attr('string'),
-  dateLineDatetime: attr('string'),
   editLink: attr('string'),
-  headers: attr(),
-  imageMain: attr(),
-  itemType: attr('string'),
-  itemTypeId: attr('number'),
   isLatest: attr('boolean'),
   largeTeaseLayout: attr('boolean'),
-  slug: attr('string'),
   tease: attr('string'),
-  shortTitle: attr('string'),
-  title: attr('string'),
-  url: attr('string'),
   extendedStory: attr(),
   escapedBody: computed('extendedStory.body', {
     get() {
