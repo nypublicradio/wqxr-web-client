@@ -2,6 +2,7 @@ import JSONAPISerializer from 'ember-data/serializers/json-api';
 
 export default JSONAPISerializer.extend({
   keyForAttribute(key) { return key; },
+  keyForRelationship: key => key,
   modelNameFromPayloadKey: key => key,
   extractId(model, {attributes}) {
     return attributes.slug;
