@@ -62,7 +62,7 @@ export default Component.extend({
     },
     
     removePlaceholder: function(){
-      this.set("placeholderText",'')
+      this.set("placeholderText",'');
     },
 
     showPlaceholder: function(){
