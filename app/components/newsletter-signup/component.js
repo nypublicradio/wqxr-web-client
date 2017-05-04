@@ -2,12 +2,15 @@ import Ember from 'ember';
 import Component from 'ember-component';
 import { htmlSafe } from 'ember-string';
 
+const defaultPlaceholder = "Enter your email address";
+
 export default Component.extend({
   tagName: 'section',
   classNames: ['newsletter-signup', 'background--light'], 
   formLoading: false,
   successMsg: null,
   errorMsg: null,
+  placeholderText: defaultPlaceholder,
 
   hasErrors: function(){
     let emailAddress = this.get("email");
@@ -58,5 +61,12 @@ export default Component.extend({
       this.set('errorMsg', null);
     },
     
+    removePlaceholder: function(){
+      this.set("placeholderText",'');
+    },
+
+    showPlaceholder: function(){
+      this.set("placeholderText", defaultPlaceholder);
+    }
   }
 });
