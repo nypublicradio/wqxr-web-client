@@ -189,4 +189,10 @@ export default function() {
 
   this.post(`${config.platformEventsAPI}/v1/events/viewed`, {});
   this.post(`${config.platformEventsAPI}/v1/events/listened`, {});
+
+  /*-------------------------------------------------------------
+  membership microservice
+  ---------------------------------------------------------------*/
+  this.get(`${config.wnycMembershipAPI}/v1/orders/`, 'orders');
+  this.get(`${config.wnycMembershipAPI}/v1/emails/is-verified/`, {data: {is_verified: true}});
 }

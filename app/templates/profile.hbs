@@ -10,10 +10,13 @@
     Hi {{model.givenName}}!
   </h2>
 
-  {{nypr-accounts/basic-card
-    user=model
-    emailUpdated=(action showFlash 'email')
-    authenticate=(action authenticate)}}
+  <div class={{if features.memberCenter "nypr-account-settings-and-member-center" "l-constrained account-info"}}>
+    <div class="nypr-account-settings-body">
+      {{nypr-accounts/basic-card
+        user=model
+        emailUpdated=(action showFlash 'email')
+        authenticate=(action authenticate)
+        emailPendingVerification=emailPendingVerification}}
 
   {{nypr-accounts/password-card
     helplinkUrl='/forgot'
