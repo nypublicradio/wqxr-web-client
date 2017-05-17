@@ -18,10 +18,23 @@
         authenticate=(action authenticate)
         emailIsPendingVerification=emailIsPendingVerification}}
 
-  {{nypr-accounts/password-card
-    helplinkUrl='/forgot'
-    helplinkText='Forgot password?'
-    changePassword=(action changePassword)}}
+      {{nypr-accounts/password-card
+        helplinkUrl='/forgot'
+        helplinkText='Forgot password?'
+        changePassword=(action changePassword)}}
+
+    </div>
+    {{#if features.memberCenter}}
+      {{nypr-accounts/membership-card
+        pledges=orders
+        siteName=siteName
+        siteDomain=siteDomain
+        user=model
+        emailIsPendingVerification=emailIsPendingVerification
+        resendVerificationEmail=(action resendVerificationEmail)
+        class='nypr-membership-info-body'}}
+    {{/if}}
+  </div>
 
   <div class="aligncenter text--small">
     <p>
