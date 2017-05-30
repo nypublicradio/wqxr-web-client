@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import test from 'ember-sinon-qunit/test-support/test';
 import moduleForAcceptance from 'wqxr-web-client/tests/helpers/module-for-acceptance';
 import djangoPage from 'wqxr-web-client/tests/pages/django-page';
@@ -114,7 +115,7 @@ test('scripts in well route content will execute', function(assert) {
 \\x3C/script>
 `
   });
-  
+
   let apiResponse = server.create('api-response', {
     id: 'shows/foo/story/1',
     type: 'story',
@@ -345,7 +346,7 @@ test('metrics properly reports channel attrs', function(assert) {
     socialLinks: [{title: 'facebook', href: 'http://facebook.com'}],
     apiResponse: server.create('api-response', { id: 'shows/foo/episodes/1' })
   });
-  
+
   assert.expect(2);
   server.create('django-page', {id: listingPage.id});
   
