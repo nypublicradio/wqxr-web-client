@@ -1,4 +1,8 @@
 import DS from 'ember-data';
+<<<<<<< HEAD
+=======
+import computed from 'ember-computed';
+>>>>>>> mhearn/WE-7459_Member-center-soft-launch
 
 const { Model, attr } = DS;
 
@@ -13,5 +17,10 @@ export default Model.extend({
   creditCardType: attr('string'),
   creditCardLast4Digits: attr('string'),
   isActiveMember: attr('boolean'),
-  isSustainer: attr('boolean')
+  isSustainer: attr('boolean'),
+  updateLink: computed('fund', function() {
+    let pledgeDomain = this.get('fund') === 'WQXR' ? 'wqxr' : 'wnyc';
+    let fundSlug = this.get('fund').toLowerCase().replace(/[\.\ ]/g, '');
+    return `https://pledge3.${pledgeDomain}.org/donate/mc-${fundSlug}`;
+  })
 });

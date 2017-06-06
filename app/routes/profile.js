@@ -5,6 +5,8 @@ import get from 'ember-metal/get';
 
 export default Route.extend(AuthenticatedRouteMixin, {
   currentUser: service(),
+  session: service(),
+
   model() {
     return this.get('currentUser.user');
   },
