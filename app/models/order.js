@@ -1,8 +1,5 @@
 import DS from 'ember-data';
-<<<<<<< HEAD
-=======
 import computed from 'ember-computed';
->>>>>>> mhearn/WE-7459_Member-center-soft-launch
 
 const { Model, attr } = DS;
 
