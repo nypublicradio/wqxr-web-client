@@ -1,4 +1,5 @@
 /* global FB */
+import Ember from 'ember';
 import Torii from 'ember-simple-auth/authenticators/torii';
 import service from 'ember-service/inject';
 import fetch from 'fetch';
@@ -12,35 +13,43 @@ export default Torii.extend({
 
   authenticate() {
     return this._super(...arguments)
-    .then((data) => {
-      return this.get('authTask').perform(data);
+    .then(data => {
+      return new RSVP.Promise(resolve => {
+        let postAuthTask = this.get('postAuthTask').perform(data);
+        resolve(postAuthTask);
+      });
     });
   },
 
-  authTask: task(function * (data) {
+  postAuthTask: task(function * (data) {
     try {
       let permissions = yield this.fbAPI(`/${data.userId}/permissions`);
       data = this.attachPermissions(data, permissions);
       data = decamelizeKeys([data]);
-      let response = this.getSession(data.provider, data.accessToken);
+      let response = yield this.getSession(data.provider, data.accessToken);
       if (response && response.ok) {
         return data;
       } else {
-        throw { error: 'Unauthorized', data: data};
+        // the fall-through catch block will populate the exception
+        throw '';
       }
     } catch(e) {
-      throw {error: 'Unauthorized', data: data};
+      throw {error: e || 'Authorization Failed', data: data};
     }
   }),
 
   fbAPI(url) {
+    if (Ember.testing) {
+      // the FB api is attached to the window by torii at run time so it's complicated to mock out
+      return RSVP.resolve({});
+    }
     return new RSVP.Promise(function(resolve/*, reject*/) {
       FB.api(url, response => resolve(response));
     });
   },
 
   attachPermissions(data, permissions) { // modifies data
-    if (permissions) {
+    if (permissions && permissions.data) {
       data.permissions = permissions.data.reduce((result, p) => {
         if (p && p.permission) {
           result[p.permission] = p.status;
