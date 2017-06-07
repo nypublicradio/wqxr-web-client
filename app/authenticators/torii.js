@@ -1,5 +1,3 @@
-/* global FB */
-import Ember from 'ember';
 import Torii from 'ember-simple-auth/authenticators/torii';
 import service from 'ember-service/inject';
 import fetch from 'fetch';
@@ -13,52 +11,26 @@ export default Torii.extend({
 
   authenticate() {
     return this._super(...arguments)
-    .then(data => {
+    .then(providerData => {
       return new RSVP.Promise(resolve => {
-        let postAuthTask = this.get('postAuthTask').perform(data);
-        resolve(postAuthTask);
+        let user = this.get('authenticateSession').perform(providerData);
+        resolve(user);
       });
     });
   },
 
-  postAuthTask: task(function * (data) {
-    try {
-      let permissions = yield this.fbAPI(`/${data.userId}/permissions`);
-      data = this.attachPermissions(data, permissions);
-      let response = yield this.getSession(data.provider, data.accessToken);
-      if (response && response.ok) {
-        data = decamelizeKeys([data]);
-        return data;
+  authenticateSession: task(function * (data) {
+    let response = yield this.getSession(data.provider, data.accessToken);
+    if (response) {
+      if (response.ok) {
+        return decamelizeKeys([data]);
+      } else if (response.status < 500) {
+        return RSVP.reject(response.json());
       } else {
-        // the fall-through catch block will populate the exception
-        throw '';
+        return RSVP.reject({ "errors": {"code": "serverError"} });
       }
-    } catch(e) {
-      throw {error: e || 'Authorization Failed', data: data};
     }
   }),
-
-  fbAPI(url) {
-    if (Ember.testing) {
-      // the FB api is attached to the window by torii at run time so it's complicated to mock out
-      return RSVP.resolve({});
-    }
-    return new RSVP.Promise(function(resolve/*, reject*/) {
-      FB.api(url, response => resolve(response));
-    });
-  },
-
-  attachPermissions(data, permissions) { // modifies data
-    if (permissions && permissions.data) {
-      data.permissions = permissions.data.reduce((result, p) => {
-        if (p && p.permission) {
-          result[p.permission] = p.status;
-        }
-        return result;
-      }, {});
-    }
-    return data;
-  },
 
   getSession(provider, accessToken) {
     return fetch(`${config.wnycAuthAPI}/v1/session`, {
