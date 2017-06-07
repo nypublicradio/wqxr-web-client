@@ -25,9 +25,9 @@ export default Torii.extend({
     try {
       let permissions = yield this.fbAPI(`/${data.userId}/permissions`);
       data = this.attachPermissions(data, permissions);
-      data = decamelizeKeys([data]);
       let response = yield this.getSession(data.provider, data.accessToken);
       if (response && response.ok) {
+        data = decamelizeKeys([data]);
         return data;
       } else {
         // the fall-through catch block will populate the exception
