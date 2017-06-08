@@ -5744,7 +5744,7 @@ number-is-nan@^1.0.0:
 
 nypr-account-settings@nypublicradio/nypr-account-settings#demo:
   version "0.0.0"
-  resolved "https://codeload.github.com/nypublicradio/nypr-account-settings/tar.gz/860a35ad90c78a071df0b469cbcaab82f829a1b3"
+  resolved "https://codeload.github.com/nypublicradio/nypr-account-settings/tar.gz/42067d988dc0870f136556aa1d837deb33603c76"
   dependencies:
     ember-changeset "^1.2.3"
     ember-changeset-validations "^1.2.6"
@@ -5771,7 +5771,7 @@ nypr-player@nypublicradio/nypr-player#demo:
 
 nypr-ui@nypublicradio/nypr-ui#demo:
   version "0.0.0"
-  resolved "https://codeload.github.com/nypublicradio/nypr-ui/tar.gz/354d3d596b4ea6700c19355bd4db67186f2845e8"
+  resolved "https://codeload.github.com/nypublicradio/nypr-ui/tar.gz/5dd1a2f7a845779f416199ef455f194e0adb6cc1"
   dependencies:
     ember-cli-babel "^5.1.7"
     ember-cli-compass-compiler "^0.5.0"
