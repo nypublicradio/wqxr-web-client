@@ -5744,7 +5744,7 @@ number-is-nan@^1.0.0:
 
 nypr-account-settings@nypublicradio/nypr-account-settings#demo:
   version "0.0.0"
-  resolved "https://codeload.github.com/nypublicradio/nypr-account-settings/tar.gz/42067d988dc0870f136556aa1d837deb33603c76"
+  resolved "https://codeload.github.com/nypublicradio/nypr-account-settings/tar.gz/f4cecc0a70fb6bbdfb699200082cc307e916aee8"
   dependencies:
     ember-changeset "^1.2.3"
     ember-changeset-validations "^1.2.6"
