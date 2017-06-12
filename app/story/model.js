@@ -17,6 +17,7 @@ export default Model.extend({
   audioMayDownload: attr('boolean'),
   audioMayEmbed: attr('boolean'),
   audioShowOptions: attr('boolean'),
+  chunks: attr(),
   commentsCount: attr('number'),
   commentsEnabled: attr('boolean'),
   cmsPK: attr('string'),
@@ -34,9 +35,27 @@ export default Model.extend({
   largeTeaseLayout: attr('boolean'),
   slug: attr('string'),
   tease: attr('string'),
+  template: computed.alias('extendedStory.template'),
   title: attr('string'),
   url: attr('string'),
   extendedStory: attr(),
+  body: computed ('extendedStory.body', function() {
+    let text = get(this, 'extendedStory.body');
+    return this.store.createRecord('django-page', { text });
+  }),
+  mainImageEligible: computed('template', 'imageMain', function(){
+    let template = get(this, 'template');
+    let imageWidth = get(this, 'imageMain.w');
+    let imageDisplayFlag = get(this, 'imageMain.isDisplay');
+    if (["story_video", "story_interactive", "story_noimage"].includes(template)) {
+      return false;
+    } else if (imageWidth >= 800 && imageDisplayFlag === true){
+      return true;
+    }
+  }),
+  videoTemplate: computed.equal('template', 'story_video'),
+  interactiveTemplate: computed.equal('template', 'story_interactive'),
+  flushHeader: computed.or('mainImageEligible', 'videoTemplate', 'extendedStory.segments'),
   escapedBody: computed('extendedStory.body', {
     get() {
       let body = get(this, 'extendedStory.body');
@@ -45,6 +64,19 @@ export default Model.extend({
       }
       return body.replace(/\\x3C\/script>/g, '</script>');
     }
+  }),
+  pageChunks: computed('chunks', function(){
+    //process the raw chunks into django-page records, if they are present
+    let processedChunks = {};
+    let chunksObj = get(this, 'chunks');
+    for (var key in chunksObj){
+      let text = chunksObj[key];
+      if (text){
+        let content = this.store.createRecord('django-page', { text });
+        processedChunks[key] = content;
+      }
+    }
+    return processedChunks;
   }),
   segmentedAudio: computed('audio', function() {
     return Array.isArray(this.get('audio'));

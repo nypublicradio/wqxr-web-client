@@ -12,6 +12,7 @@ export default Ember.Route.extend(PlayParamMixin, {
   googleAds:    service(),
   dataPipeline: service(),
   currentUser:  service(),
+  audio:      service(),
   
   titleToken(model) {
     return `${get(model, 'story.title')} - ${get(model, 'story.headers.brand.title')}`;
@@ -20,12 +21,10 @@ export default Ember.Route.extend(PlayParamMixin, {
     return `${tokens[0]} - WQXR`;
   },
   model({ slug }) {
-    return this.store.findRecord('django-page', `story/${slug}`.replace(/\/*$/, '/')).then(page => {
-      let story = page.get('wnycContent');
+    return this.store.findRecord('story', slug).then(story => {
       let comments = this.store.query('comment', { itemTypeId: story.get('itemTypeId'), itemId: story.get('id') });
       let relatedStories = this.store.query('story', { itemId: story.get('id'), limit: 5});
       return waitFor({
-        page,
         story,
         getComments: () => comments,
         getRelatedStories: () => relatedStories,
@@ -45,6 +44,7 @@ export default Ember.Route.extend(PlayParamMixin, {
     controller.set('isMobile', window.Modernizr.touchevents);
     controller.set('session', get(this, 'session'));
     controller.set('user', get(this, 'currentUser.user'));
+    controller.set('audio', get(this, 'audio'));
     return this._super(...arguments);
   },
   
@@ -70,6 +70,8 @@ export default Ember.Route.extend(PlayParamMixin, {
         action,
         label,
       });
+
+
 
       // NPR
       metrics.trackPage('NprAnalytics', {
