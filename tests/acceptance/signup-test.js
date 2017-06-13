@@ -2,7 +2,7 @@ import { test } from 'qunit';
 import moduleForAcceptance from 'wqxr-web-client/tests/helpers/module-for-acceptance';
 import { Response } from 'ember-cli-mirage';
 import 'wqxr-web-client/tests/helpers/with-feature';
-import { currentSession } from 'wqxr-web-client/tests/helpers/ember-simple-auth';
+import { authenticateSession, currentSession } from 'wqxr-web-client/tests/helpers/ember-simple-auth';
 import dummySuccessProviderFb from 'wqxr-web-client/tests/helpers/torii-dummy-success-provider-fb';
 import dummyFailureProvider from 'wqxr-web-client/tests/helpers/torii-dummy-failure-provider';
 import { registerMockOnInstance } from 'wqxr-web-client/tests/helpers/register-mock';
