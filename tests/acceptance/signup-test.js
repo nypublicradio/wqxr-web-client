@@ -1,7 +1,8 @@
 import { test } from 'qunit';
 import moduleForAcceptance from 'wqxr-web-client/tests/helpers/module-for-acceptance';
+import { Response } from 'ember-cli-mirage';
 import 'wqxr-web-client/tests/helpers/with-feature';
-import { authenticateSession, currentSession } from 'wqxr-web-client/tests/helpers/ember-simple-auth';
+import { currentSession } from 'wqxr-web-client/tests/helpers/ember-simple-auth';
 import dummySuccessProviderFb from 'wqxr-web-client/tests/helpers/torii-dummy-success-provider-fb';
 import dummyFailureProvider from 'wqxr-web-client/tests/helpers/torii-dummy-failure-provider';
 import { registerMockOnInstance } from 'wqxr-web-client/tests/helpers/register-mock';
@@ -75,6 +76,29 @@ test('Successful facebook login redirects', function(assert) {
     assert.ok(currentSession(this.application).get('isAuthenticated'), 'Session is authenticated');
     assert.equal(find('.user-nav-greeting').text().trim(), user.given_name);
     assert.equal(find('.user-nav-avatar > img').attr('src'), user.picture);
+  });
+});
+
+test('Facebook login with no email shows alert', function(assert) {
+  server.create('user');
+  registerMockOnInstance(this.application, 'torii-provider:facebook-connect', dummySuccessProviderFb);
+  server.get('/v1/session', () => {
+    return new Response(400, {}, { "errors": {
+      "code": "MissingAttributeException",
+      "message": "A provider account could not be created because one or more attributes were not available from the provider. Permissions may have been declined.",
+      "values": ["email"] }
+    });
+  });
+
+  withFeature('socialAuth');
+  visit('/signup');
+
+  click('button:contains(Sign up with Facebook)');
+
+  andThen(() => {
+    assert.equal(currentURL(), '/signup');
+    assert.equal(find('.alert-warning').text().trim(), "Unfortunately, we can't authorize your account without permission to view your email address.");
+    assert.ok(!currentSession(this.application).get('isAuthenticated'), 'Session is not authenticated');
   });
 });
 
