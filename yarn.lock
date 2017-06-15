@@ -2313,7 +2313,7 @@ ember-body-class@0.4.0:
   dependencies:
     ember-cli-babel "^5.0.0"
 
-ember-changeset-validations@^1.2.6, ember-changeset-validations@^1.2.7:
+ember-changeset-validations@^1.2.7:
   version "1.2.7"
   resolved "https://registry.yarnpkg.com/ember-changeset-validations/-/ember-changeset-validations-1.2.7.tgz#5791fef334b2693165017d82c091f3a6c6a6f184"
   dependencies:
@@ -5772,7 +5772,7 @@ nypr-player@nypublicradio/nypr-player#demo:
 
 nypr-ui@nypublicradio/nypr-ui#demo:
   version "0.0.0"
-  resolved "https://codeload.github.com/nypublicradio/nypr-ui/tar.gz/c946941501a77c65464cb2dd9b8b2fbbeaa8033d"
+  resolved "https://codeload.github.com/nypublicradio/nypr-ui/tar.gz/6311d6d5836d1b483dc8ff32f4bb620cb7be0c11"
   dependencies:
     ember-cli-babel "^5.1.7"
     ember-cli-compass-compiler "^0.5.0"
