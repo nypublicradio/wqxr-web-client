@@ -5858,12 +5858,11 @@ nypr-account-settings@nypublicradio/nypr-account-settings:
   resolved "https://codeload.github.com/nypublicradio/nypr-account-settings/tar.gz/1c04ac89936bda27868e49ac26838919d222b232"
   dependencies:
     ember-changeset "^1.2.3"
-    ember-changeset-validations "^1.2.7"
+    ember-changeset-validations "^1.2.6"
     ember-cli-babel "^5.1.7"
     ember-cli-compass-compiler "^0.5.0"
     ember-cli-htmlbars "^1.1.1"
     ember-concurrency "^0.8.1"
-    ember-cookies "0.0.13"
     ember-modal-dialog "0.9.1"
 
 nypr-ads@nypublicradio/nypr-ads:
