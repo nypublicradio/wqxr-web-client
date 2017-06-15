@@ -21,9 +21,9 @@ export default Model.extend({
   commentsCount: attr('number'),
   cmsPK: attr('string'),
   correctionText: attr('string'),
-  dateLine: attr('string'),
   newsdate: attr('string'),
   editLink: attr('string'),
+  embedCode: attr('string'),
   enableComments: attr('boolean'),
   headers: attr(),
   // TODO: make this a relationship when stories come in only over /api/v3
@@ -34,14 +34,16 @@ export default Model.extend({
   itemTypeId: attr('number'),
   isLatest: attr('boolean'),
   largeTeaseLayout: attr('boolean'),
+  publishAt: attr('string'),
   slug: attr('string'),
   segments: attr(),
   tease: attr('string'),
   template: attr('string'),
   title: attr('string'),
   transcript: attr('string'),
+  twitterHeadline: attr('string'),
+  twitterHandle: attr('string'),
   url: attr('string'),
-  extendedStory: attr(),
   body: attr('string'),
   bodyDjango: computed ('body', function() {
     let text = get(this, 'body');

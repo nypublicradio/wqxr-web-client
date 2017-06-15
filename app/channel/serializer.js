@@ -1,16 +1,17 @@
 import DS from 'ember-data';
+import { serializeApiResponseRelationships } from 'wqxr-web-client/api-response/serializer';
+import { dasherizeKeys } from 'wqxr-web-client/story/serializer';
 
 export default DS.JSONAPISerializer.extend({
   keyForAttribute: key => key,
   keyForRelationship: key => key,
-  normalizeResponse(store, typeClass, payload, id, requestType) {
-    let featuredStory = payload.data.attributes.featured;
-    delete payload.data.attributes.featured;
-    payload.included = payload.included || [];
+  normalizeResponse(store, typeClass, {included = [], data}, id, requestType) {
+    let featuredStory = data.attributes.featured;
+    delete data.attributes.featured;
 
     // id will have a trailing slash because it is derived from the URL and we
     // reliably append a trailing slash via Django
-    payload.included.push({
+    included.push({
       type: 'api-response',
       id: `${id}about/1`,
       relationships: {
@@ -24,19 +25,20 @@ export default DS.JSONAPISerializer.extend({
     {
       type: 'about-page',
       id: `${id}about`,
-      attributes: payload.data.attributes.about
+      attributes: data.attributes.about
     });
     
-    payload.included = payload.included.map(r => {
+    included = included.map(r => {
       let { attributes, type } = r;
       if (type === 'api-response') {
+        r.relationships = serializeApiResponseRelationships(r.relationships, included);
         return r;
       }
 
       // story serializer expects keys dasherized
-      if (attributes) {
-        r.attributes = {};
-        Object.keys(attributes).forEach(k => r.attributes[k.dasherize()] = attributes[k]);
+      if (type === 'story') {
+        r.attributes = dasherizeKeys(r.attributes);
+        r.id = attributes.slug;
       }
       return r;
     });
@@ -44,22 +46,21 @@ export default DS.JSONAPISerializer.extend({
     if (featuredStory) {
       let story = {
         type: 'story',
-        id: featuredStory.id,
-        attributes: {}
+        id: featuredStory.slug,
+        attributes: dasherizeKeys(featuredStory)
       };
-      Object.keys(featuredStory).forEach(k => story.attributes[k.dasherize()] = featuredStory[k]);
       
-      payload.included.push(story);
+      included.push(story);
 
-      payload.data.relationships = {
+      data.relationships = {
         featured: {
           data: {
             type: 'story',
-            id: featuredStory.id
+            id: featuredStory.slug
           }
         }
       };
     }
-    return this._super(store, typeClass, payload, id, requestType);
+    return this._super(store, typeClass, {data, included}, id, requestType);
   }
 });
