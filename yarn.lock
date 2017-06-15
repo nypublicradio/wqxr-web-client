@@ -5854,9 +5854,9 @@ nypr-player@nypublicradio/nypr-player:
     ember-cli-babel "^5.1.7"
     ember-cli-htmlbars "^1.0.10"
 
-nypr-ui@nypublicradio/nypr-ui:
+nypr-ui@nypublicradio/nypr-ui#emberize-story-WE-7420:
   version "0.0.0"
-  resolved "https://codeload.github.com/nypublicradio/nypr-ui/tar.gz/1f5ca26fb7da44445e33279f6c3a5ab19a07e7c6"
+  resolved "https://codeload.github.com/nypublicradio/nypr-ui/tar.gz/1ef1db97b1412919bdfa3b36cea199b4cfcd0000"
   dependencies:
     ember-cli-babel "^5.1.7"
     ember-cli-compass-compiler "^0.5.0"
