@@ -6,7 +6,7 @@ import service from 'ember-service/inject';
 const Router = Ember.Router.extend(AnalyticsMixin, {
   location: config.locationType,
   session:  service(),
-  
+
   willTransition(oldInfos, newInfos, transition) {
     this._super(...arguments);
     if (!['login', 'signup', 'validate', 'forgot', 'reset'].includes(transition.targetName)) {
@@ -56,6 +56,7 @@ Router.map(function() {
   this.route('forgot');
   this.route('reset');
   this.route('verify');
+  this.route('set-password');
 
   // This is our catch all route that can render any existing page
   // from the django site. It will be used when there's nothing more
