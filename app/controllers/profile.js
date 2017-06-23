@@ -75,8 +75,7 @@ export default Controller.extend(Ember.Evented, {
   showFlash(type) {
     this.get('flashMessages').add({
       message: FLASH_MESSAGES[type],
-      type: 'success',
-      sticky: true
+      type: 'success'
     });
   },
 
