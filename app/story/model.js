@@ -9,6 +9,7 @@ const { attr, Model } = DS;
 
 export default Model.extend({
   analyticsCode: attr('string'),
+  appearances: attr(),
   audio: attr(),
   audioType: 'on_demand',
   audioAvailable: attr('boolean'),
@@ -96,6 +97,9 @@ export default Model.extend({
   }),
   segmentedAudio: computed('audio', function() {
     return Array.isArray(this.get('audio'));
+  }),
+  segmentCount: computed('segments', function(){
+    return this.get("segments").length;
   }),
   commentSecurityURL(browserId) {
     let data = {
