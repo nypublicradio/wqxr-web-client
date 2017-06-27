@@ -3,8 +3,6 @@ import { serializeApiResponseRelationships } from 'wqxr-web-client/api-response/
 import { dasherizeKeys } from 'wqxr-web-client/story/serializer';
 
 export default DS.JSONAPISerializer.extend({
-  keyForAttribute: key => key,
-  keyForRelationship: key => key,
   normalizeResponse(store, typeClass, {included = [], data}, id, requestType) {
     let featuredStory = data.attributes.featured;
     delete data.attributes.featured;
