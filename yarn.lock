@@ -2341,7 +2341,7 @@ ember-body-class@0.4.0:
   dependencies:
     ember-cli-babel "^5.0.0"
 
-ember-changeset-validations@^1.2.6, ember-changeset-validations@^1.2.7:
+ember-changeset-validations@^1.2.7:
   version "1.2.7"
   resolved "https://registry.yarnpkg.com/ember-changeset-validations/-/ember-changeset-validations-1.2.7.tgz#5791fef334b2693165017d82c091f3a6c6a6f184"
   dependencies:
@@ -2935,7 +2935,7 @@ ember-concurrency@0.8.2, ember-concurrency@^0.8.1:
     ember-getowner-polyfill "^1.1.0"
     ember-maybe-import-regenerator "^0.1.5"
 
-ember-cookies@^0.0.13:
+ember-cookies@0.0.13, ember-cookies@^0.0.13:
   version "0.0.13"
   resolved "https://registry.yarnpkg.com/ember-cookies/-/ember-cookies-0.0.13.tgz#18350df766240793d46744e4ee5c9a55ae6b4e0a"
   dependencies:
@@ -5780,7 +5780,7 @@ number-is-nan@^1.0.0:
 
 nypr-account-settings@nypublicradio/nypr-account-settings:
   version "0.0.0"
-  resolved "https://codeload.github.com/nypublicradio/nypr-account-settings/tar.gz/9229118e3c346670b89867962656559b2d7d91cc"
+  resolved "https://codeload.github.com/nypublicradio/nypr-account-settings/tar.gz/0badabc5976caf3ede13c0e0c82f3aeb9939cae6"
   dependencies:
     ember-changeset "^1.2.3"
     ember-changeset-validations "^1.2.7"
@@ -5788,6 +5788,7 @@ nypr-account-settings@nypublicradio/nypr-account-settings:
     ember-cli-compass-compiler "^0.5.0"
     ember-cli-htmlbars "^1.1.1"
     ember-concurrency "^0.8.1"
+    ember-cookies "0.0.13"
     ember-modal-dialog "0.9.1"
 
 nypr-ads@nypublicradio/nypr-ads:
@@ -5806,7 +5807,7 @@ nypr-player@nypublicradio/nypr-player:
 
 nypr-ui@nypublicradio/nypr-ui#emberize-story-WE-7420:
   version "0.0.0"
-  resolved "https://codeload.github.com/nypublicradio/nypr-ui/tar.gz/e69b5985aacf8733eb0aecf01e4eb77a5566c188"
+  resolved "https://codeload.github.com/nypublicradio/nypr-ui/tar.gz/77825e89a0d0b2c31035fd672f10d443ba687dc2"
   dependencies:
     ember-cli-babel "^5.1.7"
     ember-cli-compass-compiler "^0.5.0"
