@@ -5818,7 +5818,7 @@ nypr-player@nypublicradio/nypr-player#demo:
 
 nypr-ui@nypublicradio/nypr-ui#demo:
   version "0.0.0"
-  resolved "https://codeload.github.com/nypublicradio/nypr-ui/tar.gz/e85d18cd2c525720023839b9ba72b1a39bc84bed"
+  resolved "https://codeload.github.com/nypublicradio/nypr-ui/tar.gz/52e41fa007f374bad2cbd4b83d0d167027b01040"
   dependencies:
     ember-cli-babel "^5.1.7"
     ember-cli-compass-compiler "^0.5.0"
