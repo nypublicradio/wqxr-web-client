@@ -137,16 +137,16 @@
         {{/if}}
 
         {{#if (and model.story.headers.brand.title model.story.showTease)}}
-          {{#nypr-story/showSidebarTop
+          {{#nypr-story/show-sidebar-top
             podcasts=model.story.podcastLinks
             showProducingOrgs=model.story.showProducingOrgs
             showTease=model.story.showTease
             showName=model.story.headers.brand.title
-            donateButton=model.story.chunks.showSidebarTop }}
+            donateButton=model.story.chunks.showSidebarTop}}
             {{#if model.story.pageChunks.showSidebarTop}}
               {{django-page page=model.story.pageChunks.showSidebarTop}}
             {{/if}}
-          {{/nypr-story/showSidebarTop}}
+          {{/nypr-story/show-sidebar-top}}
         {{/if}}
 
         {{#if model.story.pageChunks.channelSidebarTop}}
