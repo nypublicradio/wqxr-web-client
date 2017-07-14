@@ -540,10 +540,6 @@ babel-plugin-filter-imports@^0.2.0:
   dependencies:
     json-stable-stringify "^1.0.1"
 
-babel-plugin-htmlbars-inline-precompile@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/babel-plugin-htmlbars-inline-precompile/-/babel-plugin-htmlbars-inline-precompile-0.1.0.tgz#b784723bd1f108796b56faf9f1c05eb5ca442983"
-
 babel-plugin-htmlbars-inline-precompile@^0.2.3:
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/babel-plugin-htmlbars-inline-precompile/-/babel-plugin-htmlbars-inline-precompile-0.2.3.tgz#cd365e278af409bfa6be7704c4354beee742446b"
@@ -2383,6 +2379,15 @@ ember-ajax@^2.4.1:
   dependencies:
     ember-cli-babel "^5.1.5"
 
+ember-basic-dropdown@0.33.1, ember-basic-dropdown@^0.33.1:
+  version "0.33.1"
+  resolved "https://registry.yarnpkg.com/ember-basic-dropdown/-/ember-basic-dropdown-0.33.1.tgz#8eab4181618d32edd88e1c90835d2a8791f09064"
+  dependencies:
+    ember-cli-babel "^6.6.0"
+    ember-cli-htmlbars "^1.1.1"
+    ember-native-dom-helpers "^0.5.0"
+    ember-wormhole "^0.5.1"
+
 ember-basic-dropdown@^0.32.5:
   version "0.32.6"
   resolved "https://registry.yarnpkg.com/ember-basic-dropdown/-/ember-basic-dropdown-0.32.6.tgz#4c95b2f10847a35d9b9386c7be7b01090ca2eb52"
@@ -2398,7 +2403,7 @@ ember-body-class@0.4.0:
   dependencies:
     ember-cli-babel "^5.0.0"
 
-ember-changeset-validations@^1.2.6, ember-changeset-validations@^1.2.7:
+ember-changeset-validations@^1.2.7:
   version "1.2.7"
   resolved "https://registry.yarnpkg.com/ember-changeset-validations/-/ember-changeset-validations-1.2.7.tgz#5791fef334b2693165017d82c091f3a6c6a6f184"
   dependencies:
@@ -2698,15 +2703,6 @@ ember-cli-get-dependency-depth@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/ember-cli-get-dependency-depth/-/ember-cli-get-dependency-depth-1.0.0.tgz#e0afecf82a2d52f00f28ab468295281aec368d11"
 
-ember-cli-htmlbars-inline-precompile@^0.3.6:
-  version "0.3.6"
-  resolved "https://registry.yarnpkg.com/ember-cli-htmlbars-inline-precompile/-/ember-cli-htmlbars-inline-precompile-0.3.6.tgz#4095fe423f93102724c0725e4dd1a31f25e24de5"
-  dependencies:
-    babel-plugin-htmlbars-inline-precompile "^0.1.0"
-    ember-cli-babel "^5.1.3"
-    ember-cli-htmlbars "^1.0.0"
-    hash-for-dep "^1.0.2"
-
 ember-cli-htmlbars-inline-precompile@^0.4.3:
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/ember-cli-htmlbars-inline-precompile/-/ember-cli-htmlbars-inline-precompile-0.4.3.tgz#4123f507fea6c59ba4c272ef7e713a6d55ba06c9"
@@ -2725,6 +2721,15 @@ ember-cli-htmlbars@^1.0.0, ember-cli-htmlbars@^1.0.10, ember-cli-htmlbars@^1.0.3
     hash-for-dep "^1.0.2"
     json-stable-stringify "^1.0.0"
     strip-bom "^2.0.0"
+
+ember-cli-htmlbars@^2.0.1:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/ember-cli-htmlbars/-/ember-cli-htmlbars-2.0.2.tgz#230a9ace7c3454b3acff2768a50f963813a90c38"
+  dependencies:
+    broccoli-persistent-filter "^1.0.3"
+    hash-for-dep "^1.0.2"
+    json-stable-stringify "^1.0.0"
+    strip-bom "^3.0.0"
 
 ember-cli-inject-live-reload@^1.4.1:
   version "1.6.1"
@@ -3202,6 +3207,13 @@ ember-native-dom-helpers@^0.4.0:
     broccoli-funnel "^1.1.0"
     ember-cli-babel "^6.1.0"
 
+ember-native-dom-helpers@^0.5.0:
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/ember-native-dom-helpers/-/ember-native-dom-helpers-0.5.2.tgz#ba6123230fc32c3350f90a8f9183584a022215fa"
+  dependencies:
+    broccoli-funnel "^1.1.0"
+    ember-cli-babel "^6.1.0"
+
 ember-network@^0.3.0:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/ember-network/-/ember-network-0.3.1.tgz#4187988fc817d194a722039806518409d2dd72ab"
@@ -3233,6 +3245,17 @@ ember-power-select@^1.8.2:
     ember-basic-dropdown "^0.32.5"
     ember-cli-babel "^6.1.0"
     ember-cli-htmlbars "^1.1.1"
+    ember-concurrency "^0.8.1"
+    ember-text-measurer "^0.3.3"
+    ember-truth-helpers "^1.3.0"
+
+ember-power-select@^1.9.1:
+  version "1.9.2"
+  resolved "https://registry.yarnpkg.com/ember-power-select/-/ember-power-select-1.9.2.tgz#abe044f4a1b578689fd45fe71f5764a1cad3eca3"
+  dependencies:
+    ember-basic-dropdown "^0.33.1"
+    ember-cli-babel "^6.6.0"
+    ember-cli-htmlbars "^2.0.1"
     ember-concurrency "^0.8.1"
     ember-text-measurer "^0.3.3"
     ember-truth-helpers "^1.3.0"
@@ -5921,14 +5944,15 @@ nypr-player@nypublicradio/nypr-player#demo:
 
 nypr-ui@nypublicradio/nypr-ui#demo:
   version "0.0.0"
-  resolved "https://codeload.github.com/nypublicradio/nypr-ui/tar.gz/2dcf7c6cdce8b8972c0fd3b522d7af6753f9738f"
+  resolved "https://codeload.github.com/nypublicradio/nypr-ui/tar.gz/c27294883690ea8715612fca1a8a75f4e56d59d8"
   dependencies:
+    ember-basic-dropdown "0.33.1"
     ember-cli-babel "^6.6.0"
     ember-cli-compass-compiler "^0.5.0"
     ember-cli-htmlbars "^1.1.1"
     ember-cli-htmlbars-inline-precompile "^0.4.3"
     ember-holygrail-layout "^0.1.4"
-    ember-power-select "^1.8.2"
+    ember-power-select "^1.9.1"
     ivy-tabs "3.1.0"
 
 oauth-sign@~0.8.1:
@@ -7236,6 +7260,10 @@ strip-bom@^2.0.0:
   resolved "https://registry.yarnpkg.com/strip-bom/-/strip-bom-2.0.0.tgz#6219a85616520491f35788bdbf1447a99c7e6b0e"
   dependencies:
     is-utf8 "^0.2.0"
+
+strip-bom@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/strip-bom/-/strip-bom-3.0.0.tgz#2334c18e9c759f7bdd56fdef7e9ae3d588e68ed3"
 
 strip-eof@^1.0.0:
   version "1.0.0"
