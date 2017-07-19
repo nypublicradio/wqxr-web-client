@@ -1,6 +1,7 @@
 import { test } from 'qunit';
 import moduleForAcceptance from 'wqxr-web-client/tests/helpers/module-for-acceptance';
 import config from 'wqxr-web-client/config/environment';
+import $ from 'jquery';
 
 moduleForAcceptance('Acceptance | player events');
 

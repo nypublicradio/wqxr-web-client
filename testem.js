@@ -1,4 +1,4 @@
-/*jshint node:true*/
+/* eslint-env node */
 function reportFile() {
   if (_circleTestFolder()) {
     return _circleTestFolder() + '/test.xml';
@@ -14,15 +14,14 @@ function _circleTestFolder() {
 }
 
 module.exports = {
-  "framework": "qunit",
-  "test_page": "tests/index.html?hidepassed",
-  "disable_watching": true,
-  "launch_in_ci": [
+  test_page: 'tests/index.html?hidepassed',
+  disable_watching: true,
+  launch_in_ci: [
     "Chrome",
   ],
-  "launch_in_dev": [
-    "Chrome",
-    "Firefox"
+  launch_in_dev: [
+    'Firefox',
+    'Chrome'
   ],
   "reporter": testReporter(),
   "report_file": reportFile(),

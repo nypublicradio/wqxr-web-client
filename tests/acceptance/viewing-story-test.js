@@ -47,8 +47,8 @@ test('story pages with a play param', function(assert) {
 
   andThen(function() {
     assert.equal(currentURL(), `story/${story.slug}/?play=${story.slug}`);
-    assert.ok(Ember.$('.nypr-player').length, 'persistent player should be visible');
-    assert.equal(Ember.$('[data-test-selector=nypr-player-story-title]').text(), story.title, `${story.title} should be loaded in player UI`);
+    assert.ok(find('.nypr-player').length, 'persistent player should be visible');
+    assert.equal(find('[data-test-selector=nypr-player-story-title]').text(), story.title, `${story.title} should be loaded in player UI`);
   });
 });
 
@@ -113,10 +113,16 @@ test('story routes do dfp targeting', function(/*assert*/) {
   let forDfp = {tags: ['foo', 'bar'], show: 'foo show', channel: 'foo channel', series: 'foo series'};
   let story = server.create('story', forDfp);
 
-  this.mock(this.application.__container__.lookup('route:story').get('googleAds'))
-    .expects('doTargeting')
-    .once()
-    .withArgs(forDfp);
+  
+  // https://github.com/emberjs/ember.js/issues/14716#issuecomment-267976803
+  visit('/');
+
+  andThen(() => {
+    this.mock(this.application.__container__.lookup('route:story').get('googleAds'))
+      .expects('doTargeting')
+      .once()
+      .withArgs(forDfp);
+  });
   
   visit(`story/${story.slug}`);
 });

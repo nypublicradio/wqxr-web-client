@@ -2,7 +2,6 @@ import { test, skip } from 'qunit';
 import moduleForAcceptance from 'wqxr-web-client/tests/helpers/module-for-acceptance';
 import { registerMockOnInstance } from 'wqxr-web-client/tests/helpers/register-mock';
 import Service from 'ember-service';
-import { resetHTML } from 'wqxr-web-client/tests/helpers/html';
 import velocity from 'velocity';
 
 velocity.mock = true;
@@ -17,9 +16,6 @@ const mockAudio = Service.extend({
 moduleForAcceptance('Acceptance | play param', {
   beforeEach() {
     server.create('stream');
-  },
-  afterEach() {
-    resetHTML();
   }
 });
 
@@ -63,8 +59,8 @@ test('loading a page with the ?play param', function(assert) {
   visit(`bar?play=${slug}`);
 
   andThen(() => {
-    assert.ok(Ember.$('.nypr-player').length, 'persistent player should be visible');
-    assert.equal(Ember.$('[data-test-selector=nypr-player-story-title]').text(), 'Foo', 'Foo story should be loaded in player UI');
+    assert.ok(find('.nypr-player').length, 'persistent player should be visible');
+    assert.equal(find('[data-test-selector=nypr-player-story-title]').text(), 'Foo', 'Foo story should be loaded in player UI');
   });
 });
 
@@ -74,6 +70,6 @@ test('loading a page with a bad ?play param', function(assert) {
 
   visit(`bar?play=${id}`);
   andThen(() => {
-    assert.notOk(Ember.$('.nypr-player').length, 'persistent player should not be visible');
+    assert.notOk(find('.nypr-player').length, 'persistent player should not be visible');
   });
 });

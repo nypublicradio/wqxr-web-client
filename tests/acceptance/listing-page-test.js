@@ -2,15 +2,11 @@ import test from 'ember-sinon-qunit/test-support/test';
 import moduleForAcceptance from 'wqxr-web-client/tests/helpers/module-for-acceptance';
 import djangoPage from 'wqxr-web-client/tests/pages/django-page';
 import showPage from 'wqxr-web-client/tests/pages/show';
-import { resetHTML } from 'wqxr-web-client/tests/helpers/html';
 import config from 'wqxr-web-client/config/environment';
 
 moduleForAcceptance('Acceptance | Listing Page | viewing', {
   beforeEach() {
     server.create('stream');
-  },
-  afterEach() {
-    resetHTML();
   }
 });
 
@@ -290,8 +286,8 @@ test('show pages with a play param', function(assert) {
 
   andThen(function() {
     assert.equal(currentURL(), `${listingPage.id}?play=${story.slug}`);
-    assert.ok(Ember.$('.nypr-player').length, 'persistent player should be visible');
-    assert.equal(Ember.$('[data-test-selector=nypr-player-story-title]').text(), story.title, `${story.title} should be loaded in player UI`);
+    assert.ok(find('.nypr-player').length, 'persistent player should be visible');
+    assert.equal(find('[data-test-selector=nypr-player-story-title]').text(), story.title, `${story.title} should be loaded in player UI`);
   });
 
 });
@@ -322,10 +318,15 @@ test('channel routes do dfp targeting', function(/*assert*/) {
   });
   server.create('api-response', { id: 'shows/foo/recent_stories/1' });
   server.create('django-page', {id: listingPage.id});
+  
+  // https://github.com/emberjs/ember.js/issues/14716#issuecomment-267976803
+  visit('/');
 
-  this.mock(this.application.__container__.lookup('route:show').get('googleAds'))
-    .expects('doTargeting')
-    .once();
+  andThen(() => {
+    this.mock(this.application.__container__.lookup('route:show').get('googleAds'))
+      .expects('doTargeting')
+      .once();
+  });
   
   djangoPage
     .bootstrap({id: listingPage.id})
