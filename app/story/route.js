@@ -45,6 +45,11 @@ export default Ember.Route.extend(PlayParamMixin, {
     controller.set('session', get(this, 'session'));
     controller.set('user', get(this, 'currentUser.user'));
     controller.set('audio', get(this, 'audio'));
+
+    //account for older links using #transcript
+    if (location.hash.substr(1) === "transcript"){
+      controller.set('tab', 'transcript');
+    }
     return this._super(...arguments);
   },
   
