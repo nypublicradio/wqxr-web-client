@@ -5839,7 +5839,7 @@ nypr-player@nypublicradio/nypr-player#demo:
 
 nypr-ui@nypublicradio/nypr-ui#demo:
   version "0.0.0"
-  resolved "https://codeload.github.com/nypublicradio/nypr-ui/tar.gz/cc751bd68f39ef120d1b571a69aa7bed33613ff2"
+  resolved "https://codeload.github.com/nypublicradio/nypr-ui/tar.gz/e54bf50ca362bd5df16f63688da158e4c9c22fb7"
   dependencies:
     ember-basic-dropdown "0.33.1"
     ember-cli-babel "^6.6.0"
