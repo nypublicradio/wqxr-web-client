@@ -3164,6 +3164,18 @@ ember-hifi@^1.10.1:
     hls.js "^0.7.9"
     howler "^2.0.4"
 
+ember-hifi@^1.11.1:
+  version "1.11.1"
+  resolved "https://registry.yarnpkg.com/ember-hifi/-/ember-hifi-1.11.1.tgz#b9380656b19fccfea2d11dc2c639b38ca2652790"
+  dependencies:
+    broccoli-funnel "^1.2.0"
+    broccoli-merge-trees "^1.2.0"
+    ember-cli-babel "^5.1.7"
+    ember-getowner-polyfill "^1.0.1"
+    ember-poll "^1.0.1"
+    hls.js "^0.7.9"
+    howler "^2.0.4"
+
 ember-holygrail-layout@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/ember-holygrail-layout/-/ember-holygrail-layout-0.1.4.tgz#ac7fe907d7aa4376366831d31e9cbe3c5e5a8a00"
@@ -5910,15 +5922,15 @@ nypr-audio-services@nypublicradio/nypr-audio-services:
   version "0.0.0"
   resolved "https://codeload.github.com/nypublicradio/nypr-audio-services/tar.gz/dcbe34c0693662d66977a6a80d445611c5c5158f"
   dependencies:
-    ember-cli-babel "^6.6.0"
-    ember-cli-compass-compiler "^0.5.0"
-    ember-cli-htmlbars "^2.0.1"
-    ember-cli-htmlbars-inline-precompile "^0.4.3"
+    ember-cli-babel "^5.1.7"
+    ember-cli-htmlbars "^1.1.1"
+    ember-cli-htmlbars-inline-precompile "^0.3.6"
     ember-diff-attrs "^0.1.2"
     ember-hifi "^1.10.1"
     liquid-fire "0.27.2"
-    nypr-metrics nypublicradio/nypr-metrics
-    nypr-ui nypublicradio/nypr-ui#feature/nypr-audio-services
+    nypr-metrics "git+ssh://git@github.com/nypublicradio/nypr-metrics"
+    nypr-player "git+ssh://git@github.com/nypublicradio/nypr-player"
+    nypr-ui "git+ssh://git@github.com/nypublicradio/nypr-ui#nypr-audio-services"
 
 nypr-metrics@nypublicradio/nypr-metrics:
   version "0.0.0"
@@ -5932,8 +5944,8 @@ nypr-player@nypublicradio/nypr-player:
   version "0.0.2"
   resolved "https://codeload.github.com/nypublicradio/nypr-player/tar.gz/791d182d93d419d27b5683d7699ab77762ee381c"
   dependencies:
-    ember-cli-babel "^6.3.0"
-    ember-cli-htmlbars "^2.0.1"
+    ember-cli-babel "^5.1.7"
+    ember-cli-htmlbars "^1.0.10"
 
 nypr-ui@nypublicradio/nypr-ui#feature/nypr-audio-services:
   version "0.0.0"
@@ -5944,7 +5956,7 @@ nypr-ui@nypublicradio/nypr-ui#feature/nypr-audio-services:
     ember-cli-compass-compiler "^0.5.0"
     ember-cli-htmlbars "^2.0.1"
     ember-cli-htmlbars-inline-precompile "^0.4.3"
-    ember-click-outside "0.1.9"
+    ember-click-outside "0.1.3"
     ember-composable-helpers "2.0.1"
     ember-holygrail-layout "^0.1.4"
     ember-power-select "^1.9.2"
