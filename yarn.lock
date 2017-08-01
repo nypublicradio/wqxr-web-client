@@ -2371,7 +2371,7 @@ ember-body-class@0.4.0:
   dependencies:
     ember-cli-babel "^5.0.0"
 
-ember-changeset-validations@^1.2.7:
+ember-changeset-validations@^1.2.8:
   version "1.2.8"
   resolved "https://registry.yarnpkg.com/ember-changeset-validations/-/ember-changeset-validations-1.2.8.tgz#80c14fac5ee35dfff3538e6e9bc905c0686e193c"
   dependencies:
@@ -2680,16 +2680,6 @@ ember-cli-htmlbars@^1.0.0, ember-cli-htmlbars@^1.0.10, ember-cli-htmlbars@^1.0.3
     json-stable-stringify "^1.0.0"
     strip-bom "^2.0.0"
 
-ember-cli-htmlbars@^1.1.0:
-  version "1.3.3"
-  resolved "https://registry.yarnpkg.com/ember-cli-htmlbars/-/ember-cli-htmlbars-1.3.3.tgz#06815262c1577736235bd42ce99db559ce5ebfd1"
-  dependencies:
-    broccoli-persistent-filter "^1.0.3"
-    ember-cli-version-checker "^1.0.2"
-    hash-for-dep "^1.0.2"
-    json-stable-stringify "^1.0.0"
-    strip-bom "^2.0.0"
-
 ember-cli-htmlbars@^2.0.1:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/ember-cli-htmlbars/-/ember-cli-htmlbars-2.0.2.tgz#230a9ace7c3454b3acff2768a50f963813a90c38"
@@ -2977,13 +2967,6 @@ ember-cli@~2.14.0:
     validate-npm-package-name "^3.0.0"
     walk-sync "^0.3.0"
     yam "0.0.22"
-
-ember-click-outside@0.1.3:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/ember-click-outside/-/ember-click-outside-0.1.3.tgz#dd55f7a893176bc7cc7d31934dbd07782c601ec3"
-  dependencies:
-    ember-cli-babel "^5.1.6"
-    ember-cli-htmlbars "^1.1.0"
 
 ember-click-outside@0.1.9:
   version "0.1.9"
@@ -5867,10 +5850,10 @@ number-is-nan@^1.0.0:
 
 nypr-account-settings@nypublicradio/nypr-account-settings#demo:
   version "0.0.0"
-  resolved "https://codeload.github.com/nypublicradio/nypr-account-settings/tar.gz/9853e08dfa92c1b82feae34d4a6de05d2f6abb16"
+  resolved "https://codeload.github.com/nypublicradio/nypr-account-settings/tar.gz/9d50faf16f5cff6eb3963f87f11bb43aae7a9628"
   dependencies:
     ember-changeset "^1.2.3"
-    ember-changeset-validations "^1.2.7"
+    ember-changeset-validations "^1.2.8"
     ember-cli-babel "^5.1.7"
     ember-cli-compass-compiler "^0.5.0"
     ember-cli-htmlbars "^1.1.1"
@@ -5887,7 +5870,7 @@ nypr-ads@nypublicradio/nypr-ads#demo:
 
 nypr-audio-services@nypublicradio/nypr-audio-services#demo:
   version "0.0.0"
-  resolved "https://codeload.github.com/nypublicradio/nypr-audio-services/tar.gz/97fa08ca142c0082e9ecc994e68d8dab04a58771"
+  resolved "https://codeload.github.com/nypublicradio/nypr-audio-services/tar.gz/141f93cfbf0338b8364aa706e4b6d78c4f74ce3e"
   dependencies:
     ember-cli-babel "^6.6.0"
     ember-cli-compass-compiler "^0.5.0"
@@ -5897,11 +5880,11 @@ nypr-audio-services@nypublicradio/nypr-audio-services#demo:
     ember-hifi "^1.11.1"
     liquid-fire "0.27.2"
     nypr-metrics nypublicradio/nypr-metrics
-    nypr-ui nypublicradio/nypr-ui#feature/nypr-audio-services
+    nypr-ui nypublicradio/nypr-ui#demo
 
 nypr-metrics@nypublicradio/nypr-metrics:
   version "0.0.0"
-  resolved "https://codeload.github.com/nypublicradio/nypr-metrics/tar.gz/b66612d647c1fc85e5b1d636a0796d97bf86607b"
+  resolved "https://codeload.github.com/nypublicradio/nypr-metrics/tar.gz/f9c9b5bf95b91e81f29c18f2ca0ccba507f064ec"
   dependencies:
     ember-cli-babel "^6.0.0"
     ember-cli-htmlbars "^1.1.1"
@@ -5918,21 +5901,6 @@ nypr-player@nypublicradio/nypr-player#demo:
 nypr-ui@nypublicradio/nypr-ui#demo:
   version "0.0.0"
   resolved "https://codeload.github.com/nypublicradio/nypr-ui/tar.gz/75d916fc2347cbd150b32aa9a5e2245ff745eb78"
-  dependencies:
-    ember-basic-dropdown "0.33.1"
-    ember-cli-babel "^6.6.0"
-    ember-cli-compass-compiler "^0.5.0"
-    ember-cli-htmlbars "^2.0.1"
-    ember-cli-htmlbars-inline-precompile "^0.4.3"
-    ember-click-outside "0.1.9"
-    ember-composable-helpers "2.0.1"
-    ember-holygrail-layout "^0.1.4"
-    ember-power-select "^1.9.2"
-    ivy-tabs "3.1.0"
-
-nypr-ui@nypublicradio/nypr-ui#feature/nypr-audio-services:
-  version "0.0.0"
-  resolved "https://codeload.github.com/nypublicradio/nypr-ui/tar.gz/6ac94268ae606d9c29647159d0892bdb6b0aeb59"
   dependencies:
     ember-basic-dropdown "0.33.1"
     ember-cli-babel "^6.6.0"
