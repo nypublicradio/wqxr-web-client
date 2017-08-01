@@ -85,7 +85,7 @@ export default Component.extend({
 
   _checkWhatsOn() {
     const story = get(this, 'item');
-    const pk = get(story, 'id');
+    const pk = get(story, 'cmsPK');
     const isLatest = get(this, 'item.isLatest');
     const whatsOn = get(this, 'whatsOn');
 
