@@ -123,7 +123,7 @@ export default Model.extend({
     if (browserId) {
       data.id = browserId;
     }
-    return `${ENV.wnycAccountRoot}/comments/security_info/?${Ember.$.param(data)}`;
+    return `${ENV.wnycAdminRoot}/comments/security_info/?${Ember.$.param(data)}`;
   },
   nprAnalyticsDimensions: attr(),
   allProducingOrgs: computed('producingOrganizations', 'showProducingOrgs', function(){
