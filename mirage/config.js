@@ -35,8 +35,7 @@ export default function() {
   this.get(`${baseUrl}/api/v1/story/:id`);
   this.get(`${baseUrl}/api/v1/browser_id/`, {success: true});
   this.get(`${baseUrl}/api/v1/list/comments/24/:storyId/`, 'comment');
-  this.get(`${baseUrl}/api/v1/whats_on/`);
-  this.get('/api/v1/whats_on/');
+  this.get(`${config.wnycAPI}/v1/whats_on/`);
   this.get(`${baseUrl}/api/v1/whats_on/:slug`, 'whats-on');
   this.get('/api/v1/whats_on/:slug', 'whats-on');
   this.get(`${baseUrl}/api/v1/list/streams/`);
@@ -44,10 +43,10 @@ export default function() {
   this.get(`${baseUrl}/api/v1/list/streams/:slug`, 'stream');
   this.get('/api/v1/list/streams/:slug', 'stream');
 
-  this.post(`${config.wnycAPI}/api/v1/listenaction/create/:id/play/`, {});
-  this.post(`${config.wnycAPI}/api/v1/listenaction/create/:id/complete/`, {});
-  this.post(`${config.wnycAPI}/api/most/view/managed_item/:id/`, {});
-  this.post(`${config.wnycAPI}/api/most/listen/managed_item/:id/`, {});
+  this.post(`${config.wnycAPI}/v1/listenaction/create/:id/play/`, {});
+  this.post(`${config.wnycAPI}/v1/listenaction/create/:id/complete/`, {});
+  this.post(`${config.wnycAPI}/most/view/managed_item/:id/`, {});
+  this.post(`${config.wnycAPI}/most/listen/managed_item/:id/`, {});
 
   /*------------------------------------------------------------
     transitional (v2) endpoints
@@ -75,7 +74,7 @@ export default function() {
     identity management (account) endpoints
   --------------------------------------------------------------*/
   this.get(`${config.wnycAdminRoot}/api/v1/is_logged_in/`, {});
-  this.get(`${config.wnycAccountRoot}/comments/security_info/`, {security_hash: 'foo', timestamp: Date.now()});
+  this.get(`${config.wnycAdminRoot}/comments/security_info/`, {security_hash: 'foo', timestamp: Date.now()});
 
   this.post(`${config.wnycAdminRoot}/api/v1/accounts/logout/`, {successful_logout: true});
   this.post(`${config.wnycAdminRoot}/api/v1/accounts/login/`, function(schema, request) {
