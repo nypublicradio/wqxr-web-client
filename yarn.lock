@@ -3059,6 +3059,18 @@ ember-hifi@^1.11.1:
     hls.js "^0.7.9"
     howler "^2.0.4"
 
+ember-hifi@^1.11.2:
+  version "1.11.2"
+  resolved "https://registry.yarnpkg.com/ember-hifi/-/ember-hifi-1.11.2.tgz#5dd9b1b7425c40d777c8f2c8b0e0fc1bcf1ae9c6"
+  dependencies:
+    broccoli-funnel "^1.2.0"
+    broccoli-merge-trees "^1.2.0"
+    ember-cli-babel "^5.1.7"
+    ember-getowner-polyfill "^1.0.1"
+    ember-poll "^1.0.1"
+    hls.js "^0.7.9"
+    howler "^2.0.4"
+
 ember-holygrail-layout@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/ember-holygrail-layout/-/ember-holygrail-layout-0.1.4.tgz#ac7fe907d7aa4376366831d31e9cbe3c5e5a8a00"
@@ -3089,6 +3101,12 @@ ember-inflector@^1.9.2, ember-inflector@^1.9.4:
 ember-invoke-action@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/ember-invoke-action/-/ember-invoke-action-1.4.0.tgz#2899854bd755f9331ca86c902bf6d4dbf8bdfcb3"
+  dependencies:
+    ember-cli-babel "^5.1.6"
+
+ember-keyboard@2.1.9:
+  version "2.1.9"
+  resolved "https://registry.yarnpkg.com/ember-keyboard/-/ember-keyboard-2.1.9.tgz#52a810b749d23ca5bafd4484fd101bf0b73811ab"
   dependencies:
     ember-cli-babel "^5.1.6"
 
@@ -5766,7 +5784,7 @@ nypr-ads@nypublicradio/nypr-ads:
 
 nypr-audio-services@nypublicradio/nypr-audio-services:
   version "0.0.0"
-  resolved "https://codeload.github.com/nypublicradio/nypr-audio-services/tar.gz/7f1a179d28e50f16c78db3dcc1ec69c8084a602c"
+  resolved "https://codeload.github.com/nypublicradio/nypr-audio-services/tar.gz/398c99d2c29a225d87da3a3dcdd3a6269c8e2761"
   dependencies:
     ember-cli-babel "^6.6.0"
     ember-cli-compass-compiler "^0.5.0"
@@ -5793,9 +5811,24 @@ nypr-player@nypublicradio/nypr-player:
     ember-cli-babel "^6.3.0"
     ember-cli-htmlbars "^2.0.1"
 
+nypr-ui@nypublicradio/nypr-ui#demo:
+  version "0.0.0"
+  resolved "https://codeload.github.com/nypublicradio/nypr-ui/tar.gz/75d916fc2347cbd150b32aa9a5e2245ff745eb78"
+  dependencies:
+    ember-basic-dropdown "0.33.1"
+    ember-cli-babel "^6.6.0"
+    ember-cli-compass-compiler "^0.5.0"
+    ember-cli-htmlbars "^2.0.1"
+    ember-cli-htmlbars-inline-precompile "^0.4.3"
+    ember-click-outside "0.1.9"
+    ember-composable-helpers "2.0.1"
+    ember-holygrail-layout "^0.1.4"
+    ember-power-select "^1.9.2"
+    ivy-tabs "3.1.0"
+
 nypr-ui@nypublicradio/nypr-ui#feature/nypr-audio-services:
   version "0.0.0"
-  resolved "https://codeload.github.com/nypublicradio/nypr-ui/tar.gz/6ac94268ae606d9c29647159d0892bdb6b0aeb59"
+  resolved "https://codeload.github.com/nypublicradio/nypr-ui/tar.gz/a97c9f5b7d62fefe61d905cf2ea2f75f9eb23348"
   dependencies:
     ember-basic-dropdown "0.33.1"
     ember-cli-babel "^6.6.0"
