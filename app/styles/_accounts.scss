@@ -238,7 +238,7 @@
   }
 
   @include mq($h-medium) {
-    height: initial;
+    overflow: scroll;
   }
 }
 
