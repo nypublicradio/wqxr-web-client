@@ -5882,7 +5882,7 @@ nypr-ads@nypublicradio/nypr-ads#demo:
 
 nypr-audio-services@nypublicradio/nypr-audio-services#demo:
   version "0.0.0"
-  resolved "https://codeload.github.com/nypublicradio/nypr-audio-services/tar.gz/1e145dc61f501d0a633d2320382309b187d7030a"
+  resolved "https://codeload.github.com/nypublicradio/nypr-audio-services/tar.gz/702dafcd097c9ddb9f2b99f239cd14ae2a06a985"
   dependencies:
     ember-cli-babel "^6.6.0"
     ember-cli-compass-compiler "^0.5.0"
