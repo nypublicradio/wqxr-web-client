@@ -13,7 +13,7 @@
     "build": "ember build",
     "start": "ember server",
     "test": "ember test",
-    "upgrade-nypr": "yarn upgrade nypublicradio/nypr-ads#demo nypublicradio/nypr-ui#demo nypublicradio/nypr-player#demo nypublicradio/nypr-account-settings#demo nypublicradio/nypr-audio-services#demo"
+    "upgrade-nypr": "yarn upgrade nypublicradio/nypr-ads#demo nypublicradio/nypr-ui#demo nypublicradio/nypr-player#demo nypublicradio/nypr-account-settings#demo nypublicradio/nypr-audio-services#demo nypublicradio/nypr-metrics#demo"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
@@ -61,7 +61,7 @@
     "ember-fetch": "3.2.9",
     "ember-get-config": "0.2.1",
     "ember-getowner-polyfill": "1.0.1",
-    "ember-hifi": "^1.11.2",
+    "ember-hifi": "^1.11.3",
     "ember-holygrail-layout": "^0.1.4",
     "ember-hotjar": "^0.0.2",
     "ember-imagesloaded-shim": "^0.0.6",
@@ -93,6 +93,7 @@
     "nypr-account-settings": "nypublicradio/nypr-account-settings#demo",
     "nypr-ads": "nypublicradio/nypr-ads#demo",
     "nypr-audio-services": "nypublicradio/nypr-audio-services#demo",
+    "nypr-metrics": "nypublicradio/nypr-metrics#demo",
     "nypr-player": "nypublicradio/nypr-player#demo",
     "nypr-ui": "nypublicradio/nypr-ui#demo",
     "torii": "0.9.5"
