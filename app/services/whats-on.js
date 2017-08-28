@@ -1,8 +1,8 @@
 import ENV from 'wqxr-web-client/config/environment';
-import wrapAjax from 'wqxr-web-client/lib/wrap-ajax';
+import wrapAjax from 'nypr-django-for-ember/utils/wrap-ajax';
 import Service from 'ember-service';
 import get from 'ember-metal/get';
-import { canonicalize } from 'wqxr-web-client/services/script-loader';
+import { canonicalize } from 'nypr-django-for-ember/services/script-loader';
 
 let { wnycAPI } = ENV;
 wnycAPI = canonicalize(wnycAPI);
