@@ -5862,7 +5862,7 @@ number-is-nan@^1.0.0:
 
 nypr-account-settings@nypublicradio/nypr-account-settings#demo:
   version "0.0.0"
-  resolved "https://codeload.github.com/nypublicradio/nypr-account-settings/tar.gz/e5ddd9a98a517e877055afa1f55a625af3236e00"
+  resolved "https://codeload.github.com/nypublicradio/nypr-account-settings/tar.gz/eb547f805fa81ecab82640b893273950480a97fe"
   dependencies:
     ember-changeset "^1.2.3"
     ember-changeset-validations "^1.2.8"
@@ -5904,7 +5904,7 @@ nypr-metrics@nypublicradio/nypr-metrics:
 
 nypr-metrics@nypublicradio/nypr-metrics#demo:
   version "0.0.0"
-  resolved "https://codeload.github.com/nypublicradio/nypr-metrics/tar.gz/c45957ab913cc8bd7db9af548c18fc4f34480908"
+  resolved "https://codeload.github.com/nypublicradio/nypr-metrics/tar.gz/f587bcaed2eafc50bb011c03eee2cd21602c76eb"
   dependencies:
     ember-cli-babel "^6.0.0"
     ember-cli-htmlbars "^1.1.1"
