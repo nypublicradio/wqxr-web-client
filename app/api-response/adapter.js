@@ -1,9 +1,10 @@
-import ApplicationAdapter from '../adapters/application';
+import ApiResponseAdapter from 'nypr-publisher-lib/adapters/api-response';
+import DataAdapterMixin from 'ember-simple-auth/mixins/data-adapter-mixin';
 
-export default ApplicationAdapter.extend({
-  pathForType() { return 'channel'; },
-  buildURL() {
-    let url = this._super(...arguments);
-    return decodeURIComponent(url);
+export default ApiResponseAdapter.extend(DataAdapterMixin, {
+  authorizer: 'authorizer:nypr',
+    // ember 2.0 deprecation
+  shouldBackgroundReloadRecord() {
+    return false;
   }
 });
