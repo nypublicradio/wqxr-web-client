@@ -6011,8 +6011,8 @@ nypr-account-settings@nypublicradio/nypr-account-settings#demo:
     ember-changeset "^1.2.3"
     ember-changeset-validations "^1.2.8"
     ember-cli-babel "^5.1.7"
+    ember-cli-compass-compiler "^0.5.0"
     ember-cli-htmlbars "^1.1.1"
-    ember-cli-sass "7.0.0"
     ember-concurrency "^0.8.1"
     ember-cookies "0.0.13"
     ember-modal-dialog "0.9.1"
@@ -6026,7 +6026,7 @@ nypr-ads@nypublicradio/nypr-ads#demo:
 
 nypr-audio-services@nypublicradio/nypr-audio-services#demo:
   version "0.0.0"
-  resolved "https://codeload.github.com/nypublicradio/nypr-audio-services/tar.gz/674ad80505d0e3a94e54f370e572811aa5c558c3"
+  resolved "https://codeload.github.com/nypublicradio/nypr-audio-services/tar.gz/621e9d771dcf3384ece59d087064524d54033b3b"
   dependencies:
     ember-cli-babel "^6.6.0"
     ember-cli-compass-compiler "^0.5.0"
@@ -6038,18 +6038,8 @@ nypr-audio-services@nypublicradio/nypr-audio-services#demo:
     ember-hifi "^1.11.1"
     ember-simple-auth "^1.3.0"
     liquid-fire "0.27.2"
-    nypr-metrics nypublicradio/nypr-metrics
+    nypr-metrics nypublicradio/nypr-metrics#demo
     nypr-ui nypublicradio/nypr-ui#demo
-
-nypr-metrics@nypublicradio/nypr-metrics:
-  version "0.0.0"
-  resolved "https://codeload.github.com/nypublicradio/nypr-metrics/tar.gz/f9c9b5bf95b91e81f29c18f2ca0ccba507f064ec"
-  dependencies:
-    ember-cli-babel "^6.0.0"
-    ember-cli-htmlbars "^1.1.1"
-    ember-cli-htmlbars-inline-precompile "^0.4.0"
-    ember-get-config "^0.2.2"
-    ember-metrics "^0.12.1"
 
 nypr-metrics@nypublicradio/nypr-metrics#demo:
   version "0.0.0"
@@ -6067,17 +6057,17 @@ nypr-player@nypublicradio/nypr-player#demo:
   dependencies:
     ember-cli-babel "^6.3.0"
     ember-cli-htmlbars "^2.0.1"
-    ember-cli-sass "^7.0.0"
+    ember-keyboard "2.1.9"
 
 nypr-ui@nypublicradio/nypr-ui#demo:
   version "0.0.0"
-  resolved "https://codeload.github.com/nypublicradio/nypr-ui/tar.gz/82c4dc4d63f214d14a167c80022436b5af58b263"
+  resolved "https://codeload.github.com/nypublicradio/nypr-ui/tar.gz/cbbd376d52882f0cf117e26f104c39fef8fc1aef"
   dependencies:
     ember-basic-dropdown "0.33.1"
     ember-cli-babel "^6.6.0"
+    ember-cli-compass-compiler "^0.5.0"
     ember-cli-htmlbars "^2.0.1"
     ember-cli-htmlbars-inline-precompile "^0.4.3"
-    ember-cli-sass "^7.0.0"
     ember-click-outside "0.1.9"
     ember-composable-helpers "2.0.1"
     ember-holygrail-layout "^0.1.4"
