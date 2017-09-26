@@ -5,9 +5,9 @@
  */
 
  .icon--with-text {
-  display: flex,
-  flex-direction: row,
-  align-items: center
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   border: none;
 
   svg,
@@ -21,7 +21,7 @@
   }
 
   &--top {
-    align-items: flex-start
+    align-items: flex-start;
   }
 }
 
