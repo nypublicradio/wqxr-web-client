@@ -5,28 +5,24 @@
  */
 
  .icon--with-text {
-   @include flexbox((
-    display: flex,
-    flex-direction: row,
-    align-items: center
-   ));
-   border: none;
+  display: flex,
+  flex-direction: row,
+  align-items: center
+  border: none;
 
-   svg,
-   i {
-     margin-right: 7px;
+  svg,
+  i {
+    margin-right: 7px;
 
-     &.fa {
-       width: 15px;
-       text-align: center;
-     }
-   }
+    &.fa {
+      width: 15px;
+      text-align: center;
+    }
+  }
 
-   &--top {
-     @include flexbox((
-      align-items: flex-start
-     ));
-   }
+  &--top {
+    align-items: flex-start
+  }
 }
 
 /**
