@@ -17,13 +17,21 @@ module.exports = {
   test_page: 'tests/index.html?hidepassed',
   disable_watching: true,
   launch_in_ci: [
-    "Chrome",
+    'Chrome'
   ],
   launch_in_dev: [
     'Firefox',
     'Chrome'
   ],
-  "reporter": testReporter(),
-  "report_file": reportFile(),
-  "xunit_intermediate_output": true
+  reporter: testReporter(),
+  report_file: reportFile(),
+  xunit_intermediate_output: true,
+  browser_args: {
+    Chrome: [
+      '--disable-gpu',
+      '--headless',
+      '--remote-debugging-port=9222',
+      '--window-size=1440,900'
+    ]
+  }
 };
