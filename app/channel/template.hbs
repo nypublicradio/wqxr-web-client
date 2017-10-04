@@ -1,9 +1,8 @@
 {{#django-page page=model.page}}
   {{#if model.channel.altLayout}}
     {{#alt-channel-layout
-      navSlugTransition=(action 'navSlugTransition')
       defaultSlug=defaultSlug
-      navRoot=navRoot
+      channelType=channelType
       channel=model.channel
       adminURL=adminURL
       isStaff=session.data.isStaff
