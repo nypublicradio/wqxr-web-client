@@ -6477,7 +6477,7 @@ nypr-ads@nypublicradio/nypr-ads#demo:
 
 nypr-audio-services@nypublicradio/nypr-audio-services#demo:
   version "0.0.0"
-  resolved "https://codeload.github.com/nypublicradio/nypr-audio-services/tar.gz/9f4cceaf393d91443bf27cd6a3f5bd69418eb10b"
+  resolved "https://codeload.github.com/nypublicradio/nypr-audio-services/tar.gz/be972a43fa96eff4451849fb777c0b373507561f"
   dependencies:
     ember-cli-babel "^6.6.0"
     ember-cli-htmlbars "^2.0.1"
@@ -6510,7 +6510,7 @@ nypr-django-for-ember@nypublicradio/nypr-django-for-ember#demo:
 
 nypr-metrics@nypublicradio/nypr-metrics#demo:
   version "0.0.0"
-  resolved "https://codeload.github.com/nypublicradio/nypr-metrics/tar.gz/315e521e428d7e8dd81b0752ca9f8530af727498"
+  resolved "https://codeload.github.com/nypublicradio/nypr-metrics/tar.gz/0fc6a2117366a930a2998de3ef786ba953bbdd16"
   dependencies:
     ember-cli-babel "^6.0.0"
     ember-cli-htmlbars "^1.1.1"
@@ -6533,7 +6533,7 @@ nypr-player@nypublicradio/nypr-player#demo:
 
 nypr-publisher-lib@nypublicradio/nypr-publisher-lib#demo:
   version "0.0.0"
-  resolved "https://codeload.github.com/nypublicradio/nypr-publisher-lib/tar.gz/e06fdd9e79a8cfea5de3abf111054907e76285fd"
+  resolved "https://codeload.github.com/nypublicradio/nypr-publisher-lib/tar.gz/5bbf8a7b21c48e0ff866551dc23ab679ae583be0"
   dependencies:
     ember-cli-babel "^6.3.0"
     ember-cli-htmlbars "^2.0.1"
@@ -6549,7 +6549,7 @@ nypr-publisher-lib@nypublicradio/nypr-publisher-lib#demo:
 
 nypr-ui@nypublicradio/nypr-ui#demo:
   version "0.0.0"
-  resolved "https://codeload.github.com/nypublicradio/nypr-ui/tar.gz/49a5c24ac593f2bdf23c13bb9017ec8f4c42ba79"
+  resolved "https://codeload.github.com/nypublicradio/nypr-ui/tar.gz/0f638f916fc2600a68c0562acfde90fbc4cbb85a"
   dependencies:
     ember-basic-dropdown "0.33.1"
     ember-cli-babel "^6.6.0"
