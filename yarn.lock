@@ -6510,7 +6510,7 @@ nypr-django-for-ember@nypublicradio/nypr-django-for-ember#demo:
 
 nypr-metrics@nypublicradio/nypr-metrics#demo:
   version "0.0.0"
-  resolved "https://codeload.github.com/nypublicradio/nypr-metrics/tar.gz/0fc6a2117366a930a2998de3ef786ba953bbdd16"
+  resolved "https://codeload.github.com/nypublicradio/nypr-metrics/tar.gz/005460ae72dc53bb10e22f51bd427982b95779b2"
   dependencies:
     ember-cli-babel "^6.0.0"
     ember-cli-htmlbars "^1.1.1"
