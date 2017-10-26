@@ -6510,7 +6510,7 @@ nypr-django-for-ember@nypublicradio/nypr-django-for-ember#demo:
 
 nypr-metrics@nypublicradio/nypr-metrics#demo:
   version "0.0.0"
-  resolved "https://codeload.github.com/nypublicradio/nypr-metrics/tar.gz/005460ae72dc53bb10e22f51bd427982b95779b2"
+  resolved "https://codeload.github.com/nypublicradio/nypr-metrics/tar.gz/9b49b92e25c4ab052d9512a33561d028b252a667"
   dependencies:
     ember-cli-babel "^6.0.0"
     ember-cli-htmlbars "^1.1.1"
@@ -6533,13 +6533,12 @@ nypr-player@nypublicradio/nypr-player#demo:
 
 nypr-publisher-lib@nypublicradio/nypr-publisher-lib#demo:
   version "0.0.0"
-  resolved "https://codeload.github.com/nypublicradio/nypr-publisher-lib/tar.gz/5bbf8a7b21c48e0ff866551dc23ab679ae583be0"
+  resolved "https://codeload.github.com/nypublicradio/nypr-publisher-lib/tar.gz/d3c5eceb9f81f396214e150bd6100ad1c054d862"
   dependencies:
     ember-cli-babel "^6.3.0"
     ember-cli-htmlbars "^2.0.1"
     ember-cli-htmlbars-inline-precompile "^1.0.0"
     ember-cli-sass "^7.0.0"
-    ember-code-snippet "^2.0.0"
     ember-font-awesome "^4.0.0-alpha.10"
     ember-get-config "^0.2.2"
     liquid-fire "0.27.2"
