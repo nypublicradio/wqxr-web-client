@@ -107,5 +107,8 @@
   },
   "engines": {
     "node": "^4.5 || 6.* || >= 7.*"
+  },
+  "resolutions": {
+    "nypr-ui": "nypublicradio/nypr-ui#demo"
   }
 }
