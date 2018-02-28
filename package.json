@@ -97,7 +97,7 @@
     "nypr-metrics": "~0.0.0",
     "nypr-player": "nypublicradio/nypr-player#demo",
     "nypr-publisher-lib": "~0.0.0",
-    "nypr-ui": "nypublicradio/nypr-ui#demo",
+    "nypr-ui": "~0.1.7",
     "torii": "0.9.5"
   },
   "ember-addon": {
