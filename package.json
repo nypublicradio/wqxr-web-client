@@ -96,7 +96,7 @@
     "nypr-django-for-ember": "nypublicradio/nypr-django-for-ember#demo",
     "nypr-metrics": "~0.0.0",
     "nypr-player": "nypublicradio/nypr-player#demo",
-    "nypr-publisher-lib": "~0.0.0",
+    "nypr-publisher-lib": "nypublicradio/nypr-publisher-lib#demo",
     "nypr-ui": "~0.1.7",
     "torii": "0.9.5"
   },
