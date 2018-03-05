@@ -184,6 +184,8 @@ module.exports = function(environment) {
     // Testem prefers this...
     ENV.locationType = 'none';
 
+    delete ENV.newRelic;
+
     ENV.queueAudioBumperURL = 'http://audio-bumper.com/thucyides.mp3';
 
     // keep test console output quieter
