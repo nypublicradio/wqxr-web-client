@@ -21,6 +21,11 @@ module.exports = function(environment) {
         name: 'NativeAudio'
       }],
     },
+    newRelic: {
+     spaMonitoring: true,
+     applicationId: process.env.NEW_RELIC_APP_ID,
+     licenseKey: process.env.NEW_RELIC_LICENSE_KEY
+    },
     metricsAdapters: [{
       name: 'GoogleAnalytics',
       config: {
