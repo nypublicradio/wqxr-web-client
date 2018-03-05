@@ -54,6 +54,8 @@ deployment:
             GOOGLE_ANALYTICS: $PROD_GOOGLE_ANALYTICS
             GOOGLE_API_V3_KEY: $PROD_GOOGLE_API_V3_KEY
             FB_APP: $PROD_FB_APP
+            NEW_RELIC_LICENSE_KEY: $PROD_NEW_RELIC_LICENSE_KEY
+            NEW_RELIC_APP_ID: $PROD_NEW_RELIC_APP_ID
   demo:
     branch: demo
     commands:
@@ -82,3 +84,5 @@ deployment:
             GOOGLE_ANALYTICS: $DEMO_GOOGLE_ANALYTICS
             GOOGLE_API_V3_KEY: $DEMO_GOOGLE_API_V3_KEY
             FB_APP: $DEMO_FB_APP
+            NEW_RELIC_LICENSE_KEY: $DEMO_NEW_RELIC_LICENSE_KEY
+            NEW_RELIC_APP_ID: $DEMO_NEW_RELIC_APP_ID
