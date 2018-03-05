@@ -68,6 +68,7 @@
     "ember-metrics": "^0.12.0",
     "ember-moment": "7.4.1",
     "ember-multiselect-checkboxes": "0.10.3",
+    "ember-new-relic": "^0.5.3",
     "ember-poll": "^1.2.0",
     "ember-query-method": "^0.1.0",
     "ember-resolver": "^4.0.0",
