@@ -1,24 +1,63 @@
 <div class="l-constrained account-info">
   <h2 class="account-header">
     <div class="account-avatar">
-      {{nypr-svg icon="user"}}
+      {{#if model.picture}}
+        <img src={{model.picture}}>
+      {{else}}
+        {{nypr-svg icon="user"}}
+      {{/if}}
     </div>
     Hi {{model.givenName}}!
   </h2>
 
-  {{nypr-accounts/basic-card
-    user=model
-    emailUpdated=(action showFlash 'email')
-    authenticate=(action authenticate)}}
+  <div class={{if features.memberCenter "nypr-account-settings-and-member-center" "l-constrained account-info"}}>
+    <div class="nypr-account-settings-body">
+      {{nypr-accounts/basic-card
+        user=model
+        siteName=siteName
+        emailUpdated=(action emailUpdated)
+        authenticate=(action authenticate)
+        requestTempPassword=(action requestTempPassword)
+        emailIsPendingVerification=emailIsPendingVerification}}
 
-  {{nypr-accounts/password-card
-    helplinkUrl='/forgot'
-    helplinkText='Forgot password?'
-    changePassword=(action changePassword)}}
+      {{#if model.hasPassword}}
+        {{nypr-accounts/password-card
+          helplinkUrl='/forgot'
+          helplinkText='Forgot password?'
+          changePassword=(action changePassword)}}
+      {{/if}}
+
+      {{#if model.facebookId}}
+        {{#nypr-accounts/social-card as |card|}}
+          {{card.connect-button
+            connected=true
+            providerName='Facebook'
+            providerIcon='facebook-official'
+            buttonClass='nypr-social-connect__button--facebook'
+            manageUrl='https://www.facebook.com/settings?tab=applications'
+            }}
+        {{/nypr-accounts/social-card}}
+      {{/if}}
+
+    </div>
+    {{#if features.memberCenter}}
+      {{nypr-accounts/membership-card
+        pledges=orders
+        siteName=siteName
+        siteDomain=siteDomain
+        user=model
+        emailIsPendingVerification=emailIsPendingVerification
+        resendVerificationEmail=(if model.hasPassword
+          (action resendVerificationEmail)
+          (action requestTempPassword model.email)
+        )
+        class='nypr-membership-info-body'}}
+    {{/if}}
+  </div>
 
   <div class="aligncenter text--small">
     <p>
-      Need help? Contact us using our <a href="https://nypublicradio.zendesk.com/hc/en-us/categories/202751107/" target="_blank">contact form</a> or call us at <a href="tel:646-829-4000">646-829-4000</a>.<br />
+      Need help? Contact us using our <a href="https://wqxr.zendesk.com/hc/en-us" target="_blank">contact form</a> or call us at <a class="text--nowrap" href="tel:646-829-4000">646-829-4000</a>.<br />
       <button
         data-test-selector="disable-account"
         class="btn--link btn--smalltext"
@@ -31,7 +70,7 @@
   {{#nypr-account-modal title="Disable online account" closeAction=(action (mut disableModal) false) as |m|}}
     {{#m.body}}
     <p>
-      This will disable your online account, but you will still be a WQXR member.
+      This will disable your online account, but will not impact your membership status.
     </p>
     {{/m.body}}
 
@@ -50,7 +89,7 @@
   {{#nypr-account-modal as |m|}}
     {{#m.body}}
     <p>
-      Your online WQXR account has been deactivated.
+      Your online {{siteName}} account has been deactivated.
     </p>
     {{/m.body}}
 
@@ -62,3 +101,34 @@
     {{/m.footer}}
   {{/nypr-account-modal}}
 {{/if}}
+
+{{#if promptForPassword.isRunning}}
+  {{#nypr-account-modal title="Enter your Password" closeAction=(action 'endTask' 'promptForPassword') as |m|}}
+    <form {{action (perform verifyPassword) on='submit'}}>
+    {{#m.body}}
+      <p>
+        You must re-enter your password to verify your account.
+      </p>
+      {{nypr-input
+        label='Password'
+        type='password'
+        fieldname='passwordForVerifyEmail'
+        placeholder='Enter your password'
+        value=password
+        helplinkUrl="/forgot"
+        helplinkText="Forgot Password?"
+        errors=passwordError
+        showError=true
+      }}
+    {{/m.body}}
+
+    {{#m.footer}}
+      <button
+        class="nypr-account-confirm"
+        data-test-selector="check-pw-verify"
+        >Submit</button>
+    {{/m.footer}}
+  </form>
+  {{/nypr-account-modal}}
+{{/if}}
+

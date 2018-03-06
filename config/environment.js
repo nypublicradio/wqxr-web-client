@@ -1,4 +1,5 @@
-/* jshint node: true */
+/* eslint-env node */
+'use strict';
 
 module.exports = function(environment) {
 
@@ -8,16 +9,17 @@ module.exports = function(environment) {
     }).length;
   }
 
-  var ENV = {
+  const ALIEN_DOM_ROOT = environment === 'test' ? '#ember-testing' : 'body';
+
+  let ENV = {
     modulePrefix: 'wqxr-web-client',
-    environment: environment,
+    environment,
     rootURL: '/',
     locationType: 'auto',
     emberHifi: {
       connections: [{
         name: 'NativeAudio'
       }],
-      alwaysUseSingleAudioElement: true
     },
     metricsAdapters: [{
       name: 'GoogleAnalytics',
@@ -42,6 +44,7 @@ module.exports = function(environment) {
         // e.g. 'with-controller': true
       },
       EXTEND_PROTOTYPES: {
+        // Prevent Ember Data from overriding Date.parse.
         Date: false
       }
     },
@@ -95,7 +98,8 @@ module.exports = function(environment) {
       }
     },
     flashMessageDefaults: {
-      preventDuplicates: true
+      preventDuplicates: true,
+      timeout: 10000
     },
     queueAudioBumperURL: 'http://audio.wnyc.org/streambumper/streambumper000008_audio_queue.mp3',
     siteSlug: 'wqxr',
@@ -107,30 +111,23 @@ module.exports = function(environment) {
     googleAnalyticsKey: process.env.GOOGLE_ANALYTICS || 'UA-46158613-1',
     nprGoogleAnalyticsKey: 'UA-18188937-11',
     googleAPIv3Key: process.env.GOOGLE_API_V3_KEY,
-    wnycAPI: process.env.WQXR_API,
     showsDiscoverStation: "wqxr",
     showsAPIKey: "symphony",
     moreShowsDiscoverStation: "archived-shows",
     moreShowsAPIKey: "mammoth",
-    wnycAdminRoot: process.env.WQXR_ADMIN_ROOT,
-    wnycAuthAPI: process.env.AUTH_SERVICE,
-    wnycAccountRoot: process.env.WQXR_ACCOUNT_ROOT,
-    wnycEtagAPI: process.env.WQXR_ETAG_API,
-    wnycStaticURL: process.env.WQXR_STATIC_URL,
-    wnycURL: process.env.WQXR_URL,
+    webRoot: process.env.WQXR_URL,
+    adminRoot: process.env.ADMIN_ROOT,
+    authAPI: process.env.AUTH_SERVICE,
+    membershipAPI: process.env.MEMBERSHIP_SERVICE,
+    etagAPI: process.env.ETAG_API,
+    publisherAPI: process.env.PUBLISHER_API,
     platformEventsAPI: process.env.PLATFORM_EVENTS_SERVICE,
-    wnycDonateURL: 'http://www.wqxr.org/epledge/main?utm_source=wqxr&utm_medium=wqxr-85x39&utm_campaign=pledge&utm_content=donate',
+    wnycDonateURL: 'https://pledge3.wqxr.org/epledge/main?ref=button-donate-header',
     wnycSvgURL: '/media/svg/',
     // put beta host at the root so it can be overridden by Django
-    wnycBetaURL: process.env.WNYC_BETA_URL,
     featureFlags: {
       'social-auth': process.env.SOCIAL_AUTH,
-    },
-    betaTrials: {
-      betaInviteLanding: '#full-page-transforms-wrapper',
-      legacyNavLinkLanding: '#navigation-items > li:nth-child(2)',
-      isBetaSite: false,
-      preBeta: false,
+      'member-center': process.env.MEMBER_CENTER,
     },
     contentSecurityPolicy: {
       'connect-src': "'self' *.wnyc.net:* ws://*.wnyc.net:*",
@@ -144,9 +141,9 @@ module.exports = function(environment) {
     torii: {
       providers: {
         'facebook-connect': {
-          appId: process.env.FB_APP || '151261804904925',
+          appId: process.env.FB_APP || '1583385451706458',
           scope: 'user_friends,email',
-          version: 'v2.8'
+          version: 'v2.9'
         }
       }
     },
@@ -154,6 +151,9 @@ module.exports = function(environment) {
       id: 467005,
       enabled: environment === 'production',
       forceSSL: true
+    },
+    alienDom: {
+      toRemove: `${ALIEN_DOM_ROOT} > :not(.ember-view):not(#fb-root), ${ALIEN_DOM_ROOT} > head > link[rel=stylesheet]:not([href*=assets])`
     }
   };
 
@@ -187,17 +187,12 @@ module.exports = function(environment) {
 
     ENV.APP.rootElement = '#ember-testing';
 
-    ENV.betaTrials.legacyNavLinkLanding = '#ember-testing';
-    ENV.betaTrials.betaInviteLanding = '#ember-testing';
-
-    ENV.wnycAPI = 'http://example.com';
-    ENV.wnycAccountRoot = 'http://example.com/account';
-    ENV.wnycAdminRoot = 'http://admin.example.com';
-    ENV.wnycEtagAPI = 'http://example.com/api/v1/browser_id/';
-    ENV.wnycStaticURL = 'http://example.com/static';
-    ENV.wnycURL = '//example.com';
-    ENV.wnycBetaURL = 'http://example.com';
-    ENV.wnycAuthAPI = 'http://example.com';
+    ENV.publisherAPI = 'http://example.com/api';
+    ENV.adminRoot = 'http://admin.example.com';
+    ENV.etagAPI = 'http://example.com/api/v1/browser_id/';
+    ENV.webRoot = 'http://example.com';
+    ENV.authAPI = 'http://example.com';
+    ENV.membershipAPI = 'http://example.com';
     ENV.platformEventsAPI = 'http://example.com';
   }
 

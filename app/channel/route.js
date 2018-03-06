@@ -8,7 +8,7 @@ const {
 } = Ember;
 const { hash: waitFor } = Ember.RSVP;
 const inflector = new Inflector(Inflector.defaultRules);
-import { retryFromServer, beforeTeardown } from 'wqxr-web-client/lib/compat-hooks';
+import { retryFromServer, beforeTeardown } from 'nypr-django-for-ember/utils/compat-hooks';
 import PlayParamMixin from 'wqxr-web-client/mixins/play-param';
 import config from 'wqxr-web-client/config/environment';
 
@@ -17,8 +17,8 @@ export default Route.extend(PlayParamMixin, {
   googleAds:    service(),
 
   model(params) {
-    const channelType = this.routeName;
-    const listingSlug = `${inflector.pluralize(channelType)}/${params.slug}`;
+    const channelPathName = inflector.pluralize(this.routeName.split('-')[0]);
+    const listingSlug = `${channelPathName}/${params.slug}`;
     set(this, 'listingSlug', listingSlug);
 
     let listenLive = this.store.findRecord('chunk', `shows-${params.slug}-listenlive`)
@@ -36,6 +36,15 @@ export default Route.extend(PlayParamMixin, {
   },
 
   afterModel({ channel }, transition) {
+    if (channel) {
+      let canonicalUrl = get(channel, 'url');
+      let canonicalHostMatch = canonicalUrl && canonicalUrl.match(/\/\/([\w.]+)\//);
+      if  (canonicalHostMatch && canonicalHostMatch.pop() !== document.location.host) {
+        transition.abort();
+        window.location.href = canonicalUrl;
+        return;
+      }
+    }
     get(this, 'googleAds').doTargeting({show: channel.get('slug')});
     if (channel.get('headerDonateChunk')) {
       transition.send('updateDonateChunk', channel.get('headerDonateChunk'));
@@ -50,11 +59,10 @@ export default Route.extend(PlayParamMixin, {
     let [navSlug] = page_params.split('/');
     controller.setProperties({
       channelType: this.routeName,
-      navRoot: get(this, 'listingSlug'),
       defaultSlug: navSlug,
       model,
       session: get(this, 'session'),
-      adminURL: `${config.wnycAdminRoot}/admin`
+      adminURL: `${config.adminRoot}/admin`
     });
   },
 

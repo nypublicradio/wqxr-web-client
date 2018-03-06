@@ -1,21 +1,16 @@
 import { test } from 'qunit';
 import moduleForAcceptance from 'wqxr-web-client/tests/helpers/module-for-acceptance';
-import djangoPage from 'wqxr-web-client/tests/pages/django-page';
 import config from 'wqxr-web-client/config/environment';
+import { next } from 'ember-runloop';
 
 moduleForAcceptance('Acceptance | player events');
 
 test('visiting /player-events', function(assert) {
-  let story = server.create('story');
-  let id = `story/${story.slug}/`;
+  let story = server.create('story', {title: "Test audio", audio: '/good/150000/test'});
   let done = assert.async();
-
-  server.create('django-page', {id, slug: story.slug});
   server.create('stream');
 
-  djangoPage
-    .bootstrap({id})
-    .visit({id});
+  visit(`/story/${story.slug}/`);
 
   let calls = [];
   server.post(`${config.platformEventsAPI}/v1/events/listened`, (schema, {requestBody}) => {
@@ -26,22 +21,32 @@ test('visiting /player-events', function(assert) {
       done();
     }
   });
-  
+
   // story header play button
+  click('main [data-test-selector="listen-button"]');
+
   andThen(() => {
-    click('main [data-test-selector="listen-button"]');
-    // pause
-    click('.nypr-player-button.mod-listen');
-    // play
-    click('.nypr-player-button.mod-listen');
+    // let hifi go a tick, otherwise we report the second play as a start, not a resume
+    next(() => {
+      // pause
+      click('.nypr-player-button.mod-listen');
+
+      // play
+      click('.nypr-player-button.mod-listen');
+    });
+  });
+
+  andThen(() => {
     // fast forward
     click('.nypr-player-button.mod-fastforward');
+
     // rewind
     click('.nypr-player-button.mod-rewind');
-  });
-  
-  andThen(() => {
-    var e = $.Event('mousedown', {which: 1});
-    find('.nypr-player-progress').trigger(e);
+
+    // set position
+    let progressMeter = find('.nypr-player-progress');
+    let leftEdge = progressMeter.offset().left;
+    var e = window.$.Event('mousedown', {which: 1, pageX: leftEdge + 200});
+    progressMeter.trigger(e);
   });
 });

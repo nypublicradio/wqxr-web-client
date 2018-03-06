@@ -7,13 +7,12 @@ export default Ember.Component.extend({
   session: service(),
   autoPlayPrefs: [
     { name: 'My Default Stream', field: 'default_stream' },
-    { name: 'My Queue', field: 'queue' }
   ],
 
   enableAutoplay: computed.equal('session.data.user-prefs-active-autoplay', 'no_autoplay'),
   activeStream: computed('session.data.user-prefs-active-stream.slug', function(){
     let streams = this.get('streams');
-    let currentStream = this.getWithDefault('session.data.user-prefs-active-stream', {slug: 'wqxr', name: 'WQXR New York'});
+    let currentStream = this.getWithDefault('session.data.user-prefs-active-stream', {slug: 'wqxr', name: 'WQXR 105.9 FM'});
     return streams.findBy('slug', currentStream.slug);
   }),
 

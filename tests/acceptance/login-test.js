@@ -3,7 +3,7 @@ import djangoPage from 'wqxr-web-client/tests/pages/django-page';
 import moduleForAcceptance from 'wqxr-web-client/tests/helpers/module-for-acceptance';
 import { Response } from 'ember-cli-mirage';
 import config from 'wqxr-web-client/config/environment';
-import { currentSession } from 'wqxr-web-client/tests/helpers/ember-simple-auth';
+import { authenticateSession, currentSession } from 'wqxr-web-client/tests/helpers/ember-simple-auth';
 import 'wqxr-web-client/tests/helpers/with-feature';
 import dummySuccessProviderFb from 'wqxr-web-client/tests/helpers/torii-dummy-success-provider-fb';
 import dummyFailureProvider from 'wqxr-web-client/tests/helpers/torii-dummy-failure-provider';
@@ -20,6 +20,18 @@ test('visiting /login', function(assert) {
 
   andThen(() => {
     assert.equal(currentURL(), '/login');
+  });
+});
+
+test("can't visit /login when authenticated", function(assert) {
+  server.create('bucket', {slug: 'wqxr-home'});
+  server.create('user');
+  authenticateSession(this.application, {access_token: 'foo'});
+
+  visit('/login');
+
+  andThen(() => {
+    assert.equal(currentURL(), '/');
   });
 });
 
@@ -58,7 +70,7 @@ test('Submitting valid credentials redirects to previous route', function(assert
 });
 
 test('Submitting invalid credentials shows form level error message', function(assert) {
-  server.post(`${config.wnycAuthAPI}/v1/session`, () => {
+  server.post(`${config.authAPI}/v1/session`, () => {
     return new Response(400, {}, {errors: {code: "UnauthorizedAccess"}});
   });
 
@@ -72,6 +84,45 @@ test('Submitting invalid credentials shows form level error message', function(a
     assert.equal(currentSession(this.application).get('isAuthenticated'), false);
     assert.equal(find('.account-form-heading').text().trim(), 'Log in to WQXR');
     assert.equal(find('.account-form-error').length, 1);
+  });
+});
+
+
+test('Signing in with social only account shows form level error message', function(assert) {
+  server.post(`${config.authAPI}/v1/session`, () => {
+    return new Response(400, {}, {errors: {code: "UserNoPassword"}});
+  });
+
+  visit('/login');
+
+  fillIn('input[name=email]', 'isignedupwithfacebook@example.com');
+  fillIn('input[name=password]', 'imaginedpassword123');
+  click('button[type=submit]:contains(Log in)');
+
+  andThen(() => {
+    assert.equal(currentSession(this.application).get('isAuthenticated'), false);
+    assert.equal(find('.account-form-heading').text().trim(), 'Log in to WQXR');
+    assert.equal(find('.account-form-error').length, 1);
+  });
+});
+
+test('Signing in with non-existing email shows form level error message', function(assert) {
+  const EMAIL = 'doesnotexist@example.com';
+  server.post(`${config.authAPI}/v1/session`, () => {
+    return new Response(400, {}, {errors: {code: "UserNotFoundException"}});
+  });
+
+  visit('/login');
+
+  fillIn('input[name=email]', EMAIL);
+  fillIn('input[name=password]', 'password123');
+  click('button[type=submit]:contains(Log in)');
+
+  andThen(() => {
+    assert.equal(currentSession(this.application).get('isAuthenticated'), false);
+    assert.equal(find('.account-form-heading').text().trim(), 'Log in to WQXR');
+    assert.equal(find('.account-form-error').length, 1);
+    assert.ok(find('.account-form-error').text().indexOf(EMAIL) > 0, 'error message contains email address');
   });
 });
 
@@ -115,6 +166,29 @@ test('Successful facebook login redirects', function(assert) {
     assert.ok(currentSession(this.application).get('isAuthenticated'), 'Session is authenticated');
     assert.equal(find('.user-nav-greeting').text().trim(), user.given_name);
     assert.equal(find('.user-nav-avatar > img').attr('src'), user.picture);
+  });
+});
+
+test('Facebook login with no email shows alert', function(assert) {
+  server.create('user');
+  registerMockOnInstance(this.application, 'torii-provider:facebook-connect', dummySuccessProviderFb);
+  server.get('/v1/session', () => {
+    return new Response(400, {}, { "errors": {
+      "code": "MissingAttributeException",
+      "message": "A provider account could not be created because one or more attributes were not available from the provider. Permissions may have been declined.",
+      "values": ["email"] }
+    });
+  });
+
+  withFeature('socialAuth');
+  visit('/login');
+
+  click('button:contains(Log in with Facebook)');
+
+  andThen(() => {
+    assert.equal(currentURL(), '/login');
+    assert.equal(find('.alert-warning').text().trim(), "Unfortunately, we can't authorize your account without permission to view your email address.");
+    assert.ok(!currentSession(this.application).get('isAuthenticated'), 'Session is not authenticated');
   });
 });
 

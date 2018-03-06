@@ -2,33 +2,25 @@ import Ember from 'ember';
 import Controller from 'ember-controller';
 import service from 'ember-service/inject';
 import get from 'ember-metal/get';
-import { and, not, reads, equal } from 'ember-computed';
+import { reads } from 'ember-computed';
 
 export default Controller.extend({
-  audio:        service(),
-  metrics:      service(),
-  session:      service(),
+  dj             : service(),
+  hifi           : service(),
+  metrics        : service(),
+  session        : service(),
+  listenAnalytics: service(),
+  queue          : service('listen-queue'),
 
   queryParams:  ['modal', 'play'],
   modal:        null,
   play:         null,
 
-  noErrors:     not('audio.hasErrors'),
-  showPlayer:   and('noErrors', 'audio.playedOnce'),
+  showPlayer: reads('dj.showPlayer'),
 
   isHomepage: Ember.computed.match('currentRouteName', /^index(_loading)?$/),
 
-
-  // Persistent Player Component Integration
-
-
-  currentAudio: reads('audio.currentAudio'),
-  isAudioStream: equal('currentAudio.audioType', 'livestream'), // unused?
-
-
-
   actions: {
-
 
     showModal(which) {
       this._scrollY = window.scrollY;
@@ -51,8 +43,23 @@ export default Controller.extend({
       this._wasModal = true;
     },
 
-    trackStreamData() {
-      this.get('audio').trackStreamData();
+
+    soundTitleDidChange() {
+      if (this.get('hifi.currentSound.isStream')) {
+        this.get('listenAnalytics').trackStreamData(this.get('hifi.currentSound'));
+      }
+    },
+
+    trackShare(data, sharedFrom) {
+      let metrics = this.get('metrics');
+
+      let {playContext, analyticsCode, type, shareText} = data;
+
+      metrics.trackEvent('GoogleAnalytics', {
+        category: 'Persistent Player',
+        action: `Shared Story "${shareText}"`,
+        label: `${playContext}|${analyticsCode}|${type}|${sharedFrom}`,
+      });
     }
   }
 });

@@ -1,14 +1,16 @@
-/* jshint asi: true*/
 import Ember from 'ember';
 import service from 'ember-service/inject';
+
 
 const {
   Mixin,
   get,
-  set,
+  setProperties,
   isEmpty,
   $,
+  Inflector
 } = Ember;
+const inflect = new Inflector(Inflector.defaultRules);
 
 export default Mixin.create({
   pageNumbers:  service(),
@@ -23,7 +25,8 @@ export default Mixin.create({
 
   beforeModel() {
     let channelType = this.routeName.split('.')[0]
-    set(this, 'channelType', channelType)
+    let channelPathName = inflect.pluralize(channelType.split('-')[0]);
+    setProperties(this, {channelType, channelPathName});
   },
 
   afterModel(model) {
@@ -89,7 +92,7 @@ export default Mixin.create({
     const { channel } = this.modelFor(channelType);
     const { page_params } = this.paramsFor(`${channelType}.page`);
     let [ navSlug ] = page_params ? page_params.split('/') : [];
-    const linkRollSlug = get(channel, 'linkroll.firstObject.navSlug');
+    const linkRollSlug = get(channel, 'linkroll.firstObject.nav-slug');
     const hasLinkRoll = get(channel, 'hasLinkroll');
 
     if (hasLinkRoll && navSlug && !/^\d+$/.test(navSlug)) {
@@ -114,7 +117,7 @@ export default Mixin.create({
   _scrollToOffset(channelType) {
     const { channel } = this.modelFor(channelType)
     const hasLinkroll = get(channel, 'hasLinkroll')
-    const scrollTarget = hasLinkroll ? $('nav.tabs-header').get(0) : $('#channelTitle').get(0)
+    const scrollTarget = hasLinkroll ? $('nav.nav-links').get(0) : $('.channel-title').get(0)
     if (scrollTarget.scrollIntoView) {
       scrollTarget.scrollIntoView()
     } else {

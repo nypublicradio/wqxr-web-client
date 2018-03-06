@@ -1,14 +1,32 @@
 import config from 'wqxr-web-client/config/environment';
 import { Response, faker } from 'ember-cli-mirage';
+import get from 'ember-metal/get';
 
 // Mirage is diabled by default when using --proxy
 // In development (without --proxy) and test environments, these handlers will be used
 
 // Note for future people: schema.modelName.create() doesn't generate attributes in mirage factories. Create the objects using server.create in default.js (for local dev), or in the test
+const getPropertyCaseInsensitive = function(obj, prop) {
+  prop = prop.toLowerCase();
+  for (let p in obj) {
+    if (obj.hasOwnProperty(p) && prop === p.toLowerCase()) {
+      return obj[p];
+    }
+  }
+  return undefined;
+};
+const hasAuthToken = function(request) {
+  let authToken = getPropertyCaseInsensitive(request.requestHeaders, 'Authorization');
+  return /bearer \w+/i.test(authToken);
+};
+const hasProvider = function(request) {
+  let providerHeader = getPropertyCaseInsensitive(request.requestHeaders, 'X-Provider');
+  return (providerHeader !== undefined);
+};
 
 export default function() {
   this.logging = false;
-  let baseUrl = config.wnycURL;
+  let baseUrl = config.webRoot;
 
   /*------------------------------------------------------------
     legacy (v1) endpoints
@@ -17,8 +35,7 @@ export default function() {
   this.get(`${baseUrl}/api/v1/story/:id`);
   this.get(`${baseUrl}/api/v1/browser_id/`, {success: true});
   this.get(`${baseUrl}/api/v1/list/comments/24/:storyId/`, 'comment');
-  this.get(`${baseUrl}/api/v1/whats_on/`);
-  this.get('/api/v1/whats_on/');
+  this.get(`${config.publisherAPI}/v1/whats_on/`);
   this.get(`${baseUrl}/api/v1/whats_on/:slug`, 'whats-on');
   this.get('/api/v1/whats_on/:slug', 'whats-on');
   this.get(`${baseUrl}/api/v1/list/streams/`);
@@ -26,10 +43,10 @@ export default function() {
   this.get(`${baseUrl}/api/v1/list/streams/:slug`, 'stream');
   this.get('/api/v1/list/streams/:slug', 'stream');
 
-  this.post(`${config.wnycAPI}/api/v1/listenaction/create/:id/play/`, {});
-  this.post(`${config.wnycAPI}/api/v1/listenaction/create/:id/complete/`, {});
-  this.post(`${config.wnycAPI}/api/most/view/managed_item/:id/`, {});
-  this.post(`${config.wnycAPI}/api/most/listen/managed_item/:id/`, {});
+  this.post(`${config.publisherAPI}/v1/listenaction/create/:id/play/`, {});
+  this.post(`${config.publisherAPI}/v1/listenaction/create/:id/complete/`, {});
+  this.post(`${config.publisherAPI}/most/view/managed_item/:id/`, {});
+  this.post(`${config.publisherAPI}/most/listen/managed_item/:id/`, {});
 
   /*------------------------------------------------------------
     transitional (v2) endpoints
@@ -44,18 +61,23 @@ export default function() {
   this.get(`/api/v3/shows`);
   this.get(`${baseUrl}/api/v3/shows`);
   this.get(`${baseUrl}/api/v3/buckets/:slug/`, 'bucket');
-  this.get(`${baseUrl}/api/v3/story/detail/:id`, 'story');
-  this.get(`${baseUrl}/api/v3/channel/\*id`, 'api-response');
+  this.get(`${baseUrl}/api/v3/story-pk/:id/`, 'story');
+  this.get(`${baseUrl}/api/v3/story/:slug/`, ({ stories }, { params }) => {
+    let { slug } = params;
+    return stories.where({ slug }).models[0];
+  });
+  this.get(`${baseUrl}/api/v3/story/related/`, 'story');
+  this.get(`${baseUrl}/api/v3/channel/*id`, 'api-response');
   this.get(`${baseUrl}/api/v3/chunks/:id/`, 'chunk');
 
   /*------------------------------------------------------------
     identity management (account) endpoints
   --------------------------------------------------------------*/
-  this.get(`${config.wnycAdminRoot}/api/v1/is_logged_in/`, {});
-  this.get(`${config.wnycAccountRoot}/comments/security_info/`, {security_hash: 'foo', timestamp: Date.now()});
+  this.get(`${config.adminRoot}/api/v1/is_logged_in/`, {});
+  this.get(`${config.adminRoot}/comments/security_info/`, {security_hash: 'foo', timestamp: Date.now()});
 
-  this.post(`${config.wnycAdminRoot}/api/v1/accounts/logout/`, {successful_logout: true});
-  this.post(`${config.wnycAdminRoot}/api/v1/accounts/login/`, function(schema, request) {
+  this.post(`${config.adminRoot}/api/v1/accounts/logout/`, {successful_logout: true});
+  this.post(`${config.adminRoot}/api/v1/accounts/login/`, function(schema, request) {
     let params = {};
     request.requestBody.split('&').forEach(p => {
       params[p.split('=')[0]] = p.split('=')[1];
@@ -78,11 +100,11 @@ export default function() {
   // Let this one slip by, we've got a http-proxy for it
   this.passthrough(`/api/v1/dynamic-script-loader`);
   this.passthrough(`${baseUrl}/api/v1/dynamic-script-loader`);
-  this.passthrough(`${baseUrl}/api/v1/schedule/whats_on_today/\*`);
+  this.passthrough(`${baseUrl}/api/v1/schedule/whats_on_today/*`);
   this.passthrough('/datanewswidget/**');
 
   /*------------------------------------------------------------
-  ${wnycURL}/* requests. Oddballs without the api namespace
+  ${webRoot}/* requests. Oddballs without the api namespace
   --------------------------------------------------------------*/
 
   this.get(`${baseUrl}`, function(schema) {
@@ -90,7 +112,7 @@ export default function() {
     return home ? home.attrs.text : '';
   });
 
-  this.get(`${baseUrl}/\*id`, function(schema, {queryParams, params}) {
+  this.get(`${baseUrl}/*id`, function(schema, {queryParams, params}) {
     let { id } = params;
     let page = schema.djangoPages.find(id);
     if (!page) {
@@ -106,7 +128,7 @@ export default function() {
   auth microservice
   ---------------------------------------------------------------*/
 
-  this.urlPrefix = config.wnycAuthAPI;
+  this.urlPrefix = config.authAPI;
 
   this.post('/v1/password', {});
 
@@ -183,10 +205,57 @@ export default function() {
     }
   });
 
+  let unauthorizedAccessException = {
+    "errors": {
+      "code": "UnauthorizedAccess",
+      "message": "User account has expired, it must be reset by an administrator."
+    }
+  };
+
+  this.post('/v1/password/change-temp', (schema, request) => {
+    let params = JSON.parse(request.requestBody);
+    if (!params.temp || params.temp === "expired") {
+      return new Response(401, {}, unauthorizedAccessException);
+    } else {
+      return new Response(200);
+    }
+  });
+
+  this.post('/v1/password/send-temp', (schema, request) => {
+    if (!request.requestHeaders.Authorization && !request.requestHeaders.authorization) {
+      return new Response(401);
+    }
+    return new Response(200);
+  });
+
+  this.get('/v1/confirm/resend-attr', (schema, request) => {
+    if (hasAuthToken(request) && !hasProvider(request)) {
+      return new Response(200);
+    } else {
+      return new Response(401);
+    }
+  });
+
   /*-------------------------------------------------------------
   analytics microservice
   ---------------------------------------------------------------*/
 
   this.post(`${config.platformEventsAPI}/v1/events/viewed`, {});
   this.post(`${config.platformEventsAPI}/v1/events/listened`, {});
+
+  /*-------------------------------------------------------------
+  membership microservice
+  ---------------------------------------------------------------*/
+  this.get(`${config.membershipAPI}/v1/orders/`, 'orders');
+  this.get(`${config.membershipAPI}/v1/emails/is-verified/`, {data: {is_verified: true}});
+  this.patch(`${config.membershipAPI}/v1/emails/:email_id/verify/`, (schema, request) => {
+    let params = JSON.parse(request.requestBody);
+    if (params &&
+        get(params, 'data.attributes.verification_token') &&
+        get(params, 'data.attributes.verification_token') !== "null") {
+      return new Response(200, {}, {data: {success: true}});
+    } else {
+      return new Response(200, {}, {data: {success: false}});
+    }
+  });
 }

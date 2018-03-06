@@ -1,12 +1,11 @@
-/*jshint node:true*/
-/* global require, module */
-var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+/* eslint-env node */
+'use strict';
 var fs = require('fs');
-
-var env = EmberApp.env();
+const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const env = EmberApp.env();
 
 module.exports = function(defaults) {
-  var app = new EmberApp(defaults, {
+  let app = new EmberApp(defaults, {
     autoprefixer: {
       browsers: ['last 3 versions']
     },
@@ -17,9 +16,6 @@ module.exports = function(defaults) {
     },
     sourcemaps: {
       enabled: true,
-    },
-    compassOptions: {
-      outputStyle: env === 'production' ? 'compressed' : 'expanded'
     },
     storeConfigInMeta: env !== 'development',
 
@@ -40,16 +36,10 @@ module.exports = function(defaults) {
   
   app.import('vendor/polyfills/url.js');
   app.import('bower_components/normalize.css/normalize.css');
-
-  // This is here so that legacy JS within our content pages can share
-  // our version of jQuery without dying.
-  app.import('bower_components/jquery-migrate/index.js');
-
   // All legacy JS modules that are directly called from this ember
   // app should be imported into the app's own build here. Notice that
   // these are symlinked to their original locations in the puppy
   // source.
-  app.import('bower_components/imagesloaded/imagesloaded.pkgd.js');
 
   return app.toTree();
 };

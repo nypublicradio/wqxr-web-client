@@ -11,10 +11,6 @@
       opacity: 1;
     }
   }
-
-  .icon--wqxr-logo-nav #wnyc-logo{
-    fill: white;
-  }
 }
 
 .sitechrome-top {
@@ -32,29 +28,24 @@
     height: 83px;
   }
 
+  .missing &,
   .profile & {
     margin-bottom: 0;
   }
 }
 
 .sitechrome-topright {
-  @include flexbox((
-    display: flex,
-    align-items: flex-end,
-    justify-content: flex-end
-  ));
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
   @include mq($small-only) {
-    @include flexbox((
-      justify-content: flex-end,
-      flex-wrap: wrap
-    ));
+    justify-content: flex-end;
+    flex-wrap: wrap;
   }
   > a,
   > div {
-    @include flexbox((
-      justify-content: center,
-      align-self: center
-    ));
+    justify-content: center;
+    align-self: center;
     height: 100%;
     margin-right: 10px;
     white-space: nowrap;
@@ -67,7 +58,7 @@
 
 .sitechrome-nav {
   background-color: $wqxrblue;
-  @include transition(all 50ms ease);
+  transition: all 50ms ease;
   //for mobile header snap
   width: 100%;
   position: sticky;
@@ -145,6 +136,12 @@
     }
   }
 
+  .listen-button {
+    .listen-ui {
+      width: auto;
+    }
+  }
+
   @include mq($large-and-up) {
     position: fixed;
     width: 150px;
@@ -218,7 +215,7 @@
       margin: 3px 0;
 
       a {
-        @include transition(none);
+        transition: none;
       }
     }
     .list--noborder {
@@ -250,24 +247,24 @@
 }
 
 .sitechrome-topbody {
-  @include display-flex;
-  @include flex-wrap(wrap);
+  display: flex;
+  flex-wrap: wrap;
 
   @include mq($large-and-up) {
     height: 100%;
   }
 
   @include mq($medium-and-up) {
-    @include flex-wrap(nowrap);
+    flex-wrap: nowrap;
   }
 }
 
 .sitechrome-topbody-left {
-  @include flex-basis(100%);
-  @include order(2);
-  @include display-flex;
-  @include justify-content(space-between);
-  @include align-items(center);
+  flex-basis: 100%;
+  order: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   padding: 5px 15px;
   padding: 5px rems(15);
@@ -279,9 +276,9 @@
   }
 
   @include mq($medium-and-up) {
-    @include flex(1 0 300px);
-    @include justify-content(space-around);
-    @include order(0);
+    flex: 1 0 300px;
+    justify-content: space-around;
+    order: 0;
     padding: 0;
     margin-left: 15px;
   }
@@ -306,24 +303,23 @@
 }
 
 .sitechrome-topbody-right {
-  @include display-flex;
-  @include justify-content(space-between);
-  @include align-items(center);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-  @include order(1);
-  @include flex-basis(100%);
+  order: 1;
+  flex-basis: 100%;
 
   margin-bottom: 15px;
-  padding: 0 15px 0 24px 0;
-  padding: 0 rems(15);
+  padding: 0 15px 0 24px;
 
   @include mq($large-and-up) {
     margin-bottom: 0;
   }
 
   @include mq($medium-and-up) {
-    @include flex(1 1 auto);
-    @include order(0);
+    flex: 1 1 auto;
+    order: 0;
 
     .cta-text {
       padding: 0 15px;
@@ -362,8 +358,8 @@
   padding: 2px 18px 2px 18px;
   background: white;
   white-space: nowrap;
-
-  @include fontsize(14);
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
   font-weight: 600;
   line-height: 30px;
 
@@ -372,11 +368,12 @@
   &:hover,
   &:focus {
     background: rgba(white, 0.8);
+    text-decoration: none;
   }
 
-  @include transition(background-color $transition-timing, color $transition-timing);
+  transition: background-color $transition-timing, color $transition-timing;
 
-  @include flex-shrink(0);
+  flex-shrink: 0;
 
   @include mq($large-and-up) {
     background: $wqxrdarkblue;
@@ -385,6 +382,7 @@
 
     &:hover,
     &:focus {
+      color: white;
       background: rgba($wqxrdarkblue, 0.8);
     }
   }
@@ -412,7 +410,7 @@
     background-color: $nearwhite;
   }
 
-  &.is-error {
+  .missing & {
     margin-bottom:  0;
   }
 }
@@ -489,4 +487,19 @@
     }
   }
 
+}
+
+.network-stripe {
+  svg {
+    fill: white;
+  }
+
+  > .greene > svg {
+    .bump {
+      fill: white;
+    }
+    .bars {
+      fill: #C0C0C0;
+    }
+  }
 }

@@ -2,8 +2,9 @@ import { test, skip } from 'qunit';
 import moduleForAcceptance from 'wqxr-web-client/tests/helpers/module-for-acceptance';
 import { registerMockOnInstance } from 'wqxr-web-client/tests/helpers/register-mock';
 import Service from 'ember-service';
-import { resetHTML } from 'wqxr-web-client/tests/helpers/html';
 import velocity from 'velocity';
+import { dummyHifi } from 'wqxr-web-client/tests/helpers/hifi-integration-helpers';
+
 
 velocity.mock = true;
 
@@ -17,15 +18,13 @@ const mockAudio = Service.extend({
 moduleForAcceptance('Acceptance | play param', {
   beforeEach() {
     server.create('stream');
-  },
-  afterEach() {
-    resetHTML();
+    registerMockOnInstance(this.application, 'service:hifi', dummyHifi);
   }
 });
 
 skip('play param transitions', function(assert) {
   let application = this.application;
-  let audio = registerMockOnInstance(application, 'service:audio', mockAudio);
+  let audio = registerMockOnInstance(application, 'service:dj', mockAudio);
 
   server.create('django-page', {
     id: 'fake/',
@@ -55,16 +54,16 @@ skip('play param transitions', function(assert) {
 });
 
 test('loading a page with the ?play param', function(assert) {
-  let id = '123';
+  let slug = 'foo';
 
-  server.create('story', {id, title: 'Foo'});
+  server.create('story', {slug, title: 'Foo', audio: '/good/15000/1'});
   server.create('django-page', {id: `bar/`});
 
-  visit(`bar?play=${id}`);
+  visit(`bar?play=${slug}`);
 
   andThen(() => {
-    assert.ok(Ember.$('.nypr-player').length, 'persistent player should be visible');
-    assert.equal(Ember.$('[data-test-selector=nypr-player-story-title]').text(), 'Foo', 'Foo story should be loaded in player UI');
+    assert.ok(find('.nypr-player').length, 'persistent player should be visible');
+    assert.equal(find('[data-test-selector=nypr-player-story-title]').text(), 'Foo', 'Foo story should be loaded in player UI');
   });
 });
 
@@ -74,6 +73,6 @@ test('loading a page with a bad ?play param', function(assert) {
 
   visit(`bar?play=${id}`);
   andThen(() => {
-    assert.notOk(Ember.$('.nypr-player').length, 'persistent player should not be visible');
+    assert.notOk(find('.nypr-player').length, 'persistent player should not be visible');
   });
 });

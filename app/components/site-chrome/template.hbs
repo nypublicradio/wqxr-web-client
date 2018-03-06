@@ -1,11 +1,3 @@
-{{#if beta}}
-  {{beta-trial
-    enterBeta=(action 'enterBeta')
-    onDismiss=(action 'dismissBeta')
-    exitBeta=(action 'exitBeta')
-    beta=beta}}
-{{/if}}
-
 {{!--
   Using double link-to in order to get an active class on the li tag
 --}}
@@ -13,9 +5,6 @@
 <div class="l-page" id='site-chrome'>
   <div class="sitechrome-top">
     <div class="sitechrome-topbody">
-      {{#if beta.isBetaSite}}
-        <div class="sitechrome-topbody-left" id="beta-nav" data-test-selector="beta-nav"></div>
-      {{/if}}
       <div class="sitechrome-topbody-right">
           {{#if media.isLargeAndUp}}
           <div class="sitechrome-search">
@@ -26,10 +15,8 @@
             <h1>
               <span class="for-screenreaders">WQXR Navigation</span>
               <a href="/"
-                class="link--nodecor"
-                title="WQXR | New York Public Radio Home Page"
-                data-tracking-category="WQXR Menu"
-                data-tracking-action="Clicked WQXR Logo">
+                class="link--nodecor wqxr-logo-nav"
+                title="WQXR | New York Public Radio Home Page">
                 {{nypr-svg icon='wqxr-logo' className='icon--wqxr-logo-nav'}}
               </a>
             </h1>
@@ -44,8 +31,6 @@
               <a class="sitechrome-btn"
               href={{donateURL}}
               title="Donate"
-              data-tracking-category="WQXR Menu"
-              data-tracking-action="Clicked Donate Button"
               target="_blank">Donate</a>
             {{/if}}
 
@@ -66,10 +51,8 @@
       <h1>
         <span class="for-screenreaders">WQXR Navigation</span>
         <a href="/"
-          class="link--nodecor"
-          title="WQXR | New York Public Radio Home Page"
-          data-tracking-category="WQXR Menu"
-          data-tracking-action="Clicked WQXR Logo">
+          class="link--nodecor wqxr-logo-nav"
+          title="WQXR | New York Public Radio Home Page">
           {{nypr-svg icon='wqxr-logo' className='icon--wqxr-logo-nav'}}
         </a>
       </h1>
@@ -83,20 +66,18 @@
         <li class="list-item list-item--nav">
           {{#if media.isLargeAndUp}}
             {{#listen-button
-              audio=audio
               type='white-hollow-small'
-              state=(if (eq preferredStream.slug audio.currentId) audio.playState)
               itemPK=preferredStream.slug
               itemTitle=preferredStream.name
               playContext='nav'
-              class=(if media.isLargeAndUp 'stream-launcher')}}
+              class='stream-launcher listen-button--stream'}}
               <span>Listen Live</span>
             {{/listen-button}}
           {{else}}
             {{!-- This 'button' is a top nav item that looks like a link. it doesn't show an icon to reflect state --}}
             {{!-- So clicking will always trigger a play action (and not a pause), state is locked to 'is-paused'  --}}
             {{#listen-button
-              audio=audio
+              class='listen-button--stream'
               type='vanilla'
               state='is-paused'
               itemPK=preferredStream.slug
@@ -108,37 +89,37 @@
         </li>
 
         {{#link-to 'stream' tagName='li' href=false class="list-item list-item--nav"}}
-          {{link-to 'All Streams' 'stream' class="inherit" preventDefault=false}}
+          {{link-to 'All Streams' 'stream' class="inherit"}}
         {{/link-to}}
 
         {{#link-to 'playlist-daily' current-when="playlist-daily" tagName='li' href=false class="list-item list-item--nav"}}
-          {{link-to 'Playlists' 'playlist-daily' class="inherit" preventDefault=false}}
+          {{link-to 'Playlists' 'playlist-daily' class="inherit"}}
         {{/link-to}}
 
         {{#link-to 'schedule' current-when="schedule.date" tagName='li' href=false class="list-item list-item--nav"}}
-          {{link-to 'Schedule' 'schedule' class="inherit" preventDefault=false}}
+          {{link-to 'Schedule' 'schedule' class="inherit"}}
         {{/link-to}}
 
-        {{#link-to 'shows' current-when="shows show" tagName="li" href=false class="list-item list-item--nav"}}
-          {{link-to 'Programs' 'shows' class="inherit" preventDefault=false}}
+        {{#link-to 'show' current-when="show show-detail" tagName="li" href=false class="list-item list-item--nav"}}
+          {{link-to 'Programs' 'show' class="inherit"}}
         {{/link-to}}
 
-        {{#link-to 'serie' 'q2' tagName='li' href=false class="list-item list-item--nav"}}
-            {{link-to 'Q2 Music' 'serie' 'q2' class="inherit" preventDefault=false}}
-          {{/link-to}}
+        <li class="list-item list-item--nav">
+          <a href="http://www.newsounds.org" class="inherit" target="_blank">New Sounds</a>
+        </li>
 
         {{#link-to 'events'  tagName='li' href=false class="list-item list-item--nav"}}
-          {{link-to 'Events' 'events' class="inherit" preventDefault=false}}
+          {{link-to 'Events' 'events' class="inherit"}}
         {{/link-to}}
 
         {{#link-to 'videos' tagName='li' href=false class="list-item list-item--nav"}}
-          {{link-to 'Videos' 'videos' class="inherit" preventDefault=false}}
+          {{link-to 'Videos' 'videos' class="inherit"}}
         {{/link-to}}
 
         {{#unless media.isLargeAndUp}}
 
           {{#link-to 'djangorendered' 'search/' tagName='li' href=false class="list-item list-item--nav"}}
-            {{link-to 'Search' 'djangorendered' 'search/' class="inherit" preventDefault=false}}
+            {{link-to 'Search' 'djangorendered' 'search/' class="inherit"}}
           {{/link-to}}
 
         {{/unless}}
@@ -155,7 +136,7 @@
     {{/if}}
   </nav>
 
-  <div class="l-full sitechrome-page-content-area{{if error ' is-error'}}">
+  <div class="l-full sitechrome-page-content-area">
 
     {{#each flashMessages.queue as |flash|}}
        {{flash-message flash=flash}}

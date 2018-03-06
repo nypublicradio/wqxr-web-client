@@ -2,6 +2,7 @@ import Route from 'ember-route';
 import get from 'ember-metal/get';
 import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin';
 import service from 'ember-service/inject';
+import RSVP from 'rsvp';
 
 export default Route.extend(ApplicationRouteMixin, {
   metrics: service(),
@@ -12,7 +13,8 @@ export default Route.extend(ApplicationRouteMixin, {
   session: service(),
   poll: service(),
   store: service(),
-  audio: service(),
+  dj: service(),
+
   title(tokens) {
     if (tokens && tokens.length > 0) {
       let lastToken = tokens.slice(-1);
@@ -23,7 +25,6 @@ export default Route.extend(ApplicationRouteMixin, {
   },
 
   beforeModel() {
-
     let metrics = get(this, 'metrics');
 
     get(this, 'session').syncBrowserId();
@@ -41,16 +42,23 @@ export default Route.extend(ApplicationRouteMixin, {
     get(this, 'poll').addPoll({interval: 60 * 1000, callback: pollFunction});
   },
 
+  model() {
+    return RSVP.hash({
+      splashPage: this.store.findRecord('chunk', 'wqxr-global').catch(()=>'')
+    });
+  },
+
   actions: {
     error(error/*, transition*/) {
-      if (error) {
-        // sometimes this.controller is undefined
-        this.controllerFor('application').set('error', error);
-        return error;
+      if (error && error.response) {
+        if (error.response.status === 404) {
+          this.transitionTo('missing');
+        }
+      } else {
+        /* eslint-disable */
+        console.error(error);
+        /* eslint-enable */
       }
-    },
-    didTransition() {
-      this.controllerFor('application').set('error', null);
     },
     willTransition() {
       //close queue/history modal when we open a new page
@@ -76,4 +84,12 @@ export default Route.extend(ApplicationRouteMixin, {
     get(this, 'metrics').identify('GoogleAnalytics', {isAuthenticated: true});
     get(this, 'currentUser').load();
   },
+
+  sessionInvalidated() {
+    if (this.get('session.noRefresh') === true) {
+      this.set('session.noRefresh', false);
+    } else {
+      this._super(...arguments);
+    }
+  }
 });

@@ -3,7 +3,7 @@ import { scheduleOnce } from 'ember-runloop';
 import get from 'ember-metal/get';
 import service from 'ember-service/inject';
 
-const DETAIL_ROUTES = new RegExp(/story|(show|article|serie|tag|blog)\./);
+const DETAIL_ROUTES = new RegExp(/story|(show|article|series|tag|blog)-detail\./);
 
 export default Mixin.create({
   metrics: service(),
@@ -29,13 +29,19 @@ export default Mixin.create({
 
   _trackPage() {
     scheduleOnce('afterRender', this, () => {
+      let page;
+      let is404 = this.currentRouteName === 'missing';
+      let title = document.title;
       const metrics = get(this, 'metrics');
-      const page = document.location.pathname; // e.g. '/shows/bl/'
-      const title = document.title; // this should be something dynamic
+      if (is404) {
+        page = this.get('dataPipeline.currentReferrer').replace(/http:\/\/[^/]+/, '');
+      } else {
+        page = document.location.pathname + document.location.search; // e.g. '/shows/bl/?q=foo'
+      }
 
       metrics.trackPage('GoogleAnalytics', { page, title });
       metrics.trackPage('GoogleTagManager', { page, title });
-      
+
       if (!DETAIL_ROUTES.test(this.currentRouteName) && !this.currentRouteName.match(/loading/)) {
         this.get('dataPipeline').reportItemView();
       }

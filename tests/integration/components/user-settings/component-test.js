@@ -1,8 +1,9 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import startMirage from 'wqxr-web-client/tests/helpers/setup-mirage-for-integration';
 import hbs from 'htmlbars-inline-precompile';
+import Service from 'ember-service';
 
-const sessionStub = Ember.Service.extend({
+const sessionStub = Service.extend({
   data: {
     'user-prefs-active-stream': {slug: 'wnyc-fm939', name: 'WNYC 93.9 FM'},
     'user-prefs-active-autoplay': 'default_stream'
@@ -27,7 +28,4 @@ test('it renders with being already authenticated', function(assert) {
   this.render(hbs`{{user-settings streams=streams}}`);
   let activeStream = this.$('.user-stream .ember-power-select-selected-item').text().trim();
   assert.equal(activeStream, 'WNYC 93.9FM');
-
-  let activePref = this.$('.autoplay-options .ember-power-select-selected-item').text().trim();
-  assert.equal(activePref, 'My Default Stream');
 });

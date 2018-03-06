@@ -42,7 +42,7 @@
     white-space: nowrap;
     font-weight: 600;
     line-height: 2;
-    @include transition(background $transition-timing);
+    transition: background $transition-timing;
 
     &:hover {
       text-decoration: none;
@@ -53,6 +53,10 @@
   .sold-out {
     font-size: 16px;
     background-color: $lightgray;
+
+    &:hover {
+      background-color: $lightgray;
+    }
   }
 }
 
@@ -235,6 +239,30 @@
     .sharelinks .fa-hover a {
       line-height: 33px;
     }
+  }
+
+  ul.sharelinks {
+    margin: 0px;
+    padding: 0px 0px 0px 2px;
+
+  }
+
+  .sharelinks li {
+    float: left;
+    padding: 0px 5px 0px 0px;
+    font-size: 11px;
+    line-height: 11px;
+    /* border-right: 1px solid #999; */
+    border: 0;
+    margin-top: 5px;
+  }
+
+  .sharelinks li.edit-item {
+    background: transparent url('/media/img/icons/edit.gif') no-repeat 13px 0px;
+    padding-left: 26px;
+    padding-right: 0px;
+    float: right;
+    border: 0;
   }
 
   .story-sidebar {

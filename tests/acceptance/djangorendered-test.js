@@ -1,14 +1,8 @@
 import config from 'wqxr-web-client/config/environment';
 import { skip } from 'qunit';
 import test from 'ember-sinon-qunit/test-support/test';
-import { plantBetaTrial } from 'wqxr-web-client/tests/helpers/beta';
 import moduleForAcceptance from 'wqxr-web-client/tests/helpers/module-for-acceptance';
 import djangoPage from 'wqxr-web-client/tests/pages/django-page';
-import Ember from 'ember';
-const { wnycURL } = config;
-import {
-  resetHTML
-} from 'wqxr-web-client/tests/helpers/html';
 import 'wqxr-web-client/tests/helpers/hifi-acceptance-helper';
 
 function escapeNavigation() {
@@ -22,7 +16,6 @@ moduleForAcceptance('Acceptance | Django Rendered | Proper Re-renders', {
   },
   afterEach() {
     window.onbeforeunload = undefined;
-    resetHTML();
   }
 });
 
@@ -60,7 +53,7 @@ skip('it retries the server on a request error', function(assert) {
   assert.expect(1);
   // we do this in order to simulate the unrecoverable errors generated when
   // Ember tries to AJAX load a url from another domain.
-  server.get(`${config.wnycURL}/unknown-url/`, () => {throw 'simulating a CORS error';});
+  server.get(`${config.webRoot}/unknown-url/`, () => {throw 'simulating a CORS error';});
 
   window.assign = function() {
     assert.ok(true, 'location.assign was called');
@@ -72,9 +65,10 @@ skip('it retries the server on a request error', function(assert) {
 
 test('deferred scripts embedded within content do not run twice', function(assert) {
   let page = server.create('django-page', {
-    id: 'story/foo/',
+    id: 'foo/',
     slug: 'foo',
-    body: `
+    text: `
+    <section class="text"></section>
 <script type="text/deferred-javascript">
 (function(){
 
@@ -150,48 +144,19 @@ test('.search is added to search pages', function(assert) {
   });
 });
 
-
 test('arbitrary django routes do dfp targeting', function(/*assert*/) {
+  // https://github.com/emberjs/ember.js/issues/14716#issuecomment-267976803
   server.create('django-page', {id: 'fake/'});
 
-  this.mock(this.application.__container__.lookup('route:djangorendered').get('googleAds'))
-    .expects('doTargeting')
-    .once();
+  visit('/');
+  
+  andThen(() => {
+    this.mock(this.application.__container__.lookup('route:djangorendered').get('googleAds'))
+      .expects('doTargeting')
+      .once();
+  });
   
   djangoPage
     .bootstrap({id: 'fake/'})
     .visit({id: 'fake/'});
-});
-
-moduleForAcceptance('Acceptance | Django Rendered | Beta Trial', {
-  beforeEach() {
-    server.create('stream');
-    window.onbeforeunload = escapeNavigation;
-    config.betaTrials.active = true;
-    config.betaTrials.preBeta = true;
-  },
-  afterEach() {
-    window.onbeforeunload = undefined;
-    resetHTML();
-  }
-});
-
-skip('alien doms with beta trials keep the beta bar if it has not been dismissed', function(assert) {
-  plantBetaTrial();
-
-  let djangoHTML = `<a href="${wnycURL}/foo" id="link">click me</a>`;
-  let page = server.create('django-page', {testMarkup: djangoHTML});
-  server.create('django-page', {id: 'foo/'});
-
-  djangoPage
-    .bootstrap(page)
-    .visit(page)
-    .alienClick('#link');
-
-  andThen(() => {
-    assert.equal(currentURL(), '/foo');
-  });
-  andThen(() => {
-    assert.ok(Ember.$('[data-test-selector=beta-tease]').length, 'beta trial tease is visible afer transition');
-  });
 });

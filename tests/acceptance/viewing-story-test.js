@@ -1,40 +1,23 @@
 import test from 'ember-sinon-qunit/test-support/test';
 import moduleForAcceptance from 'wqxr-web-client/tests/helpers/module-for-acceptance';
-import djangoPage from 'wqxr-web-client/tests/pages/django-page';
 import storyPage from 'wqxr-web-client/tests/pages/story';
-import { resetHTML } from 'wqxr-web-client/tests/helpers/html';
 import config from 'wqxr-web-client/config/environment';
 
-
-moduleForAcceptance('Acceptance | Django Page | Story Detail', {
-  afterEach() {
-    resetHTML();
-  }
-});
+moduleForAcceptance('Acceptance | Story Detail');
 
 test('smoke test', function(assert) {
   let story = server.create('story');
-  let id = `story/${story.slug}/`;
-  server.create('django-page', {id, slug: story.slug});
-
-  djangoPage
-    .bootstrap({id})
-    .visit({id});
+  visit(`story/${story.slug}`);
 
   andThen(() => {
-    assert.equal(currentURL(), `story/${story.slug}/`);
+    assert.equal(currentURL(), `story/${story.slug}`);
     assert.ok(find('.sitechrome-btn'), 'donate button should be the default');
   });
 });
 
 test('view comments as regular user', function(assert) {
-  let story = server.create('story');
-  let id = `story/${story.slug}/`;
-  server.create('django-page', {id, slug: story.slug});
-
-  djangoPage
-    .bootstrap({id})
-    .visit({id});
+  let story = server.create('story', {enableComments: true});
+  visit(`story/${story.slug}`);
 
   storyPage.clickShowComments();
 
@@ -45,64 +28,45 @@ test('view comments as regular user', function(assert) {
 });
 
 test('view comments as staff user', function(assert) {
-  server.get(`${config.wnycAdminRoot}/api/v1/is_logged_in/`, {is_staff: true});
+  server.get(`${config.adminRoot}/api/v1/is_logged_in/`, {is_staff: true});
   server.create('user');
   
-  let story = server.create('story');
-  let id = `story/${story.slug}/`;
-  server.create('django-page', {id, slug: story.slug});
+  let story = server.create('story', {enableComments: true});
+  server.createList('comment', 5, {story});
+  visit(`story/${story.slug}`);
 
-  djangoPage
-    .bootstrap({id})
-    .visit({id});
   storyPage.clickShowComments();
-  andThen(() => assert.ok(find('[data-test-selector=moderate]').length, 'moderate control is visible'));
+  andThen(() =>
+    assert.ok(find('[data-test-selector=moderate]').length, 'moderate control is visible'));
 });
 
 test('story pages with a play param', function(assert) {
-  let story = server.create('story');
-  let id = `story/${story.slug}/`;
-  server.create('django-page', {id, slug: story.slug});
 
-  djangoPage
-    .bootstrap({id})
-    .visit({id: id + `?play=${story.id}`});
+  let story = server.create('story');
+  visit(`story/${story.slug}/?play=${story.slug}`);
 
   andThen(function() {
-    assert.equal(currentURL(), `story/${story.slug}/?play=${story.id}`);
-    assert.ok(Ember.$('.nypr-player').length, 'persistent player should be visible');
-    assert.equal(Ember.$('[data-test-selector=nypr-player-story-title]').text(), story.title, `${story.title} should be loaded in player UI`);
+    assert.equal(currentURL(), `story/${story.slug}/?play=${story.slug}`);
+    assert.ok(find('.nypr-player').length, 'persistent player should be visible');
+    assert.equal(find('[data-test-selector=nypr-player-story-title]').text(), story.title, `${story.title} should be loaded in player UI`);
   });
 });
 
-moduleForAcceptance('Acceptance | Django Page | Story Donate URLs', {
-  afterEach() {
-    resetHTML();
-  }
-});
+moduleForAcceptance('Acceptance | Story Donate URLs');
 
 test('visiting a story with a different donate URL', function(assert) {
   let donateStory = server.create('story', {
-    extendedStory: {
-      headerDonateChunk: '<a href="http://foo.com" class="foo">donate to foo</a>',
-    }
+    headerDonateChunk: '<a href="http://foo.com" class="foo">donate to foo</a>',
   });
-  let id = `story/${donateStory.slug}/`;
-  server.create('django-page', {
-    id,
-    slug: donateStory.slug
-  });
+  visit(`story/${donateStory.slug}`);
 
-  djangoPage
-    .bootstrap({id})
-    .visit({id});
 
   andThen(function() {
     assert.equal(find('.foo').text(), 'donate to foo', 'donate chunk should match');
   });
 });
 
-moduleForAcceptance('Acceptance | Django Page | Story Detail Analytics', {
+moduleForAcceptance('Acceptance |  Story Detail Analytics', {
   afterEach() {
     delete window.ga;
   }
@@ -110,10 +74,8 @@ moduleForAcceptance('Acceptance | Django Page | Story Detail Analytics', {
 
 test('metrics properly reports story attrs', function(assert) {
   let story = server.create('story');
-  let id = `story/${story.slug}/`;
-  
+
   assert.expect(2);
-  server.create('django-page', {id, slug: story.slug});
 
   server.post(`${config.platformEventsAPI}/v1/events/viewed`, (schema, {requestBody}) => {
     let {
@@ -143,24 +105,69 @@ test('metrics properly reports story attrs', function(assert) {
     }
   };
 
-  djangoPage
-    .bootstrap({id})
-    .visit({id});
+  visit(`story/${story.slug}`);
+
 });
 
 test('story routes do dfp targeting', function(/*assert*/) {
   let forDfp = {tags: ['foo', 'bar'], show: 'foo show', channel: 'foo channel', series: 'foo series'};
-  let story = server.create('story', {extendedStory: forDfp});
-  let id = `story/${story.slug}/`;
-  
-  server.create('django-page', {id, slug: story.slug});
+  let story = server.create('story', forDfp);
 
-  this.mock(this.application.__container__.lookup('route:story').get('googleAds'))
-    .expects('doTargeting')
-    .once()
-    .withArgs(forDfp);
   
-  djangoPage
-    .bootstrap({id})
-    .visit({id});
+  // https://github.com/emberjs/ember.js/issues/14716#issuecomment-267976803
+  visit('/');
+
+  andThen(() => {
+    this.mock(this.application.__container__.lookup('route:story').get('googleAds'))
+      .expects('doTargeting')
+      .once()
+      .withArgs(forDfp);
+  });
+  
+  visit(`story/${story.slug}`);
+});
+
+test('listen button on story page includes data-story and data-show values', function(assert) {
+  let story = server.create('story', {showTitle: 'foo show'});
+  let segmentStory = server.create('story', 'withSegments', {showTitle: 'foo show'});
+  
+  visit(`story/${story.slug}`);
+  
+  andThen(() => {
+    let listenButton = findWithAssert('#storyHeader [data-test-selector=listen-button]');
+    assert.equal(listenButton.attr('data-show'), 'foo show');
+    assert.equal(listenButton.attr('data-story'), story.title);
+    
+    visit(`story/${segmentStory.slug}`);
+  });
+  
+  andThen(() => {
+    let segmentButtons = findWithAssert('#segmentsList [data-test-selector=listen-button]');
+    segmentButtons.each((i, el) => {
+      assert.equal($(el).attr('data-show'), 'foo show');
+      assert.equal($(el).attr('data-story'), segmentStory.segments[i].title);
+    });
+    
+  });
+});
+
+test('api request includes draft params', function(assert) {
+  assert.expect(4);
+  
+  let story = server.create('story');
+  let token = 'token';
+  let content_type_id = 'type';
+  let object_id = 'object';
+  let stamp = 'timestamp';
+  
+  server.get(`${config.publisherAPI}/v3/story/${story.slug}`, (schema, { queryParams }) => {
+    assert.equal(queryParams.token, token);
+    assert.equal(queryParams.content_type_id, content_type_id);
+    assert.equal(queryParams.object_id, object_id);
+    assert.equal(queryParams['_'], stamp);
+    return story;
+  });
+  
+  visit(`story/${story.slug}?token=${token}&content_type_id=${content_type_id}&object_id=${object_id}&_=${stamp}`);
+  
 });
