@@ -8,7 +8,7 @@ export default Component.extend({
   session: service(),
   init() {
     this._super(...arguments);
-    this.setProperties('autoPlayPrefs', 
+    this.setProperties('autoPlayPrefs',
       [{ name: 'My Default Stream', field: 'default_stream' }]);
   },
   enableAutoplay: equal('session.data.user-prefs-active-autoplay', 'no_autoplay'),
