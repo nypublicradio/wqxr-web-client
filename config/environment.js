@@ -20,24 +20,6 @@ module.exports = function(environment) {
         name: 'NativeAudio'
       }],
     },
-    metricsAdapters: [{
-      name: 'GoogleAnalytics',
-      config: {
-        id: process.env.GOOGLE_ANALYTICS || 'UA-46158613-2'
-      },
-      environments: ['production', 'development']
-    }, {
-      name: 'NprAnalytics',
-      config: {
-        id: 'UA-18188937-11'
-      }
-    }, {
-      name: 'GoogleTagManager',
-      config: {
-        id: process.env.GOOGLE_TAG_MANAGER_ID
-      },
-      environments: [process.env.DEV_GTM ? 'development' : 'production']
-    }],
     'ember-cli-mirage': {
       autostart: true // https://github.com/samselikoff/ember-cli-mirage/blob/master/CHANGELOG.md#how-it-works-in-different-types-of-tests
     },
@@ -155,9 +137,7 @@ module.exports = function(environment) {
       enabled: environment === 'production',
       forceSSL: true
     },
-    alienDom: {
-      toRemove: `${ALIEN_DOM_ROOT} > :not(.ember-view):not(#fb-root), ${ALIEN_DOM_ROOT} > head > link[rel=stylesheet]:not([href*=assets])`
-    }
+    googleTagManager: process.env.GOOGLE_TAG_MANAGER_ID || 'GTM-PM94N2'
   };
 
   if (environment === 'development') {
@@ -198,6 +178,7 @@ module.exports = function(environment) {
     ENV.membershipAPI = 'http://example.com';
     ENV.platformEventsAPI = 'http://example.com';
     ENV.APP.autoboot = false;
+
   }
 
   if (environment === 'production') {
