@@ -5,10 +5,6 @@ const env = EmberApp.env();
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
-    autoprefixer: {
-      browsers: ['last 3 versions']
-    },
-    'ember-cli-babel': { includePolyfill: true },
     fingerprint: {
       enabled: env === 'production',
       prepend: process.env.FINGERPRINT_PREPEND_URL
