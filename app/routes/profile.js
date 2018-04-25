@@ -4,6 +4,8 @@ import { get } from '@ember/object';
 import { inject as service } from '@ember/service';
 
 export default Route.extend(AuthenticatedRouteMixin, {
+  titleToken: 'Profile',
+  
   currentUser: service(),
 
   model() {

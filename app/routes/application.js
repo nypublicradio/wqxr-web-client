@@ -3,6 +3,7 @@ import { get } from '@ember/object';
 import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin';
 import { inject as service } from '@ember/service';
 import RSVP from 'rsvp';
+import { schedule } from '@ember/runloop';
 
 export default Route.extend(ApplicationRouteMixin, {
   metrics: service(),
@@ -15,13 +16,27 @@ export default Route.extend(ApplicationRouteMixin, {
   store: service(),
   dj: service(),
 
-  title(tokens) {
-    if (tokens && tokens.length > 0) {
-      let lastToken = tokens.slice(-1);
-      return `${lastToken} | WQXR`;
-    } else {
-      return 'WQXR | New York\'s Classical Music Radio Station';
+  title(tokens = []) {
+    let siteName = 'WQXR';
+    let tagline = "New York's Classical Music Radio Station";
+
+    // combine the first two items if the second item stats with `:`
+    if (tokens[1] && tokens[1].startsWith(':'))  {
+      tokens.splice(0, 2, `${tokens[0]} ${tokens[1]}`);
     }
+
+    tokens.push(siteName);
+    if (tokens.length < 3) {
+      tokens.push(tagline);
+    }
+    let title = tokens.join(' | ');
+    get(this, 'dataLayer').setPageTitle(title);
+
+    schedule('afterRender', () => {
+      get(this, 'dataLayer').sendPageView();
+    });
+
+    return title;
   },
 
   beforeModel() {
