@@ -16,14 +16,7 @@ export default Route.extend(PlayParamMixin, {
   googleAds: service(),
 
   titleToken(model) {
-    return get(model, 'title');
-  },
-  title(tokens) {
-    if (tokens && tokens.length > 0) {
-      return tokens[0];
-    } else {
-      return 'WQXR | New York\'s Classical Music Radio Station';
-    }
+    return get(model, 'title').split(' | ')[0];
   },
 
   model({ upstream_url }, { queryParams }) {
