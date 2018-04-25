@@ -1,3 +1,4 @@
+import DS from 'ember-data';
 import config from 'wqxr-web-client/config/environment';
 import Route from '@ember/routing/route';
 import { get } from '@ember/object';
