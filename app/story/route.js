@@ -6,7 +6,6 @@ import PlayParamMixin from 'wqxr-web-client/mixins/play-param';
 import config from 'wqxr-web-client/config/environment';
 
 export default Route.extend(PlayParamMixin, {
-  metrics:      service(),
   session:      service(),
   googleAds:    service(),
   dataPipeline: service(),
@@ -32,12 +31,14 @@ export default Route.extend(PlayParamMixin, {
       });
    });
   },
-  afterModel(model, transition) {
-    get(this, 'googleAds').doTargeting(get(model, 'story').forDfp());
+  afterModel({ story }, transition) {
+    get(this, 'googleAds').doTargeting(story.forDfp());
 
-    if (get(model, 'story.headerDonateChunk')) {
-      transition.send('updateDonateChunk', get(model, 'story.headerDonateChunk'));
+    if (get(story, 'headerDonateChunk')) {
+      transition.send('updateDonateChunk', get(story, 'headerDonateChunk'));
     }
+    get(this, 'dataLayer').setForType('story', story);
+
   },
 
   setupController(controller) {
@@ -74,26 +75,7 @@ export default Route.extend(PlayParamMixin, {
       this._super(...arguments);
 
       let model = get(this, 'currentModel');
-      let metrics = get(this, 'metrics');
       let dataPipeline = get(this, 'dataPipeline');
-      let {containers:action, title:label} = get(model, 'story.analytics');
-      let nprVals = get(model, 'story.nprAnalyticsDimensions');
-
-      // google analytics
-      metrics.trackEvent('GoogleAnalytics', {
-        category: 'Viewed Story',
-        action,
-        label,
-      });
-
-
-
-      // NPR
-      metrics.trackPage('NprAnalytics', {
-        page: `/story/${get(model, 'story.slug')}`,
-        title: label,
-        nprVals,
-      });
 
       // data pipeline
       dataPipeline.reportItemView({
@@ -106,9 +88,7 @@ export default Route.extend(PlayParamMixin, {
 
     willTransition() {
       this.send('enableChrome');
-      if (window.dataLayer) {
-        window.dataLayer.push({showTitle: undefined});
-      }
+      get(this, 'dataLayer').clearForType('story');
     }
   }
 });
