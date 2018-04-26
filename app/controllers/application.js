@@ -49,17 +49,5 @@ export default Controller.extend({
         this.get('dataLayer').audioTracking('schedule', this.get('hifi.currentSound'));
       }
     },
-
-    trackShare(data, sharedFrom) {
-      let metrics = this.get('metrics');
-
-      let {playContext, analyticsCode, type, shareText} = data;
-
-      metrics.trackEvent('GoogleAnalytics', {
-        category: 'Persistent Player',
-        action: `Shared Story "${shareText}"`,
-        label: `${playContext}|${analyticsCode}|${type}|${sharedFrom}`,
-      });
-    }
   }
 });
