@@ -61,29 +61,11 @@
                   shareUrl=meta.data.shareUrl
                   shareText=meta.data.shareText
                   data-action=(concat 'Shared Story "' meta.story.title '" - "' meta.story.showTitle '"' )
-                  data-label='Player'
+                  data-label='player'
                   as |share|}}
-                  {{#share.item as |item|}}
-                    {{item.button
-                      type='Facebook'
-                      classNames='gtm__click-tracking'
-                    }}
-                  {{/share.item}}
-
-                  {{#share.item as |item|}}
-                    {{item.button
-                      type='Twitter'
-                      via='WQXR'
-                      classNames='gtm__click-tracking'
-                    }}
-                  {{/share.item}}
-
-                  {{#share.item as |item|}}
-                    {{item.button
-                      type='Email'
-                      classNames='gtm__click-tracking'
-                    }}
-                  {{/share.item}}
+                  {{share.button type='Facebook'}}
+                  {{share.button type='Twitter' via='WQXR'}}
+                  {{share.button type='Email'}}
                 {{/nypr-share-button}}
 
             {{/with}}
