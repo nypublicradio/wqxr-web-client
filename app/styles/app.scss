@@ -33,6 +33,7 @@ body:not(.simplified_wrapper):not(.container_stripped) {
 @import 'nypr-member-center';
 @import 'nypr-account-modal';
 @import "nypr-audio-services";
+@import 'player-notification'; // override some values from audio services
 @import "nypr-publisher-lib";
 
 
@@ -65,7 +66,6 @@ body:not(.simplified_wrapper):not(.container_stripped) {
 @import 'text-crawl';
 @import 'modal';
 @import 'nypr-player-overrides';
-@import 'player-notification';
 @import 'queue-history';
 
 @import 'setting-queuefinish';
