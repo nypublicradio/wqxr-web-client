@@ -64,7 +64,7 @@ module('Acceptance | queue', function(hooks) {
   //   assert.equal(queuePage.stories(2).title(), 'Story 0', 'story 0 should be second after dragging');
   // });
 
-  test('queue and listening history listen buttons should have data-show and data-story attributes', async function(assert) {
+  test('queue and listening history listen buttons should have data-action and data-label attributes', async function(assert) {
     let listenQueue = this.owner.lookup('service:listen-queue');
     let listenHistory = this.owner.lookup('service:listen-history');
 
@@ -90,15 +90,15 @@ module('Acceptance | queue', function(hooks) {
 
     let listenButtons = Array.from(findAll('.player-queue [data-test-selector=listen-button]'));
     listenButtons.forEach((el, i) => {
-      assert.equal(el.getAttribute('data-show'), 'foo show');
-      assert.equal(el.getAttribute('data-story'), stories[i].title);
+      assert.equal(el.getAttribute('data-action'), 'Clicked Play/Pause On Demand');
+      assert.equal(el.getAttribute('data-label'), `${stories[i].title} | foo show`);
     });
 
     await click('.tabbedlist-tab:last-child > button');
     listenButtons = Array.from(findAll('.player-history [data-test-selector=listen-button]'));
     listenButtons.reverse().forEach((el, i) => {
-      assert.equal(el.getAttribute('data-show'), 'foo show');
-      assert.equal(el.getAttribute('data-story'), stories[i + 2].title);
+      assert.equal(el.getAttribute('data-action'), 'Clicked Play/Pause On Demand');
+      assert.equal(el.getAttribute('data-label'), `${stories[i + 2].title} | foo show`);
     });
   });
 });
