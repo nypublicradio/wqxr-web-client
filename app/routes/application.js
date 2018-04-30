@@ -6,8 +6,11 @@ import { inject as service } from '@ember/service';
 import RSVP from 'rsvp';
 import { schedule } from '@ember/runloop';
 
+const DETAIL_ROUTES = new RegExp(/story|(show|article|series|tag|blog)-detail\./);
+
 export default Route.extend(ApplicationRouteMixin, {
   dataLayer: service('nypr-metrics/data-layer'),
+  dataPipeline: service(),
   asyncWriter: service(),
   legacyLoader: service(),
   leaderboard: service(),
@@ -33,9 +36,19 @@ export default Route.extend(ApplicationRouteMixin, {
     let title = tokens.join(' | ');
     get(this, 'dataLayer').setPageTitle(title);
 
-    schedule('afterRender', () => {
-      get(this, 'dataLayer').sendPageView();
-    });
+    if (!this.controller._wasModal) {
+      let route = this.router.currentRouteName;
+
+      schedule('afterRender', () => {
+        get(this, 'dataLayer').sendPageView();
+        if (!DETAIL_ROUTES.test(route) && !route.match(/loading/)) {
+          this.get('dataPipeline').reportItemView();
+        }
+      });
+    } else {
+      // reset
+      this.controller._wasModal = false;
+    }
 
     return title;
   },
@@ -76,6 +89,7 @@ export default Route.extend(ApplicationRouteMixin, {
       //close queue/history modal when we open a new page
       this.controllerFor('application').send('closeModal');
       this.send('updateDonateChunk', null);
+      this.set('dataPipeline.currentReferrer', window.location.toString());
     },
     updateDonateChunk(donateChunk) {
       this.controllerFor('application').set('headerDonateChunk', donateChunk);
