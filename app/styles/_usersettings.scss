@@ -73,6 +73,10 @@
     background-color: $wqxrblue;
     display: flex;
     justify-content: center;
+
+    > * {
+      pointer-events: none;
+    }
   }
 
   .label {
