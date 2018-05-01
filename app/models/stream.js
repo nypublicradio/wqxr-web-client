@@ -6,8 +6,6 @@ export default StreamModel.extend({
   shareMetadata: computed('currentShow', 'currentPlaylistItem', function() {
     let shareText = '';
     let shareUrl = '';
-    let analyticsCode = '';
-    let via = get(this, 'twitterHandle') || 'WQXR';
 
     let entry = get(this, 'currentPlaylistItem.catalogEntry');
     if (entry) {
@@ -18,6 +16,6 @@ export default StreamModel.extend({
       shareUrl = get(this, 'currentShow.url');
     }
 
-    return {shareText, shareUrl, analyticsCode, via};
-  })
-});
+    return ({shareText, shareUrl});
+  }),
+})
