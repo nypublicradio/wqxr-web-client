@@ -61,7 +61,7 @@
                   data-label=(concat meta.story.title ' | ' meta.story.showTitle ' | Facebook')}}
                 {{share.button
                   type='Twitter'
-                  via='WQXR'
+                  via=(or meta.story.twitterHandle 'WQXR')
                   data-label=(concat meta.story.title ' | ' meta.story.showTitle ' | Twitter')}}
                 {{share.button
                   type='Email'
