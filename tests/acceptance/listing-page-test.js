@@ -280,9 +280,6 @@ module('Acceptance | Listing Page | viewing', function(hooks) {
     });
     server.create('api-response', { id: 'shows/foo/recent_stories/1' });
 
-    // https://github.com/emberjs/ember.js/issues/14716#issuecomment-267976803
-    await visit('/');
-
     this.mock(this.owner.lookup('route:show').get('googleAds'))
       .expects('doTargeting')
       .once();
