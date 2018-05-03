@@ -108,8 +108,6 @@ module.exports = function(environment) {
     publisherAPI: process.env.PUBLISHER_API,
     platformEventsAPI: process.env.PLATFORM_EVENTS_SERVICE,
     wnycDonateURL: 'https://pledge3.wqxr.org/epledge/main?ref=button-donate-header',
-    wnycSvgURL: '/media/svg/',
-    // put beta host at the root so it can be overridden by Django
     contentSecurityPolicy: {
       'connect-src': "'self' *.wnyc.net:* ws://*.wnyc.net:*",
       'style-src': "'self' 'unsafe-inline' *.wnyc.net:* *.wnyc.org cloud.typography.com fonts.googleapis.com www.google.com platform.twitter.com",
