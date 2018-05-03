@@ -1,4 +1,4 @@
-import { click, findAll, currentURL, visit, pauseTest } from '@ember/test-helpers';
+import { click, findAll, currentURL, visit } from '@ember/test-helpers';
 import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
 import { setBreakpoint } from 'ember-responsive/test-support';
