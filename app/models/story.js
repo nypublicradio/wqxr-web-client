@@ -9,8 +9,7 @@ export default StoryModel.extend({
     let shareUrl = get(this, 'url');
 
     let shareText = 'I\'m listening to ' + [parentTitle, title].filter(t => t).join(' - ');
-    let via = get(this, 'twitterHandle') || 'WQXR';
 
-    return {shareText, shareUrl, via};
+    return {shareText, shareUrl};
   })
 });
