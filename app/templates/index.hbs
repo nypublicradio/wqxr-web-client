@@ -34,7 +34,7 @@
   </section>
 
   <section class="l-container l-container--touch-full">
-    {{#nypr-brick-layout as |layout|}}
+    {{#nypr-brick-layout data-action="Homepage" as |layout|}}
 
       {{#layout.blowout as |blowout|}}
 
@@ -70,7 +70,7 @@
   {{ newsletter-signup }}
 
   <section class="l-container l-container--touch-full">
-    {{nypr-brick-grid items=model.wqxrHome.otherItems}}
+    {{nypr-brick-grid items=model.wqxrHome.otherItems data-action='Homepage'}}
   </section>
 
 </main>
