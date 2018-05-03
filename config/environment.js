@@ -110,10 +110,6 @@ module.exports = function(environment) {
     wnycDonateURL: 'https://pledge3.wqxr.org/epledge/main?ref=button-donate-header',
     wnycSvgURL: '/media/svg/',
     // put beta host at the root so it can be overridden by Django
-    featureFlags: {
-      'social-auth': process.env.SOCIAL_AUTH,
-      'member-center': process.env.MEMBER_CENTER,
-    },
     contentSecurityPolicy: {
       'connect-src': "'self' *.wnyc.net:* ws://*.wnyc.net:*",
       'style-src': "'self' 'unsafe-inline' *.wnyc.net:* *.wnyc.org cloud.typography.com fonts.googleapis.com www.google.com platform.twitter.com",
