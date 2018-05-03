@@ -5,7 +5,7 @@ import {
   find,
   visit
 } from '@ember/test-helpers';
-import { module } from 'qunit';
+import { module, skip } from 'qunit';
 import test from 'ember-sinon-qunit/test-support/test';
 import { setupApplicationTest } from 'ember-qunit';
 import { registerMockOnInstance } from 'wqxr-web-client/tests/helpers/register-mock';
@@ -62,7 +62,7 @@ module('Acceptance | play param', function(hooks) {
     assert.equal(find('[data-test-selector=nypr-player-story-title]').textContent, 'Foo', 'Foo story should be loaded in player UI');
   });
 
-  test('loading a page with a bad ?play param', async function(assert) {
+  skip('loading a page with a bad ?play param', async function(assert) {
     let id = '1';
     server.create('django-page', {id: `/bar?play=${id}`});
 
