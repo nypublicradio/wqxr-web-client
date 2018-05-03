@@ -72,7 +72,7 @@ module('Acceptance | queue', function(hooks) {
     this.owner.register('session-store:test', applicationStore, {instantiate: false})
 
     let stories = server.createList('story', 4, {showTitle: 'foo show'});
-    server.create('djangoPage', {id:'fake/'});
+    server.create('django-page', {id:'fake/'});
 
     run(() => {
       listenQueue.addToQueueById(stories[0].slug);
@@ -81,7 +81,6 @@ module('Acceptance | queue', function(hooks) {
       listenHistory.addListen(stories[2]);
       listenHistory.addListen(stories[3]);
     });
-
 
     await queuePage.visit();
 
