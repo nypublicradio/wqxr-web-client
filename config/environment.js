@@ -131,6 +131,9 @@ module.exports = function(environment) {
       enabled: environment === 'production',
       forceSSL: true
     },
+    alienDom: {
+      toRemove: `${ALIEN_DOM_ROOT} > :not(.ember-view):not(#fb-root), ${ALIEN_DOM_ROOT} > head > link[rel=stylesheet]:not([href*=assets])`
+    },
     googleTagManager: process.env.GOOGLE_TAG_MANAGER_ID || 'GTM-PM94N2'
   };
 
