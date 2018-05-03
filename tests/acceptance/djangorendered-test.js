@@ -64,7 +64,7 @@ module('Acceptance | Django Rendered | Proper Re-renders', function(hooks) {
       assert.ok(true, 'location.assign was called');
     };
 
-    await await await visit('/unknown-url')
+    await visit('/unknown-url')
       .catch(() => delete window.assign);
   });
 
