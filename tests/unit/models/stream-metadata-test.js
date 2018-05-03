@@ -17,8 +17,6 @@ module('Unit | Model | stream metadata', function(hooks) {
     expectedMetadata: {
       shareText: "I'm listening to Cool Show",
       shareUrl: 'http://wqxr.org/shows/cool-show',
-      analyticsCode: '',
-      via: 'WQXR'
     }
   },{
     description: 'Stream Song',
@@ -33,8 +31,6 @@ module('Unit | Model | stream metadata', function(hooks) {
     expectedMetadata: {
       shareText: 'I\'m listening to Maestro - Masterpiece',
       shareUrl: 'http://www.wqxr.org/streams/?stream=test',
-      analyticsCode: '',
-      via: 'WQXR'
     }
   }];
 
