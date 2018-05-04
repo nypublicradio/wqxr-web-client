@@ -16,41 +16,41 @@
   {{/site-chrome}}
 {{/if}}
 
-{{#nypr-player-integration as |integration|}}
+{{#nypr-player-integration as |data|}}
   {{#liquid-if showPlayer class="nypr-player-wrapper"}}
-    {{#liquid-if integration.revealNotificationBar class='player-notification-wrapper'}}
-      {{#integration.notification}}
+    {{#liquid-if data.revealNotificationBar class='player-notification-wrapper'}}
+      {{#data.notification}}
         {{player-notification/autoplay-message
-          duration   = integration.currentSound.duration
-          position   = integration.currentSound.position
-          audioType  = integration.currentAudioType
+          duration   = data.currentSound.duration
+          position   = data.currentSound.position
+          audioType  = data.currentAudioType
           isLoggedIn = session.isAuthenticated
         }}
-      {{/integration.notification}}
+      {{/data.notification}}
     {{/liquid-if}}
 
     {{#nypr-player
-      currentTitle     = integration.currentTitle
-      backdropImageUrl = integration.backdropImageUrl
-      storyTitle       = integration.storyTitle
-      showTitle        = integration.showTitle
-      isAudiostream    = integration.isStream
+      currentTitle     = data.currentTitle
+      backdropImageUrl = data.backdropImageUrl
+      storyTitle       = data.storyTitle
+      showTitle        = data.showTitle
+      isAudiostream    = data.isStream
       as |content|}}
         {{#content.for 'trackInfo'}}
           {{nypr-player-integration/track-info
-            currentAudio    = integration.currentAudio
-            showTitle       = integration.showTitle
-            showUrl         = integration.showUrl
-            storyTitle      = integration.storyTitle
-            storyUrl        = integration.storyUrl
-            audioId         = integration.currentAudioId
-            songDetails     = integration.songDetails
-            isStream        = integration.isStream
+            currentAudio    = data.currentAudio
+            showTitle       = data.showTitle
+            showUrl         = data.showUrl
+            storyTitle      = data.storyTitle
+            storyUrl        = data.storyUrl
+            audioId         = data.currentAudioId
+            songDetails     = data.songDetails
+            isStream        = data.isStream
             titleDidChange  = (action 'soundTitleDidChange')
           }}
 
           {{#unless hifi.isLoading}} {{! only show the share button when the audio has loaded}}
-            {{#with integration.currentAudio.shareMetadata as |share|}}
+            {{#with data.currentAudio.shareMetadata as |share|}}
               {{#nypr-share-button
                 text="SHARE"
                 shareUrl=share.shareUrl
@@ -59,14 +59,14 @@
                 as |share|}}
                 {{share.button
                   type='Facebook'
-                  data-label=(concat integration.storyTitle ' | ' integration.showTitle ' | Facebook')}}
+                  data-label=(concat data.storyTitle ' | ' data.showTitle 'Facebook')}}
                 {{share.button
                   type='Twitter'
                   via=(or meta.story.twitterHandle 'WQXR')
-                  data-label=(concat integration.storyTitle ' | ' integration.showTitle ' | Twitter')}}
+                  data-label=(concat data.storyTitle ' | ' data.showTitle ' | Twitter')}}
                 {{share.button
                   type='Email'
-                  data-label=(concat integration.storyTitle ' | ' integration.showTitle ' | Email')}}
+                  data-label=(concat data.storyTitle ' | ' data.showTitle ' | Email')}}
               {{/nypr-share-button}}
             {{/with}}
           {{/unless}}
@@ -74,10 +74,10 @@
 
         {{#content.for 'streamInfo'}}
           {{nypr-player-integration/stream-info
-            streamScheduleUrl = integration.streamScheduleUrl
-            streamPlaylistUrl = integration.streamPlaylistUrl
-            streamUrl         = integration.streamUrl
-            streamName        = integration.streamName
+            streamScheduleUrl = data.streamScheduleUrl
+            streamPlaylistUrl = data.streamPlaylistUrl
+            streamUrl         = data.streamUrl
+            streamName        = data.streamName
           }}
         {{/content.for}}
     {{/nypr-player}}
