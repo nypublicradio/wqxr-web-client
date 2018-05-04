@@ -8,7 +8,7 @@ export default StreamModel.extend({
     let shareUrl = '';
 
     let entry = get(this, 'currentPlaylistItem.catalogEntry');
-    if (entry) {
+    if (entry && entry.composer) {
       shareText = `I'm listening to ${entry.composer.name} - ${entry.title}`;
       shareUrl = `http://www.wqxr.org/streams/?stream=${get(this, 'slug')}`;
     } else {
