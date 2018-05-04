@@ -17,7 +17,9 @@
             <h1>
               <span class="for-screenreaders">WQXR Navigation</span>
               <a href="/"
-                class="link--nodecor wqxr-logo-nav"
+                class="link--nodecor wqxr-logo-nav gtm__click-tracking"
+                data-action="Side Navigation"
+                data-label="logo"
                 title="WQXR | New York Public Radio Home Page">
                 {{nypr-svg icon='wqxr-logo' className='icon--wqxr-logo-nav'}}
               </a>
@@ -101,7 +103,7 @@
         {{/link-to}}
 
         {{#link-to 'playlist-daily' current-when="playlist-daily" tagName='li' href=false class="list-item list-item--nav"}}
-          {{link-to 'Playlists' 'playlist-daily' class="inherit"}}
+          {{link-to 'Playlists' 'playlist-daily' class="inherit gtm__click-tracking-text" data-action="Side Navigation"}}
         {{/link-to}}
 
         {{#link-to 'schedule' current-when="schedule.date" tagName='li' href=false class="list-item list-item--nav"}}
@@ -138,7 +140,7 @@
     <!-- .x-scrollable-body -->
 
     {{#if media.isLargeAndUp}}
-      <div class="sitechrome__nav-footer">
+      <div class="sitechrome__nav-footer gtm__click-tracking-container-text" data-action="Nav Social Link">
         {{nypr-social-icons title="Follow WQXR" items=socialIcons}}
       </div>
     {{/if}}
