@@ -58,14 +58,20 @@
                 as |share|}}
                 {{share.button
                   type='Facebook'
-                  data-label=(concat data.storyTitle ' | ' data.showTitle 'Facebook')}}
+                  data-label=(concat
+                    (if data.isStream data.streamName (concat data.storyTitle ' | ' data.showTitle))
+                    ' | Facebook')}}
                 {{share.button
                   type='Twitter'
                   via=(or meta.story.twitterHandle 'WQXR')
-                  data-label=(concat data.storyTitle ' | ' data.showTitle ' | Twitter')}}
+                  data-label=(concat
+                    (if data.isStream data.streamName (concat data.storyTitle ' | ' data.showTitle))
+                    ' | Twitter')}}
                 {{share.button
                   type='Email'
-                  data-label=(concat data.storyTitle ' | ' data.showTitle ' | Email')}}
+                  data-label=(concat
+                    (if data.isStream data.streamName (concat data.storyTitle ' | ' data.showTitle))
+                    ' | Email')}}
               {{/nypr-share-button}}
             {{/with}}
           {{/unless}}
