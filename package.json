@@ -67,7 +67,6 @@
     "ember-imagesloaded-shim": "^0.0.6",
     "ember-load-initializers": "^1.0.0",
     "ember-maybe-import-regenerator": "^0.1.6",
-    "ember-metrics": "^0.12.0",
     "ember-moment": "7.6.0",
     "ember-multiselect-checkboxes": "0.11.1",
     "ember-poll": "^1.2.0",
