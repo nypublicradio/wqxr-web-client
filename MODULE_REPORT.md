@@ -40,17 +40,3 @@ const inflect = new Inflector(Inflector.defaultRules);
         return;
       }
 ```
-
-### Unknown Global
-
-**Global**: `Ember.Test`
-
-**Location**: `tests/helpers/google-analytics-stub.js` at line 4
-
-```js
-import GoogleAnalytics from 'wqxr-web-client/metrics-adapters/google-analytics';
-
-export default Ember.Test.onInjectHelpers(function() {
-  GoogleAnalytics.reopen({
-    init() {},
-```
