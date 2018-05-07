@@ -134,7 +134,7 @@ module.exports = function(environment) {
     alienDom: {
       toRemove: `${ALIEN_DOM_ROOT} > :not(.ember-view):not(#fb-root), ${ALIEN_DOM_ROOT} > head > link[rel=stylesheet]:not([href*=assets])`
     },
-    googleTagManager: process.env.GOOGLE_TAG_MANAGER_ID || 'GTM-PM94N2'
+    googleTagManager: process.env.GOOGLE_TAG_MANAGER_ID || 'GTM-MZ2S75K'
   };
 
   if (environment === 'development') {
