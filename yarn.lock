@@ -1365,7 +1365,7 @@ broccoli-funnel@^1.0.0, broccoli-funnel@^1.0.1, broccoli-funnel@^1.0.2, broccoli
     symlink-or-copy "^1.0.0"
     walk-sync "^0.3.1"
 
-broccoli-kitchen-sink-helpers@^0.2.5, broccoli-kitchen-sink-helpers@^0.2.6:
+broccoli-kitchen-sink-helpers@^0.2.5, broccoli-kitchen-sink-helpers@^0.2.6, broccoli-kitchen-sink-helpers@~0.2.0:
   version "0.2.9"
   resolved "https://registry.yarnpkg.com/broccoli-kitchen-sink-helpers/-/broccoli-kitchen-sink-helpers-0.2.9.tgz#a5e0986ed8d76fb5984b68c3f0450d3a96e36ecc"
   dependencies:
@@ -1572,7 +1572,7 @@ broccoli-unwatched-tree@^0.1.1:
   dependencies:
     broccoli-source "^1.1.0"
 
-broccoli-writer@^0.1.1:
+broccoli-writer@^0.1.1, broccoli-writer@~0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/broccoli-writer/-/broccoli-writer-0.1.1.tgz#d4d71aa8f2afbc67a3866b91a2da79084b96ab2d"
   dependencies:
@@ -6898,8 +6898,8 @@ nypr-publisher-lib@>=0.4.0-beta.1:
     nypr-ui ">=0.3.0-beta.1"
 
 nypr-ui@>=0.3.0-beta.1:
-  version "0.3.0-beta.1"
-  resolved "https://registry.yarnpkg.com/nypr-ui/-/nypr-ui-0.3.0-beta.1.tgz#0dcc75912b6b5ae0c078237afe6d5e2bb4c31dbc"
+  version "0.3.0-beta.2"
+  resolved "https://registry.yarnpkg.com/nypr-ui/-/nypr-ui-0.3.0-beta.2.tgz#bd1dd63b5addbb365a339f5cc6b583def5ac95d2"
   dependencies:
     ember-basic-dropdown "0.34.0"
     ember-burger-menu "^3.1.0"
@@ -7332,13 +7332,17 @@ punycode@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-1.4.1.tgz#c0d5a63b2718800ad8e1eb0fa5269c84dd41845e"
 
-qs@6.5.1, qs@^6.4.0, qs@~6.5.1:
+qs@6.5.1, qs@^6.4.0:
   version "6.5.1"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.1.tgz#349cdf6eef89ec45c12d7d5eb3fc0c870343a6d8"
 
 qs@~6.3.0:
   version "6.3.2"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.3.2.tgz#e75bd5f6e268122a2a0e0bda630b2550c166502c"
+
+qs@~6.5.1:
+  version "6.5.2"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
 
 query-string@^5.0.1:
   version "5.1.1"
@@ -7805,6 +7809,10 @@ rsvp@^3.0.14, rsvp@^3.0.16, rsvp@^3.0.17, rsvp@^3.0.18, rsvp@^3.0.21, rsvp@^3.0.
 rsvp@^4.6.1, rsvp@^4.7.0:
   version "4.8.2"
   resolved "https://registry.yarnpkg.com/rsvp/-/rsvp-4.8.2.tgz#9d5647108735784eb13418cdddb56f75b919d722"
+
+rsvp@~3.0.6:
+  version "3.0.21"
+  resolved "https://registry.yarnpkg.com/rsvp/-/rsvp-3.0.21.tgz#49c588fe18ef293bcd0ab9f4e6756e6ac433359f"
 
 rsvp@~3.2.1:
   version "3.2.1"
