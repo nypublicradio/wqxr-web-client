@@ -142,6 +142,16 @@ body:not(.simplified_wrapper):not(.container_stripped) {
 
 @import 'lib/slick-1.4.1.scss';
 
+// for analytics
+.stream-banner .ember-power-select-option {
+  padding: 0;
+
+  > span {
+    padding: 8px 17px;
+    display: block;
+  }
+}
+
 /***
  * Molecules:
  * Let's build some molecules using atoms

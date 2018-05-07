@@ -26,8 +26,9 @@
   }
 }
 
-.user-settings .ember-power-select-option {
+.user-settings .ember-power-select-option > span {
   padding: 0 20px;
+  display: block;
 }
 
 .user-settings .ember-power-select-trigger,
