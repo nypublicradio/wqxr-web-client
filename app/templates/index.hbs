@@ -17,7 +17,14 @@
     {{#stream-banner background=background streams=streams as |currentStream banner|}}
       {{#banner.header as |header|}}
         {{component header.stationTitle}}
-        {{component header.dropdown}}
+        {{#header.dropdown selectedItemComponent='user-settings/placeholder' as |stream|}}
+          <span
+            class="gtm__click-tracking"
+            data-action="Selected Stream"
+            data-label={{stream.name}}>
+            {{stream.name}}
+          </span>
+        {{/header.dropdown}}
       {{/banner.header}}
 
       {{component banner.details}}
