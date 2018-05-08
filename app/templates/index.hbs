@@ -17,13 +17,8 @@
     {{#stream-banner background=background streams=streams as |currentStream banner|}}
       {{#banner.header as |header|}}
         {{component header.stationTitle}}
-        {{#header.dropdown selectedItemComponent='user-settings/placeholder' as |stream|}}
-          <span
-            class="gtm__click-tracking"
-            data-action="Selected Stream"
-            data-label={{stream.name}}>
-            {{stream.name}}
-          </span>
+        {{#header.dropdown as |stream|}}
+          {{stream.name}}
         {{/header.dropdown}}
       {{/banner.header}}
 
@@ -34,9 +29,7 @@
           class='stream-banner-listenbutton nudge'
           type='blue-boss'
           itemPK=currentStream.slug
-          itemTitle=currentStream.name
-          data-action='Click Play/Pause Stream: Stream Banner'
-          data-label=currentStream.name}}
+          itemTitle=currentStream.name}}
           Listen Live
         {{/listen-button}}
       {{/banner.controls}}
@@ -51,7 +44,7 @@
   </section>
 
   <section class="l-container l-container--touch-full">
-    {{#nypr-brick-layout data-action="Homepage" as |layout|}}
+    {{#nypr-brick-layout as |layout|}}
 
       {{#layout.blowout as |blowout|}}
 
@@ -87,7 +80,7 @@
   {{ newsletter-signup }}
 
   <section class="l-container l-container--touch-full">
-    {{nypr-brick-grid items=model.wqxrHome.otherItems data-action='Homepage'}}
+    {{nypr-brick-grid items=model.wqxrHome.otherItems}}
   </section>
 
 </main>
