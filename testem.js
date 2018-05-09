@@ -1,5 +1,6 @@
+var circleFolder = process.env.CIRCLE_TEST_REPORTS;
+
 module.exports = {
-  report_file: 'test-results/wqxr-testem/wqxr-web-client-test.xml',
   test_page: 'tests/index.html?hidepassed',
   disable_watching: true,
   launch_in_ci: [
@@ -22,5 +23,8 @@ module.exports = {
         '--window-size=1440,900'
       ].filter(Boolean)
     }
-  }
+  },
+  reporter: circleFolder ? 'xunit' : 'tap',
+  report_file: circleFolder ? circleFolder + '/text.xml' : '',
+  xunit_intermediate_output: true
 };
