@@ -65,9 +65,11 @@ jobs:
           key: modernizr-{{ .Revision }}
       - run:
           name: Test
+          environment:
+            CIRCLE_TEST_REPORTS: test-results
           command: npx ember test -r xunit
       - store_test_results:
-          path: test-results/wqxr-testem/
+          path: test-results/
 
   deploy:
     docker:
