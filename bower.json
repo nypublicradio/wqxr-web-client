@@ -1,6 +1,0 @@
-{
-  "name": "wqxr-web-client",
-  "dependencies": {
-    "waypoints": "~4.0.0",
-  }
-}
