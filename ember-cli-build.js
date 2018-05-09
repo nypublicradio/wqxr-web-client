@@ -28,6 +28,7 @@ module.exports = function(defaults) {
 
   app.import('vendor/polyfills/url.js');
   app.import('node_modules/normalize.css/normalize.css');
+  app.import('node_modules/jquery-migrate/dist/jquery-migrate.min.js');
   // All legacy JS modules that are directly called from this ember
   // app should be imported into the app's own build here. Notice that
   // these are symlinked to their original locations in the puppy
