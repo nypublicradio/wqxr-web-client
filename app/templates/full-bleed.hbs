@@ -11,12 +11,17 @@
           {{/link-to}}
         {{/top.left}}
 
-        {{#top.right}}
-          {{#nypr-ui/buttons/red tagName="a" href="https://pledge3.wqxr.org/donate/main/onestep/?ref=button-donate-header" tall=true class="full-bleed__donate btn--blue"}}
-            Donate
-          {{/nypr-ui/buttons/red}}
-        {{/top.right}}
-      {{/hero.top}}
+      {{#top.right}}
+        {{#nypr-ui/buttons/red tagName="a"
+          href="https://pledge3.wqxr.org/donate/main/onestep/?ref=button-donate-header"
+          tall=true
+          class="full-bleed__donate btn--blue gtm__click-tracking"
+          data-action="Donate"
+          data-label="full-bleed"}}
+          Donate
+        {{/nypr-ui/buttons/red}}
+      {{/top.right}}
+    {{/hero.top}}
 
       {{#with s.imageMain as |img|}}
         {{hero.image
