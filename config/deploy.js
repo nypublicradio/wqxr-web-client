@@ -48,12 +48,8 @@ module.exports = function(deployTarget) {
     }
   };
 
-  if (deployTarget !== 'production' && deployTarget !== 'demo') {
-    ENV.redis.keyPrefix = deployTarget;
-  }
-
-  if (deployTarget === 'demo') {
-    ENV.pipeline = { activateOnDeploy: true };
+  if (deployTarget.startsWith('qa')) {
+    ENV.redis.keyPrefix = deployTarget.replace('qa:', '');
   }
 
   if (deployTarget === 'production') {
