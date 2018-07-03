@@ -95,7 +95,7 @@
     "nypr-account-settings": ">=0.2.0-beta.1",
     "nypr-ads": ">=0.1.0",
     "nypr-audio-services": ">=0.4.0-beta.2",
-    "nypr-auth": ">=0.2.0",
+    "nypr-auth": ">=0.2.2",
     "nypr-django-for-ember": ">=0.3.0-beta.1",
     "nypr-metrics": ">=0.4.0-beta.1",
     "nypr-player": ">=0.3.0-beta.1",
@@ -109,8 +109,7 @@
     ]
   },
   "resolutions": {
-    "ember-hifi": "^1.15.0",
-    "nypr-auth": ">=0.2.2",
+    "ember-cli-babel": "^6.6.0",
     "customizr": "Modernizr/customizr#e5890ed4b4fedb69da50ffbae39577788970d8ee"
   },
   "engines": {
