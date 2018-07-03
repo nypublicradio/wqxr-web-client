@@ -53,7 +53,9 @@
       <h1>
         <span class="for-screenreaders">WQXR Navigation</span>
         <a href="/"
-          class="link--nodecor wqxr-logo-nav"
+          class="link--nodecor wqxr-logo-nav gtm__click-tracking"
+          data-action="Side Navigation"
+          data-label="logo"
           title="WQXR | New York Public Radio Home Page">
           {{nypr-svg icon='wqxr-logo' className='icon--wqxr-logo-nav'}}
         </a>
@@ -72,13 +74,18 @@
               itemPK=preferredStream.slug
               itemTitle=preferredStream.name
               playContext='nav'
-              class='stream-launcher'}}
+              data-action='Clicked Play/Pause Stream: nav'
+              data-label=preferredStream.name
+              class='stream-launcher gtm__click-tracking'}}
               <span>Listen Live</span>
             {{/listen-button}}
           {{else}}
             {{!-- This 'button' is a top nav item that looks like a link. it doesn't show an icon to reflect state --}}
             {{!-- So clicking will always trigger a play action (and not a pause), state is locked to 'is-paused'  --}}
             {{#listen-button
+              class='gtm__click-tracking'
+              data-action='Clicked Play/Pause Stream: nav'
+              data-label=preferredStream.name
               type='vanilla'
               state='is-paused'
               itemPK=preferredStream.slug
@@ -90,37 +97,37 @@
         </li>
 
         {{#link-to 'stream' tagName='li' href=false class="list-item list-item--nav"}}
-          {{link-to 'All Streams' 'stream' class="inherit"}}
+          {{link-to 'All Streams' 'stream' class="inherit gtm__click-tracking"}}
         {{/link-to}}
 
         {{#link-to 'playlist-daily' current-when="playlist-daily" tagName='li' href=false class="list-item list-item--nav"}}
-          {{link-to 'Playlists' 'playlist-daily' class="inherit"}}
+          {{link-to 'Playlists' 'playlist-daily' class="inherit gtm__click-tracking"}}
         {{/link-to}}
 
         {{#link-to 'schedule' current-when="schedule.date" tagName='li' href=false class="list-item list-item--nav"}}
-          {{link-to 'Schedule' 'schedule' class="inherit"}}
+          {{link-to 'Schedule' 'schedule' class="inherit gtm__click-tracking"}}
         {{/link-to}}
 
         {{#link-to 'show' current-when="show show-detail" tagName="li" href=false class="list-item list-item--nav"}}
-          {{link-to 'Programs' 'show' class="inherit"}}
+          {{link-to 'Programs' 'show' class="inherit gtm__click-tracking"}}
         {{/link-to}}
 
         <li class="list-item list-item--nav">
-          <a href="http://www.newsounds.org" class="inherit" target="_blank">New Sounds</a>
+          <a href="http://www.newsounds.org" class="inherit gtm__click-tracking" target="_blank">New Sounds</a>
         </li>
 
         {{#link-to 'events'  tagName='li' href=false class="list-item list-item--nav"}}
-          {{link-to 'Events' 'events' class="inherit"}}
+          {{link-to 'Events' 'events' class="inherit gtm__click-tracking"}}
         {{/link-to}}
 
         {{#link-to 'videos' tagName='li' href=false class="list-item list-item--nav"}}
-          {{link-to 'Videos' 'videos' class="inherit"}}
+          {{link-to 'Videos' 'videos' class="inherit gtm__click-tracking"}}
         {{/link-to}}
 
         {{#unless media.isLargeAndUp}}
 
           {{#link-to 'djangorendered' 'search/' tagName='li' href=false class="list-item list-item--nav"}}
-            {{link-to 'Search' 'djangorendered' 'search/' class="inherit"}}
+            {{link-to 'Search' 'djangorendered' 'search/' class="inherit gtm__click-tracking"}}
           {{/link-to}}
 
         {{/unless}}
