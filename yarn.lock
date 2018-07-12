@@ -2787,7 +2787,7 @@ ember-cli-autoprefixer@^0.6.0:
     broccoli-autoprefixer "^4.1.0"
     lodash "^4.0.0"
 
-ember-cli-babel@^5.0.0, ember-cli-babel@^5.1.3:
+ember-cli-babel@^5.0.0:
   version "5.2.4"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-5.2.4.tgz#5ce4f46b08ed6f6d21e878619fb689719d6e8e13"
   dependencies:
@@ -2959,9 +2959,9 @@ ember-cli-deploy-s3@1.1.0:
     proxy-agent "^2.0.0"
     rsvp "^3.5.0"
 
-ember-cli-deploy-sentry@0.5.2:
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/ember-cli-deploy-sentry/-/ember-cli-deploy-sentry-0.5.2.tgz#5872f7cc83303d0d66284fe4b51ba83501c1b1ac"
+ember-cli-deploy-sentry@^0.5.2:
+  version "0.5.6"
+  resolved "https://registry.yarnpkg.com/ember-cli-deploy-sentry/-/ember-cli-deploy-sentry-0.5.6.tgz#9eb1d7126316e6fe90771b669438a6eb65db71cc"
   dependencies:
     ember-cli-babel "^5.0.0"
     ember-cli-deploy-plugin "^0.2.0"
@@ -3226,12 +3226,6 @@ ember-cli-sass@^7.2.0:
     broccoli-merge-trees "^1.1.0"
     broccoli-sass-source-maps "^2.1.0"
     ember-cli-version-checker "^2.1.0"
-
-ember-cli-sentry@2.4.2:
-  version "2.4.2"
-  resolved "https://registry.yarnpkg.com/ember-cli-sentry/-/ember-cli-sentry-2.4.2.tgz#1100ecb4dc5069ad0e8a46136cc94d692068bd54"
-  dependencies:
-    ember-cli-babel "^5.1.6"
 
 ember-cli-shims@^1.2.0:
   version "1.2.0"
