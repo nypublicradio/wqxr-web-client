@@ -47,21 +47,29 @@
             {{/if}}
 
             {{#header.share story=model.story classNames='story-share-buttons' as |share|}}
+              {{#with model.story as |s|}}
               {{#share.button
                 type='Facebook'
+                data-action='Share from Story Header'
+                data-label=(concat s.title ' | ' (or s.showTitle s.channelTitle) ' | Facebook')
                 class="btn btn--circle btn--mq-graywhite"}}
                 <i class="fa fa-facebook"></i>
               {{/share.button}}
               {{#share.button
                 type='Twitter'
+                data-action='Share from Story Header'
+                data-label=(concat s.title ' | ' (or s.showTitle s.channelTitle) ' | Twitter')
                 class="btn btn--circle btn--mq-graywhite"}}
                 <i class="fa fa-twitter"></i>
               {{/share.button}}
               {{#share.button
                 type='Email'
+                data-action='Share from Story Header'
+                data-label=(concat s.title ' | ' (or s.showTitle s.channelTitle) ' | Email')
                 class="btn btn--circle btn--mq-graywhite"}}
                 <i class="fa fa-envelope"></i>
               {{/share.button}}
+              {{/with}}
             {{/header.share}}
 
           {{/nypr-story/header-content}}

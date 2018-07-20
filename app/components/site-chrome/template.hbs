@@ -17,7 +17,8 @@
             <h1>
               <span class="for-screenreaders">WQXR Navigation</span>
               <a href="/"
-                class="link--nodecor wqxr-logo-nav"
+                class="link--nodecor wqxr-logo-nav gtm__click-tracking"
+                data-action="Side Navigation"
                 title="WQXR | New York Public Radio Home Page">
                 {{nypr-svg icon='wqxr-logo' className='icon--wqxr-logo-nav'}}
               </a>
@@ -97,37 +98,37 @@
         </li>
 
         {{#link-to 'stream' tagName='li' href=false class="list-item list-item--nav"}}
-          {{link-to 'All Streams' 'stream' class="inherit gtm__click-tracking"}}
+          {{link-to 'All Streams' 'stream' class="inherit gtm__click-tracking" data-action="Side Navigation"}}
         {{/link-to}}
 
         {{#link-to 'playlist-daily' current-when="playlist-daily" tagName='li' href=false class="list-item list-item--nav"}}
-          {{link-to 'Playlists' 'playlist-daily' class="inherit gtm__click-tracking"}}
+          {{link-to 'Playlists' 'playlist-daily' class="inherit gtm__click-tracking" data-action="Side Navigation"}}
         {{/link-to}}
 
         {{#link-to 'schedule' current-when="schedule.date" tagName='li' href=false class="list-item list-item--nav"}}
-          {{link-to 'Schedule' 'schedule' class="inherit gtm__click-tracking"}}
+          {{link-to 'Schedule' 'schedule' class="inherit gtm__click-tracking" data-action="Side Navigation"}}
         {{/link-to}}
 
         {{#link-to 'show' current-when="show show-detail" tagName="li" href=false class="list-item list-item--nav"}}
-          {{link-to 'Programs' 'show' class="inherit gtm__click-tracking"}}
+          {{link-to 'Programs' 'show' class="inherit gtm__click-tracking" data-action="Side Navigation"}}
         {{/link-to}}
 
         <li class="list-item list-item--nav">
-          <a href="http://www.newsounds.org" class="inherit gtm__click-tracking" target="_blank">New Sounds</a>
+          <a href="http://www.newsounds.org" class="inherit gtm__click-tracking" data-action="Side Navigation" target="_blank">New Sounds</a>
         </li>
 
         {{#link-to 'events'  tagName='li' href=false class="list-item list-item--nav"}}
-          {{link-to 'Events' 'events' class="inherit gtm__click-tracking"}}
+          {{link-to 'Events' 'events' class="inherit gtm__click-tracking" data-action="Side Navigation"}}
         {{/link-to}}
 
         {{#link-to 'videos' tagName='li' href=false class="list-item list-item--nav"}}
-          {{link-to 'Videos' 'videos' class="inherit gtm__click-tracking"}}
+          {{link-to 'Videos' 'videos' class="inherit gtm__click-tracking" data-action="Side Navigation"}}
         {{/link-to}}
 
         {{#unless media.isLargeAndUp}}
 
           {{#link-to 'djangorendered' 'search/' tagName='li' href=false class="list-item list-item--nav"}}
-            {{link-to 'Search' 'djangorendered' 'search/' class="inherit gtm__click-tracking"}}
+            {{link-to 'Search' 'djangorendered' 'search/' class="inherit gtm__click-tracking" data-action="Side Navigation"}}
           {{/link-to}}
 
         {{/unless}}
