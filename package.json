@@ -118,5 +118,8 @@
   },
   "engines": {
     "node": "^4.5 || 6.* || >= 7.*"
+  },
+  "dependencies": {
+    "customizr": "Modernizr/customizr#e5890ed4b4fedb69da50ffbae39577788970d8ee"
   }
 }
