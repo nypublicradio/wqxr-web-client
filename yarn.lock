@@ -2002,9 +2002,13 @@ colors@1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/colors/-/colors-1.0.3.tgz#0433f44d809680fdeb60ed260f1b0c262e82a40b"
 
-colors@^1.1.2, colors@^1.2.1, colors@~1.3.0:
+colors@^1.1.2:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/colors/-/colors-1.3.1.tgz#4accdb89cf2cabc7f982771925e9468784f32f3d"
+
+colors@^1.2.1, colors@~1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/colors/-/colors-1.3.0.tgz#5f20c9fef6945cb1134260aab33bfbdc8295e04e"
 
 colors@~1.1.2:
   version "1.1.2"
@@ -6759,8 +6763,8 @@ nypr-ads@>=0.1.0:
     ember-cli-htmlbars "^2.0.1"
 
 nypr-audio-services@>=0.4.0-beta.2:
-  version "0.4.0-beta.10"
-  resolved "https://registry.yarnpkg.com/nypr-audio-services/-/nypr-audio-services-0.4.0-beta.10.tgz#64108041e4c9ffd886c5bbb7a82bb39439ef9357"
+  version "0.4.0-beta.8"
+  resolved "https://registry.yarnpkg.com/nypr-audio-services/-/nypr-audio-services-0.4.0-beta.8.tgz#a45c889bc45f1929b753c544beef75526f1766ae"
   dependencies:
     ember-cli-babel "^6.6.0"
     ember-cli-htmlbars "^2.0.1"
@@ -6793,8 +6797,8 @@ nypr-django-for-ember@>=0.3.0-beta.1:
     ember-wormhole "^0.5.2"
 
 nypr-metrics@>=0.4.0-beta.1:
-  version "0.4.0-beta.8"
-  resolved "https://registry.yarnpkg.com/nypr-metrics/-/nypr-metrics-0.4.0-beta.8.tgz#afaa77d71ffb0da9b9ac73bf7c9ba49513433994"
+  version "0.4.0-beta.6"
+  resolved "https://registry.yarnpkg.com/nypr-metrics/-/nypr-metrics-0.4.0-beta.6.tgz#f1dd9f4e08cf060d2c525d952a4a1f260bab2faa"
   dependencies:
     ember-cli-babel "^6.6.0"
     ember-get-config "^0.2.2"
@@ -6812,8 +6816,8 @@ nypr-player@>=0.3.0-beta.1:
     nypr-ui ">=0.3.0-beta.1"
 
 nypr-publisher-lib@>=0.4.0-beta.1:
-  version "0.4.0-beta.10"
-  resolved "https://registry.yarnpkg.com/nypr-publisher-lib/-/nypr-publisher-lib-0.4.0-beta.10.tgz#e32dfb6add1e732e03f9fb8ff8b312c6d4f9aff0"
+  version "0.4.0-beta.11"
+  resolved "https://registry.yarnpkg.com/nypr-publisher-lib/-/nypr-publisher-lib-0.4.0-beta.11.tgz#bfed53ba4852ac9f61fd74c4f128e3438b7a481d"
   dependencies:
     broccoli-funnel "^2.0.1"
     broccoli-merge-trees "^2.0.0"
@@ -6830,8 +6834,8 @@ nypr-publisher-lib@>=0.4.0-beta.1:
     nypr-ui ">=0.3.0-beta.1"
 
 nypr-ui@>=0.3.0-beta.1:
-  version "0.3.0-beta.6"
-  resolved "https://registry.yarnpkg.com/nypr-ui/-/nypr-ui-0.3.0-beta.6.tgz#fe85358947b377270bcd126b12b716b4471a8428"
+  version "0.3.0-beta.7"
+  resolved "https://registry.yarnpkg.com/nypr-ui/-/nypr-ui-0.3.0-beta.7.tgz#d031b970868fe7347469370096fb084caeffdd57"
   dependencies:
     ember-basic-dropdown "0.34.0"
     ember-burger-menu "^3.1.0"
