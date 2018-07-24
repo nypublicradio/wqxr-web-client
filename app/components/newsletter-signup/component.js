@@ -35,7 +35,7 @@ export default Component.extend({
         this.set("formLoading", true);
         let options = {
           type: 'GET',
-          url: "http://wqxr.us5.list-manage.com/subscribe/post-json?u=4109fdd323aaac7078eadaa8f&amp;id=aa1c2a6097",
+          url: "https://wqxr.us5.list-manage.com/subscribe/post-json?u=4109fdd323aaac7078eadaa8f&amp;id=aa1c2a6097",
           dataType: 'jsonp',
           jsonp: 'c',
           data: this.$('form').serialize(),
