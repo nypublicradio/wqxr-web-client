@@ -51,21 +51,21 @@
               {{#share.button
                 type='Facebook'
                 data-action='Share from Story Header'
-                data-label=(concat s.title ' | ' (or s.showTitle s.channelTitle) ' | Facebook')
+                data-label=(concat s.title ' | ' (or s.showTitle s.channelTitle 'NPR Article') ' | Facebook')
                 class="btn btn--circle btn--mq-graywhite"}}
                 <i class="fa fa-facebook"></i>
               {{/share.button}}
               {{#share.button
                 type='Twitter'
                 data-action='Share from Story Header'
-                data-label=(concat s.title ' | ' (or s.showTitle s.channelTitle) ' | Twitter')
+                data-label=(concat s.title ' | ' (or s.showTitle s.channelTitle 'NPR Article') ' | Twitter')
                 class="btn btn--circle btn--mq-graywhite"}}
                 <i class="fa fa-twitter"></i>
               {{/share.button}}
               {{#share.button
                 type='Email'
                 data-action='Share from Story Header'
-                data-label=(concat s.title ' | ' (or s.showTitle s.channelTitle) ' | Email')
+                data-label=(concat s.title ' | ' (or s.showTitle s.channelTitle 'NPR Article') ' | Email')
                 class="btn btn--circle btn--mq-graywhite"}}
                 <i class="fa fa-envelope"></i>
               {{/share.button}}

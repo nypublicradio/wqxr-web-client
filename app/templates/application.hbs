@@ -51,23 +51,27 @@
           }}
 
           {{#unless hifi.isLoading}} {{! only show the share button when the audio has loaded}}
-            {{#with data.currentAudio.shareMetadata as |share|}}
+            {{#with (hash
+                share=data.currentAudio.shareMetadata
+                story=data.currentAudio
+                showTitle=(or data.showTitle data.currentAudio.channelTitle 'NPR Article'))
+              as |meta|}}
               {{#nypr-share-button
                 text="SHARE"
-                shareUrl=share.shareUrl
-                shareText=share.shareText
+                shareUrl=meta.share.shareUrl
+                shareText=meta.share.shareText
                 data-action='Share from Player'
                 as |share|}}
                 {{share.button
                   type='Facebook'
-                  data-label=(concat data.storyTitle ' | ' data.showTitle ' | Facebook')}}
+                  data-label=(concat meta.story.title ' | ' meta.showTitle ' | Facebook')}}
                 {{share.button
                   type='Twitter'
-                  via=(or data.story.twitterHandle 'WQXR')
-                  data-label=(concat data.storyTitle ' | ' data.showTitle ' | Twitter')}}
+                  via=(or meta.story.twitterHandle 'WQXR')
+                  data-label=(concat meta.story.title ' | ' meta.showTitle ' | Twitter')}}
                 {{share.button
                   type='Email'
-                  data-label=(concat data.storyTitle ' | ' data.showTitle ' | Email')}}
+                  data-label=(concat meta.story.title ' | ' meta.showTitle ' | Email')}}
               {{/nypr-share-button}}
             {{/with}}
           {{/unless}}
