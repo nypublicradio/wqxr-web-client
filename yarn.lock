@@ -3826,7 +3826,7 @@ ember-validators@^1.0.0:
     ember-cli-babel "^6.9.2"
     ember-require-module "^0.2.0"
 
-ember-waypoints@nypublicradio/ember-waypoints:
+ember-waypoints@nypublicradio/ember-waypoints#afffe72:
   version "0.1.0"
   resolved "https://codeload.github.com/nypublicradio/ember-waypoints/tar.gz/afffe721c401a6b784640d59a73a9ed4451e7248"
   dependencies:
