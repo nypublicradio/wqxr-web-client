@@ -33,7 +33,7 @@
                     playContext="story-header"
                     itemPK=model.story.slug
                     itemTitle=model.story.title
-                    itemShow=(or model.story.showTitle model.story.headers.brand.title)}}
+                    itemShow=(or model.story.showTitle model.story.channelTitle 'NPR Article')}}
                     Listen <span class="text--small dimmed">{{model.story.audioDurationReadable}}</span>
                   {{/listen-button}}
 
