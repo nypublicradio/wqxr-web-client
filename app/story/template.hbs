@@ -46,7 +46,7 @@
               {{/if}}
             {{/if}}
 
-            {{#header.share story=model.story classNames='story-share-buttons' as |share|}}
+            {{#header.share story=model.story via='WQXR' classNames='story-share-buttons' as |share|}}
               {{#with model.story as |s|}}
               {{#share.button
                 type='Facebook'
@@ -87,10 +87,10 @@
                 {{#row.buttons}}
                   <div class="btn-group">
                   {{listen-button
-                    playContext="story-list"
+                    playContext="segment-list"
                     itemPK=row.segment.slug
                     itemTitle=row.segment.title
-                    itemShow=(or model.story.showTitle model.story.headers.brand.title)
+                    itemShow=(or model.story.showTitle model.story.channelTitle 'NPR Article')
                     type="blue-circle"}}
                   </div>
                 {{/row.buttons}}
