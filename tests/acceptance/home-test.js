@@ -29,9 +29,6 @@ module('Acceptance | home', function(hooks) {
   });
 
   test('home page does dfp targeting', async function() /*assert*/{
-    // https://github.com/emberjs/ember.js/issues/14716#issuecomment-267976803
-    await visit('/foo');
-
     this.mock(this.owner.lookup('route:index').get('googleAds'))
       .expects('doTargeting')
       .once();

@@ -6,7 +6,7 @@ module('Unit | Model | story metadata', function(hooks) {
   setupTest(hooks);
 
   const TEST_CASES =[{
-    description: 'Basic onDemand Story',
+    description: 'Basic On Demand Story',
     story: {
       title: 'Cool Story',
       url: 'http://wqxr.org/story/cool-story'
@@ -14,8 +14,7 @@ module('Unit | Model | story metadata', function(hooks) {
     expectedMetadata: {
       shareText: "I'm listening to Cool Story",
       shareUrl: 'http://wqxr.org/story/cool-story',
-      analyticsCode: '',
-      via: 'WQXR'
+      via: "WQXR",
     }
   },{
     description: 'onDemand Story with Show and analytics code',
@@ -23,14 +22,12 @@ module('Unit | Model | story metadata', function(hooks) {
       title: 'Cool Story',
       headers: {brand: {title: 'Cool Show'}},
       url: 'http://wqxr.org/story/cool-story',
-      analyticsCode: '123',
-      via: 'WQXR'
+      twitterHandle: '@coolShow',
     },
     expectedMetadata: {
       shareText: "I'm listening to Cool Show - Cool Story",
       shareUrl: 'http://wqxr.org/story/cool-story',
-      analyticsCode: '123',
-      via: 'WQXR'
+      via: '@coolShow'
     }
   }];
 

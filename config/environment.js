@@ -20,24 +20,6 @@ module.exports = function(environment) {
         name: 'NativeAudio'
       }],
     },
-    metricsAdapters: [{
-      name: 'GoogleAnalytics',
-      config: {
-        id: process.env.GOOGLE_ANALYTICS || 'UA-46158613-2'
-      },
-      environments: ['production', 'development']
-    }, {
-      name: 'NprAnalytics',
-      config: {
-        id: 'UA-18188937-11'
-      }
-    }, {
-      name: 'GoogleTagManager',
-      config: {
-        id: process.env.GOOGLE_TAG_MANAGER_ID
-      },
-      environments: [process.env.DEV_GTM ? 'development' : 'production']
-    }],
     'ember-cli-mirage': {
       autostart: true // https://github.com/samselikoff/ember-cli-mirage/blob/master/CHANGELOG.md#how-it-works-in-different-types-of-tests
     },
@@ -60,46 +42,6 @@ module.exports = function(environment) {
     exportApplicationGlobal: true,
     QP_WHITELIST: ['q', 'scheduleStation', 'next', 'n'], // see puppy/settings/base_settings.py
 
-    sentry: {
-      dsn: process.env.SENTRY_DSN,
-      //debug: process.env.DEPLOY_TARGET !== 'production',
-      development: environment !== 'production',
-      includePaths: [
-        process.env.WQXR_URL,
-        /https?:\/\/(static|demo-static)\.wnyc\.org/,
-    // here you can enable a production-specific feature
-        /https?:\/\/(demo2-wnyc)\.wqxr\.org/
-      ],
-      whitelistUrls: [
-        /https?:\/\/(static|demo-static)\.wnyc\.org\/assets\/(vendor|wqxr-web-client)-.*/,
-        /https?:\/\/media\.wnyc\.org\/static\/.*\.js/,
-        /https?:\/\/((demo2-wnyc)\.)?wqxr\.org\/static\/.*\.js/
-      ],
-      ravenOptions: {
-        shouldSendCallback: function({extra}) {
-          var TOO_LONG = 1000 * 60 * 60 * 24; // one day
-          if (extra['session:duration'] > TOO_LONG) {
-            return false;
-          }
-
-          // only send 5% of errors
-          var sampleRate = 5;
-          return (Math.random() * 100 <= sampleRate);
-        },
-        ignoreUrls: [
-          // Facebook blocked
-          /connect\.facebook\.net\/en_US\/all\.js/i,
-          // Chrome extensions
-          /extensions\//i,
-          /^chrome:\/\//i,
-          /chartbeat/i,
-        ],
-        ignoreErrors: [
-          'adsafeprotected',
-          'sascdn'
-        ]
-      }
-    },
     flashMessageDefaults: {
       preventDuplicates: true,
       timeout: 10000
@@ -109,10 +51,6 @@ module.exports = function(environment) {
     siteName: 'WQXR',
     siteId: 2,
     clientSlug: 'wqxr_web',
-    // these are provided via a .env file or else by Django's EmberAdapter
-    // fall back to demo GA key
-    googleAnalyticsKey: process.env.GOOGLE_ANALYTICS || 'UA-46158613-1',
-    nprGoogleAnalyticsKey: 'UA-18188937-11',
     googleAPIv3Key: process.env.GOOGLE_API_V3_KEY,
     showsDiscoverStation: "wqxr",
     showsAPIKey: "symphony",
@@ -126,12 +64,6 @@ module.exports = function(environment) {
     publisherAPI: process.env.PUBLISHER_API,
     platformEventsAPI: process.env.PLATFORM_EVENTS_SERVICE,
     wnycDonateURL: 'https://pledge3.wqxr.org/epledge/main?ref=button-donate-header',
-    wnycSvgURL: '/media/svg/',
-    // put beta host at the root so it can be overridden by Django
-    featureFlags: {
-      'social-auth': process.env.SOCIAL_AUTH,
-      'member-center': process.env.MEMBER_CENTER,
-    },
     contentSecurityPolicy: {
       'connect-src': "'self' *.wnyc.net:* ws://*.wnyc.net:*",
       'style-src': "'self' 'unsafe-inline' *.wnyc.net:* *.wnyc.org cloud.typography.com fonts.googleapis.com www.google.com platform.twitter.com",
@@ -157,7 +89,8 @@ module.exports = function(environment) {
     },
     alienDom: {
       toRemove: `${ALIEN_DOM_ROOT} > :not(.ember-view):not(#fb-root), ${ALIEN_DOM_ROOT} > head > link[rel=stylesheet]:not([href*=assets])`
-    }
+    },
+    googleTagManager: process.env.GOOGLE_TAG_MANAGER_ID || 'GTM-MZ2S75K'
   };
 
   if (environment === 'development') {
@@ -198,6 +131,7 @@ module.exports = function(environment) {
     ENV.membershipAPI = 'http://example.com';
     ENV.platformEventsAPI = 'http://example.com';
     ENV.APP.autoboot = false;
+
   }
 
   if (environment === 'production') {

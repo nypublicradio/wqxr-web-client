@@ -4,9 +4,10 @@ import {
   find,
   findAll,
   currentURL,
-  visit
+  visit,
+  blur
 } from '@ember/test-helpers';
-import { module, skip, test } from 'qunit';
+import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
 import { authenticateSession } from 'ember-simple-auth/test-support';
 import config from 'wqxr-web-client/config/environment';
@@ -99,7 +100,7 @@ module('Acceptance | profile', function(hooks) {
     assert.equal(find('input[name=password]').value, '********', 'displays password asterisks');
   });
 
-  skip('using bad password to update email shows error', async function(assert) {
+  test('using bad password to update email shows error', async function(assert) {
     const EMAIL = 'wwwww@ww.ww';
     const PW = '1234567890';
 
@@ -117,16 +118,22 @@ module('Acceptance | profile', function(hooks) {
     await visit('/profile');
 
     await click('.nypr-basic-info [data-test-selector="nypr-card-button"]');
+
     await fillIn('input[name=email]', EMAIL);
-    await click('input[name=email]');
+    await blur('input[name=email]');
+
     await fillIn('input[name=confirmEmail]', EMAIL);
+    await blur('input[name=confirmEmail]');
+
     await click('.nypr-basic-info [data-test-selector="save"]');
+
     await fillIn('[name=passwordForEmailChange]', PW);
-    await click('[name=passwordForEmailChange]');
+    await blur('[name=passwordForEmailChange]');
+
     await click('[data-test-selector=check-pw]');
-    assert.equal(findWithAssert('.nypr-input-error').length, 1);
+    assert.ok(find('.nypr-input-error'));
     assert.equal(find('.nypr-input-error').textContent.trim(), 'Incorrect username or password.');
-    assert.equal(findWithAssert('#passwordForEmailChange').val(), PW, 'old password should still be there');
+    assert.equal(find('#passwordForEmailChange').value, PW, 'old password should still be there');
   });
 
   test('can update password', async function(assert) {
@@ -172,9 +179,9 @@ module('Acceptance | profile', function(hooks) {
     await click('.nypr-password-card [data-test-selector="nypr-card-button"]');
 
     await fillIn('input[name=currentPassword]', OLD);
+    await blur('input[name=currentPassword]');
     await fillIn('input[name=newPassword]', NEW);
-    await blur('input[name=currentPassword]', OLD);
-
+    await blur('input[name=newPassword]');
 
     await click('.nypr-password-card [data-test-selector="save"]');
 
@@ -190,6 +197,7 @@ module('Acceptance | profile', function(hooks) {
     assert.expect(1);
 
     server.create('user');
+    server.create('bucket', {slug: 'wqxr-home'});
     server.delete(`${config.authAPI}/v1/user`, (schema, {requestHeaders}) => {
       assert.equal(requestHeaders.Authorization, 'Bearer foo');
     });

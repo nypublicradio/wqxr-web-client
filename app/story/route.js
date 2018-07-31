@@ -4,19 +4,20 @@ import { get } from '@ember/object';
 import { inject as service } from '@ember/service';
 import PlayParamMixin from 'wqxr-web-client/mixins/play-param';
 import config from 'wqxr-web-client/config/environment';
+import { schedule } from '@ember/runloop';
 
 export default Route.extend(PlayParamMixin, {
-  metrics:      service(),
   session:      service(),
   googleAds:    service(),
   dataPipeline: service(),
   currentUser:  service(),
+  dataLayer:    service('nypr-metrics/data-layer'),
 
-  titleToken(model) {
-    return `${get(model, 'story.title')} - ${get(model, 'story.headers.brand.title')}`;
-  },
-  title(tokens) {
-    return `${tokens[0]} - WQXR`;
+  titleToken({ story }) {
+    return [
+      get(story, 'title'),
+      get(story, 'showTitle') || get(story, 'channelTitle') || 'NPR Article'
+    ]
   },
   model({ slug }, { queryParams }) {
 
@@ -32,12 +33,21 @@ export default Route.extend(PlayParamMixin, {
       });
    });
   },
-  afterModel(model, transition) {
-    get(this, 'googleAds').doTargeting(get(model, 'story').forDfp());
+  afterModel({ story }, transition) {
+    get(this, 'googleAds').doTargeting(story.forDfp());
 
-    if (get(model, 'story.headerDonateChunk')) {
-      transition.send('updateDonateChunk', get(model, 'story.headerDonateChunk'));
+    if (get(story, 'headerDonateChunk')) {
+      transition.send('updateDonateChunk', get(story, 'headerDonateChunk'));
     }
+    get(this, 'dataLayer').setForType('story', story);
+
+    schedule('afterRender', () => {
+      // data pipeline
+      get(this, 'dataPipeline').reportItemView({
+        cms_id: get(story, 'cmsPK'),
+        item_type: get(story, 'itemType'),
+      });
+    });
   },
 
   setupController(controller) {
@@ -70,52 +80,9 @@ export default Route.extend(PlayParamMixin, {
   },
 
   actions: {
-    error(error){
-      //detect 404 error on api
-      if (error.errors && error.errors[0].status === '404'){
-        this.transitionTo('missing');
-      }
-    },
-
-    didTransition() {
-      this._super(...arguments);
-
-      let model = get(this, 'currentModel');
-      let metrics = get(this, 'metrics');
-      let dataPipeline = get(this, 'dataPipeline');
-      let {containers:action, title:label} = get(model, 'story.analytics');
-      let nprVals = get(model, 'story.nprAnalyticsDimensions');
-
-      // google analytics
-      metrics.trackEvent('GoogleAnalytics', {
-        category: 'Viewed Story',
-        action,
-        label,
-      });
-
-
-
-      // NPR
-      metrics.trackPage('NprAnalytics', {
-        page: `/story/${get(model, 'story.slug')}`,
-        title: label,
-        nprVals,
-      });
-
-      // data pipeline
-      dataPipeline.reportItemView({
-        cms_id: get(model, 'story.cmsPK'),
-        item_type: get(model, 'story.itemType'),
-      });
-
-      return true;
-    },
-
     willTransition() {
       this.send('enableChrome');
-      if (window.dataLayer) {
-        window.dataLayer.push({showTitle: undefined});
-      }
+      get(this, 'dataLayer').clearForType('story');
     }
   }
 });

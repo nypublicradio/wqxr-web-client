@@ -1,11 +1,11 @@
 import EmberRouter from '@ember/routing/router';
 import config from './config/environment';
 import { inject as service } from '@ember/service';
-import AnalyticsMixin from './mixins/analytics';
 
-const Router = EmberRouter.extend(AnalyticsMixin, {
-  location: config.locationType,
+const Router = EmberRouter.extend({
   session:  service(),
+  location: config.locationType,
+  rootURL: config.rootURL,
 
   willTransition(oldInfos, newInfos, transition) {
     this._super(...arguments);
@@ -13,7 +13,6 @@ const Router = EmberRouter.extend(AnalyticsMixin, {
       this.get('session').set('attemptedTransition', transition);
     }
   },
-  rootURL: config.rootURL
 });
 
 function subpageRoutes() {
@@ -63,8 +62,8 @@ Router.map(function() {
   // This is our catch all route that can render any existing page
   // from the django site. It will be used when there's nothing more
   // specific.
+  this.route('404', { path: '*' });
   this.route('djangorendered', { path: '*upstream_url' });
-  this.route('missing');
 });
 
 export default Router;

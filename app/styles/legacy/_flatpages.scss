@@ -39,3 +39,7 @@ ul.sharelinks {
   float: right;
   border: 0;
 }
+
+.mobile--page .gtm__click-tracking > * {
+  pointer-events: none;
+}

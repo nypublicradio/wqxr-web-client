@@ -10,7 +10,7 @@
     Hi {{model.givenName}}!
   </h2>
 
-  <div class={{if features.memberCenter "nypr-account-settings-and-member-center" "l-constrained account-info"}}>
+  <div class="nypr-account-settings-and-member-center">
     <div class="nypr-account-settings-body">
       {{nypr-accounts/basic-card
         user=model
@@ -58,14 +58,23 @@
       Need help? Contact us using our <a href="https://wqxr.zendesk.com/hc/en-us" target="_blank">contact form</a> or call us at <a class="text--nowrap" href="tel:646-829-4000">646-829-4000</a>.<br />
       <button
         data-test-selector="disable-account"
-        class="btn--link btn--smalltext"
+        class="btn--link btn--smalltext gtm__click-tracking"
+        data-action="Personal Info"
+        data-label="Open Disable Account"
         {{action (action (mut disableModal) true)}}>Disable my online account</button>
     </p>
   </div>
 </div>
 
 {{#if disableModal}}
-  {{#nypr-account-modal title="Disable online account" closeAction=(action (mut disableModal) false) as |m|}}
+  {{#nypr-account-modal closeAction=(action (mut disableModal) false) as |m|}}
+    {{#m.header as |header|}}
+      {{header.title "Disable online account"}}
+      {{#header.button class="gtm__click-tracking" data-action="Personal Info" data-label="Cancel Disable Account"}}
+        {{nypr-svg icon="close"}}
+      {{/header.button}}
+    {{/m.header}}
+
     {{#m.body}}
     <p>
       This will disable your online account, but will not impact your membership status.
@@ -74,11 +83,15 @@
 
     {{#m.footer}}
       <button
-        class="nypr-account-cancel"
+        class="nypr-account-cancel gtm__click-tracking"
+        data-action="Personal Info"
+        data-label="Cancel Disable Account"
         data-test-selector="cancel-disable"
         {{action (action (mut disableModal) false)}}>Cancel</button>
       <button
-        class="nypr-account-confirm"
+        class="nypr-account-confirm gtm__click-tracking"
+        data-action="Personal Info"
+        data-label="Submit Disable Account"
         data-test-selector="do-disable"
         {{action 'disableAccount'}}>Disable my online account</button>
     {{/m.footer}}
@@ -101,7 +114,14 @@
 {{/if}}
 
 {{#if promptForPassword.isRunning}}
-  {{#nypr-account-modal title="Enter your Password" closeAction=(action 'endTask' 'promptForPassword') as |m|}}
+  {{#nypr-account-modal closeAction=(action 'endTask' 'promptForPassword') as |m|}}
+    {{#m.header as |header|}}
+      {{header.title "Enter your Password"}}
+      {{#header.button}}
+        {{nypr-svg icon="close"}}
+      {{/header.button}}
+    {{/m.header}}
+
     <form {{action (perform verifyPassword) on='submit'}}>
     {{#m.body}}
       <p>

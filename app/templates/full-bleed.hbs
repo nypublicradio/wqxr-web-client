@@ -2,7 +2,7 @@
   {{#nypr-ui/hero gradient=true sticky=true noHeaderImage=showShareLinks class=(concat 'full-bleed__hero' (if showShareLinks ' no-image')) as |hero|}}
     {{#hero.top as |top|}}
       {{#top.left}}
-        {{#link-to 'index' class="full-bleed__logo-link gtm__click-tracking" data-action='Full Bleed WNYC logo' data-label=s.title}}
+        {{#link-to 'index' class="full-bleed__logo-link gtm__click-tracking" data-action="Full Bleed WQXR logo" data-label=(concat s.title ' | ' (or s.showTitle s.channelTitle 'NPR Article'))}}
           {{nypr-svg icon="left-arrow" className="full-bleed__back"}}
           {{nypr-svg icon="wqxr-logo" className="full-bleed__logo"}}
         {{/link-to}}
@@ -48,7 +48,7 @@
           type='blue-minion'
           itemPK=s.slug
           itemTitle=s.title
-          itemShow=(or s.showTitle s.headers.brand.title)}}Listen&nbsp;
+          itemShow=(or s.showTitle s.channelTitle 'NPR Article')}}Listen&nbsp;
           {{/listen-button}}
         <span class="text--small dimmed audio-duration">{{model.story.audioDurationReadable}}</span>
       {{/if}}

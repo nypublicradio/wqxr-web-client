@@ -6,10 +6,6 @@ defaults: &defaults
       environment:
         JOBS: 2
 
-restore_bower: &restore_bower
-  restore_cache:
-    key: bower-deps-{{ checksum "bower.json" }}
-
 restore_node: &restore_node
   restore_cache:
     key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
@@ -26,20 +22,8 @@ jobs:
       - checkout
 
       - run:
-          name: Install grunt and bower
-          command: yarn global add bower grunt-cli
-
-      - <<: *restore_bower
-      - run:
-          name: Install bower deps
-          command: |
-            if [ ! -d bower_components ]; then
-              npx bower i
-            fi
-      - save_cache:
-          key: bower-deps-{{ checksum "bower.json" }}
-          paths:
-            - bower_components
+          name: Install grunt
+          command: yarn global add grunt-cli
 
       - <<: *restore_node
       - run:
@@ -70,20 +54,20 @@ jobs:
 
     steps:
       - checkout
-      - <<: *restore_bower
       - <<: *restore_node
       - <<: *restore_modernizr
       - run:
           name: Test
+          environment:
+            CIRCLE_TEST_REPORTS: test-results
           command: npx ember test -r xunit
       - store_test_results:
-          path: test-results/wqxr-testem/
+          path: test-results/
 
   deploy_production:
     <<: *defaults
     steps:
       - checkout
-      - <<: *restore_bower
       - <<: *restore_node
       - <<: *restore_modernizr
 
@@ -98,7 +82,6 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - <<: *restore_bower
       - <<: *restore_node
       - <<: *restore_modernizr
 
@@ -113,7 +96,6 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - <<: *restore_bower
       - <<: *restore_node
       - <<: *restore_modernizr
 

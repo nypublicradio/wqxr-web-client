@@ -19,22 +19,17 @@
 {{#nypr-player-integration as |integration|}}
   {{#liquid-if showPlayer class="nypr-player-wrapper"}}
     {{#liquid-if integration.revealNotificationBar class='player-notification-wrapper'}}
-      {{#player-notification onDismiss=integration.onDismissNotification}}
+      {{#integration.notification}}
         {{player-notification/autoplay-message
           duration   = integration.currentSound.duration
           position   = integration.currentSound.position
           audioType  = integration.currentAudioType
           isLoggedIn = session.isAuthenticated
         }}
-      {{/player-notification}}
+      {{/integration.notification}}
     {{/liquid-if}}
 
     {{#nypr-player
-      onPlay           = integration.onPlay
-      onPause          = integration.onPause
-      onFastForward    = integration.onFastForward
-      onRewind         = integration.onRewind
-      onSetPosition    = integration.onSetPosition
       currentTitle     = integration.currentTitle
       backdropImageUrl = integration.backdropImageUrl
       storyTitle       = integration.storyTitle
@@ -44,6 +39,7 @@
         {{#content.for 'trackInfo'}}
           {{nypr-player-integration/track-info
             currentAudio    = integration.currentAudio
+            currentSound    = integration.currentSound
             showTitle       = integration.showTitle
             showUrl         = integration.showUrl
             storyTitle      = integration.storyTitle
@@ -55,23 +51,29 @@
           }}
 
           {{#unless hifi.isLoading}} {{! only show the share button when the audio has loaded}}
-            {{#if integration.currentAudio.shareMetadata}}
-
-                {{nypr-share-button
-                  shareText = integration.currentAudio.shareMetadata.shareText
-                  shareUrl  = integration.currentAudio.shareMetadata.shareUrl
-                  via       = 'WQXR'
-                  onShare   = (action 'trackShare' (hash
-                                story = integration.currentAudio
-                                type   = (if integration.isStream 'livestream' 'on_demand')
-                                playContext = "Player"
-                                shareText = integration.currentAudio.shareMetadata.shareText
-                                shareUrl = integration.currentAudio.shareMetadata.shareUrl
-                                analyticsCode = integration.currentAudio.shareMetadata.analyticsCode
-                                ))
-                  text   = "SHARE"}}
-
-            {{/if}}
+            {{#with (hash
+                data=integration.currentAudio.shareMetadata
+                story=integration.currentAudio
+                showTitle=(or integration.showTitle integration.currentAudio.channelTitle 'NPR Article'))
+              as |meta|}}
+              {{#nypr-share-button
+                text="SHARE"
+                shareUrl=meta.data.shareUrl
+                shareText=meta.data.shareText
+                data-action='Share from Player'
+                as |share|}}
+                {{share.button
+                  type='Facebook'
+                  data-label=(concat meta.story.title ' | ' meta.showTitle ' | Facebook')}}
+                {{share.button
+                  type='Twitter'
+                  via=(or meta.story.twitterHandle 'WQXR')
+                  data-label=(concat meta.story.title ' | ' meta.showTitle ' | Twitter')}}
+                {{share.button
+                  type='Email'
+                  data-label=(concat meta.story.title ' | ' meta.showTitle ' | Email')}}
+              {{/nypr-share-button}}
+            {{/with}}
           {{/unless}}
         {{/content.for}}
 
