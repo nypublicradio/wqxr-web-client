@@ -16,7 +16,8 @@ module.exports = function(defaults) {
     'mirage-support': {
       includeAll: true
     },
-     useWaypoints: true
+    useWaypoints: true,
+    'ember-cli-babel': { includePolyfill: true },
   });
 
   try {
