@@ -14,6 +14,7 @@ module('Unit | Model | story metadata', function(hooks) {
     expectedMetadata: {
       shareText: "I'm listening to Cool Story",
       shareUrl: 'http://wqxr.org/story/cool-story',
+      via: "WQXR",
     }
   },{
     description: 'onDemand Story with Show and analytics code',
@@ -21,10 +22,12 @@ module('Unit | Model | story metadata', function(hooks) {
       title: 'Cool Story',
       headers: {brand: {title: 'Cool Show'}},
       url: 'http://wqxr.org/story/cool-story',
+      twitterHandle: '@coolShow',
     },
     expectedMetadata: {
       shareText: "I'm listening to Cool Show - Cool Story",
       shareUrl: 'http://wqxr.org/story/cool-story',
+      via: '@coolShow'
     }
   }];
 
