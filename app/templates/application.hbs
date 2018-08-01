@@ -53,7 +53,7 @@
           {{#unless hifi.isLoading}} {{! only show the share button when the audio has loaded}}
             {{#with (hash
                 data=integration.currentAudio.shareMetadata
-                story=integration.currentAudio
+                title=(or integration.storyTitle integration.songDetails)
                 showTitle=(or integration.showTitle integration.currentAudio.channelTitle 'NPR Article'))
               as |meta|}}
               {{#nypr-share-button
@@ -64,14 +64,14 @@
                 as |share|}}
                 {{share.button
                   type='Facebook'
-                  data-label=(concat meta.story.title ' | ' meta.showTitle ' | Facebook')}}
+                  data-label=(concat meta.title ' | ' meta.showTitle ' | Facebook')}}
                 {{share.button
                   type='Twitter'
-                  via=(or meta.story.twitterHandle 'WQXR')
-                  data-label=(concat meta.story.title ' | ' meta.showTitle ' | Twitter')}}
+                  via=(or meta.data.via 'WQXR')
+                  data-label=(concat meta.title ' | ' meta.showTitle ' | Twitter')}}
                 {{share.button
                   type='Email'
-                  data-label=(concat meta.story.title ' | ' meta.showTitle ' | Email')}}
+                  data-label=(concat meta.title ' | ' meta.showTitle ' | Email')}}
               {{/nypr-share-button}}
             {{/with}}
           {{/unless}}
