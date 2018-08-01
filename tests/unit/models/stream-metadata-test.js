@@ -12,11 +12,13 @@ module('Unit | Model | stream metadata', function(hooks) {
       currentShow: {
         title: 'Cool Show',
         url: 'http://wqxr.org/shows/cool-show'
-      }
+      },
+      twitterHandle: '@coolshow',
     },
     expectedMetadata: {
       shareText: "I'm listening to Cool Show",
       shareUrl: 'http://wqxr.org/shows/cool-show',
+      via: '@coolshow',
     }
   },{
     description: 'Stream Song',
@@ -31,6 +33,7 @@ module('Unit | Model | stream metadata', function(hooks) {
     expectedMetadata: {
       shareText: 'I\'m listening to Maestro - Masterpiece',
       shareUrl: 'http://www.wqxr.org/streams/?stream=test',
+      via: 'WQXR',
     }
   }];
 
