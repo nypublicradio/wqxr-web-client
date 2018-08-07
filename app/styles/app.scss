@@ -35,6 +35,7 @@ body:not(.simplified_wrapper):not(.container_stripped) {
 @import "nypr-audio-services";
 @import 'player-notification'; // override some values from audio services
 @import "nypr-publisher-lib";
+@import "recaptcha";
 
 
 @import 'box';
