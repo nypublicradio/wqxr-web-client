@@ -71,7 +71,7 @@ export default Route.extend(ApplicationRouteMixin, {
 
     }
 
-    get(this, 'poll').addPoll({interval: 15 * 1000, callback: pollFunction});
+    get(this, 'poll').addPoll({interval: 10 * 1000, callback: pollFunction});
   },
 
   model() {
