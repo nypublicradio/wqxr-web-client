@@ -6,7 +6,7 @@ export default Route.extend({
   titleToken: 'Listen Live to WQXR, New Sounds, Operavore, and WQXR\'s American Standards',
 
   model() {
-    return this.store.findAll('stream').then(streams => {
+    return this.store.findAll('stream', {reload:true}).then(streams => {
       return streams.filterBy('isWQXR').sortBy('sitePriority')
         .concat(streams.filterBy('isWNYC').sortBy('sitePriority')).uniq();
     });
