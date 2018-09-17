@@ -66,8 +66,9 @@ export default Route.extend(ApplicationRouteMixin, {
 
     window.WNYC_LEGACY_LOADER = get(this, 'legacyLoader');
 
-    let pollFunction = () => get(this, 'store').findAll('stream');
-    get(this, 'poll').addPoll({interval: 60 * 1000, callback: pollFunction});
+    let pollFunction = () =>  get(this, 'store').findAll('stream');
+
+    get(this, 'poll').addPoll({interval: 10 * 1000, callback: pollFunction});
   },
 
   model() {
