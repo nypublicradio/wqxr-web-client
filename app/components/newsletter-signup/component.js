@@ -2,12 +2,20 @@ import $ from 'jquery';
 import Component from '@ember/component';
 import { htmlSafe } from '@ember/string';
 
+import Changeset from 'ember-changeset';
+
 export default Component.extend({
   tagName: 'section',
   classNames: ['newsletter-signup', 'background--light'],
   formLoading: false,
   successMsg: null,
   errorMsg: null,
+
+  init() {
+    this._super(...arguments);
+    //this.set('form', {legal: true});
+    //this.set('changeset', new Changeset();
+  },
 
   hasErrors: function(){
     let emailAddress = this.get("email");
