@@ -24,9 +24,10 @@
               {{input id="mce-EMAIL" value=email class=(if errorMsg 'error' '') type="email" name="EMAIL" placeholder="Enter your email address" key-press="releaseErrorState" }}
               {{#if errorMsg}}<p class="error-msg text--small text--red">{{errorMsg}}</p>{{/if}}
               <input id="mc-embedded-subscribe" class="btn btn--blue btn--large gtm__click-tracking" name="subscribe"
-                     type="submit" value="Sign up" data-action="Newsletter Sign Up Button" data-value="Newsletter: This Week In WQXR">
+                      type="submit" value="Sign up" data-action="Newsletter Sign Up Button" data-value="Newsletter: This Week In WQXR"
+                      disabled={{disableSubmit}} data-test-submit>
 
-              {{newsletter-signup/legal-input}}
+              {{newsletter-signup/legal-input changeset=changeset}}
 
             </div>
           </form>
