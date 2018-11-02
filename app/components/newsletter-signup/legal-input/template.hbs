@@ -8,15 +8,9 @@
 <label
   for={{concat elementId "-legal-input"}}
   data-test-legal-label
-  class="opt-in-legal__label {{if changeset.error.legal 'is-error'}}"
+  class="newsletter-signup__legal__label"
   >
   <span>
     By submitting your information, you're agreeing to receive communications from New York Public Radio in accordance with our <a href="https://www.wnyc.org/terms/" target="_blank">Terms of Use</a>.
   </span>
 </label>
-
-{{#if changeset.error.legal}}
-<ul class="opt-in-form__errors" data-test-error={{name}}>
-  <li>Please agree to the terms.</li>
-</ul>
-{{/if}}
