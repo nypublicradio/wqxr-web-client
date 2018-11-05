@@ -30,10 +30,10 @@ export default Component.extend({
   },
 
   disableSubmit: computed('changeset.legal', function() {
-    if (!this.changeset.get('legal') || this.changeset.get('errors.length')) {
-      return true;
-    } else {
+    if (this.changeset.get('legal')) { // if legal is true (i.e. checked)
       return false;
+    } else {
+      return true;
     }
   }),
 
