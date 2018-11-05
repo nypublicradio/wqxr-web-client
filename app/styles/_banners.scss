@@ -79,6 +79,12 @@
 
       a {
         color: #999;
+        border-bottom: 1px solid #999;
+
+        &:hover {
+          color: $wqxrlink;
+          border-color: $wqxrlink;
+        }
       }
     }
   }
