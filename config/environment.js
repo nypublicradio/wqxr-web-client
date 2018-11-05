@@ -14,7 +14,7 @@ module.exports = function(environment) {
     modulePrefix: 'wqxr-web-client',
     environment,
     rootURL: '/',
-    locationType: 'auto',
+    locationType: 'trailing-history',
     emberHifi: {
       connections: [{
         name: 'NativeAudio'
