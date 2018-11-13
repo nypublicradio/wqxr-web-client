@@ -1,6 +1,16 @@
 import $ from 'jquery';
 import Component from '@ember/component';
+import { computed } from '@ember/object';
 import { htmlSafe } from '@ember/string';
+import { set } from '@ember/object';
+
+import Changeset from 'ember-changeset';
+import lookupValidator from 'ember-changeset-validations';
+import { validatePresence } from 'ember-changeset-validations/validators';
+
+let validations = {
+  legal: validatePresence(true)
+};
 
 export default Component.extend({
   tagName: 'section',
@@ -8,6 +18,24 @@ export default Component.extend({
   formLoading: false,
   successMsg: null,
   errorMsg: null,
+
+  init() {
+    this._super(...arguments);
+    let changeset = new Changeset(
+      { legal: true },
+      lookupValidator(validations),
+      validations
+    );
+    set(this, 'changeset', changeset);
+  },
+
+  disableSubmit: computed('changeset.legal', function() {
+    if (this.changeset.get('legal')) { // if legal is true (i.e. checked)
+      return false;
+    } else {
+      return true;
+    }
+  }),
 
   hasErrors: function(){
     let emailAddress = this.get("email");

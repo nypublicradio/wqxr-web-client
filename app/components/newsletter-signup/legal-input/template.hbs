@@ -1,0 +1,16 @@
+<input
+  data-test-legal-input
+  id={{concat elementId "-legal-input"}}
+  type="checkbox"
+  onchange={{action (mut changeset.legal) value="target.checked"}}
+  checked={{changeset.legal}}/>
+
+<label
+  for={{concat elementId "-legal-input"}}
+  data-test-legal-label
+  class="newsletter-signup__legal__label"
+  >
+  <span>
+    By submitting your information, you're agreeing to receive communications from New York Public Radio in accordance with our <a href="https://www.wnyc.org/terms/" target="_blank">Terms of Use</a>.
+  </span>
+</label>
