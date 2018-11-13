@@ -7766,9 +7766,10 @@ nypr-ui@>=0.3.0:
     ivy-tabs "^3.3.0"
     waypoints "^4.0.1"
 
-nypr-ui@nypublicradio/nypr-ui#kate/MT-63:
-  version "0.4.2"
-  resolved "https://codeload.github.com/nypublicradio/nypr-ui/tar.gz/b81c6439bb95c8277005a221e13630ffdb552677"
+nypr-ui@>=0.4.4:
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/nypr-ui/-/nypr-ui-0.4.4.tgz#4da5c2c54e3654d5611ee5d1281942cfa8435b48"
+  integrity sha512-Tmguc5KZlNTcPX9j7tSjaPCx/bimxj7Rdbruv0PKEIHJLMfoASVjl+h9jDCo1PdxsCc08bsCV3qEF2DQvryVsw==
   dependencies:
     ember-basic-dropdown "0.34.0"
     ember-burger-menu "^3.1.0"
