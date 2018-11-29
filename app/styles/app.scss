@@ -145,12 +145,7 @@ body:not(.simplified_wrapper):not(.container_stripped) {
 
 // for analytics
 .stream-banner .ember-power-select-option {
-  padding: 0;
-
-  > span {
-    padding: 8px 17px;
-    display: block;
-  }
+  padding: 8px 17px;
 }
 
 /***
