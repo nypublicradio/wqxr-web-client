@@ -7,8 +7,8 @@ export default Route.extend({
 
   model() {
     return this.store.findAll('stream', {reload:true}).then(streams => {
-      return streams.filterBy('isWQXR').sortBy('sitePriority')
-        .concat(streams.filterBy('isWNYC').sortBy('sitePriority')).uniq();
+      return streams.filterBy('liveWQXR').sortBy('sitePriority')
+        .concat(streams.filterBy('liveWNYC').sortBy('sitePriority')).uniq();
     });
   },
 
