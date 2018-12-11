@@ -32,7 +32,7 @@ export default Route.extend(PlayParamMixin, {
     let streams = DS.PromiseArray.create({
       promise: this.store.findAll('stream', {reload: true}).then(s => {
         return s.filterBy('liveWQXR').sortBy('sitePriority')
-          .concat(s.filterBy('isWNYC').sortBy('sitePriority')).uniq();
+          .concat(s.filterBy('liveWNYC').sortBy('sitePriority')).uniq();
       })
     });
     controller.set('streams', streams);
