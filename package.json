@@ -108,7 +108,6 @@
   },
   "ember-addon": {
     "paths": [
-      "lib/google-optimize",
       "lib/google-apis"
     ]
   },
