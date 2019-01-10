@@ -40,7 +40,6 @@ export default Route.extend(ApplicationRouteMixin, {
       let route = this.router.currentRouteName;
 
       schedule('afterRender', () => {
-        this.get('dataLayer').push({'event': 'optimize.activate'});
         get(this, 'dataLayer').sendPageView();
         if (!DETAIL_ROUTES.test(route) && !route.match(/loading/)) {
           this.get('dataPipeline').reportItemView();

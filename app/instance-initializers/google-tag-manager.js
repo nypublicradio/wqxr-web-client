@@ -3,9 +3,16 @@ import { run } from '@ember/runloop';
 import Component from '@ember/component';
 import { get } from '@ember/object';
 
+
+// this function pushes an event to the data layer that triggers the google
+// optimize change list to run. It is called within every component's didRender
+// hook in order to render the optimize changes in the initial paint of the Component,
+// rather than in a seperate paint, which would create a confusing repaint that is visible to the user.
+// This is necessary for any ember app not on fastboot, as apps not on fastboot render some parts
+// of pages when asynchronous data calls have completed. For apps on fastboot, see the
+// wnyc-studios-web-client implementation for a reference on implementing optimize.
 function optimize(context) {
   const dataLayer = get(context, 'dataLayer');
-  console.log(dataLayer)
   if (dataLayer) {
     dataLayer.push({'event': 'optimize.activate'});
   }
@@ -13,18 +20,16 @@ function optimize(context) {
 
 
 export function initialize(appInstance) {
+  appInstance.inject('component', 'dataLayer', 'service:nypr-metrics/data-layer');
+
+  Component.reopen({
+    didRender() {
+      run.throttle(Component, optimize, this, 100);
+      return this._super(...arguments);
+    },
+  });
+
   if (typeof window !== 'undefined' && config.environment !== 'test') {
-    console.log("initializing google analytics");
-      // application.inject('route', 'foo', 'service:foo');
-      appInstance.inject('component', 'dataLayer', 'service:nypr-metrics/data-layer');
-
-      Component.reopen({
-        didRender() {
-          run.throttle(Component, optimize, this, 100);
-          return this._super(...arguments);
-        },
-      });
-
       (function(a,s,y,n,c,h,i/*,d,e*/){s.className+=' '+y;
     h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
     (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);

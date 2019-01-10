@@ -119,23 +119,6 @@ module('Acceptance | data layer', function(hooks) {
 
     await visit(`story/${story.slug}`);
 
-    assert.deepEqual(layerSpy.getCall(1).args[0], {
-      'Viewed Authors': 'Foo, Bar',
-      'Viewed Container Slug': 'test-show-slug',
-      'Viewed Date Published': story.newsdate,
-      'Viewed Show Title': story.showTitle,
-      'Viewed Story Title': story.title,
-      'Viewed Story Template': story.template,
-      'Viewed Story Series': 'Buz Series, Baz Series',
-      'Viewed Item Type': 'story',
-      'Viewed ID': story.cmsPK.toString(),
-      'Viewed Story Major Tags': 'news',
-      'Viewed Story Tags': 'politics,entertainment',
-      'Viewed Org ID': '1',
-      'Viewed Has Audio': true,
-      'Viewed Story Word Count': 150,
-      'Viewed NPR ID': '5'
-    });
     assert.ok(layerSpy.calledWith({
       'Viewed Authors': 'Foo, Bar',
       'Viewed Container Slug': 'test-show-slug',
@@ -153,5 +136,18 @@ module('Acceptance | data layer', function(hooks) {
       'Viewed Story Word Count': 150,
       'Viewed NPR ID': '5'
     }));
+  });
+
+  test('Google optimize event is triggered from dataLayer', async function(assert) {
+    let layerSpy = this.spy(window.dataLayer, 'push');
+    server.create('bucket', {slug: 'wqxr-home'});
+    server.createList('stream', 7);
+    server.createList('whats-on', 7);
+
+    await visit(`/`);
+
+    assert.ok(layerSpy.calledWith({'event': 'optimize.activate'}), 'datalayer push should be called with optimize.activate event');
+
+
   });
 });
