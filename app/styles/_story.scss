@@ -292,7 +292,13 @@ article > section a:hover {
   .embedded-image {
     display: block;
     position: relative;
-    max-width: 1440px;
+    // Using a dreaded !important flag to temporarily override the max-width
+    // inserted by tinymce:
+    // https://github.com/nypublicradio/publisher/commit/6041906198be7883d28d417d95b2952d9512d24d
+    //
+    // This way incurred the least tweaking of sub-elements and we're going to
+    // revisit this full-bleed image design real soon. Remove at will.
+    max-width: 700px !important;
     margin: 0 auto;
 
     @include mq($medium-and-up){
@@ -311,7 +317,7 @@ article > section a:hover {
     > .image-metadata  {
       display: block;
       padding-top: 0;
-      margin: 0 25px 45px;
+      margin: 0 55px 45px;
 
       @include mq($medium-and-up) {
         margin-bottom: 0;
@@ -334,9 +340,7 @@ article > section a:hover {
         color: white;
         max-width: 865px;
         position: absolute;
-        bottom: 65px;
-        left: 65px;
-        right: 65px;
+        bottom: 45px;
       }
 
       &:before {
