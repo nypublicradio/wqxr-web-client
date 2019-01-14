@@ -296,8 +296,8 @@ article > section a:hover {
     // inserted by tinymce:
     // https://github.com/nypublicradio/publisher/commit/6041906198be7883d28d417d95b2952d9512d24d
     //
-    // This way incurred the least tweaking of sub-elements and we're going to
-    // revisit this full-bleed image design real soon. Remove at will.
+    // This way incurs the least tweaking of sub-elements and this
+    // image layout is going to be redesigned soon anyway. Remove at will.
     max-width: 700px !important;
     margin: 0 auto;
 
@@ -316,11 +316,11 @@ article > section a:hover {
 
     > .image-metadata  {
       display: block;
+      margin: 0 25px 45px;
       padding-top: 0;
-      margin: 0 55px 45px;
 
       @include mq($medium-and-up) {
-        margin-bottom: 0;
+        margin: 0 55px;
         z-index: $zIndex--overGradient;
       }
     }
