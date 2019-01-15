@@ -5,7 +5,7 @@ const narrow = 321;
 const middleNarrow = 476;
 const middleMiddle = 701;
 const medium = 801;
-const large = 1025;
+const large = 1023;
 const short = 700;
 
 export default assign({
