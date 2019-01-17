@@ -90,7 +90,9 @@ module.exports = function(environment) {
     alienDom: {
       toRemove: `${ALIEN_DOM_ROOT} > :not(.ember-view):not(#fb-root), ${ALIEN_DOM_ROOT} > head > link[rel=stylesheet]:not([href*=assets])`
     },
-    googleTagManager: process.env.GOOGLE_TAG_MANAGER_ID || 'GTM-MZ2S75K'
+    googleTagManager: process.env.GOOGLE_TAG_MANAGER_ID || 'GTM-MZ2S75K',
+    googleOptimize: process.env.GOOGLE_OPTIMIZE_ID,
+    googleAnalytics: process.env.GOOGLE_ANALYTICS
   };
 
   if (environment === 'development') {
