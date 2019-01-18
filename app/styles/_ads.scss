@@ -23,3 +23,32 @@ iframe[name=google_conversion_frame] {
     margin-bottom: 0;
   }
 }
+
+.header-ad-wrapper {
+  width: 100%;
+  background-color: #333;
+  text-align: center;
+}
+
+.leaderboard-ad {
+  margin: 0 auto;
+  display: inline-block;
+  text-align: left;
+}
+
+.dfp-ad:after {
+  content: "ADVERTISEMENT";
+  display: inline-block;
+  color: white;
+  font-size: 10px;
+  line-height: 1;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  @include mq($medium-and-up) {
+    margin-bottom: 16px;
+  }
+}
+
+.dfp-ad:empty {
+  display: none;
+}
