@@ -93,7 +93,7 @@ module.exports = function(environment) {
     googleTagManager: process.env.GOOGLE_TAG_MANAGER_ID || 'GTM-MZ2S75K',
     googleOptimize: process.env.GOOGLE_OPTIMIZE_ID,
     googleAnalytics: process.env.GOOGLE_ANALYTICS,
-    googleAdMangerAdspot: process.env.GOOGLE_AD_MANAGER_ADSPOT
+    googleAdManagerAdspot: process.env.GOOGLE_AD_MANAGER_ADSPOT
 
   };
 
