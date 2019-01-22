@@ -3,8 +3,10 @@ import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
 import { reads } from '@ember/object/computed';
 import { get } from '@ember/object';
+import config from 'wqxr-web-client/config/environment';
 
 export default Controller.extend({
+  config,
   dj             : service(),
   hifi           : service(),
   session        : service(),
