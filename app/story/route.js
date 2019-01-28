@@ -24,11 +24,14 @@ export default Route.extend(PlayParamMixin, {
     return this.store.findRecord('story', slug, {adapterOptions: {queryParams}}).then(story => {
       let comments = this.store.query('comment', { itemTypeId: story.get('itemTypeId'), itemId: story.get('cmsPK') });
       let relatedStories = this.store.query('story', {related: { itemId: story.get('cmsPK'), limit: 5 }});
+      let imageGrid = this.store.findRecord('bucket', `articles-${slug}-imagegrid`)
+        .then((i) => { if (i) { return i.get('bucketItems'); } else { return null; }})
 
       return waitFor({
         story,
         getComments: () => comments,
         getRelatedStories: () => relatedStories,
+        imageGrid: imageGrid,
         adminURL: `${config.adminRoot}/admin`
       });
    });
