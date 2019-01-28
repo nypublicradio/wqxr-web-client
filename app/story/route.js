@@ -25,7 +25,7 @@ export default Route.extend(PlayParamMixin, {
       let comments = this.store.query('comment', { itemTypeId: story.get('itemTypeId'), itemId: story.get('cmsPK') });
       let relatedStories = this.store.query('story', {related: { itemId: story.get('cmsPK'), limit: 5 }});
       let imageGrid = this.store.findRecord('bucket', `articles-${slug}-imagegrid`)
-        .then((i) => { if (i) { return i.get('bucketItems'); } else { return null; }})
+        .then((i) => { if (i) { return i.get('bucketItems'); } else { return {}; }}).catch(()=>'')
 
       return waitFor({
         story,
