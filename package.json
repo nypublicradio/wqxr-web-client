@@ -102,7 +102,7 @@
     "nypr-metrics": ">=0.5.1",
     "nypr-player": ">=0.3.0",
     "nypr-publisher-lib": "^0.5.4",
-    "nypr-ui": ">=0.4.4",
+    "nypr-ui": ">=0.4.6",
     "qunit-dom": "^0.6.2",
     "torii": "^0.10.1"
   },
