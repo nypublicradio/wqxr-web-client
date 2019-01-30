@@ -3639,7 +3639,7 @@ ember-wormhole@0.5.3:
     ember-cli-babel "^6.8.2"
     ember-cli-htmlbars "^2.0.1"
 
-ember-wormhole@^0.5.1, ember-wormhole@^0.5.2:
+ember-wormhole@^0.5.1, ember-wormhole@^0.5.2, ember-wormhole@^0.5.3:
   version "0.5.5"
   resolved "https://registry.yarnpkg.com/ember-wormhole/-/ember-wormhole-0.5.5.tgz#db417ff748cb21e574cd5f233889897bc27096cb"
   dependencies:
@@ -6803,7 +6803,25 @@ nypr-ui@>=0.3.0:
     ivy-tabs "^3.3.0"
     waypoints "^4.0.1"
 
-nypr-ui@>=0.4.4, nypr-ui@^0.4.0:
+nypr-ui@>=0.4.6:
+  version "0.4.6"
+  resolved "https://registry.yarnpkg.com/nypr-ui/-/nypr-ui-0.4.6.tgz#5f1c7ea792d1ce7b5952c1570eebd9fe97508062"
+  dependencies:
+    ember-basic-dropdown "0.34.0"
+    ember-burger-menu "^3.1.0"
+    ember-cli-babel "^6.8.0"
+    ember-cli-htmlbars "^2.0.1"
+    ember-cli-htmlbars-inline-precompile "^1.0.0"
+    ember-cli-sass "^7.1.7"
+    ember-click-outside "0.1.11"
+    ember-composable-helpers "2.0.3"
+    ember-cookies "^0.3.0"
+    ember-holygrail-layout "^0.3.0"
+    ember-power-select "^1.9.2"
+    ivy-tabs "^3.3.0"
+    waypoints "^4.0.1"
+
+nypr-ui@^0.4.0:
   version "0.4.4"
   resolved "https://registry.yarnpkg.com/nypr-ui/-/nypr-ui-0.4.4.tgz#4da5c2c54e3654d5611ee5d1281942cfa8435b48"
   dependencies:

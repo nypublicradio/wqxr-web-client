@@ -1,0 +1,29 @@
+{{#each imageGridItems as |image|}}
+  {{#nypr-brick-item item=image template='vertical' as |brick|}}
+    {{#with brick.item.attributes as |item|}}
+      <div class="item__img {{ item.template }}" style="{{brick.backgroundImage}}">
+        {{#link-to
+          'story'
+          item.slug
+          class="item__link--hidden"
+          data-label=(concat item.title " | " (or item.showTitle item.channelTitle 'NPR Article'))}}
+          {{or item.shortTitle item.title}}
+        {{/link-to}}
+      </div>
+      <div class="item__head">
+        <h2 class="item__head__headline">
+          <a
+            title={{or item.shortTitle item.title}}
+            data-label={{concat item.title " | " (or item.showTitle item.channelTitle 'NPR Article')}}
+            href={{item.url}}>
+          {{nypr-svg className="icon" icon="video"}}
+          {{or item.shortTitle item.title}}
+          </a>
+        </h2>
+        <div class="item__head__description">
+          {{{or item.tease item.body}}}
+        </div>
+      </div>
+    {{/with}}
+  {{/nypr-brick-item}}
+{{/each}}

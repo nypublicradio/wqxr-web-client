@@ -50,7 +50,7 @@
           itemTitle=s.title
           itemShow=(or s.showTitle s.channelTitle 'NPR Article')}}Listen&nbsp;
           {{/listen-button}}
-        <span class="text--small dimmed audio-duration">{{model.story.audioDurationReadable}}</span>
+        <span class="text--small dimmed audio-duration">{{s.audioDurationReadable}}</span>
       {{/if}}
 
       {{#footer.lockup class="full-bleed__share"}}
@@ -99,6 +99,10 @@
   {{/if}}
 
   {{django-page page=s.bodyDjango class='full-bleed__body'}}
+
+  {{#if model.imageGrid}}
+    {{wqxr-image-grid imageGridItems=model.imageGrid class="full-bleed__image-grid"}}
+  {{/if}}
 
   {{story-credits story=s class="full-bleed__story-credits"}}
 
