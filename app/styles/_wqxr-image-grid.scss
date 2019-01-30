@@ -16,12 +16,12 @@
       width: calc(33% - 18px);
       margin-bottom: 20px;
 
-      @include mq($small-only){
+      @include mq($small-only) {
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         width: calc(50% - 20px);
         padding: 0px;
       }
-      @include mq($middle-narrow-only){
+      @include mq($middle-narrow-only) {
         width: 100%;
       }
 
@@ -35,7 +35,7 @@
         margin-top: 0px;
         font-size: 20px;
         line-height: inherit;
-        @include mq($middle-narrow-only){
+        @include mq($middle-narrow-only) {
           font-size: 16px;
         }
       }
