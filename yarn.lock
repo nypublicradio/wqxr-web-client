@@ -6803,9 +6803,9 @@ nypr-ui@>=0.3.0:
     ivy-tabs "^3.3.0"
     waypoints "^4.0.1"
 
-nypr-ui@>=0.4.6:
-  version "0.4.6"
-  resolved "https://registry.yarnpkg.com/nypr-ui/-/nypr-ui-0.4.6.tgz#5f1c7ea792d1ce7b5952c1570eebd9fe97508062"
+nypr-ui@>=0.4.7:
+  version "0.4.7"
+  resolved "https://registry.yarnpkg.com/nypr-ui/-/nypr-ui-0.4.7.tgz#eab6fd8ff4921b53b93745eafe2e26b3e3c549ae"
   dependencies:
     ember-basic-dropdown "0.34.0"
     ember-burger-menu "^3.1.0"
