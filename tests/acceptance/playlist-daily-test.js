@@ -17,7 +17,7 @@ module('Acceptance | playlist daily', function(hooks) {
 
     // ember strips the trailing slash
     assert.equal(currentURL(), `/playlist-daily/${date}?scheduleStation=wqxr`);
-    assert.equal(findAll('#leaderboard').length, 1, 'leaderboard should be present');
+    assert.equal(findAll('.leaderboard-ad').length, 1, 'leaderboard should be present');
   });
 
   test('clicking on /playlist-daily', async function(assert) {

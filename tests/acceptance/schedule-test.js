@@ -18,7 +18,7 @@ module('Acceptance | schedule', function(hooks) {
 
     // ember strips the trailing slash
     assert.equal(currentURL(), `/schedule/${date}?scheduleStation=wqxr`);
-    assert.equal(findAll('#leaderboard').length, 1, 'leaderboard is present');
+    assert.equal(findAll('.leaderboard-ad').length, 1, 'leaderboard is present');
   });
 
   test('clicking on /schedule', async function(assert) {

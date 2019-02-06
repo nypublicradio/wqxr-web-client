@@ -34,7 +34,7 @@ module('Acceptance | shows', function(hooks) {
     assert.equal(findAll('.shows-list ul li').length, 10, "ten shows are listed" );
 
     //ad is there
-    assert.equal(findAll('#leaderboard').length, 1, "ad is present" );
+    assert.equal(findAll('.leaderboard-ad').length, 1, "ad is present" );
   });
 
   test('searching /shows', async function(assert) {
