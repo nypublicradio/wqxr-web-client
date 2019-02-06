@@ -27,6 +27,7 @@
 
       .item__head {
         margin: 15px;
+        z-index:0;
       }
       .item__img {
         display: inline;
@@ -44,5 +45,9 @@
         font-size: 14px;
         margin-top: 12px;
       }
+    }
+
+    .brick__item:hover a{
+      color: $wqxrblue;
     }
 }
