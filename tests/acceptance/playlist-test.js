@@ -25,7 +25,7 @@ module('Acceptance | playlist', function(hooks) {
 
     assert.equal(currentURL(), '/streams/wqxr');
     assert.equal(find('a[href="http://fooshow.com"]').textContent.trim(), 'Episode Foo');
-    assert.equal(findAll('#leaderboard').length, 1, 'leaderboard is present');
+    assert.equal(findAll('.leaderboard-ad').length, 1, 'leaderboard is present');
     assert.equal(findAll('#rightRail').length, 1, 'sidebar ad is present');
   });
 
