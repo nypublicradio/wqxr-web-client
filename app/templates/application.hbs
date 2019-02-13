@@ -1,11 +1,21 @@
 <div class="header-ad-wrapper">
+{{#if media.isSmallOnly}}
   {{dfp-ad
     slotClassNames="leaderboard-ad dfp-ad"
     slot=config.googleAdManagerAdspot
     target="leaderboard_ad_home"
-    mapping=(array (array 0 (array 300 50)) (array 758 (array 728 90)) (array 1024 (array 970 90)))
-    sizes=(array (array 970 90) (array 728 90) (array 300 50))
+    mapping=(array (array 0 (array 300 50)))
+    sizes=(array (array 300 50))
+    }}
+{{else}}
+  {{dfp-ad
+    slotClassNames="leaderboard-ad dfp-ad"
+    slot=config.googleAdManagerAdspot
+    target="leaderboard_ad_home"
+    mapping=(array (array 0 (array)) (array 758 (array 728 90)) (array 1024 (array 970 90)))
+    sizes=(array (array 728 90) (array 970 90))
   }}
+{{/if}}
 </div>
 
 {{nypr-ui/brand-header}}
