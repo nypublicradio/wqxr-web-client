@@ -9,7 +9,7 @@ export default Route.extend({
       let day   = moment().format('DD');
       this.replaceWith('playlist-daily.date', year, month, day, {
         queryParams: {
-          scheduleStation: queryParams.scheduleStation || 'jonathan-channel'
+          scheduleStation: queryParams.scheduleStation || 'wqxr'
         }
       });
     }

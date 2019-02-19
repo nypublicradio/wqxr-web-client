@@ -64,7 +64,7 @@
     padding-right: 24px !important;
     text-align: left !important;
     float: right !important;
-    width: 95px !important;
+    min-width: 90px !important;
   }
 
   .piece-info {
@@ -126,7 +126,6 @@
   &__duration {
     @include fontsize(14);
     float: right;
-    width: 90px;
     flex-shrink: 0;
     text-align: right;
   }
