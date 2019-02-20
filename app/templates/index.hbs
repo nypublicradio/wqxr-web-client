@@ -71,12 +71,14 @@
       {{/layout.blowout}}
 
       {{#layout.cards as |row|}}
-        {{row.brick item=model.wqxrHome.featuredItems.[3]}}
-        {{row.brick item=model.wqxrHome.featuredItems.[4]}}
-        {{row.brick item=model.wqxrHome.featuredItems.[5]}}
+        {{#each (slice model.wqxrHome.featuredItems 3 6) as |item|}}
+          {{row.brick item=item}}
+        {{/each}}
       {{/layout.cards}}
 
-      {{layout.blowout flip=true items=(slice model.wqxrHome.featuredItems 6 9)}}
+      {{#if (gte model.wqxrHome.featuredItems.length 9)}}
+        {{layout.blowout flip=true items=(slice model.wqxrHome.featuredItems 6 9)}}
+      {{/if}}
 
     {{/nypr-brick-layout}}
   </section>
