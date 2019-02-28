@@ -1,17 +1,14 @@
 import Route from '@ember/routing/route';
-import { inject as service } from '@ember/service';
-import { get } from '@ember/object';
 
 export default Route.extend({
-  googleAds: service(),
+  beforeModel(){
+    this.transitionTo('playlist-daily')
 
-  titleToken(model) {
-    return `Playlist for ${get(model, 'name')}`;
   },
+
   model({ slug }) {
-    return this.store.findRecord('stream', slug);
+    this.transitionTo('playlist-daily', { queryParams: { scheduleStation: slug } })
+    return;
   },
-  afterModel() {
-    get(this, 'googleAds').doTargeting();
-  }
+
 });
