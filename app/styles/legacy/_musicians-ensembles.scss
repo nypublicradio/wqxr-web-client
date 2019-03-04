@@ -22,16 +22,22 @@
 
     }
   }
-
 }
 
 .playlist-item {
   display: flex;
   border-bottom: 1px dotted $line--light !important;
   padding-bottom: 24px !important;
+  line-height: normal;
+
 
   &:first-child {
     border-top: 1px dotted $line--light;
+  }
+
+  &:last-child {
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
   }
 
   .playlist-info {
@@ -49,6 +55,7 @@
 
   &__title {
     @include fontsize(18);
+    margin-bottom:16px;
   }
 
   &__musicians {
@@ -90,6 +97,11 @@
     }
   }
 
+  .album-info {
+    @include fontsize(12);
+    margin-top: 16px;
+  }
+
   .americanstandards-piece-info {
     @include fontsize(16);
     line-height: normal;
@@ -113,13 +125,6 @@
       font-weight: 400;
     }
 
-    .playlist-item__composers {
-      margin-bottom: 16px;
-    }
-
-    .album-info {
-      @include fontsize(12);
-    }
     .album-info .playlist-actions li {
       float: none !important;
     }
