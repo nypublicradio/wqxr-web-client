@@ -16,7 +16,6 @@ module.exports = {
   },
   globals: {
     server: true,
-    imagesLoaded: true
   },
   rules: {
     "no-extra-boolean-cast": ["warn"],

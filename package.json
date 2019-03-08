@@ -61,12 +61,11 @@
     "ember-data": "~3.0.0",
     "ember-export-application-global": "^2.0.0",
     "ember-feature-flags": "^5.0.0",
-    "ember-fetch": "^3.2.9",
+    "ember-fetch": "^6.0.0",
     "ember-get-config": "^0.2.2",
     "ember-hifi": "^1.15.0",
     "ember-holygrail-layout": "^0.3.0",
     "ember-hotjar": "^0.0.2",
-    "ember-imagesloaded-shim": "^0.0.6",
     "ember-load-initializers": "^1.0.0",
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-moment": "7.6.0",
@@ -119,5 +118,8 @@
   },
   "engines": {
     "node": "^4.5 || 6.* || >= 7.*"
+  },
+  "dependencies": {
+    "abortcontroller-polyfill": "^1.2.5"
   }
 }
