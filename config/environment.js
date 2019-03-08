@@ -15,6 +15,7 @@ module.exports = function(environment) {
     environment,
     rootURL: '/',
     locationType: 'trailing-history',
+    historySupportMiddleware: true,
     emberHifi: {
       connections: [{
         name: 'NativeAudio'
