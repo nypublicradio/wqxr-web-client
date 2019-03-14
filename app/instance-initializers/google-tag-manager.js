@@ -29,7 +29,7 @@ export function initialize(appInstance) {
     },
   });
 
-  if (typeof window !== 'undefined' && config.environment !== 'test') {
+  if (typeof window !== 'undefined' && typeof document !== 'undefined' && config.environment !== 'test') {
       (function(a,s,y,n,c,h,i/*,d,e*/){s.className+=' '+y;
     h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
     (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);
