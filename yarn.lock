@@ -349,11 +349,6 @@
   resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-3.0.3.tgz#3dca0e3f33b200fc7d1139c0cd96c1268cadfd9d"
   integrity sha512-tHq6qdbT9U1IRSGf14CL0pUlULksvY9OZ+5eEgl1N7t+OA3tGvNpxJCzuKQlsNgCVwbAs670L1vcVQi8j9HjnA==
 
-"@types/node@*":
-  version "11.10.5"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-11.10.5.tgz#fbaca34086bdc118011e1f05c47688d432f2d571"
-  integrity sha512-DuIRlQbX4K+d5I+GMnv+UfnGh+ist0RdlvOp+JZ7ePJ6KQONCFQv/gKYSU1ZzbVdFSUCKZOltjmpFAGGv5MdYA==
-
 "@types/node@^9.6.0":
   version "9.6.45"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-9.6.45.tgz#a9e5cfd026a3abaaf17e3c0318a470da9f2f178e"
@@ -2335,11 +2330,6 @@ buffer@4.9.1:
     ieee754 "^1.1.4"
     isarray "^1.0.0"
 
-builtin-modules@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/builtin-modules/-/builtin-modules-2.0.0.tgz#60b7ef5ae6546bd7deefa74b08b62a43a232648e"
-  integrity sha512-3U5kUA5VPsRUA3nofm/BXX7GVHKfxz0hOBAPxXrIvHzlDRkQVqEn6yi8QJegxl4LzOHLdvb7XF5dVawa/VVYBg==
-
 builtins@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/builtins/-/builtins-1.0.3.tgz#cb94faeb61c8696451db36534e1422f94f0aee88"
@@ -2997,7 +2987,7 @@ cross-spawn@^3.0.0:
     lru-cache "^4.0.1"
     which "^1.2.9"
 
-cross-spawn@^5.0.1, cross-spawn@^5.1.0:
+cross-spawn@^5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-5.1.0.tgz#e8bd0efee58fcff6f8f94510a0a554bbfa235449"
   integrity sha1-6L0O/uWPz/b4+UUQoKVUu/ojVEk=
@@ -3520,24 +3510,6 @@ ember-cli-broccoli-sane-watcher@^3.0.0:
     heimdalljs-logger "^0.1.7"
     rsvp "^3.0.18"
     sane "^4.0.0"
-
-ember-cli-cjs-transform@^1.3.1:
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/ember-cli-cjs-transform/-/ember-cli-cjs-transform-1.3.1.tgz#ae8c0da709ec3c02311b0afbb3a5974abbac3707"
-  integrity sha512-ZN21Me25DtuK5O9H8ilTE0kuZ1WbNzXQ2gI4ZYBPc49YckDaPSC3PELl0s7k9+TsdUpNtBZ92jW12ghWD77YLg==
-  dependencies:
-    broccoli-debug "^0.6.4"
-    broccoli-plugin "^1.3.0"
-    ember-cli-babel "^6.6.0"
-    fs-extra "^5.0.0"
-    hash-for-dep "^1.2.3"
-    pkg-dir "^2.0.0"
-    resolve "^1.7.1"
-    rollup "^0.59.0"
-    rollup-plugin-commonjs "^9.1.0"
-    rollup-plugin-node-resolve "^3.3.0"
-    sync-disk-cache "^1.3.3"
-    username "^3.0.0"
 
 ember-cli-dependency-checker@^2.0.0:
   version "2.2.1"
@@ -5034,11 +5006,6 @@ estraverse@^4.0.0, estraverse@^4.1.0, estraverse@^4.1.1, estraverse@^4.2.0:
   resolved "https://registry.yarnpkg.com/estraverse/-/estraverse-4.2.0.tgz#0dee3fed31fcd469618ce7342099fc1afa0bdb13"
   integrity sha1-De4/7TH81GlhjOc0IJn8GvoL2xM=
 
-estree-walker@^0.5.2:
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/estree-walker/-/estree-walker-0.5.2.tgz#d3850be7529c9580d815600b53126515e146dd39"
-  integrity sha512-XpCnW/AE10ws/kDAs37cngSkvgIR8aN3G0MS85m7dUpuK2EREo9VJ00uvw6Dg/hXEpfsE1I1TvJOJr+Z+TL+ig==
-
 estree-walker@^0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/estree-walker/-/estree-walker-0.6.0.tgz#5d865327c44a618dde5699f763891ae31f257dae"
@@ -5086,19 +5053,6 @@ exec-sh@^0.3.2:
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/exec-sh/-/exec-sh-0.3.2.tgz#6738de2eb7c8e671d0366aea0b0db8c6f7d7391b"
   integrity sha512-9sLAvzhI5nc8TpuQUh4ahMdCrWT00wPWz7j47/emR5+2qEfoZP5zzUXvx+vdx+H6ohhnsYC31iX04QLYJK8zTg==
-
-execa@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/execa/-/execa-0.7.0.tgz#944becd34cc41ee32a63a9faf27ad5a65fc59777"
-  integrity sha1-lEvs00zEHuMqY6n68nrVpl/Fl3c=
-  dependencies:
-    cross-spawn "^5.0.1"
-    get-stream "^3.0.0"
-    is-stream "^1.1.0"
-    npm-run-path "^2.0.0"
-    p-finally "^1.0.0"
-    signal-exit "^3.0.0"
-    strip-eof "^1.0.0"
 
 execa@^1.0.0:
   version "1.0.0"
@@ -6785,11 +6739,6 @@ is-glob@^3.1.0:
   dependencies:
     is-extglob "^2.1.0"
 
-is-module@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/is-module/-/is-module-1.0.0.tgz#3258fb69f78c14d5b815d664336b4cffb6441591"
-  integrity sha1-Mlj7afeMFNW4FdZkM2tM/7ZEFZE=
-
 is-number@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/is-number/-/is-number-2.1.0.tgz#01fcbbb393463a548f2f466cce16dece49db908f"
@@ -7826,13 +7775,6 @@ magic-string@^0.24.0:
   dependencies:
     sourcemap-codec "^1.4.1"
 
-magic-string@^0.25.1:
-  version "0.25.2"
-  resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.25.2.tgz#139c3a729515ec55e96e69e82a11fe890a293ad9"
-  integrity sha512-iLs9mPjh9IuTtRsqqhNGYcZXGei0Nh/A4xirrsqW7c+QhKVFL2vm7U09ru6cHRD22azaP/wMDgI+HCqbETMTtg==
-  dependencies:
-    sourcemap-codec "^1.4.4"
-
 make-dir@^1.0.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/make-dir/-/make-dir-1.3.0.tgz#79c1033b80515bd6d24ec9933e860ca75ee27f0c"
@@ -7938,13 +7880,6 @@ media-typer@0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
   integrity sha1-hxDXrwqmJvj/+hzgAWhUUmMlV0g=
-
-mem@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/mem/-/mem-1.1.0.tgz#5edd52b485ca1d900fe64895505399a0dfa45f76"
-  integrity sha1-Xt1StIXKHZAP5kiVUFOZoN+kX3Y=
-  dependencies:
-    mimic-fn "^1.0.0"
 
 memory-streams@^0.1.3:
   version "0.1.3"
@@ -8577,7 +8512,7 @@ nypr-audio-services@^0.5.6:
     nypr-metrics "^0.5.0"
     nypr-ui "^0.4.0"
 
-nypr-auth@>=0.2.0, nypr-auth@>=0.2.3:
+nypr-auth@>=0.2.0, nypr-auth@>=0.2.2, nypr-auth@>=0.2.3:
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/nypr-auth/-/nypr-auth-0.2.3.tgz#23a8aa09d827d9c5459be94bdee79e98c169d658"
   integrity sha512-Cb/cb35BBBry8Cbmpe9YxigB4VlXzpuJ2+tvOnUPwxNIOoc6dhveHOalBlpnWBT34bYH58Scnsg/eGdyknapgQ==
@@ -8585,15 +8520,6 @@ nypr-auth@>=0.2.0, nypr-auth@>=0.2.3:
     ember-cli-babel "^6.6.0"
     ember-get-config "^0.2.2"
     ember-simple-auth "^1.6.0"
-
-nypr-django-for-ember@>=0.3.0:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/nypr-django-for-ember/-/nypr-django-for-ember-0.3.1.tgz#89b9333613e3fcfe49445da7405c426a4652165f"
-  integrity sha512-3ikYR2OSl/75y4u8NuUd78xTGiqabWCurMhFEty/vUWuIpVmaILU8MLeyGxDWjZumrpmpRiLxJvJz9A18rQ+Gg==
-  dependencies:
-    ember-cli-babel "^6.6.0"
-    ember-cli-htmlbars "^2.0.1"
-    ember-wormhole "^0.5.2"
 
 nypr-django-for-ember@^0.4.0:
   version "0.4.0"
@@ -8604,7 +8530,7 @@ nypr-django-for-ember@^0.4.0:
     ember-cli-htmlbars "^2.0.1"
     ember-wormhole "^0.5.2"
 
-nypr-metrics@>=0.5.1, nypr-metrics@^0.5.0:
+nypr-metrics@^0.5.0:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/nypr-metrics/-/nypr-metrics-0.5.1.tgz#47ae7c528bb66753336266f35fe28452c3ce714f"
   integrity sha512-9rfJb6duR36nW/hTfgAU+lF8y07X+mtHToFDcbg5jSdzE7LwbatoZWlbiUxLn5+dwb+TveTMgRXFUblYdMawxg==
@@ -8612,10 +8538,18 @@ nypr-metrics@>=0.5.1, nypr-metrics@^0.5.0:
     ember-cli-babel "^6.6.0"
     ember-get-config "^0.2.2"
 
-nypr-player@>=0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/nypr-player/-/nypr-player-0.3.0.tgz#c6bf5f99e41324f6889b690ac3478be24925ddc3"
-  integrity sha512-36kn0bvbGzrizHu9bei+PoRA52K4AbzfZlKOR418JEmDLpq8NYytO3d7YDZcfu6SFYbfmaf0fKeEHDYJk8FpaQ==
+nypr-metrics@^0.5.1:
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/nypr-metrics/-/nypr-metrics-0.5.3.tgz#b2ce4ecb84e1af16500a1f4dd2459837b2f2d0f1"
+  integrity sha512-yThPT+JSV+BY8LX4GZ6Y7GKNkj6+3z4+WaIQ2aLGvb5+fvpgyJMbMGVUzoFjT4M+wd4dQhJRU9ziJ/FP+TGwVQ==
+  dependencies:
+    ember-cli-babel "^6.6.0"
+    ember-get-config "^0.2.2"
+
+nypr-player@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/nypr-player/-/nypr-player-0.4.0.tgz#10d573fcdd2bb37c681204c9d1548fe9d34b2407"
+  integrity sha512-RUute8sd6givQjnwXZ5B/EHe/6iG3BuKKYW0VJZ5b/ibqgywoRWAf+7JBGR02OlhvagBVrLB+ekWDOm/PqPoqw==
   dependencies:
     ember-cli-babel "^6.6.0"
     ember-cli-htmlbars "^2.0.1"
@@ -8623,9 +8557,9 @@ nypr-player@>=0.3.0:
     ember-cli-sass "^7.0.0"
     ember-hifi "^1.15.1"
     ember-moment "^7.4.1"
-    nypr-ui ">=0.3.0"
+    nypr-ui "^0.4.0"
 
-nypr-publisher-lib@^0.5.4:
+nypr-publisher-lib@^0.5.0:
   version "0.5.4"
   resolved "https://registry.yarnpkg.com/nypr-publisher-lib/-/nypr-publisher-lib-0.5.4.tgz#1b02d3eac142a2e7ec53acf535318c414c14178c"
   integrity sha512-Q7ujkfazVcmYqWMlekXxe9lEJ6R9r5IqJ+zB47bxb+nGj79pXpYGyWIo8uw5WwIeXNt4QR3Kbi68peRhbKpC7g==
@@ -8644,48 +8578,10 @@ nypr-publisher-lib@^0.5.4:
     nypr-django-for-ember "^0.4.0"
     nypr-ui "^0.4.0"
 
-nypr-ui@>=0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/nypr-ui/-/nypr-ui-0.3.0.tgz#76e4eb992ef28ab24d29ca8314f0fad7d8134af4"
-  integrity sha512-I01p0tnnYsgRYyFyDyPYwOwUVoKFATktvUR3u1a6cuQpi0o3GRES8ZCJDFn/SHB1Nj7XTbslKvX4V5Wp7Z7c5Q==
-  dependencies:
-    ember-basic-dropdown "0.34.0"
-    ember-burger-menu "^3.1.0"
-    ember-cli-babel "^6.8.0"
-    ember-cli-htmlbars "^2.0.1"
-    ember-cli-htmlbars-inline-precompile "^1.0.0"
-    ember-cli-sass "^7.1.7"
-    ember-click-outside "0.1.11"
-    ember-composable-helpers "2.0.3"
-    ember-cookies "^0.3.0"
-    ember-holygrail-layout "^0.3.0"
-    ember-power-select "^1.9.2"
-    ivy-tabs "^3.3.0"
-    waypoints "^4.0.1"
-
-nypr-ui@>=0.4.7:
+nypr-ui@^0.4.0, nypr-ui@^0.4.1, nypr-ui@^0.4.7:
   version "0.4.7"
   resolved "https://registry.yarnpkg.com/nypr-ui/-/nypr-ui-0.4.7.tgz#eab6fd8ff4921b53b93745eafe2e26b3e3c549ae"
   integrity sha512-vIwAa+rORSMLFwmbtidnvZ8QzgCtTwh7Rx9vkOSmb1Q6cV9auN+RkPkVp7fiDir6Dd579+aIU8ZQT7tYjUV2kg==
-  dependencies:
-    ember-basic-dropdown "0.34.0"
-    ember-burger-menu "^3.1.0"
-    ember-cli-babel "^6.8.0"
-    ember-cli-htmlbars "^2.0.1"
-    ember-cli-htmlbars-inline-precompile "^1.0.0"
-    ember-cli-sass "^7.1.7"
-    ember-click-outside "0.1.11"
-    ember-composable-helpers "2.0.3"
-    ember-cookies "^0.3.0"
-    ember-holygrail-layout "^0.3.0"
-    ember-power-select "^1.9.2"
-    ivy-tabs "^3.3.0"
-    waypoints "^4.0.1"
-
-nypr-ui@^0.4.0:
-  version "0.4.4"
-  resolved "https://registry.yarnpkg.com/nypr-ui/-/nypr-ui-0.4.4.tgz#4da5c2c54e3654d5611ee5d1281942cfa8435b48"
-  integrity sha512-Tmguc5KZlNTcPX9j7tSjaPCx/bimxj7Rdbruv0PKEIHJLMfoASVjl+h9jDCo1PdxsCc08bsCV3qEF2DQvryVsw==
   dependencies:
     ember-basic-dropdown "0.34.0"
     ember-burger-menu "^3.1.0"
@@ -9078,13 +8974,6 @@ pinkie@^2.0.0:
   resolved "https://registry.yarnpkg.com/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
   integrity sha1-clVrgM+g1IqXToDnckjoDtT3+HA=
 
-pkg-dir@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/pkg-dir/-/pkg-dir-2.0.0.tgz#f6d5d1109e19d63edf428e0bd57e12777615334b"
-  integrity sha1-9tXREJ4Z1j7fQo4L1X4Sd3YVM0s=
-  dependencies:
-    find-up "^2.1.0"
-
 pkg-up@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/pkg-up/-/pkg-up-2.0.0.tgz#c819ac728059a461cab1c3889a2be3c49a004d7f"
@@ -9291,6 +9180,11 @@ querystring@0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/querystring/-/querystring-0.2.0.tgz#b209849203bb25df820da756e747005878521620"
   integrity sha1-sgmEkgO7Jd+CDadW50cAWHhSFiA=
+
+querystringify@^2.0.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/querystringify/-/querystringify-2.1.0.tgz#7ded8dfbf7879dcc60d0a644ac6754b283ad17ef"
+  integrity sha512-sluvZZ1YiTLD5jsqZcDmFyV2EwToyXZBfpoVOmktMmW+VEnhgakFHnasVph65fOjGPTWN0Nw3+XQaSeMayr0kg==
 
 quick-temp@^0.1.2, quick-temp@^0.1.3, quick-temp@^0.1.5, quick-temp@^0.1.8:
   version "0.1.8"
@@ -9703,7 +9597,7 @@ resolve@^1.1.6, resolve@^1.1.7, resolve@^1.4.0, resolve@^1.5.0, resolve@^1.8.1:
   dependencies:
     path-parse "^1.0.5"
 
-resolve@^1.10.0, resolve@^1.3.2, resolve@^1.3.3, resolve@^1.7.1:
+resolve@^1.10.0, resolve@^1.3.2, resolve@^1.3.3:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.10.0.tgz#3bdaaeaf45cc07f375656dfd2e54ed0810b101ba"
   integrity sha512-3sUr9aq5OfSg2S9pNtPA9hL1FVEAjvfOC4leW0SNf/mpnaakz2a9femSd6LqAww2RaFctwyf1lCqnTHuF1rxDg==
@@ -9756,26 +9650,7 @@ rimraf@^2.3.2, rimraf@^2.4.4, rimraf@^2.5.3, rimraf@^2.6.1, rimraf@^2.6.2, rimra
   dependencies:
     glob "^7.0.5"
 
-rollup-plugin-commonjs@^9.1.0:
-  version "9.2.1"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-commonjs/-/rollup-plugin-commonjs-9.2.1.tgz#bb151ca8fa23600c7a03e25f9f0a45b1ee922dac"
-  integrity sha512-X0A/Cp/t+zbONFinBhiTZrfuUaVwRIp4xsbKq/2ohA2CDULa/7ONSJTelqxon+Vds2R2t2qJTqJQucKUC8GKkw==
-  dependencies:
-    estree-walker "^0.5.2"
-    magic-string "^0.25.1"
-    resolve "^1.10.0"
-    rollup-pluginutils "^2.3.3"
-
-rollup-plugin-node-resolve@^3.3.0:
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-node-resolve/-/rollup-plugin-node-resolve-3.4.0.tgz#908585eda12e393caac7498715a01e08606abc89"
-  integrity sha512-PJcd85dxfSBWih84ozRtBkB731OjXk0KnzN0oGp7WOWcarAFkVa71cV5hTJg2qpVsV2U8EUwrzHP3tvy9vS3qg==
-  dependencies:
-    builtin-modules "^2.0.0"
-    is-module "^1.0.0"
-    resolve "^1.1.6"
-
-rollup-pluginutils@^2.0.1, rollup-pluginutils@^2.3.3:
+rollup-pluginutils@^2.0.1:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/rollup-pluginutils/-/rollup-pluginutils-2.4.1.tgz#de43ab54965bbf47843599a7f3adceb723de38db"
   integrity sha512-wesMQ9/172IJDIW/lYWm0vW0LiKe5Ekjws481R7z9WTRtmO59cqyM/2uUlxvf6yzm/fElFmHUobeQOYz46dZJw==
@@ -9806,14 +9681,6 @@ rollup@^0.57.1:
     rollup-pluginutils "^2.0.1"
     signal-exit "^3.0.2"
     sourcemap-codec "^1.4.1"
-
-rollup@^0.59.0:
-  version "0.59.4"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-0.59.4.tgz#6f80f7017c22667ff1bf3e62adf8624a44cc44aa"
-  integrity sha512-ISiMqq/aJa+57QxX2MRcvLESHdJ7wSavmr6U1euMr+6UgFe6KM+3QANrYy8LQofwhTC1I7BcAdlLnDiaODs1BA==
-  dependencies:
-    "@types/estree" "0.0.39"
-    "@types/node" "*"
 
 route-recognizer@^0.2.3:
   version "0.2.10"
@@ -10294,7 +10161,7 @@ source-map@~0.1.x:
   dependencies:
     amdefine ">=0.0.4"
 
-sourcemap-codec@^1.4.1, sourcemap-codec@^1.4.4:
+sourcemap-codec@^1.4.1:
   version "1.4.4"
   resolved "https://registry.yarnpkg.com/sourcemap-codec/-/sourcemap-codec-1.4.4.tgz#c63ea927c029dd6bd9a2b7fa03b3fec02ad56e9f"
   integrity sha512-CYAPYdBu34781kLHkaW3m6b/uUSyMOC2R61gcYMWooeuaGtjof86ZA/8T+qVPPt7np1085CR9hmMGrySwEc8Xg==
@@ -10564,17 +10431,6 @@ sync-disk-cache@^1.3.2:
     mkdirp "^0.5.0"
     rimraf "^2.2.8"
     username-sync "1.0.1"
-
-sync-disk-cache@^1.3.3:
-  version "1.3.3"
-  resolved "https://registry.yarnpkg.com/sync-disk-cache/-/sync-disk-cache-1.3.3.tgz#481933461623fdc2bdf46cfc87872ba215a7e246"
-  integrity sha512-Kp7DFemXDPRUbFW856CKamtX7bJuThZPa2dwnK2RfNqMew7Ah8xDc52SdooNlfN8oydDdDHlBPLsXTrtmA7HKw==
-  dependencies:
-    debug "^2.1.3"
-    heimdalljs "^0.2.3"
-    mkdirp "^0.5.0"
-    rimraf "^2.2.8"
-    username-sync "^1.0.2"
 
 table@4.0.2:
   version "4.0.2"
@@ -10986,6 +10842,14 @@ url-parse-lax@^3.0.0:
   dependencies:
     prepend-http "^2.0.0"
 
+url-parse@^1.4.3:
+  version "1.4.4"
+  resolved "https://registry.yarnpkg.com/url-parse/-/url-parse-1.4.4.tgz#cac1556e95faa0303691fec5cf9d5a1bc34648f8"
+  integrity sha512-/92DTTorg4JjktLNLe6GPS2/RvAd/RGr6LuktmWSMLEOa6rjnlrFXNgSbSmkNvCoL2T028A0a1JaJLzRMlFoHg==
+  dependencies:
+    querystringify "^2.0.0"
+    requires-port "^1.0.0"
+
 url-to-options@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/url-to-options/-/url-to-options-1.0.1.tgz#1505a03a289a48cbd7a434efbaeec5055f5633a9"
@@ -11013,19 +10877,6 @@ username-sync@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/username-sync/-/username-sync-1.0.1.tgz#1cde87eefcf94b8822984d938ba2b797426dae1f"
   integrity sha1-HN6H7vz5S4gimE2Ti6K3l0Jtrh8=
-
-username-sync@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/username-sync/-/username-sync-1.0.2.tgz#0a3697909fb7b5768d29e2921f573acfdd427592"
-  integrity sha512-ayNkOJdoNSGNDBE46Nkc+l6IXmeugbzahZLSMkwvgRWv5y5ZqNY2IrzcgmkR4z32sj1W3tM3TuTUMqkqBzO+RA==
-
-username@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/username/-/username-3.0.0.tgz#b3dba982a72b4ce59d52f159fa1aeba266af5fc8"
-  integrity sha1-s9upgqcrTOWdUvFZ+hrromavX8g=
-  dependencies:
-    execa "^0.7.0"
-    mem "^1.1.0"
 
 util-deprecate@^1.0.2, util-deprecate@~1.0.1:
   version "1.0.2"
