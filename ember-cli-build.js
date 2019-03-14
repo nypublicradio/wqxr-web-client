@@ -29,7 +29,6 @@ module.exports = function(defaults) {
     console.log('there was a problem importing the modernizr build. please run grunt modernizr:dist first.');
   }
 
-  app.import('vendor/polyfills/url.js');
   app.import('node_modules/normalize.css/normalize.css');
   app.import('node_modules/jquery-migrate/dist/jquery-migrate.min.js', {
     using: [{transformation: 'fastbootShim'}],
