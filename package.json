@@ -89,6 +89,7 @@
     "grunt": "^1.0.1",
     "grunt-modernizr": "^1.0.3",
     "http-proxy": "^1.14.0",
+    "imagesloaded": "^4.1.4",
     "jquery-migrate": "3.0.0",
     "liquid-fire": "^0.29.2",
     "loader.js": "^4.2.3",
@@ -123,13 +124,14 @@
     "nypr-player": "^0.4.0",
     "nypr-publisher-lib": "^0.5.0",
     "nypr-ui": "^0.4.1",
-    "ember-fetch":"^6.0.0"
+    "ember-fetch": "^6.0.0"
   },
   "engines": {
     "node": "^4.5 || 6.* || >= 7.*"
   },
   "dependencies": {
     "abortcontroller-polyfill": "^1.2.5",
+    "nypr-fastboot": "nypublicradio/nypr-fastboot#nc/fork",
     "url-parse": "^1.4.3"
   },
   "fastbootDependencies": [
