@@ -1,0 +1,29 @@
+@mixin list--inline {
+  .list-item {
+      border: none;
+      display: inline-block;
+      margin-right: 15px;
+
+      @include mq($medium-and-up) {
+        margin-right: 30px;
+      }
+
+      @include mq($small-and-up) {
+        margin-right: 25px;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+  }
+
+  &.list--spaced {
+    > .list-item {
+      margin-right: 25px;
+
+      @include mq($small-only) {
+        margin-right: 10px;
+      }
+    }
+  }
+}

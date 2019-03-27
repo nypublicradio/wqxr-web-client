@@ -12,6 +12,14 @@
   }
 }
 
+.box--desktop {
+  @include mq($large-and-up) {
+    padding: 30px;
+    position: relative;
+    margin-bottom: 2rem;
+  }
+}
+
 .box--dark {
   background-color: black;
 }
@@ -128,6 +136,12 @@
 
 .box--nopad {
   padding: 0;
+}
+
+.box--nopad-desktop {
+  @include mq($large-and-up){
+    padding: 0;
+  }
 }
 
 .box--nopad-top {
