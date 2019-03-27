@@ -5,12 +5,15 @@ import { inject as service } from '@ember/service';
 import PlayParamMixin from 'wqxr-web-client/mixins/play-param';
 import config from 'wqxr-web-client/config/environment';
 import { schedule } from '@ember/runloop';
+import { reads } from '@ember/object/computed';
 
 export default Route.extend(PlayParamMixin, {
   session:      service(),
   googleAds:    service(),
   dataPipeline: service(),
   currentUser:  service(),
+  fastboot: service(),
+  isFastBoot: reads('fastboot.isFastBoot'),
   dataLayer:    service('nypr-metrics/data-layer'),
 
   titleToken({ story }) {
@@ -42,7 +45,9 @@ export default Route.extend(PlayParamMixin, {
     if (get(story, 'headerDonateChunk')) {
       transition.send('updateDonateChunk', get(story, 'headerDonateChunk'));
     }
-    get(this, 'dataLayer').setForType('story', story);
+    if(!get(this, 'isFastBoot')) {
+      get(this, 'dataLayer').setForType('story', story);
+    }
 
     schedule('afterRender', () => {
       // data pipeline
@@ -54,7 +59,9 @@ export default Route.extend(PlayParamMixin, {
   },
 
   setupController(controller) {
-    controller.set('isMobile', window.Modernizr.touchevents);
+    if(!get(this, 'isFastBoot')) {
+      controller.set('isMobile', window.Modernizr.touchevents);
+    }
     controller.set('session', get(this, 'session'));
     controller.set('user', get(this, 'currentUser.user'));
 
