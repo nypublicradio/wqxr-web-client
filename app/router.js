@@ -6,6 +6,11 @@ const Router = EmberRouter.extend({
   session:  service(),
   location: config.locationType,
   rootURL: config.rootURL,
+  headData: service(),
+
+  setTitle(title) {
+    this.get('headData').set('title', title);
+  },
 
   willTransition(oldInfos, newInfos, transition) {
     this._super(...arguments);

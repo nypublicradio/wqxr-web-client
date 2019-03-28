@@ -15,6 +15,7 @@ export default Route.extend(PlayParamMixin, {
   fastboot: service(),
   isFastBoot: reads('fastboot.isFastBoot'),
   dataLayer:    service('nypr-metrics/data-layer'),
+  metadata: service(),
 
   titleToken({ story }) {
     return [
@@ -48,6 +49,14 @@ export default Route.extend(PlayParamMixin, {
     if(!get(this, 'isFastBoot')) {
       get(this, 'dataLayer').setForType('story', story);
     }
+
+    this.get('metadata').setHeadData({
+      type: 'article',
+      path: `/story/${get(story, 'slug')}`,
+      twitterCard: 'summary_large_image',
+      description: get(story, 'tease'),
+      image: get(story, 'imageMain')
+    });
 
     schedule('afterRender', () => {
       // data pipeline

@@ -5,7 +5,7 @@ import ENV from 'wqxr-web-client/config/environment';
 
 export default Route.extend({
   titleToken: 'All Shows, Podcasts and Programs',
-
+  metadata: service(),
   googleAds: service(),
 
   model() {
@@ -24,6 +24,9 @@ export default Route.extend({
 
   afterModel() {
     this.get('googleAds').doTargeting();
+    this.get('metadata').setHeadData({
+      path: '/shows',
+    });
   },
 
   actions: {

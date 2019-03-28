@@ -28,7 +28,7 @@ export default Route.extend(PlayParamMixin, {
 
   model({ upstream_url }, { queryParams }) {
     if (this.get('fastboot.isFastBoot')) {
-      return
+      return {'title': ''}
     }
     // This adds trailing slashes, because the server's redirect
     // doesn't otherwise work correctly due to the proxying I'm using
