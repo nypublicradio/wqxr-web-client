@@ -1,14 +1,13 @@
-FROM node:8.11-alpine
-
-RUN \
-    mkdir -p /code \
-    && apk update \
-    && apk add unzip
+FROM node:8
+RUN mkdir -p /code \
+    && apt-get autoclean \
+    && apt-get update -y \
+    && apt-get install -y \
+        unzip
 WORKDIR /code
-
 COPY package.json ./
 COPY yarn.lock ./
-RUN yarn --prod
+RUN yarn --prod --pure-lockfile
 
 COPY . .
 CMD node fastboot
