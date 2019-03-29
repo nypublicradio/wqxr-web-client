@@ -131,6 +131,8 @@
   },
   "dependencies": {
     "abortcontroller-polyfill": "^1.2.5",
+    "ember-cli-deploy-fastboot-app-server": "^0.0.3",
+    "ember-cli-deploy-fastboot-app-server-aws": "^0.0.3",
     "nypr-fastboot": "nypublicradio/nypr-fastboot#nc/fork",
     "url-parse": "^1.4.3"
   },
