@@ -136,6 +136,7 @@
   "dependencies": {
     "abortcontroller-polyfill": "^1.2.5",
     "fastboot-app-server": "^1.1.2-beta.1",
+    "dotenv": "^7.0.0",
     "nypr-fastboot": "nypublicradio/nypr-fastboot#nc/fork",
     "url-parse": "^1.4.3"
   },
