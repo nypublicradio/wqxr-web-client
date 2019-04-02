@@ -1,0 +1,15 @@
+<div class="django-content"></div>
+
+{{#if showingOverlay}}
+  {{yield}}
+  {{#each page.embeddedEmberComponents as |ec|}}
+    {{#ember-wormhole to=ec.id}}
+      {{component
+        ec.componentName
+        classNames=ec.componentName
+        embeddedAttrs=ec.args}}
+    {{/ember-wormhole}}
+  {{/each}}
+{{else}}
+  {{nypr-loading-templates type='legacy'}}
+{{/if}}

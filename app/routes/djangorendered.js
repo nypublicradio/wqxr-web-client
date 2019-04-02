@@ -2,6 +2,7 @@ import DS from 'ember-data';
 import config from 'wqxr-web-client/config/environment';
 import Route from '@ember/routing/route';
 import { get } from '@ember/object';
+import { reads } from '@ember/object/computed';
 import { inject as service } from '@ember/service';
 import { retryFromServer, beforeTeardown } from 'nypr-django-for-ember/utils/compat-hooks';
 import PlayParamMixin from 'wqxr-web-client/mixins/play-param';
@@ -15,6 +16,7 @@ export default Route.extend(PlayParamMixin, {
 
   googleAds: service(),
   fastboot: service(),
+  isFastBoot: reads('fastboot.isFastBoot'),
 
 
   titleToken(model) {
@@ -27,7 +29,7 @@ export default Route.extend(PlayParamMixin, {
   },
 
   model({ upstream_url }, { queryParams }) {
-    if (this.get('fastboot.isFastBoot')) {
+    if (this.get('isFastBoot')) {
       return {'title': ''}
     }
     // This adds trailing slashes, because the server's redirect

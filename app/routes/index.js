@@ -11,22 +11,39 @@ export default Route.extend(PlayParamMixin, {
   googleAds:  service(),
   classNames: ['home'],
   dj: service(),
+  fastboot: service(),
+  metadata: service(),
 
   model() {
-    get(this, 'googleAds').doTargeting();
+    get(this, 'googleAds').doTargeting
 
-    return RSVP.hash({
-      wqxrHome: this.store.findRecord('bucket', 'wqxr-home').then(b => {
-        return {
-          featuredItems: b.get('bucketItems').slice(0, 9),
-          otherItems: b.get('bucketItems').slice(9)
-        };
-      }),
-      wartopChunk: this.store.findRecord('chunk', 'wqxr-wartop-home').catch(()=>''),
-      membershipChunk: this.store.findRecord('chunk', 'wqxr-membership-home').catch(() => ''),
+    if (this.get('fastboot.isFastBoot')) {
+      return RSVP.hash({
+        wqxrHome: this.store.findRecord('bucket', 'wqxr-home').then(b => {
+          return {
+            featuredItems: b.get('bucketItems').slice(0, 9),
+            otherItems: b.get('bucketItems').slice(9)
+          };
+        }),
+      })
+    } else {
+      return RSVP.hash({
+        wqxrHome: this.store.findRecord('bucket', 'wqxr-home').then(b => {
+          return {
+            featuredItems: b.get('bucketItems').slice(0, 9),
+            otherItems: b.get('bucketItems').slice(9)
+          };
+        }),
+        wartopChunk: this.store.findRecord('chunk', 'wqxr-wartop-home').catch(()=>''),
+        membershipChunk: this.store.findRecord('chunk', 'wqxr-membership-home').catch(() => ''),
+      })
+    }
+  },
+  afterModel() {
+    this.get('metadata').setHeadData({
+      path: '',
     });
   },
-
   setupController(controller) {
     this._super(...arguments);
     let streams = DS.PromiseArray.create({
