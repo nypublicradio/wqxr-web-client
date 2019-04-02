@@ -15,7 +15,7 @@ export default Route.extend(PlayParamMixin, {
   metadata: service(),
 
   model() {
-    get(this, 'googleAds').doTargeting
+    get(this, 'googleAds').doTargeting();
 
     if (this.get('fastboot.isFastBoot')) {
       return RSVP.hash({
