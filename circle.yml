@@ -74,6 +74,7 @@ templates:
             . ~/.venv/bin/activate
             TAG="${CIRCLE_TAG:-demo}"
             ENV="${ENV,,}"
+            export "${ENV}_SENTRY_RELEASE"="${TAG}"
             nyprsetuptools DockerDeploy \
               --cpu=512 \
               --ecr-repository=wqxr-web-client \
