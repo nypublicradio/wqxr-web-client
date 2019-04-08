@@ -4,6 +4,7 @@ import { isEmpty } from '@ember/utils';
 import $ from 'jquery';
 import { inject as service } from '@ember/service';
 import Inflector from 'ember-inflector';
+import { reads } from '@ember/object/computed';
 
 
 const inflect = new Inflector(Inflector.defaultRules);
@@ -12,6 +13,8 @@ export default Mixin.create({
   pageNumbers:  service(),
   dataPipeline: service(),
   dataLayer:    service('nypr-metrics/data-layer'),
+  fastboot: service(),
+  isFastBoot: reads('fastboot.isFastBoot'),
 
   titleToken() {
     const channelType = get(this, 'channelType');
@@ -26,6 +29,9 @@ export default Mixin.create({
   },
 
   afterModel(model) {
+    if (get(this, 'isFastBoot')){
+      return;
+    }
     let channelType = get(this, 'channelType')
     let { channel } = this.modelFor(channelType)
     let dataPipeline = get(this, 'dataPipeline');
