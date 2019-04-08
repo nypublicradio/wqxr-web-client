@@ -102,11 +102,11 @@
     "nypr-account-settings": ">=0.2.2",
     "nypr-ads": ">=0.1.0",
     "nypr-audio-services": "^0.5.6",
-    "nypr-auth": ">=0.2.3",
-    "nypr-django-for-ember": "^0.4.0",
+    "nypr-auth": "nypublicradio/nypr-auth#202d837b30079fc8f052c0b32a33d43a470a8d9f",
+    "nypr-django-for-ember": "nypublicradio/nypr-django-for-ember#410964afaffa9e24e44c1f4ba1437de86b1d2227",
     "nypr-metrics": "^0.5.1",
     "nypr-player": "^0.4.0",
-    "nypr-publisher-lib": "^0.5.0",
+    "nypr-publisher-lib": "nypublicradio/nypr-publisher-lib#f598a3045e8d01a76da369f7a7b4c081163dc845",
     "nypr-ui": "^0.4.7",
     "qunit-dom": "^0.6.2",
     "torii": "^0.10.1"
@@ -135,8 +135,10 @@
   },
   "dependencies": {
     "abortcontroller-polyfill": "^1.2.5",
-    "fastboot-app-server": "^1.1.2-beta.1",
+    "cypress": "^3.2.0",
     "dotenv": "^7.0.0",
+    "eslint-plugin-cypress": "^2.2.1",
+    "fastboot-app-server": "^1.1.2-beta.1",
     "nypr-fastboot": "nypublicradio/nypr-fastboot#nc/fork",
     "url-parse": "^1.4.3"
   },
