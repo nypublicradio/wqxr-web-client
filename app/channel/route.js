@@ -36,7 +36,8 @@ export default Route.extend(PlayParamMixin, {
     if (channel && !get(this, "isFastBoot")) {
       let canonicalUrl = get(channel, 'url');
       let canonicalHostMatch = canonicalUrl && canonicalUrl.match(/\/\/([\w.]+)\//);
-      if  (canonicalHostMatch && canonicalHostMatch.pop() !== document.location.host) {
+      if  (canonicalHostMatch && canonicalHostMatch.pop() !== document.location.host
+           && document.location.host !== 'localhost:4200') { // cypress doesn't like domain changes in tests
         transition.abort();
         window.location.href = canonicalUrl;
         return;
@@ -65,6 +66,9 @@ export default Route.extend(PlayParamMixin, {
 
   actions: {
     willTransition(transition) {
+      if (get(this, "isFastBoot")) {
+        return;
+      }
       let isExiting = !transition.targetName.match(this.routeName);
       this._super(...arguments);
       beforeTeardown();
