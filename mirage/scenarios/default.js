@@ -6,6 +6,10 @@ export default function(server) {
 
     Make sure to define a factory for each model you want to create.
   */
+
+   if (window && window.localStorage && window.localStorage.disableMirage) {
+     server.shutdown();
+   }
    server.create('django-page', {
      id: '/'
    });

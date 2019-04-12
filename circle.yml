@@ -152,6 +152,21 @@ jobs:
       - store_test_results:
           path: test-results/
 
+  test_cypress:
+    <<: *defaults
+    parallelism: 4
+    steps:
+      - checkout
+      - <<: *restore_node
+      - <<: *restore_modernizr
+      - run: sudo apt-get install libgconf-2-4
+      - run: cp .env.sample .env
+      - run:
+          name: Run Cypress tests in parallel
+          command: yarn run cy:ci:test
+      - store_test_results:
+          path: test-results/
+
   deploy_static_demo:
     <<: *deploy_static
     <<: *demo
@@ -178,19 +193,26 @@ workflows:
           <<: *filter_all
           requires:
             - build
+      - test_cypress:
+          requires:
+            - build
       - deploy_static_demo:
           <<: *filter_demo
           requires:
             - test_ember
+            - test_cypress
       - deploy_ecs_demo:
           <<: *filter_demo
           requires:
             - test_ember
+            - test_cypress
       - deploy_static_prod:
           <<: *filter_prod
           requires:
             - test_ember
+            - test_cypress
       - deploy_ecs_prod:
           <<: *filter_prod
           requires:
             - test_ember
+            - test_cypress

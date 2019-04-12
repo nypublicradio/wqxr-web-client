@@ -16,6 +16,11 @@
     "lint:js": "eslint ./*.js app config lib server tests",
     "start": "ember serve",
     "test": "ember test",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:test": "start-server-and-test start http://localhost:4200 cy:run",
+    "cy:ci:run": "npx cypress run --reporter=junit --reporter-options 'mochaFile=test-results/test.xml' --spec=$(circleci tests glob cypress/integration/** | circleci tests split | awk -vORS=, '{ print $1 }' | sed 's/,$/\\n/')",
+    "cy:ci:test": "start-server-and-test start http://localhost:4200 cy:ci:run",
     "fastboot": "node fastboot"
   },
   "devDependencies": {
@@ -109,6 +114,7 @@
     "nypr-publisher-lib": "nypublicradio/nypr-publisher-lib#f598a3045e8d01a76da369f7a7b4c081163dc845",
     "nypr-ui": "^0.4.7",
     "qunit-dom": "^0.6.2",
+    "start-server-and-test": "^1.1.4",
     "torii": "^0.10.1"
   },
   "ember-addon": {
