@@ -1,0 +1,168 @@
+{
+  "data": {
+    "type": "story",
+    "id": "906250",
+    "attributes": {
+      "analytics-code": "ExperimentalStory:wqxr-presents-19-19-artists-collaborations-upcoming-year $A0$AD0$V0$Ma$D2$HS0$HC0$B0$SS++$CWQXR Features$S$T!opera!wei_luo!19_for_19!jess_gillam!the_knights!davone_tines!jack_quartet!jnai_bridges!teddy_abrams!xavier_foley!beatrice_rana!elena_urioste!iestyn_davies!inon_barnatan!julia_bullock!mahan_esfahani!classical_music!steven_isserlis!nicola_benedetti!anne_akiko_meyers!sheku_kanneh_mason!$APnone$",
+      "appearances": {
+        "producers": [],
+        "hosts": [],
+        "authors": [
+          {
+            "bio": "",
+            "image": {
+              "credits-url": "",
+              "credits-name": "",
+              "h": null,
+              "name": "",
+              "url": "",
+              "w": null
+            },
+            "job-title": "",
+            "lede": "",
+            "name": "WQXR Staff",
+            "slug": "wqxr-staff",
+            "social": [
+              {
+                "contact-string": "",
+                "service": "twitter"
+              },
+              {
+                "contact-string": "",
+                "service": "instagram"
+              },
+              {
+                "contact-string": "",
+                "service": "facebook"
+              }
+            ],
+            "url": "/people/wqxr-staff/",
+            "shows": []
+          }
+        ]
+      },
+      "audio": null,
+      "audio-available": false,
+      "audio-eventually": false,
+      "audio-duration-readable": null,
+      "audio-may-download": true,
+      "audio-may-embed": true,
+      "audio-may-stream": true,
+      "body": "<p class=\"x_MsoNormal\">Contrary to the misguided and musty reputation often bestowed upon classical music, this art form is very much alive â€” and in the hands of many talented and creative musicians ushering it forward. Thatâ€™s why WQXR is kicking off 2019 by introducing â€œ19 for 19,â€\u009d a group of artists we love that includes long-time heroes, established favorites and newcomers set for stardom. Weâ€™re planning all sorts of exciting collaborations across our platforms throughout the year, including a <a href=\"http://www.thegreenespace.org/events/thegreenespace/2019/jan/31/wqxr-presents-19-19/\">kick-off concert at The Greene Space</a> on January 31, so stay tuned. Get to know them here, and if you havenâ€™t yet heard what they can do, nowâ€™s the time.</p>\n<h2 style=\"text-align: center;\"><strong>Meet the line-up:</strong></h2>",
+      "channel": "wqxr-features",
+      "channel-title": "WQXR Features",
+      "chunks": {
+        "site-sidebar-top": null,
+        "story": "<div data-pym-src=\"https://apps.nypr.org/newsletter-signup/?partnerOrg=None&brand=wqxr&headline=The%20WQXR%20Newsletter&mailchimpId=aa1c2a6097&mailchimpName=Newsletter%3A%20This%20Week%20In%20WQXR\">Loading...</div>\r\n<script type=\"text/javascript\" src=\"https://pym.nprapps.org/pym.v1.min.js\"></script>",
+        "channel-sidebar-top": null,
+        "channel-sidebar-bottom": null,
+        "site-sidebar-bottom": null
+      },
+      "cms-pk": 906250,
+      "comments-count": 0,
+      "enable-comments": true,
+      "date-line-ts": 1546887769,
+      "edit-link": "cms/article/906250",
+      "embed-code": "<iframe frameborder=\"0\" scrolling=\"no\" height=\"130\" width=\"100%\" src=\"https://www.wnyc.org/widgets/ondemand_player/wqxr/#file=/audio/json/906250/&share=1\"></iframe>",
+      "estimated-duration": 0,
+      "headers": {
+        "brand": {
+          "url": "https://www.wqxr.org/articles/wqxr-features",
+          "slug": "wqxr-features",
+          "title": "WQXR Features"
+        },
+        "links": [
+          {
+            "url": "https://www.wqxr.org/articles/wqxr-features",
+            "title": "WQXR Features",
+            "item-type": "article",
+            "slug": "wqxr-features"
+          }
+        ]
+      },
+      "header-donate-chunk": null,
+      "image-caption": "",
+      "image-main": {
+        "alt-text": "",
+        "name": "2019/01/Urioste_14_0279.jpg",
+        "source": null,
+        "url": "https://media.wnyc.org/i/1860/1240/c/80/2019/01/Urioste_14_0279.jpg",
+        "h": 1240,
+        "is-display": true,
+        "crop": "c",
+        "caption": "",
+        "credits-url": "",
+        "template": "https://media.wnyc.org/i/%s/%s/%s/%s/2019/01/Urioste_14_0279.jpg",
+        "w": 1860,
+        "id": 180875,
+        "credits-name": "Alessandra Tinozzi"
+      },
+      "item-type": "article",
+      "item-type-id": 26,
+      "newscast": "",
+      "newsdate": "2019-01-07T14:02:49-05:00",
+      "npr-analytics-dimensions": [
+        "NYPR",
+        "article",
+        "906250",
+        "0",
+        "classical_music,opera",
+        "WQXR Staff",
+        "19_for_19,anne_akiko_meyers,beatrice_rana,classical_music,davone_tines,elena_urioste,iestyn_davies,inon_barnatan,jack_quartet,jess_gillam,jnai_bridges,julia_bullock,mahan_esfahani,nicola_benedetti,opera,sheku_kanneh_mason,steven_isserlis,teddy_abrams,the_knights,wei_luo,xavier_foley",
+        "1",
+        "WQXR",
+        "0",
+        "none",
+        "2019-01-07 14:02:49-05:00",
+        "110",
+        "none"
+      ],
+      "playlist": [],
+      "podcast-links": [],
+      "producing-organizations": [],
+      "publish-at": "2019-01-07T04:00:00",
+      "publish-status": "published",
+      "show": "",
+      "show-tease": null,
+      "show-title": "",
+      "show-producing-orgs": null,
+      "series": [],
+      "segments": null,
+      "short-title": "",
+      "site-id": 2,
+      "slug": "wqxr-presents-19-19-artists-collaborations-upcoming-year",
+      "slideshow": [],
+      "tags": [
+        "19_for_19",
+        "anne_akiko_meyers",
+        "beatrice_rana",
+        "classical_music",
+        "davone_tines",
+        "elena_urioste",
+        "iestyn_davies",
+        "inon_barnatan",
+        "jack_quartet",
+        "jess_gillam",
+        "jnai_bridges",
+        "julia_bullock",
+        "mahan_esfahani",
+        "nicola_benedetti",
+        "opera",
+        "sheku_kanneh_mason",
+        "steven_isserlis",
+        "teddy_abrams",
+        "the_knights",
+        "wei_luo",
+        "xavier_foley"
+      ],
+      "tease": "Classical music, as an art form, is far from dead. Here are 19 notable musicians and ensembles proving it.",
+      "template": "story_full-bleed",
+      "title": "WQXR Presents â€œ19 for 19â€\u009d: Artists to Watch in the Upcoming Year",
+      "transcript": "",
+      "twitter-headline": "WQXR Presents â€œ19 for 19â€\u009d: Artists to Watch in the Upcoming Year",
+      "twitter-handle": null,
+      "url": "http://www.wqxr.org/story/wqxr-presents-19-19-artists-collaborations-upcoming-year/",
+      "video": null
+    }
+  }
+}

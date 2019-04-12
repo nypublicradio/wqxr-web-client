@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <script id="hash-redirect" type="text/javascript">
+    // legacy urls need to be redirected on the client
+    // users transitioning from the legacy site to the new web client
+    // need to communicate across an iframe
+    if (window.top === window) {
+      if (location.hash) {
+        var href = location.hash.split('/').slice(1).join('/');
+        if (href) {
+          window.location.assign(href)
+        }
+      }
+      var script = document.getElementById('hash-redirect');
+      script.parentNode.removeChild(script);
+    } else {
+      var data = {
+        refresh: true,
+        nypr: true,
+        href: window.location.toString()
+      };
+      window.top.postMessage(JSON.stringify(data), '*');
+    }
+  </script>
+
+  <title>WQXR | New York's Classical Music Radio Station</title>
+  <link rel="canonical" href="https://www.wqxr.org/aklsdfjal/" />
+  <meta name="keywords" content="npr, new york, WQXR, WNYC, arts, culture, classical, music, news, public, radio" />
+    <meta property="og:title" content="WQXR | New York&#39;s Classical Music Radio Station" />
+    <meta property="og:description" content="WQXR - New York Public Radio" />
+    <meta name="description" content="WQXR - New York Public Radio" />
+  <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://media.wnyc.org/i/300/300/c/80/1/wqxr_square_logo.png" />
+  <meta property="og:url" content="https://www.wqxr.org/aklsdfjal/" />
+  <meta property="og:site_name" content="WQXR" />
+
+  <meta property="fb:app_id" content="110716008996381" />
+
+  <meta name="twitter:title" content="WQXR | New York&#39;s Classical Music Radio Station">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@WQXR">
+    <meta name="twitter:description" content="WQXR - New York Public Radio">
+  <meta name="twitter:app:id:iphone" content="464130298">
+  <meta name="twitter:app:id:googleplay" content="org.wqxr.android">
+  <meta name="apple-itunes-app" content="app-id=464130298">
+
+  <link rel="shortcut icon" href="https://media.wnyc.org/static/img/favicon_wqxr.ico?_=1554911396" />
+
+  <link rel="alternate" type="application/rss+xml" title="All WQXR Stories (RSS)" href="/feeds/all/"  />
+  <link rel="alternate" type="application/atom+xml" title="All WQXR Stories (Atom)" href="/atomfeeds/all/"  />
+
+
+
+      <meta name="wqxr-web-client/config/environment" content="%7B%22googleAnalytics%22%3A%20%22UA-283599-11%22%2C%20%22emberHifi%22%3A%20%7B%22connections%22%3A%20%5B%7B%22name%22%3A%20%22NativeAudio%22%7D%5D%7D%2C%20%22googleCaptchaEndpoint%22%3A%20%22https%3A//www.google.com/recaptcha/api.js%3Frender%3Dexplicit%22%2C%20%22siteName%22%3A%20%22WQXR%22%2C%20%22showsDiscoverStation%22%3A%20%22wqxr%22%2C%20%22authService%22%3A%20%22https%3A//api.wnyc.org/auth%22%2C%20%22hotjar%22%3A%20%7B%22enabled%22%3A%20true%2C%20%22id%22%3A%20467005%2C%20%22forceSSL%22%3A%20true%7D%2C%20%22modulePrefix%22%3A%20%22wqxr-web-client%22%2C%20%22webRoot%22%3A%20%22//www.wqxr.org%22%2C%20%22torii%22%3A%20%7B%22providers%22%3A%20%7B%22facebook-connect%22%3A%20%7B%22scope%22%3A%20%22user_friends%2Cemail%22%2C%20%22version%22%3A%20%22v2.9%22%2C%20%22appId%22%3A%20%221583385451706458%22%7D%7D%7D%2C%20%22moreShowsDiscoverStation%22%3A%20%22archived-shows%22%2C%20%22contentSecurityPolicy%22%3A%20%7B%22script-src%22%3A%20%22%27self%27%20%27unsafe-inline%27%20%27unsafe-eval%27%20data%3A%20%2A%22%2C%20%22img-src%22%3A%20%22%27self%27%20data%3A%20%2A%22%2C%20%22frame-src%22%3A%20%22%27self%27%20%2A%22%2C%20%22style-src%22%3A%20%22%27self%27%20%27unsafe-inline%27%20%2A.wnyc.net%3A%2A%20%2A.wnyc.org%20cloud.typography.com%20fonts.googleapis.com%20www.google.com%20platform.twitter.com%22%2C%20%22connect-src%22%3A%20%22%27self%27%20%2A.wnyc.net%3A%2A%20ws%3A//%2A.wnyc.net%3A%2A%22%2C%20%22object-src%22%3A%20%22%27self%27%20%2A.wnyc.net%3A%2A%20%2A.wnyc.org%20%2A.moatads.com%20%2A.googlesyndication.com%22%2C%20%22font-src%22%3A%20%22%27self%27%20data%3A%20fonts.gstatic.com%22%7D%2C%20%22showsAPIKey%22%3A%20%22symphony%22%2C%20%22EmberENV%22%3A%20%7B%22EXTEND_PROTOTYPES%22%3A%20%7B%22Date%22%3A%20false%7D%2C%20%22FEATURES%22%3A%20%7B%7D%7D%2C%20%22googleTagManager%22%3A%20%22GTM-MZ2S75K%22%2C%20%22moreShowsAPIKey%22%3A%20%22mammoth%22%2C%20%22platformEventsAPI%22%3A%20%22https%3A//api.wnyc.org/analytics%22%2C%20%22environment%22%3A%20%22production%22%2C%20%22QP_WHITELIST%22%3A%20%5B%22q%22%2C%20%22scheduleStation%22%2C%20%22next%22%2C%20%22n%22%5D%2C%20%22exportApplicationGlobal%22%3A%20true%2C%20%22ember-cli-mirage%22%3A%20%7B%22usingProxy%22%3A%20true%2C%20%22autostart%22%3A%20true%2C%20%22useDefaultPassthroughs%22%3A%20true%7D%2C%20%22authAPI%22%3A%20%22https%3A//api.wnyc.org/auth%22%2C%20%22flashMessageDefaults%22%3A%20%7B%22preventDuplicates%22%3A%20true%2C%20%22timeout%22%3A%2010000%7D%2C%20%22wnycDonateURL%22%3A%20%22https%3A//pledge3.wqxr.org/epledge/main%3Fref%3Dbutton-donate-header%22%2C%20%22googleAdManagerAdspot%22%3A%20%226483581/leaderboard/wqxr_leaderboard%22%2C%20%22siteSlug%22%3A%20%22wqxr%22%2C%20%22queueAudioBumperURL%22%3A%20%22http%3A//audio.wnyc.org/streambumper/streambumper000008_audio_queue.mp3%22%2C%20%22adminRoot%22%3A%20%22https%3A//internal.wnyc.org%22%2C%20%22rootURL%22%3A%20%22/%22%2C%20%22membershipAPI%22%3A%20%22https%3A//api.wnyc.org/membership%22%2C%20%22locationType%22%3A%20%22trailing-history%22%2C%20%22APP%22%3A%20%7B%22version%22%3A%20%22v2.4.11%2B6bfa579f%22%2C%20%22name%22%3A%20%22wqxr-web-client%22%7D%2C%20%22googleOptimize%22%3A%20%22GTM-P5R35V8%22%2C%20%22publisherAPI%22%3A%20%22https%3A//api.wnyc.org/api%22%2C%20%22googleAPIv3Key%22%3A%20%22AIzaSyCDbxxvbl0Zj6af28IfWjJ-S0SKxwDXnkc%22%2C%20%22siteId%22%3A%202%2C%20%22etagAPI%22%3A%20%22https%3A//api.wnyc.org/api/v1/browser_id/%22%2C%20%22alienDom%22%3A%20%7B%22toRemove%22%3A%20%22body%20%3E%20%3Anot%28.ember-view%29%3Anot%28%23fb-root%29%2C%20body%20%3E%20head%20%3E%20link%5Brel%3Dstylesheet%5D%3Anot%28%5Bhref%2A%3Dassets%5D%29%22%7D%2C%20%22clientSlug%22%3A%20%22wqxr_web%22%2C%20%22googleCaptchaKey%22%3A%20%226LeJomQUAAAAABVGp6Xk3PUZGXNWaHo3t1D7mwF3%22%7D">
+      <meta name="revision" content="88e4df053c2e4d01510145dade749e8d">
+      <link data-ember-asset rel="stylesheet" href="https://static.wqxr.org/assets/vendor-ae6b5758eb35e605a09d52b5c5ee016e.css">
+      <link data-ember-asset rel="stylesheet" href="https://static.wqxr.org/assets/wqxr-web-client-aec4dfa8308df4b1722f36e623393b71.css">
+
+
+  <link rel="stylesheet" href="https://media.wnyc.org/static/webfonts/fontawesome/css/font-awesome.min.css?v=4.1.0" type="text/css">
+
+
+
+
+
+
+
+
+    <script async="async" type="text/javascript" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script type="text/javascript">
+      window.googletag = window.googletag || {};
+      window.googletag.cmd = window.googletag.cmd || [];
+    </script>
+        <script type="text/javascript">
+          window.googletag = window.googletag || {cmd: []};
+        </script>
+      <script data-ember-asset src="https://static.wqxr.org/assets/vendor-e37183498d7b70452fa94f753e47242d.js"></script>
+      <script data-ember-asset src="https://static.wqxr.org/assets/wqxr-web-client-3f916414c025879d26bd515f2aeeacd7.js"></script>
+
+    <meta property="fb:pages" content="151157061731" data-detail="WQXR"/>
+
+
+
+
+<script type="text/javascript" src="https://media.wnyc.org/static/CACHE/js/1dcfaba2cb7d.js"></script>
+
+
+
+</head>
+<body id="wqxr-main-body">
+
+
+
+
+
+
+  <script type="text/javascript">
+var set_chartbeat_sections = function(){
+    var all_sections = [];
+    if (window.wnyc) {
+        if (wnyc.section){
+            all_sections.push(wnyc.section);
+        }
+
+        if (wnyc.current_item) {
+            if (wnyc.current_item.series) {
+                Array.prototype.push.apply(all_sections, wnyc.current_item.series);
+            }
+            if (wnyc.current_item.show) {
+                all_sections.push(wnyc.current_item.show);
+            }
+            if (wnyc.current_item.channel) {
+                all_sections.push(wnyc.current_item.channel);
+            }
+        }
+        var all_sections_string = all_sections.join(",");
+        if (wnyc.current_item) {
+            /*
+            Adding this for debugging purposes.
+            wnyc.current_item.chartbeat_sections would not be consumed anywhere in the application
+            */
+            wnyc.current_item["chartbeat_sections"] = all_sections_string;
+        }
+        return all_sections_string;
+    }
+    else {
+        return "";
+    }
+}
+
+var _sf_async_config={
+  uid:4030,
+  domain:"wqxr.org",
+  sections: set_chartbeat_sections(),
+  authors: ((wnyc.current_item && wnyc.current_item.authors) ?
+            wnyc.current_item.authors.join(",") : "")
+};
+
+
+jQuery(window).on('load', function() {
+  if (wnyc.current_item && !wnyc.current_item.published) {
+    return;
+  }
+  window._sf_endpt=(new Date()).getTime();
+  jQuery.ajax({
+    url:(("https:" == document.location.protocol)
+         ? "https://a248.e.akamai.net/chartbeat.download.akamai.com/102508/"
+         : "http://static.chartbeat.com/") + "js/chartbeat.js",
+    dataType:'script',
+    async:true,
+    cache:true
+  });
+});
+</script>
+
+  <script src="https://www.google.com/jsapi"></script>
+
+</body>
+</html>
