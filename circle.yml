@@ -153,12 +153,13 @@ jobs:
           path: test-results/
 
   test_cypress:
-    <<: *defaults
-    parallelism: 4
+    <<: *executor_node
     steps:
       - checkout
-      - <<: *restore_node
-      - <<: *restore_modernizr
+      - restore_cache:
+          <<: *cache
+      - restore_cache:
+          <<: *cache_modernizr
       - run: sudo apt-get install libgconf-2-4
       - run: cp .env.sample .env
       - run:
