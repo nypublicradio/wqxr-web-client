@@ -22,6 +22,9 @@ templates:
     environment:
       ENV: PROD
       LONG_ENV: production
+  qa: &qa
+    environment:
+      ENV: DEMO
 
   # Executors:
   #############################################################################
@@ -53,6 +56,12 @@ templates:
         only: /^v[0-9]+\.[0-9]+\.[0-9]+/
       branches:
         ignore: /.*/
+  filter_qa: &filter_qa
+    filters:
+      tags:
+        ignore: /.*/
+      branches:
+        only: /[\w-]+/[\w-]+/
 
   # Job Templates:
   #############################################################################
@@ -104,7 +113,19 @@ templates:
           command: |
             env | sed -n 's/^DEPLOY_//p' > .env
             env | sed -n "s/^${ENV}_//p" >> .env
-            npx ember deploy ${LONG_ENV} --verbose --activate
+
+            export QA_BUILD="$QA_PREFIX/$CIRCLE_BRANCH"
+            export QA_URL="https:$DEMO_WQXR_URL?build=$QA_BUILD"
+
+            npx ember deploy ${LONG_ENV:-qa:$QA_BUILD} --verbose --activate
+            mkdir -p /tmp/qa-builds
+
+            if [[ -z "$LONG_ENV" ]]; then
+              echo "<a href=\"$QA_URL\">$QA_URL</a>" \
+                >> /tmp/qa-builds/$CIRCLE_SHA1.html
+            fi
+      - store_artifacts:
+          path: /tmp/qa-builds
 
 
 jobs:
@@ -184,6 +205,10 @@ jobs:
     <<: *deploy_ecs
     <<: *prod
 
+  deploy_static_qa:
+    <<: *deploy_static
+    <<: *qa
+
 workflows:
   version: 2
   build-test-deploy:
@@ -214,6 +239,11 @@ workflows:
             - test_cypress
       - deploy_ecs_prod:
           <<: *filter_prod
+          requires:
+            - test_ember
+            - test_cypress
+      - deploy_static_qa:
+          <<: *filter_qa
           requires:
             - test_ember
             - test_cypress
