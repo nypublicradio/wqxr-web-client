@@ -159,11 +159,6 @@ export default Controller.extend(Evented, {
   }),
 
   actions: {
-    loading(){
-      if (get(this, 'isFastBoot')){
-        return false;
-      }
-    },
     disableAccount() {
       this.get('model').destroyRecord().then(() => {
         this.setProperties({
@@ -188,24 +183,26 @@ export default Controller.extend(Evented, {
     },
 
     linkFacebookAccount() {
+      // the facebook torii connector accesses the DOM, so don't use it in FastBoot
       if(get(this, 'isFastboot')) {
         return;
       } else {
-      this.get('torii').open('facebook-connect').then((data) => {
-        let facebookId = data.userId;
-        let user = this.get('currentUser.user');
-        user.set('facebookId', facebookId);
-        user.save().then(() => {
-          this.showFlash('connected');
+        this.get('torii').open('facebook-connect').then((data) => {
+          let facebookId = data.userId;
+          let user = this.get('currentUser.user');
+          user.set('facebookId', facebookId);
+          user.save().then(() => {
+            this.showFlash('connected');
+          })
+          .catch(() => {
+            user.rollbackAttributes();
+            this.showFlash('connectError', 'warning');
+          });
         })
         .catch(() => {
-          user.rollbackAttributes();
           this.showFlash('connectError', 'warning');
         });
-      })
-      .catch(() => {
-        this.showFlash('connectError', 'warning');
-      });
-    }}
+      }
+    }
   }
 });

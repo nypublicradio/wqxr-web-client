@@ -13,6 +13,7 @@ export default Controller.extend({
   isFastBoot: reads('fastboot.isFastBoot'),
 
   setTab() {
+    // can't reference location in fastboot, only do this in browser.
     if (get(this, 'isFastBoot')) {
       return;
     }

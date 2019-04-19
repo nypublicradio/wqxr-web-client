@@ -29,11 +29,6 @@ export default Controller.extend({
     });
   },
   actions: {
-    loading(){
-      if (get(this, 'isFastBoot')){
-        return false;
-      }
-    },
     afterSetPassword() {
       if (get(this, 'session.isAuthenticated')) {
         this.showFlash('edit');

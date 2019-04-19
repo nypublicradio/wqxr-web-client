@@ -33,6 +33,7 @@ export default Route.extend(PlayParamMixin, {
   },
 
   afterModel({ channel }, transition) {
+    // this code block references the document, so don't execute in FastBoot
     if (channel && !get(this, "isFastBoot")) {
       let canonicalUrl = get(channel, 'url');
       let canonicalHostMatch = canonicalUrl && canonicalUrl.match(/\/\/([\w.]+)\//);
@@ -67,7 +68,7 @@ export default Route.extend(PlayParamMixin, {
   actions: {
     willTransition(transition) {
       if (get(this, "isFastBoot")) {
-        return;
+        //eturn;
       }
       let isExiting = !transition.targetName.match(this.routeName);
       this._super(...arguments);

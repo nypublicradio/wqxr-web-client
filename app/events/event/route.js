@@ -11,8 +11,9 @@ export default Route.extend({
     return get(model, 'title');
   },
   model({url_path}) {
+    // django pages don't work w/ FastBoot, so only execute this in browser
     if (this.get('isFastBoot')) {
-      return {'title': ''}
+      return {'title': 'Event'}
     }
     return this.store.findRecord('django-page', `events/${url_path}`.replace(/\/*$/, '/'));
   }

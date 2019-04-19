@@ -12,6 +12,7 @@ export default Route.extend({
     return get(model, 'title');
   },
   model() {
+    // django pages don't work w/ FastBoot, so only execute this in browser
     if (this.get('isFastBoot')) {
       return {'title': 'Events'}
     }

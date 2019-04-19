@@ -29,6 +29,7 @@ export default Mixin.create({
   },
 
   afterModel(model) {
+    // can't use jquery in FastBoot, so don't execute next block
     if (get(this, 'isFastBoot')){
       return;
     }

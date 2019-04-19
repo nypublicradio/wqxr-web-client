@@ -46,6 +46,7 @@ export default Route.extend(PlayParamMixin, {
     if (get(story, 'headerDonateChunk')) {
       transition.send('updateDonateChunk', get(story, 'headerDonateChunk'));
     }
+    // dataLayer access dom here, which is not available in FastBoot, so don't do this yet.
     if(!get(this, 'isFastBoot')) {
       get(this, 'dataLayer').setForType('story', story);
     }
@@ -68,6 +69,7 @@ export default Route.extend(PlayParamMixin, {
   },
 
   setupController(controller) {
+    // can't access window in FastBoot, only do this in broswer
     if(!get(this, 'isFastBoot')) {
       controller.set('isMobile', window.Modernizr.touchevents);
     }

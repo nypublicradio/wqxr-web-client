@@ -17,6 +17,7 @@ export default Route.extend({
     }
   },
   model({ year, month, day, scheduleStation }) {
+    // django pages don't work w/ FastBoot, so only execute this in browser
     if (this.get('isFastBoot')) {
       return {'title': 'Play History'}
     }

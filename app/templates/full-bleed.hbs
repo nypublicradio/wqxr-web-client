@@ -1,4 +1,4 @@
-{{#if isFastBoot}}
+{{#if isFastBoot}} <!-- FastBoot can't render full-bleed correctly, so wait to render in browser -->
   {{nypr-loading-templates type='legacy'}}
 {{else}}
   {{#with model.story as |s|}}

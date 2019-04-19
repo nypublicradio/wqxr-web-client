@@ -13,7 +13,6 @@ export default Route.extend(PlayParamMixin, {
       refreshModel: true
     }
   },
-
   googleAds: service(),
   fastboot: service(),
   isFastBoot: reads('fastboot.isFastBoot'),
@@ -29,6 +28,7 @@ export default Route.extend(PlayParamMixin, {
   },
 
   model({ upstream_url }, { queryParams }) {
+    // django pages don't work w/ FastBoot, so only execute this in browser
     if (this.get('isFastBoot')) {
       return {'title': ''}
     }
@@ -57,8 +57,9 @@ export default Route.extend(PlayParamMixin, {
 
   setupController(controller, model) {
     this._super(...arguments);
+    // can't reference the doc in FastBoot, only execute this in browser
     if (this.get('fastboot.isFastBoot')) {
-      return
+      return;
     }
     let doc = model.get('document');
     let classNamesForRoute = [];

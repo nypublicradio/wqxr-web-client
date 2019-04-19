@@ -57,6 +57,7 @@ export default Route.extend(ApplicationRouteMixin, {
   },
 
   beforeModel() {
+    // can't reference window in FastBoot, only execute in browser
     if (get(this, 'isFastBoot')) {
       return;
     }
@@ -94,6 +95,7 @@ export default Route.extend(ApplicationRouteMixin, {
       }
     },
     didTransition() {
+      // can't reference window in FastBoot, only execute in browser
       if (get(this, 'isFastBoot')) {
         return;
       }
