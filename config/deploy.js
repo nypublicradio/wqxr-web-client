@@ -59,7 +59,7 @@ module.exports = function(deployTarget) {
     }
   };
 
-  if (!VALID_DEPLOY_TARGETS.includes(deployTarget) && !deployTarget.startswith('qa')) {
+  if (!VALID_DEPLOY_TARGETS.includes(deployTarget) && !deployTarget.startsWith('qa')) {
     throw new Error('Invalid deployTarget ' + deployTarget);
   }
 
