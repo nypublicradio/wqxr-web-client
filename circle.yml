@@ -6,7 +6,7 @@ templates:
   # Cache Keys:
   #############################################################################
   cache: &cache
-    key: v1-{{arch}}-{{ checksum "yarn.lock" }}-{{ checksum "circle.yml" }}
+    key: v2-{{arch}}-{{ checksum "yarn.lock" }}-{{ checksum "circle.yml" }}
   cache_deploy: &cache_deploy
     key: v1-deploy-{{ checksum "circle.yml" }}
   cache_modernizr: &cache_modernizr

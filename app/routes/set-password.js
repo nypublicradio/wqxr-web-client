@@ -6,7 +6,6 @@ export default Route.extend({
   session: service(),
 
   model(params) {
-    console.log(get(params, 'username'))
     if (get(this, 'session.isAuthenticated')) {
       this.transitionTo('/profile');
     } else if (!get(params, 'username')){
