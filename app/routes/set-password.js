@@ -5,8 +5,11 @@ import { inject as service } from '@ember/service';
 export default Route.extend({
   session: service(),
 
-  beforeModel() {
-    if (get(this, 'session.isAuthenticated') || !this.get('username')) {
+  model(params) {
+    console.log(get(params, 'username'))
+    if (get(this, 'session.isAuthenticated')) {
+      this.transitionTo('/profile');
+    } else if (!get(params, 'username')){
       this.transitionTo('/');
     }
   },
