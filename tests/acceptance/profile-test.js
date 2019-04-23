@@ -56,7 +56,7 @@ module('Acceptance | profile', function(hooks) {
     });
 
     server.patch(`${config.authAPI}/v1/user`, (schema, request) => {
-      assert.equal(request.requestHeaders.Authorization, 'Bearer secret');
+      assert.equal(request.requestHeaders.authorization, 'Bearer secret');
       assert.deepEqual(JSON.parse(request.requestBody), {
         given_name: FIRST,
         family_name: LAST,
@@ -199,7 +199,7 @@ module('Acceptance | profile', function(hooks) {
     server.create('user');
     server.create('bucket', {slug: 'wqxr-home'});
     server.delete(`${config.authAPI}/v1/user`, (schema, {requestHeaders}) => {
-      assert.equal(requestHeaders.Authorization, 'Bearer foo');
+      assert.equal(requestHeaders.authorization, 'Bearer foo');
     });
 
     authenticateSession({access_token: 'foo'});
