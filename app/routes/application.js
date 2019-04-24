@@ -57,14 +57,17 @@ export default Route.extend(ApplicationRouteMixin, {
   },
 
   beforeModel() {
+    get(this, 'currentUser').load();
+
+
     // can't reference window in FastBoot, only execute in browser
     if (get(this, 'isFastBoot')) {
       return;
     }
+
     get(this, 'session').syncBrowserId()
       .then(id => get(this, 'dj').addBrowserId(id));
     get(this, 'session').staffAuth();
-    get(this, 'currentUser').load();
 
     get(this, 'dataLayer').setLoggedIn(false);
 
