@@ -67,9 +67,6 @@ export default Route.extend(PlayParamMixin, {
 
   actions: {
     willTransition(transition) {
-      if (get(this, "isFastBoot")) {
-        //eturn;
-      }
       let isExiting = !transition.targetName.match(this.routeName);
       this._super(...arguments);
       beforeTeardown();
