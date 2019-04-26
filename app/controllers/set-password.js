@@ -2,6 +2,7 @@ import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
 import config from 'wqxr-web-client/config/environment';
 import { get } from '@ember/object';
+import { reads } from '@ember/object/computed';
 
 const FLASH_MESSAGES = {
   set: 'Your password has been successfully updated.',
@@ -10,6 +11,7 @@ const FLASH_MESSAGES = {
 
 export default Controller.extend({
   session: service(),
+  fastboot: service(),
   config: config,
   queryParams: ['username', 'code', 'email', 'verification_token', 'email_id'],
   username: null,
@@ -17,6 +19,8 @@ export default Controller.extend({
   email: null,
   verification_token: null,
   email_id: null,
+  isFastBoot: reads('fastboot.isFastBoot'),
+
   showFlash(type) {
     this.get('flashMessages').add({
       message: FLASH_MESSAGES[type],

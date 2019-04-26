@@ -1,0 +1,171 @@
+{
+  "data": {
+    "type": "story",
+    "id": "728547",
+    "attributes": {
+      "analytics-code": "ExperimentalStory:david-bowies-classical-impact-one-year-later $A0$AD0$V0$Ma$D2$HS0$HC0$B0$SS++$CWQXR Blog$S$T!bbc_proms!david_bowie!classical_music!jherek_bischoff!$APnone$",
+      "appearances": {
+        "producers": [],
+        "hosts": [],
+        "authors": [
+          {
+            "bio": "<p>James is a noted pineapple enthusiast and native of the original (read: Chesapeake) Bay Area. At the impressionable age of 17, he moved to New York in search of concrete pastures and scooped up a BA in history from Columbia University. Classical music had always been an interest, but it really switched on after he heard Yo-Yo Ma rip “Fear” from Astor Piazzolla’s <em>Four Tango Sensations</em>. It popped up on shuffle, and he listened to it no fewer than 40 times in a row.  He’s also game to talk about jazz, hip-hop, and wave (chill, synth, vapor, or otherwise). James is also fond of funky ales, fall foliage, all things nautical, and harsh winters. Some would say he has a passing interest in the post-romantic situational comedy <em>Friends</em>. </p>",
+            "image": {
+              "caption": "",
+              "credits-url": "",
+              "credits-name": "James Bennett II",
+              "crop": "l",
+              "h": 960,
+              "is-display": true,
+              "name": "1/james-bennett-ii-crabs.jpg",
+              "source": "",
+              "template": "https://media.demo.nypr.digital/i/%s/%s/%s/%s/1/james-bennett-ii-crabs.jpg",
+              "url": "https://media.demo.nypr.digital/i/960/960/l/80/1/james-bennett-ii-crabs.jpg",
+              "w": 960
+            },
+            "job-title": "Digital Editor / Writer",
+            "lede": "<p>James Bennett II is a staff writer for WQXR.</p>\r\n<p><iframe frameborder=\"0\" height=\"150\" scrolling=\"no\" src=\"//platform.twitter.com/widgets/follow_button.html?screen_name=jamesabennettii&amp;show_count=false\" width=\"300\" style=\"display: block; height: 20px;\"></iframe></p>",
+            "name": "James Bennett, II",
+            "slug": "james-bennett-ii",
+            "social": [
+              {
+                "contact-string": "@jamesabennettii",
+                "service": "twitter"
+              },
+              {
+                "contact-string": "",
+                "service": "instagram"
+              },
+              {
+                "contact-string": "",
+                "service": "facebook"
+              }
+            ],
+            "url": "/people/james-bennett-ii/",
+            "shows": []
+          }
+        ]
+      },
+      "audio": null,
+      "audio-available": false,
+      "audio-eventually": false,
+      "audio-duration-readable": null,
+      "audio-may-download": true,
+      "audio-may-embed": true,
+      "audio-may-stream": true,
+      "body": "<p>Tuesday marks the first anniversary since the death of legendary musician David Bowie. In the year since his death, fans of various musical styles have come together to appreciate the ways his music seemingly transcended genre and simply focused on being “good music.\"</p>\n<p>A number of classical composers and musicians have worked on their own tributes to the man behind Major Tom. Social video platforms are full of Bowie-inspired work, from <a href=\"https://www.youtube.com/watch?v=E-wnz-yHDRU\" target=\"_blank\">straight ahead covers</a> to <a href=\"https://vimeo.com/165386105\" target=\"_blank\">stirring original compositions</a>.</p>\n<p>One of the more interesting ones we’ve seen came from The Dresden Dolls’ Amanda Palmer and composer Jherek Bischoff. Shortly after Bowie’s death, the duo released a short album, <em>Strung Out in Space: A David Bowie String Quartet Tribute</em>, that featured covers of several well-known Bowie songs. According to Palmer, she was on the phone with Bischoff shortly after they received news of their hero's death and decided to release their own special music offering. With Bischoff arranging a song per day, the project was swiftly completed in a matter of weeks.</p>\n<p><iframe frameborder=\"0\" height=\"349\" src=\"https://www.youtube.com/embed/AT25sej3XyI\" width=\"620\"></iframe></p>\n<p>The following summer, they performed their interpretation of “Blackstar” at a special Bowie tribute for the BBC Proms. Bowie's music was right at home during that special Prom, which sought to re-imagine his musical legacy in new classical soundscapes. Palmer and Bischoff were joined by a number of featured musicians, among them  s t a r g a z e, a Berlin-based orchestral collective; and countertenor Philippe Jaroussky. </p>\n<p><iframe frameborder=\"0\" height=\"349\" src=\"https://www.youtube.com/embed/7bI0HIzu73I\" width=\"620\"></iframe></p>\n<p>Bowie was a known fan of classical music and did not shy away from weaving orchestral arrangements into his work. In fact, some have begun to consider whether Bowie was the <a href=\"http://www.bbc.co.uk/music/articles/a4d1028e-bc49-4657-b3cc-227db2c14c52\">ultimate crossover artist</a>, thanks to his ability to bring so many people together by blending his eclectic tastes. It’s only fitting that the classical world reciprocates the musical love.</p>",
+      "channel": "wqxr-blog",
+      "channel-title": "WQXR Blog",
+      "chunks": {
+        "site-sidebar-top": null,
+        "story": "<div data-pym-src=\"https://apps.nypr.org/newsletter-signup/?partnerOrg=None&brand=wqxr&headline=The%20WQXR%20Newsletter&mailchimpId=aa1c2a6097&mailchimpName=Newsletter%3A%20This%20Week%20In%20WQXR\">Loading...</div>\r\n<script type=\"text/javascript\" src=\"https://pym.nprapps.org/pym.v1.min.js\"></script>",
+        "channel-sidebar-top": null,
+        "channel-sidebar-bottom": null,
+        "site-sidebar-bottom": null
+      },
+      "cms-pk": 728547,
+      "comments-count": 1,
+      "enable-comments": true,
+      "date-line-ts": 1483903560,
+      "edit-link": "cms/article/728547",
+      "embed-code": "<iframe frameborder=\"0\" scrolling=\"no\" height=\"130\" width=\"100%\" src=\"https://wnyc.demo.nypr.digital/widgets/ondemand_player/wqxr/#file=/audio/json/728547/&share=1\"></iframe>",
+      "estimated-duration": 0,
+      "headers": {
+        "brand": {
+          "url": "https://wqxr.demo2.wnyc.net/blogs/wqxr-blog",
+          "logo-image": {
+            "alt-text": "",
+            "name": "1/WQXR_Blog_WQXR_ShowPageSquares.png",
+            "source": null,
+            "url": "https://media.demo.nypr.digital/i/1400/1400/l/80/1/WQXR_Blog_WQXR_ShowPageSquares.png",
+            "h": 1400,
+            "is-display": true,
+            "crop": "l",
+            "caption": "",
+            "credits-url": "",
+            "template": "https://media.demo.nypr.digital/i/%s/%s/%s/%s/1/WQXR_Blog_WQXR_ShowPageSquares.png",
+            "w": 1400,
+            "id": 163648,
+            "credits-name": "wqxr"
+          },
+          "slug": "wqxr-blog",
+          "title": "WQXR Blog"
+        },
+        "links": [
+          {
+            "url": "https://wqxr.demo2.wnyc.net/blogs/wqxr-blog",
+            "title": "WQXR Blog",
+            "item-type": "blog",
+            "slug": "wqxr-blog"
+          }
+        ]
+      },
+      "header-donate-chunk": null,
+      "image-caption": "",
+      "image-main": {
+        "alt-text": "David Bowie",
+        "name": "1/david_bowie.jpg",
+        "source": null,
+        "url": "https://media.demo.nypr.digital/i/1024/576/c/80/1/david_bowie.jpg",
+        "h": 576,
+        "is-display": true,
+        "crop": "c",
+        "caption": "David Bowie",
+        "credits-url": "https://www.flickr.com/photos/55966100@N06/11033812653",
+        "template": "https://media.demo.nypr.digital/i/%s/%s/%s/%s/1/david_bowie.jpg",
+        "w": 1024,
+        "id": 160459,
+        "credits-name": "Flickr"
+      },
+      "item-type": "article",
+      "item-type-id": 26,
+      "newscast": "",
+      "newsdate": "2017-01-08T14:26:00-05:00",
+      "npr-analytics-dimensions": [
+        "NYPR",
+        "article",
+        "728547",
+        "0",
+        "classical_music",
+        "James Bennett, II",
+        "bbc_proms,classical_music,david_bowie,jherek_bischoff",
+        "1",
+        "WQXR",
+        "0",
+        "none",
+        "2017-01-08 14:26:00-05:00",
+        "298",
+        "none"
+      ],
+      "playlist": [],
+      "podcast-links": [],
+      "producing-organizations": [],
+      "publish-at": "2017-01-08T14:26:00",
+      "publish-status": "published",
+      "show": "",
+      "show-tease": null,
+      "show-title": "",
+      "show-producing-orgs": null,
+      "series": [],
+      "segments": null,
+      "short-title": "",
+      "site-id": 2,
+      "slug": "david-bowies-classical-impact-one-year-later",
+      "slideshow": [],
+      "tags": [
+        "bbc_proms",
+        "classical_music",
+        "david_bowie",
+        "jherek_bischoff"
+      ],
+      "tease": "Tuesday marks the one year anniversary since David Bowie's death. Let's revisit one of the most memorable classical tributes to the famed musician.",
+      "template": "story_default",
+      "title": "David Bowie's Classical Music Impact, One Year Later",
+      "transcript": "",
+      "twitter-headline": "David Bowie's Classical Music Impact, One Year Later",
+      "twitter-handle": null,
+      "url": "http://wqxr.demo2.wnyc.net/story/david-bowies-classical-impact-one-year-later/",
+      "video": null
+    }
+  }
+}

@@ -1,0 +1,632 @@
+{
+  "wnyc-fm939": {
+    "name": "WNYC 93.9 FM",
+    "current_playlist_item": null,
+    "expires": "2019-04-08T12:57:09",
+    "current_show": {
+      "description": "<p><span>ALL OF IT with Alison Stewart is a live daily conversation about culture and the culture in and around New York City.</span></p>",
+      "fullImage": {
+        "url": "https://media.demo.nypr.digital/i/300/300/l/80/2018/09/All_Of_It_NoWNYC_NoName.png",
+        "width": 300,
+        "caption": "",
+        "type": "image/png",
+        "height": 300
+      },
+      "site_id": 1,
+      "start_ts": 1554739200,
+      "listImage": {
+        "url": "https://media.demo.nypr.digital/i/60/60/l/80/2018/09/All_Of_It_NoWNYC_NoName.png",
+        "width": 60,
+        "caption": "",
+        "type": "image/png",
+        "height": 60
+      },
+      "pk": 882225,
+      "show_url": "https://wnyc.demo2.wnyc.net/shows/all-of-it",
+      "end": "2019-04-08T14:00:00-0400",
+      "title": "All of It",
+      "url": "https://wnyc.demo2.wnyc.net/shows/all-of-it",
+      "end_ts": 1554746400,
+      "schedule_ref": "ShowSchedule:1398",
+      "group_slug": "all-of-it",
+      "detailImage": {
+        "url": "https://media.demo.nypr.digital/i/60/60/l/80/2018/09/All_Of_It_NoWNYC_NoName.png",
+        "width": 60,
+        "caption": "",
+        "type": "image/png",
+        "height": 60
+      },
+      "start": "2019-04-08T12:00:00-0400"
+    },
+    "future": [],
+    "has_playlists": false,
+    "expires_ts": 1554742629,
+    "slug": "wnyc-fm939"
+  },
+  "q2": {
+    "name": "New Sounds",
+    "current_playlist_item": {
+      "catalog_entry": {
+        "reclabel": {
+          "url": "",
+          "name": "Channel Classics"
+        },
+        "conductor": null,
+        "catno": "33912",
+        "composer": {
+          "url": "/music/musicians/philip-glass/",
+          "pk": 274,
+          "slug": "philip-glass",
+          "name": "Philip Glass"
+        },
+        "attribution": "",
+        "soloists": [
+          {
+            "instruments": [
+              "harp"
+            ],
+            "musician": {
+              "url": "/music/musicians/lavinia-meijer/",
+              "pk": 13449,
+              "slug": "lavinia-meijer",
+              "name": "Lavinia Meijer"
+            },
+            "role": ""
+          }
+        ],
+        "title": "Metamorphosis Two: Flowing",
+        "url": "http://wqxr.demo2.wnyc.net/music/recordings/27195/",
+        "additional_composers": [],
+        "audio_may_download": true,
+        "length": 451,
+        "pk": 27195,
+        "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=33912&id=132381&label=Channel+Classics",
+        "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/",
+        "ensemble": null,
+        "additional_ensembles": []
+      },
+      "start_time_ts": 1554742189,
+      "stream": "q2",
+      "playlist_entry_id": 2140385,
+      "start_time": "2019-04-08T12:49:49",
+      "playlist_page_url": "http://newsounds.demo2.wnyc.net/playlists/show/new-sounds-radio/2019/apr/08/",
+      "comments_url": "/api/list/comments/177/75107/"
+    },
+    "expires": "2019-04-08T12:57:30",
+    "current_show": {
+      "description": "<p><span>Home for the musically curious. Serving hand-picked, genre-free music 24/7.</span></p>",
+      "fullImage": {
+        "url": "https://media.demo.nypr.digital/i/300/300/l/80/1/ns_social-avatar.jpg",
+        "width": 300,
+        "caption": "New Sounds",
+        "type": "image/jpeg",
+        "height": 300
+      },
+      "site_id": 15,
+      "start_ts": 1554732000,
+      "listImage": {
+        "url": "https://media.demo.nypr.digital/i/60/60/l/80/1/ns_social-avatar.jpg",
+        "width": 60,
+        "caption": "New Sounds",
+        "type": "image/jpeg",
+        "height": 60
+      },
+      "pk": 842041,
+      "show_url": "https://newsounds.demo2.wnyc.net/shows/new-sounds-radio",
+      "end": "2019-04-08T16:00:00-0400",
+      "title": "New Sounds Radio",
+      "url": "https://newsounds.demo2.wnyc.net/shows/new-sounds-radio",
+      "end_ts": 1554753600,
+      "schedule_ref": "ShowSchedule:1394",
+      "group_slug": "new-sounds-radio",
+      "detailImage": {
+        "url": "https://media.demo.nypr.digital/i/60/60/l/80/1/ns_social-avatar.jpg",
+        "width": 60,
+        "caption": "New Sounds",
+        "type": "image/jpeg",
+        "height": 60
+      },
+      "start": "2019-04-08T10:00:00-0400"
+    },
+    "future": [
+      {
+        "catalog_entry": {
+          "reclabel": {
+            "url": "",
+            "name": "kranky"
+          },
+          "conductor": null,
+          "catno": "",
+          "composer": {
+            "url": "/music/musicians/grouper/",
+            "pk": 11699,
+            "slug": "grouper",
+            "name": "Grouper"
+          },
+          "attribution": "",
+          "soloists": [],
+          "title": "Clearing",
+          "url": "http://wqxr.demo2.wnyc.net/music/recordings/63510/",
+          "additional_composers": [],
+          "audio_may_download": true,
+          "length": 282,
+          "pk": 63510,
+          "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=&id=152402&label=kranky",
+          "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/",
+          "ensemble": null,
+          "additional_ensembles": []
+        },
+        "start_time_ts": 1554742640,
+        "stream": "q2",
+        "playlist_entry_id": 2140386,
+        "start_time": "2019-04-08T12:57:20",
+        "playlist_page_url": "http://newsounds.demo2.wnyc.net/playlists/show/new-sounds-radio/2019/apr/08/",
+        "comments_url": "/api/list/comments/177/75107/"
+      }
+    ],
+    "has_playlists": true,
+    "expires_ts": 1554742650,
+    "slug": "q2"
+  },
+  "jonathan-channel": {
+    "name": "American Standards",
+    "current_playlist_item": null,
+    "expires": "2019-04-08T12:57:10",
+    "current_show": {
+      "description": "<p>American Standards is an unparalleled showcase for this timeless music spanning the entire history of the songbook, from early Tin Pan Alley recordings to interpretations by contemporary artists. This is your home for enduring music by legendary composers and songwriters, bought to life by Ella Fitzgerald, Dianne Reeves, Frank Sinatra, Cécile McLorin Salvant, and many more. It’s the sound of a diverse and dynamic America, with the songs and voices that have filled theaters and scored films for nearly a century.</p>",
+      "fullImage": {
+        "url": "https://media.demo.nypr.digital/i/300/300/l/80/2018/11/american_standards_red_square.png",
+        "width": 300,
+        "caption": "American Standards",
+        "type": "image/png",
+        "height": 300
+      },
+      "site_id": 1,
+      "start_ts": 1554739200,
+      "listImage": {
+        "url": "https://media.demo.nypr.digital/i/60/60/l/80/2018/11/american_standards_red_square.png",
+        "width": 60,
+        "caption": "American Standards",
+        "type": "image/png",
+        "height": 60
+      },
+      "pk": 436,
+      "show_url": "https://wnyc.demo2.wnyc.net/shows/american-standards",
+      "end": "2019-04-08T16:00:00-0400",
+      "title": "American Standards",
+      "url": "https://wnyc.demo2.wnyc.net/shows/american-standards",
+      "end_ts": 1554753600,
+      "schedule_ref": "ShowSchedule:904",
+      "group_slug": "american-standards",
+      "detailImage": {
+        "url": "https://media.demo.nypr.digital/i/60/60/l/80/2018/11/american_standards_red_square.png",
+        "width": 60,
+        "caption": "American Standards",
+        "type": "image/png",
+        "height": 60
+      },
+      "start": "2019-04-08T12:00:00-0400"
+    },
+    "future": [
+      {
+        "catalog_entry": {
+          "reclabel": {
+            "url": "",
+            "name": "RCA"
+          },
+          "conductor": null,
+          "catno": "6274",
+          "composer": {
+            "url": "/music/musicians/vincent-youmans/",
+            "pk": 9742,
+            "slug": "vincent-youmans",
+            "name": "Vincent Youmans"
+          },
+          "attribution": "",
+          "soloists": [
+            {
+              "instruments": [],
+              "musician": {
+                "url": "/music/musicians/artie-shaw/",
+                "pk": 15303,
+                "slug": "artie-shaw",
+                "name": "Artie Shaw"
+              },
+              "role": ""
+            }
+          ],
+          "title": "The Carioca",
+          "url": "http://wqxr.demo2.wnyc.net/music/recordings/33873/",
+          "additional_composers": [
+            {
+              "url": "/music/musicians/bb/",
+              "pk": 23591,
+              "slug": "bb",
+              "name": "BB"
+            },
+            {
+              "url": "/music/musicians/edward-eliscu/",
+              "pk": 14969,
+              "slug": "edward-eliscu",
+              "name": "Edward Eliscu"
+            },
+            {
+              "url": "/music/musicians/gus-kahn/",
+              "pk": 9786,
+              "slug": "gus-kahn",
+              "name": "Gus Kahn"
+            }
+          ],
+          "audio_may_download": true,
+          "length": 244,
+          "pk": 33873,
+          "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=6274&id=968053&label=RCA",
+          "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/",
+          "ensemble": null,
+          "additional_ensembles": []
+        },
+        "start_time_ts": 1554752572,
+        "stream": "jonathan-channel",
+        "playlist_entry_id": 2140361,
+        "start_time": "2019-04-08T15:42:52",
+        "playlist_page_url": "http://wnyc.demo2.wnyc.net/playlists/show/american-standards/2019/apr/08/",
+        "comments_url": "/api/list/comments/177/75109/"
+      },
+      {
+        "catalog_entry": {
+          "reclabel": {
+            "url": "",
+            "name": "Prestige"
+          },
+          "conductor": null,
+          "catno": "OJCCD-874-2 (P-7204)",
+          "composer": {
+            "url": "/music/musicians/matty-malneck/",
+            "pk": 15016,
+            "slug": "matty-malneck",
+            "name": "Matty Malneck"
+          },
+          "attribution": "",
+          "soloists": [
+            {
+              "instruments": [],
+              "musician": {
+                "url": "/music/musicians/etta-jones/",
+                "pk": 14968,
+                "slug": "etta-jones",
+                "name": "Etta Jones"
+              },
+              "role": ""
+            }
+          ],
+          "title": "I'm Through With Love",
+          "url": "http://wqxr.demo2.wnyc.net/music/recordings/45329/",
+          "additional_composers": [
+            {
+              "url": "/music/musicians/fj/",
+              "pk": 23599,
+              "slug": "fj",
+              "name": "FJ"
+            },
+            {
+              "url": "/music/musicians/gus-kahn/",
+              "pk": 9786,
+              "slug": "gus-kahn",
+              "name": "Gus Kahn"
+            },
+            {
+              "url": "/music/musicians/matty-malneck/",
+              "pk": 15016,
+              "slug": "matty-malneck",
+              "name": "Matty Malneck"
+            },
+            {
+              "url": "/music/musicians/tom-adair_/",
+              "pk": 15123,
+              "slug": "tom-adair_",
+              "name": "Tom Adair"
+            }
+          ],
+          "audio_may_download": true,
+          "length": 244,
+          "pk": 45329,
+          "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=OJCCD-874-2+%28P-7204%29&id=974432&label=Prestige",
+          "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/",
+          "ensemble": {
+            "url": "/music/ensembles/oliver-nelson/",
+            "pk": 5642,
+            "slug": "oliver-nelson",
+            "name": "Oliver Nelson"
+          },
+          "additional_ensembles": []
+        },
+        "start_time_ts": 1554752816,
+        "stream": "jonathan-channel",
+        "playlist_entry_id": 2140364,
+        "start_time": "2019-04-08T15:46:56",
+        "playlist_page_url": "http://wnyc.demo2.wnyc.net/playlists/show/american-standards/2019/apr/08/",
+        "comments_url": "/api/list/comments/177/75109/"
+      }
+    ],
+    "has_playlists": true,
+    "expires_ts": 1554742630,
+    "slug": "jonathan-channel"
+  },
+  "njpr": {
+    "name": "NJPR",
+    "current_playlist_item": null,
+    "expires": "2019-04-08T12:57:10",
+    "current_show": {
+      "description": "<p><span>ALL OF IT with Alison Stewart is a live daily conversation about culture and the culture in and around New York City.</span></p>",
+      "fullImage": {
+        "url": "https://media.demo.nypr.digital/i/300/300/l/80/2018/09/All_Of_It_NoWNYC_NoName.png",
+        "width": 300,
+        "caption": "",
+        "type": "image/png",
+        "height": 300
+      },
+      "site_id": 1,
+      "start_ts": 1554739200,
+      "listImage": {
+        "url": "https://media.demo.nypr.digital/i/60/60/l/80/2018/09/All_Of_It_NoWNYC_NoName.png",
+        "width": 60,
+        "caption": "",
+        "type": "image/png",
+        "height": 60
+      },
+      "pk": 882225,
+      "show_url": "https://wnyc.demo2.wnyc.net/shows/all-of-it",
+      "end": "2019-04-08T14:00:00-0400",
+      "title": "All of It",
+      "url": "https://wnyc.demo2.wnyc.net/shows/all-of-it",
+      "end_ts": 1554746400,
+      "schedule_ref": "ShowSchedule:1398",
+      "group_slug": "all-of-it",
+      "detailImage": {
+        "url": "https://media.demo.nypr.digital/i/60/60/l/80/2018/09/All_Of_It_NoWNYC_NoName.png",
+        "width": 60,
+        "caption": "",
+        "type": "image/png",
+        "height": 60
+      },
+      "start": "2019-04-08T12:00:00-0400"
+    },
+    "future": [],
+    "has_playlists": false,
+    "expires_ts": 1554742630,
+    "slug": "njpr"
+  },
+  "wnyc-am820": {
+    "name": "WNYC AM 820",
+    "current_playlist_item": null,
+    "expires": "2019-04-08T12:57:09",
+    "current_show": {
+      "description": "<p><span>ALL OF IT with Alison Stewart is a live daily conversation about culture and the culture in and around New York City.</span></p>",
+      "fullImage": {
+        "url": "https://media.demo.nypr.digital/i/300/300/l/80/2018/09/All_Of_It_NoWNYC_NoName.png",
+        "width": 300,
+        "caption": "",
+        "type": "image/png",
+        "height": 300
+      },
+      "site_id": 1,
+      "start_ts": 1554739200,
+      "listImage": {
+        "url": "https://media.demo.nypr.digital/i/60/60/l/80/2018/09/All_Of_It_NoWNYC_NoName.png",
+        "width": 60,
+        "caption": "",
+        "type": "image/png",
+        "height": 60
+      },
+      "pk": 882225,
+      "show_url": "https://wnyc.demo2.wnyc.net/shows/all-of-it",
+      "end": "2019-04-08T14:00:00-0400",
+      "title": "All of It",
+      "url": "https://wnyc.demo2.wnyc.net/shows/all-of-it",
+      "end_ts": 1554746400,
+      "schedule_ref": "ShowSchedule:1398",
+      "group_slug": "all-of-it",
+      "detailImage": {
+        "url": "https://media.demo.nypr.digital/i/60/60/l/80/2018/09/All_Of_It_NoWNYC_NoName.png",
+        "width": 60,
+        "caption": "",
+        "type": "image/png",
+        "height": 60
+      },
+      "start": "2019-04-08T12:00:00-0400"
+    },
+    "future": [],
+    "has_playlists": false,
+    "expires_ts": 1554742629,
+    "slug": "wnyc-am820"
+  },
+  "wqxr": {
+    "name": "WQXR 105.9 FM",
+    "current_playlist_item": null,
+    "expires": "2019-04-08T12:57:10",
+    "current_show": {
+      "description": "<p>Annie Bergen is the midday host on WQXR.</p>",
+      "fullImage": {
+        "url": "https://media.demo.nypr.digital/i/300/300/l/80/1/AnnieBergen_WQXR_ShowPageSquares.png",
+        "width": 300,
+        "caption": "",
+        "type": "image/png",
+        "height": 300
+      },
+      "site_id": 2,
+      "start_ts": 1554732000,
+      "listImage": {
+        "url": "https://media.demo.nypr.digital/i/60/60/l/80/1/AnnieBergen_WQXR_ShowPageSquares.png",
+        "width": 60,
+        "caption": "",
+        "type": "image/png",
+        "height": 60
+      },
+      "pk": 103285,
+      "show_url": "https://wqxr.demo2.wnyc.net/shows/annie-bergen",
+      "end": "2019-04-08T15:00:00-0400",
+      "title": "Middays with Annie Bergen",
+      "url": "https://wqxr.demo2.wnyc.net/shows/annie-bergen",
+      "end_ts": 1554750000,
+      "schedule_ref": "ShowSchedule:1132",
+      "group_slug": "annie-bergen",
+      "detailImage": {
+        "url": "https://media.demo.nypr.digital/i/60/60/l/80/1/AnnieBergen_WQXR_ShowPageSquares.png",
+        "width": 60,
+        "caption": "",
+        "type": "image/png",
+        "height": 60
+      },
+      "start": "2019-04-08T10:00:00-0400"
+    },
+    "future": [],
+    "has_playlists": true,
+    "expires_ts": 1554742630,
+    "slug": "wqxr"
+  },
+  "wqxr-special": {
+    "name": "Operavore",
+    "current_playlist_item": {
+      "catalog_entry": {
+        "reclabel": {
+          "url": "",
+          "name": "Deutsche Grammophon"
+        },
+        "conductor": {
+          "url": "/music/musicians/herbert-von-karajan/",
+          "pk": 921,
+          "slug": "herbert-von-karajan",
+          "name": "Herbert von Karajan"
+        },
+        "catno": "419070",
+        "composer": {
+          "url": "/music/musicians/carl-maria-von-weber/",
+          "pk": 2504,
+          "slug": "carl-maria-von-weber",
+          "name": "Carl Maria Von Weber"
+        },
+        "attribution": "",
+        "soloists": [],
+        "title": "Der Freischutz: Overture",
+        "url": "http://wqxr.demo2.wnyc.net/music/recordings/18383/",
+        "additional_composers": [],
+        "audio_may_download": true,
+        "length": 633,
+        "pk": 18383,
+        "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=419070&id=121450&label=Deutsche+Grammophon",
+        "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/",
+        "ensemble": {
+          "url": "/music/ensembles/berlin-philharmonic-orchestra/",
+          "pk": 124,
+          "slug": "berlin-philharmonic-orchestra",
+          "name": "Berlin Philharmonic Orchestra"
+        },
+        "additional_ensembles": []
+      },
+      "start_time_ts": 1554742289,
+      "stream": "wqxr-special",
+      "playlist_entry_id": 2140384,
+      "start_time": "2019-04-08T12:51:29",
+      "playlist_page_url": "http://wqxr.demo2.wnyc.net/playlists/show/operavorestream/2019/apr/08/",
+      "comments_url": "/api/list/comments/177/75110/"
+    },
+    "expires": "2019-04-08T13:02:12",
+    "current_show": {
+      "description": "<p>WQXR's 24-hour stream dedicated to opera. Enjoy this continuous, carefully programmed mix of opera arias, duets, scenes choruses and instrumental numbers. The Operavore stream is updated with a different program each day.</p>",
+      "fullImage": {
+        "url": "https://media.demo.nypr.digital/i/300/300/c/80/1/operavore_2.png",
+        "width": 300,
+        "caption": "",
+        "type": "image/png",
+        "height": 300
+      },
+      "site_id": 2,
+      "start_ts": 1554739200,
+      "listImage": {
+        "url": "https://media.demo.nypr.digital/i/60/60/c/80/1/operavore_2.png",
+        "width": 60,
+        "caption": "",
+        "type": "image/png",
+        "height": 60
+      },
+      "pk": 177251,
+      "show_url": "https://wqxr.demo2.wnyc.net/shows/operavorestream",
+      "end": "2019-04-08T18:00:00-0400",
+      "title": "Operavore",
+      "url": "https://wqxr.demo2.wnyc.net/shows/operavorestream",
+      "end_ts": 1554760800,
+      "schedule_ref": "ShowSchedule:980",
+      "group_slug": "operavorestream",
+      "detailImage": {
+        "url": "https://media.demo.nypr.digital/i/60/60/c/80/1/operavore_2.png",
+        "width": 60,
+        "caption": "",
+        "type": "image/png",
+        "height": 60
+      },
+      "start": "2019-04-08T12:00:00-0400"
+    },
+    "future": [
+      {
+        "catalog_entry": {
+          "reclabel": {
+            "url": "",
+            "name": "Virgin"
+          },
+          "conductor": {
+            "url": "/music/musicians/kazushi-ono/",
+            "pk": 9449,
+            "slug": "kazushi-ono",
+            "name": "Kazushi Ono"
+          },
+          "catno": "641986",
+          "composer": {
+            "url": "/music/musicians/wolfgang-amadeus-mozart/",
+            "pk": 8,
+            "slug": "wolfgang-amadeus-mozart",
+            "name": "Wolfgang Amadeus Mozart"
+          },
+          "attribution": "",
+          "soloists": [
+            {
+              "instruments": [
+                "mezzo-soprano"
+              ],
+              "musician": {
+                "url": "/music/musicians/joyce-didonato/",
+                "pk": 9450,
+                "slug": "joyce-didonato",
+                "name": "Joyce DiDonato"
+              },
+              "role": ""
+            }
+          ],
+          "title": "Le Nozze di Figaro, K. 492: Deh, vieni, non tardar",
+          "url": "http://wqxr.demo2.wnyc.net/music/recordings/18023/",
+          "additional_composers": [],
+          "audio_may_download": true,
+          "length": 272,
+          "pk": 18023,
+          "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=641986&id=120933&label=Virgin",
+          "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/",
+          "ensemble": {
+            "url": "/music/ensembles/orchestra-of-the-lyon-national-opera/",
+            "pk": 3373,
+            "slug": "orchestra-of-the-lyon-national-opera",
+            "name": "Orchestra of the Lyon National Opera"
+          },
+          "additional_ensembles": []
+        },
+        "start_time_ts": 1554742936,
+        "stream": "wqxr-special",
+        "playlist_entry_id": 2140387,
+        "start_time": "2019-04-08T13:02:16",
+        "playlist_page_url": "http://wqxr.demo2.wnyc.net/playlists/show/operavorestream/2019/apr/08/",
+        "comments_url": "/api/list/comments/177/75110/"
+      }
+    ],
+    "has_playlists": true,
+    "expires_ts": 1554742932,
+    "slug": "wqxr-special"
+  }
+}

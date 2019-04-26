@@ -82,10 +82,6 @@ module('Acceptance | set password', function(hooks) {
 
     await visit(setPasswordUrlWithParameters);
 
-    assert.equal(currentURL(), setPasswordUrlWithParameters);
-    assert.equal(find('.account-form-heading').textContent.trim(), 'Create a password', 'it should show the create password form');
-    await fillIn('input[name=password]', password);
-    await click('button');
     assert.equal(currentURL(), '/profile', 'it should redirect to the profile page');
   });
 });

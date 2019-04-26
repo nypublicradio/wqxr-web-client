@@ -8,12 +8,12 @@
   <div class="sitechrome-top">
     <div class="sitechrome-topbody">
       <div class="sitechrome-topbody-right">
-          {{#if media.isLargeAndUp}}
+        <!-- if css media query returns true for large screens -->
           <div class="sitechrome-search">
             {{search-box placeholder="Search" enter=(action "routeSearch") searchbox-class="searchbox--chrome"}}
           </div>
-          {{else}}
-          <div>
+        <!-- else -->
+          <div class="sitechrome-logo">
             <h1>
               <span class="for-screenreaders">WQXR Navigation</span>
               <a href="/"
@@ -24,7 +24,7 @@
               </a>
             </h1>
           </div>
-          {{/if}}
+        <!-- /if -->
 
         <div>
           <div class="sitechrome-topright">
@@ -48,8 +48,8 @@
   </div>
   <!-- .sitechrome-top -->
 
-  <nav class="l-page-nav sitechrome-nav {{if sticky 'mod-sticky'}} {{if isHomepage 'nav--homepage'}} {{unless media.isLargeAndUp 'x-scrollable'}}">
-    {{#if media.isLargeAndUp}}
+  <nav class="l-page-nav sitechrome-nav {{if sticky 'mod-sticky'}} {{if isHomepage 'nav--homepage'}} mobile-x-scrollable">
+    <!-- if css media query returns true for large screens -->
     <div class="sitechrome-corner">
       <h1>
         <span class="for-screenreaders">WQXR Navigation</span>
@@ -62,14 +62,14 @@
         </a>
       </h1>
     </div>
-    {{/if}}
+    <!-- /if -->
     <div class="scrollable-body">
-      <div class="{{if media.isLargeAndUp 'box box--nopad'}}">
+      <div class="box--desktop box--nopad-desktop">
 
-      <ul class="list list--noborder flush {{unless media.isLargeAndUp 'list--inline list--spaced text--small' 'alignright'}}">
+      <ul class="list list--noborder flush alignright--desktop list--inline-exceptdesktop list--spaced text--small-mobile">
 
         <li class="list-item list-item--nav">
-          {{#if media.isLargeAndUp}}
+          <!-- if css media query returns true for large screens  -->
             {{#listen-button
               type='white-hollow-small'
               itemPK=preferredStream.slug
@@ -77,14 +77,14 @@
               playContext='nav'
               data-action='Clicked Play/Pause Stream: nav'
               data-label=preferredStream.name
-              class='stream-launcher gtm__click-tracking'}}
+              class='stream-launcher gtm__click-tracking sitechrome__listen-desktop'}}
               <span>Listen Live</span>
             {{/listen-button}}
-          {{else}}
+          <!-- else -->
             {{!-- This 'button' is a top nav item that looks like a link. it doesn't show an icon to reflect state --}}
             {{!-- So clicking will always trigger a play action (and not a pause), state is locked to 'is-paused'  --}}
             {{#listen-button
-              class='gtm__click-tracking'
+              class='gtm__click-tracking sitechrome__listen-mobile'
               data-action='Clicked Play/Pause Stream: nav'
               data-label=preferredStream.name
               type='vanilla'
@@ -94,7 +94,7 @@
               playContext='nav'}}
               <span>Listen Live</span>
             {{/listen-button}}
-          {{/if}}
+          <!-- if -->
         </li>
 
         {{#link-to 'stream' tagName='li' href=false class="list-item list-item--nav"}}
@@ -125,26 +125,25 @@
           {{link-to 'Videos' 'videos' class="inherit gtm__click-tracking" data-action="Side Navigation"}}
         {{/link-to}}
 
-        {{#unless media.isLargeAndUp}}
-
-          {{#link-to 'djangorendered' 'search/' tagName='li' href=false class="list-item list-item--nav"}}
+        <!-- if css media query does not return true for large screens   -->
+          {{#link-to 'djangorendered' 'search/' tagName='li' href=false class="list-item list-item--nav sitechrome-search__mobile"}}
             {{link-to 'Search' 'djangorendered' 'search/' class="inherit gtm__click-tracking" data-action="Side Navigation"}}
           {{/link-to}}
+        <!-- unless -->
 
-        {{/unless}}
       </ul>
     </div>
     <!-- .box -->
     </div>
     <!-- .x-scrollable-body -->
 
-    {{#if media.isLargeAndUp}}
+    <!-- if css media query returns true for large screens -->
       <div class="sitechrome__nav-footer"
         class="gtm__click-tracking-container"
         data-action="Nav Social Link">
         {{nypr-social-icons title="Follow WQXR" items=socialIcons}}
       </div>
-    {{/if}}
+    <!-- /if -->
   </nav>
 
   <div class="l-full sitechrome-page-content-area">

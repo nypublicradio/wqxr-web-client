@@ -1,0 +1,11 @@
+{
+  "baseUrl": "http://localhost:4200",
+  "blacklistHosts": [
+    "www.googletagmanager.com",
+    "www.googletagservices.com",
+    "fonts.googleapis.com",
+    "google-analytics.com",
+    "maps.googleapis.com",
+    "demo-static.wqxr.org"
+  ]
+}

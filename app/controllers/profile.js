@@ -5,6 +5,7 @@ import { inject as service } from '@ember/service';
 import config from 'wqxr-web-client/config/environment';
 import { task, waitForEvent } from 'ember-concurrency';
 import { get, set } from '@ember/object';
+import { reads } from '@ember/object/computed';
 import fetch from 'fetch';
 import RSVP from 'rsvp';
 
@@ -18,9 +19,11 @@ export default Controller.extend(Evented, {
   flashMessages: service(),
   torii: service(),
   currentUser: service(),
+  fastboot: service(),
   emailIsPendingVerification: false,
   siteName: config.siteName,
   siteDomain: config.siteSlug,
+  isFastBoot: reads('fastboot.isFastBoot'),
 
   authenticate(password) {
     let email = this.get('model.email');
@@ -180,21 +183,26 @@ export default Controller.extend(Evented, {
     },
 
     linkFacebookAccount() {
-      this.get('torii').open('facebook-connect').then((data) => {
-        let facebookId = data.userId;
-        let user = this.get('currentUser.user');
-        user.set('facebookId', facebookId);
-        user.save().then(() => {
-          this.showFlash('connected');
+      // the facebook torii connector accesses the DOM, so don't use it in FastBoot
+      if(get(this, 'isFastboot')) {
+        return;
+      } else {
+        this.get('torii').open('facebook-connect').then((data) => {
+          let facebookId = data.userId;
+          let user = this.get('currentUser.user');
+          user.set('facebookId', facebookId);
+          user.save().then(() => {
+            this.showFlash('connected');
+          })
+          .catch(() => {
+            user.rollbackAttributes();
+            this.showFlash('connectError', 'warning');
+          });
         })
         .catch(() => {
-          user.rollbackAttributes();
           this.showFlash('connectError', 'warning');
         });
-      })
-      .catch(() => {
-        this.showFlash('connectError', 'warning');
-      });
+      }
     }
   }
 });

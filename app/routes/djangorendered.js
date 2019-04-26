@@ -2,6 +2,7 @@ import DS from 'ember-data';
 import config from 'wqxr-web-client/config/environment';
 import Route from '@ember/routing/route';
 import { get } from '@ember/object';
+import { reads } from '@ember/object/computed';
 import { inject as service } from '@ember/service';
 import { retryFromServer, beforeTeardown } from 'nypr-django-for-ember/utils/compat-hooks';
 import PlayParamMixin from 'wqxr-web-client/mixins/play-param';
@@ -12,8 +13,10 @@ export default Route.extend(PlayParamMixin, {
       refreshModel: true
     }
   },
-
   googleAds: service(),
+  fastboot: service(),
+  isFastBoot: reads('fastboot.isFastBoot'),
+
 
   titleToken(model) {
     let title = get(model, 'title');
@@ -25,6 +28,10 @@ export default Route.extend(PlayParamMixin, {
   },
 
   model({ upstream_url }, { queryParams }) {
+    // django pages don't work w/ FastBoot, so only execute this in browser
+    if (this.get('isFastBoot')) {
+      return {'title': ''}
+    }
     // This adds trailing slashes, because the server's redirect
     // doesn't otherwise work correctly due to the proxying I'm using
     // in development (which is neeeded due to CORs).
@@ -50,6 +57,10 @@ export default Route.extend(PlayParamMixin, {
 
   setupController(controller, model) {
     this._super(...arguments);
+    // can't reference the doc in FastBoot, only execute this in browser
+    if (this.get('fastboot.isFastBoot')) {
+      return;
+    }
     let doc = model.get('document');
     let classNamesForRoute = [];
     if (!doc.querySelector('.graphic-responsive')) {

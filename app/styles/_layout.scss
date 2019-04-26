@@ -1,3 +1,5 @@
+@import 'mixins/_layout';
+
 .l-flexcontext {
   display: flex;
   flex-direction: column;
@@ -26,26 +28,7 @@
   }
 
   &.x-scrollable {
-    > .scrollable-body {
-      background-color: $wqxrdarkblue;
-      overflow-x: scroll;
-      white-space: nowrap;
-      // 35% is with width of the gradient
-      padding: 5px 35% 5px 18px;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    &:after {
-      content: '';
-      pointer-events: none;
-      display: block;
-      position: absolute;
-      right: 0;
-      top: 0;
-      height: 100%;
-      width: 15%;
-      background-image: linear-gradient(to right, rgba(0, 100, 180, 0.0), $wqxrdarkblue);
-    }
+    @include x-scrollable;
   }
 }
 

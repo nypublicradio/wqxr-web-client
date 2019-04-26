@@ -15,7 +15,13 @@
     "upgrade-nypr": "yarn upgrade nypr-ads nypr-ui nypr-player nypr-account-settings nypr-audio-services nypr-metrics nypr-django-for-ember nypr-publisher-lib",
     "lint:js": "eslint ./*.js app config lib server tests",
     "start": "ember serve",
-    "test": "ember test"
+    "test": "ember test",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:test": "start-server-and-test start http://localhost:4200 cy:run",
+    "cy:ci:run": "npx cypress run --reporter=junit --reporter-options 'mochaFile=test-results/test.xml' --spec=$(circleci tests glob cypress/integration/** | circleci tests split | awk -vORS=, '{ print $1 }' | sed 's/,$/\\n/')",
+    "cy:ci:test": "start-server-and-test start http://localhost:4200 cy:ci:run",
+    "fastboot": "node fastboot"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
@@ -32,6 +38,8 @@
     "ember-cli-deploy": "1.0.1",
     "ember-cli-deploy-build": "1.1.0",
     "ember-cli-deploy-display-revisions": "1.0.0",
+    "ember-cli-deploy-fastboot-app-server": "^0.0.3",
+    "ember-cli-deploy-fastboot-app-server-aws": "^0.0.3",
     "ember-cli-deploy-gzip": "1.0.0",
     "ember-cli-deploy-json-config": "1.0.0",
     "ember-cli-deploy-manifest": "1.1.0",
@@ -42,8 +50,10 @@
     "ember-cli-document-title": "0.4.0",
     "ember-cli-dotenv": "2.0.0",
     "ember-cli-eslint": "^4.2.1",
+    "ember-cli-fastboot": "^2.0.4",
     "ember-cli-fastclick": "^1.4.1",
     "ember-cli-flash": "^1.4.3",
+    "ember-cli-head": "^0.4.1",
     "ember-cli-htmlbars": "^2.0.1",
     "ember-cli-htmlbars-inline-precompile": "^1.0.0",
     "ember-cli-inject-live-reload": "^1.4.1",
@@ -60,12 +70,11 @@
     "ember-data": "~3.0.0",
     "ember-export-application-global": "^2.0.0",
     "ember-feature-flags": "^5.0.0",
-    "ember-fetch": "^3.2.9",
+    "ember-fetch": "^6.5.0",
     "ember-get-config": "^0.2.2",
     "ember-hifi": "^1.15.0",
     "ember-holygrail-layout": "^0.3.0",
-    "ember-hotjar": "^0.0.2",
-    "ember-imagesloaded-shim": "^0.0.6",
+    "ember-hotjar": "byrnedo/ember-hotjar#045616e6d74b4e425b8610c55221320e64a496d5",
     "ember-load-initializers": "^1.0.0",
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-moment": "7.6.0",
@@ -89,6 +98,7 @@
     "grunt": "^1.0.1",
     "grunt-modernizr": "^1.0.3",
     "http-proxy": "^1.14.0",
+    "imagesloaded": "^4.1.4",
     "jquery-migrate": "3.0.0",
     "liquid-fire": "^0.29.2",
     "loader.js": "^4.2.3",
@@ -97,13 +107,14 @@
     "nypr-account-settings": ">=0.2.2",
     "nypr-ads": ">=0.1.0",
     "nypr-audio-services": "^0.5.6",
-    "nypr-auth": ">=0.2.3",
-    "nypr-django-for-ember": ">=0.3.0",
-    "nypr-metrics": ">=0.5.1",
-    "nypr-player": ">=0.3.0",
-    "nypr-publisher-lib": "^0.5.4",
-    "nypr-ui": ">=0.4.7",
+    "nypr-auth": "nypublicradio/nypr-auth#7642c031a845d45f251c7c1ab2c45e47892f4fa0",
+    "nypr-django-for-ember": "nypublicradio/nypr-django-for-ember#410964afaffa9e24e44c1f4ba1437de86b1d2227",
+    "nypr-metrics": "^0.5.1",
+    "nypr-player": "^0.4.0",
+    "nypr-publisher-lib": "nypublicradio/nypr-publisher-lib#f598a3045e8d01a76da369f7a7b4c081163dc845",
+    "nypr-ui": "^0.4.7",
     "qunit-dom": "^0.6.2",
+    "start-server-and-test": "^1.1.4",
     "torii": "^0.10.1"
   },
   "ember-addon": {
@@ -114,9 +125,31 @@
   "resolutions": {
     "ember-cli-babel": "^6.6.0",
     "customizr": "Modernizr/customizr#e5890ed4b4fedb69da50ffbae39577788970d8ee",
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.11",
+    "ember-hifi": "^1.15.0",
+    "nypr-audio-services": "^0.5.6",
+    "nypr-auth": "nypublicradio/nypr-auth#7642c031a845d45f251c7c1ab2c45e47892f4fa0",
+    "nypr-django-for-ember": "^0.4.0",
+    "nypr-metrics": "^0.5.0",
+    "nypr-player": "^0.4.0",
+    "nypr-publisher-lib": "^0.5.0",
+    "nypr-ui": "^0.4.1"
   },
   "engines": {
     "node": "^4.5 || 6.* || >= 7.*"
-  }
+  },
+  "dependencies": {
+    "abortcontroller-polyfill": "^1.2.5",
+    "cypress": "^3.2.0",
+    "dotenv": "^7.0.0",
+    "eslint-plugin-cypress": "^2.2.1",
+    "fastboot-app-server": "^1.1.2-beta.1",
+    "nypr-fastboot": "nypublicradio/nypr-fastboot#nc/fork",
+    "url-parse": "^1.4.3"
+  },
+  "fastbootDependencies": [
+    "nypr-auth",
+    "url-parse",
+    "node-fetch"
+  ]
 }

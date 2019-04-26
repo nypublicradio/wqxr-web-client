@@ -1,6 +1,7 @@
 import DS from 'ember-data';
 import Route from '@ember/routing/route';
 import { get } from '@ember/object';
+import { reads } from '@ember/object/computed';
 import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin';
 import { inject as service } from '@ember/service';
 import RSVP from 'rsvp';
@@ -19,6 +20,8 @@ export default Route.extend(ApplicationRouteMixin, {
   poll: service(),
   store: service(),
   dj: service(),
+  fastboot: service(),
+  isFastBoot: reads('fastboot.isFastBoot'),
 
   title(tokens = []) {
     let siteName = 'WQXR';
@@ -54,10 +57,17 @@ export default Route.extend(ApplicationRouteMixin, {
   },
 
   beforeModel() {
+    get(this, 'currentUser').load();
+
+
+    // can't reference window in FastBoot, only execute in browser
+    if (get(this, 'isFastBoot')) {
+      return;
+    }
+
     get(this, 'session').syncBrowserId()
       .then(id => get(this, 'dj').addBrowserId(id));
     get(this, 'session').staffAuth();
-    get(this, 'currentUser').load();
 
     get(this, 'dataLayer').setLoggedIn(false);
 
@@ -88,6 +98,10 @@ export default Route.extend(ApplicationRouteMixin, {
       }
     },
     didTransition() {
+      // can't reference window in FastBoot, only execute in browser
+      if (get(this, 'isFastBoot')) {
+        return;
+      }
       this.set('dataPipeline.currentReferrer', window.location.toString());
     },
     willTransition() {

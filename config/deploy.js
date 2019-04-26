@@ -1,4 +1,8 @@
 /* eslint-env node */
+var VALID_DEPLOY_TARGETS = [
+  'demo',
+  'production'
+];
 
 module.exports = function(deployTarget) {
   var ENV = {
@@ -10,11 +14,21 @@ module.exports = function(deployTarget) {
       filePattern: '**/*.{js,css,ico,map,xml,txt,svg,eot,ttf,woff,woff2}'
     },
 
+    pipeline: {},
+
     s3: {
       accessKeyId: process.env.AWS_ACCESS_KEY_ID,
       secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
       bucket: process.env.AWS_BUCKET,
       region: process.env.AWS_REGION
+    },
+
+    's3-index': {
+      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+      bucket: process.env.AWS_BUCKET,
+      region: process.env.AWS_DEFAULT_REGION,
+      allowOverwrite: true,
     },
 
     redis: {
@@ -29,6 +43,13 @@ module.exports = function(deployTarget) {
       dstPort: process.env.SSH_TUNNEL_DESTINATION_PORT
     },
 
+    'fastboot-app-server-aws': {
+      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+      bucket: process.env.AWS_BUCKET,
+      region: process.env.AWS_REGION,
+    },
+
     'json-config': {
       jsonBlueprint(context, pluginHelper) {
         var jsonBlueprint = pluginHelper.readConfigDefault('jsonBlueprint');
@@ -38,8 +59,16 @@ module.exports = function(deployTarget) {
     }
   };
 
-  if (deployTarget.startsWith('qa')) {
-    ENV.redis.keyPrefix = deployTarget.replace('qa:', '');
+  if (!VALID_DEPLOY_TARGETS.includes(deployTarget) && !deployTarget.startsWith('qa')) {
+    throw new Error('Invalid deployTarget ' + deployTarget);
+  }
+
+  if (deployTarget.startsWith('qa:')) {
+    ENV.pipeline.disabled = {
+      'fastboot-app-server': true,
+      'fastboot-app-server-aws': true,
+    };
+    ENV['s3-index'].prefix = deployTarget.replace('qa:', '');
   }
 
   if (deployTarget === 'production') {

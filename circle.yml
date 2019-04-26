@@ -1,150 +1,249 @@
+---
 version: 2
 
-defaults: &defaults
-  docker:
-    - image: circleci/node:8.6.0-browsers
-      environment:
-        JOBS: 2
+templates:
 
-restore_node: &restore_node
-  restore_cache:
-    key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
+  # Cache Keys:
+  #############################################################################
+  cache: &cache
+    key: v3-{{arch}}-{{ checksum "yarn.lock" }}-{{ checksum "circle.yml" }}
+  cache_deploy: &cache_deploy
+    key: v2-deploy-{{ checksum "circle.yml" }}
+  cache_modernizr: &cache_modernizr
+    key: v2-modernizr-{{ .Revision }}
 
-restore_modernizr: &restore_modernizr
-  restore_cache:
-    key: modernizr-{{ .Revision }}
+  # Environments:
+  #############################################################################
+  demo: &demo
+    environment:
+      ENV: DEMO
+      LONG_ENV: demo
+  prod: &prod
+    environment:
+      ENV: PROD
+      LONG_ENV: production
+  qa: &qa
+    environment:
+      ENV: DEMO
 
-jobs:
-  install:
-    <<: *defaults
+  # Executors:
+  #############################################################################
+  executor_node: &executor_node
+    docker:
+      - image: circleci/node:8-browsers
+        environment:
+          TERM: xterm
+          JOBS: 2
+  executor_python: &executor_python
+    docker:
+      - image: circleci/python:3.6
 
+  # Filters:
+  #############################################################################
+  filter_all: &filter_all
+    filters:
+      tags:
+        only: /.*/
+  filter_demo: &filter_demo
+    filters:
+      branches:
+        only: master
+      tags:
+        only: demo
+  filter_prod: &filter_prod
+    filters:
+      tags:
+        only: /^v[0-9]+\.[0-9]+\.[0-9]+/
+      branches:
+        ignore: /.*/
+  filter_qa: &filter_qa
+    filters:
+      tags:
+        ignore: /.*/
+      branches:
+        only: /[\w-]+/[\w-]+/
+
+  # Job Templates:
+  #############################################################################
+  deploy_ecs: &deploy_ecs
+    <<: *executor_python
     steps:
       - checkout
-
+      - setup_remote_docker
+      - restore_cache:
+          <<: *cache_deploy
       - run:
-          name: Install grunt
-          command: yarn global add grunt-cli
-
-      - <<: *restore_node
-      - run:
-          name: Node dependencies
+          name: Deploy Fastboot
           command: |
-            if [ ! -d node_modules ]; then
-              yarn --pure-lockfile
+            if [[ ! -d ~/.venv ]]; then
+              python -m venv ~/.venv
+              . ~/.venv/bin/activate
+              pip install -U git+https://github.com/nypublicradio/nyprsetuptools.git
             fi
+            . ~/.venv/bin/activate
+            TAG="${CIRCLE_TAG:-demo}"
+            ENV="${ENV,,}"
+            export "${ENV}_SENTRY_RELEASE"="${TAG}"
+            nyprsetuptools DockerDeploy \
+              --cpu=512 \
+              --ecr-repository=wqxr-web-client \
+              --ecs-cluster=fastboot \
+              --environment=$ENV \
+              --execution-role=wqxr-web-client-$ENV \
+              --fargate \
+              --memory-reservation=1024 \
+              --ports=3000 \
+              --tag=$TAG \
+              --task-role=wqxr-web-client-$ENV \
+              --wait=300
       - save_cache:
-          key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
+          <<: *cache_deploy
           paths:
-            - node_modules
-
-      - <<: *restore_modernizr
+            - ~/.venv
+  deploy_static: &deploy_static
+    <<: *executor_node
+    steps:
+      - checkout
+      - restore_cache:
+          <<: *cache
+      - restore_cache:
+          <<: *cache_modernizr
       - run:
-          name: Build modernizr
+          name: Deploy to S3
           command: |
-            if [ ! -f vendor/modrnizr/modernizr-build.js ]; then
-              npx grunt modernizr:dist
+            env | sed -n 's/^DEPLOY_//p' > .env
+            env | sed -n "s/^${ENV}_//p" >> .env
+
+            export QA_BUILD="$QA_PREFIX/$CIRCLE_BRANCH"
+            export QA_URL="https:$DEMO_WQXR_URL?build=$QA_BUILD"
+
+            npx ember deploy ${LONG_ENV:-qa:$QA_BUILD} --verbose --activate
+            mkdir -p /tmp/qa-builds
+
+            if [[ -z "$LONG_ENV" ]]; then
+              echo "<a href=\"$QA_URL\">$QA_URL</a>" \
+                >> /tmp/qa-builds/$CIRCLE_SHA1.html
             fi
-      - save_cache:
-          key: modernizr-{{ .Revision }}
-          paths:
-            - vendor/modernizr/modernizr-build.js
-
-  test:
-    <<: *defaults
-
-    steps:
-      - checkout
-      - <<: *restore_node
-      - <<: *restore_modernizr
-      - run:
-          name: Test
-          environment:
-            CIRCLE_TEST_REPORTS: test-results
-          command: npx ember test -r xunit
-      - store_test_results:
-          path: test-results/
-
-  deploy_production:
-    <<: *defaults
-    steps:
-      - checkout
-      - <<: *restore_node
-      - <<: *restore_modernizr
-
-      - run:
-          name: Deploy to production
-          command: |
-            env | sed -n 's/^DEPLOY_//p' > .env
-            env | sed -n 's/^PROD_//p' >> .env
-            npx ember deploy production --verbose --activate
-
-  deploy_demo:
-    <<: *defaults
-    steps:
-      - checkout
-      - <<: *restore_node
-      - <<: *restore_modernizr
-
-      - run:
-          name: Deploy to demo
-          command: |
-            env | sed -n 's/^DEPLOY_//p' > .env
-            env | sed -n 's/^DEMO_//p' >> .env
-            npx ember deploy demo --verbose --activate
-
-  deploy_qa:
-    <<: *defaults
-    steps:
-      - checkout
-      - <<: *restore_node
-      - <<: *restore_modernizr
-
-      - run:
-          name: Deploy QA build
-          command: |
-            env | sed -n 's/^DEPLOY_//p' > .env
-            env | sed -n 's/^DEMO_//p' >> .env
-            npx ember deploy qa:$QA_PREFIX/$CIRCLE_BRANCH --verbose --activate
-      - run:
-          name: Make QA artifact
-          command: |
-            mkdir /tmp/qa-builds
-            echo "<a href=\"https:$DEMO_WQXR_URL?build=$QA_PREFIX/$CIRCLE_BRANCH\">https:$DEMO_WQXR_URL?build=$QA_PREFIX/$CIRCLE_BRANCH</a>" > /tmp/qa-builds/$CIRCLE_SHA1.html
-
       - store_artifacts:
           path: /tmp/qa-builds
 
+
+jobs:
+  build:
+    <<: *executor_node
+    steps:
+      - checkout
+      - restore_cache:
+          <<: *cache
+      - run:
+          name: Install Node Dependencies
+          command: |
+            [ -d ./node_modules ] || yarn --pure-lockfile
+      - save_cache:
+          <<: *cache
+          paths:
+            - node_modules
+            - /home/circleci/.cache/Cypress
+      - restore_cache:
+          <<: *cache_modernizr
+      - run:
+          name: Build Modernizr
+          command: |
+            [ -f vendor/modernizr/modernizr-build.js ] || npx grunt modernizr:dist
+      - save_cache:
+          <<: *cache_modernizr
+          paths:
+            - vendor/modernizr/modernizr-build.js
+
+  test_ember:
+    <<: *executor_node
+    steps:
+      - checkout
+      - restore_cache:
+          <<: *cache
+      - restore_cache:
+          <<: *cache_modernizr
+      - run:
+          name: Test Ember
+          command: |
+            cp .env.sample .env
+            npx ember test -r xunit
+          environment:
+            CIRCLE_TEST_REPORTS: test-results
+      - store_test_results:
+          path: test-results/
+
+  test_cypress:
+    <<: *executor_node
+    steps:
+      - checkout
+      - restore_cache:
+          <<: *cache
+      - restore_cache:
+          <<: *cache_modernizr
+      - run: sudo apt-get install libgconf-2-4
+      - run: cp .env.sample .env
+      - run:
+          name: Run Cypress tests in parallel
+          command: yarn run cy:ci:test
+      - store_test_results:
+          path: test-results/
+
+  deploy_static_demo:
+    <<: *deploy_static
+    <<: *demo
+
+  deploy_ecs_demo:
+    <<: *deploy_ecs
+    <<: *demo
+
+  deploy_static_prod:
+    <<: *deploy_static
+    <<: *prod
+
+  deploy_ecs_prod:
+    <<: *deploy_ecs
+    <<: *prod
+
+  deploy_static_qa:
+    <<: *deploy_static
+    <<: *qa
+
 workflows:
   version: 2
-  install-test-deploy:
+  build-test-deploy:
     jobs:
-      - install:
-          filters:
-            tags:
-              only: /.*/
-      - test:
-          filters:
-            tags:
-              only: /.*/
+      - build:
+          <<: *filter_all
+      - test_ember:
+          <<: *filter_all
           requires:
-            - install
-      - deploy_production:
+            - build
+      - test_cypress:
           requires:
-            - test
-          filters:
-            tags:
-              only: /^v[0-9]+\.[0-9]+\.[0-9]+/
-            branches:
-              ignore: /.*/
-      - deploy_demo:
+            - build
+      - deploy_static_demo:
+          <<: *filter_demo
           requires:
-            - test
-          filters:
-            branches:
-              only: master
-      - deploy_qa:
+            - test_ember
+            - test_cypress
+      - deploy_ecs_demo:
+          <<: *filter_demo
           requires:
-            - test
-          filters:
-            branches:
-              only: /[A-Za-z-_]+/[A-Za-z-_\d]+/
+            - test_ember
+            - test_cypress
+      - deploy_static_prod:
+          <<: *filter_prod
+          requires:
+            - test_ember
+            - test_cypress
+      - deploy_ecs_prod:
+          <<: *filter_prod
+          requires:
+            - test_ember
+            - test_cypress
+      - deploy_static_qa:
+          <<: *filter_qa
+          requires:
+            - test_ember
+            - test_cypress

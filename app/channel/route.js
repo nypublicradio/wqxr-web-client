@@ -7,10 +7,14 @@ const inflector = new Inflector(Inflector.defaultRules);
 import { beforeTeardown } from 'nypr-django-for-ember/utils/compat-hooks';
 import PlayParamMixin from 'wqxr-web-client/mixins/play-param';
 import config from 'wqxr-web-client/config/environment';
+import { reads } from '@ember/object/computed';
+
 
 export default Route.extend(PlayParamMixin, {
   session:      service(),
   googleAds:    service(),
+  fastboot: service(),
+  isFastBoot: reads('fastboot.isFastBoot'),
 
   model(params) {
     const channelPathName = inflector.pluralize(this.routeName.split('-')[0]);
@@ -29,10 +33,12 @@ export default Route.extend(PlayParamMixin, {
   },
 
   afterModel({ channel }, transition) {
-    if (channel) {
+    // this code block references the document, so don't execute in FastBoot
+    if (channel && !get(this, "isFastBoot")) {
       let canonicalUrl = get(channel, 'url');
       let canonicalHostMatch = canonicalUrl && canonicalUrl.match(/\/\/([\w.]+)\//);
-      if  (canonicalHostMatch && canonicalHostMatch.pop() !== document.location.host) {
+      if  (canonicalHostMatch && canonicalHostMatch.pop() !== document.location.host
+           && document.location.host !== 'localhost:4200') { // cypress doesn't like domain changes in tests
         transition.abort();
         window.location.href = canonicalUrl;
         return;

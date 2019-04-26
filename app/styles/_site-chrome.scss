@@ -6,6 +6,23 @@
   /* So the side nav will position correctly */
 }
 
+/* Hide certain elements based on window size. This must be done in css
+since the media service doesn't work in FastBoot, as it needs to access 
+the DOM */
+.sitechrome-search, .sitechrome-corner, .sitechrome__listen-desktop, .sitechrome__nav-footer {
+  display: none;
+  @include mq($large-and-up) {
+    display: inline;
+  }
+}
+
+.sitechrome-logo, .sitechrome__listen-mobile, .sitechrome-search__mobile {
+  @include mq($large-and-up) {
+    display: none !important;
+  }
+}
+
+
 .sitechrome-corner {
 
   > h1 {
@@ -109,12 +126,59 @@
     text-decoration: none;
   }
 
-  &.x-scrollable {
+  &.mobile-x-scrollable {
+    @include mq($up-to-large) {
+      @include x-scrollable;
+    }
+
     a, button {
-      font-family: 'Open Sans', sans-serif;
-      font-size: 14px;
-      font-weight: 600;
-      line-height: 1.4;
+      @include mq($up-to-large) {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.4;
+      }
+    }
+    .list-item {
+      @include mq($large-and-up) {
+        padding: 7px 18px 6px 0;
+        margin: 3px 0;
+      }
+      a {
+        @include mq($large-and-up) {
+          transition: none;
+        }
+      }
+    }
+    .list--noborder {
+      > .list-heading {
+        @include mq($large-and-up) {
+          //@extend %vertical-rhythm;
+        }
+      }
+    }
+    .list-item.active, .list-item.ember-transitioning-in {
+      @include mq($large-and-up) {
+        border-right: 3px solid white;
+        background-color: rgba($wqxrdarkblue, .15);
+      }
+      a {
+        @include mq($large-and-up) {
+          border: none;
+        }
+      }
+    }
+    .list-item.active.ember-transitioning-out {
+      @include mq($large-and-up) {
+        border-right: 0;
+        background-color: inherit;
+      }
+      a {
+        @include mq($large-and-up) {
+          color: white;
+          border: none;
+        }
+      }
     }
   }
 
@@ -220,38 +284,6 @@
         border-color: $wqxrblue;
       }
     }
-  }
-
-  &:not(.x-scrollable) {
-    .list-item {
-      padding: 7px 18px 6px 0;
-      margin: 3px 0;
-
-      a {
-        transition: none;
-      }
-    }
-    .list--noborder {
-        > .list-heading {
-            @extend %vertical-rhythm;
-        }
-    }
-    .list-item.active, .list-item.ember-transitioning-in {
-      border-right: 3px solid white;
-      background-color: rgba($wqxrdarkblue, .15);
-      a {
-        border: none;
-      }
-    }
-    .list-item.active.ember-transitioning-out {
-      border-right: 0;
-      background-color: inherit;
-      a {
-        color: white;
-        border: none;
-      }
-    }
-
   }
 }
 

@@ -15,6 +15,7 @@ module.exports = function(environment) {
     environment,
     rootURL: '/',
     locationType: 'trailing-history',
+    historySupportMiddleware: true,
     emberHifi: {
       connections: [{
         name: 'NativeAudio'
@@ -90,6 +91,9 @@ module.exports = function(environment) {
     alienDom: {
       toRemove: `${ALIEN_DOM_ROOT} > :not(.ember-view):not(#fb-root), ${ALIEN_DOM_ROOT} > head > link[rel=stylesheet]:not([href*=assets])`
     },
+    fastboot: {
+      hostWhitelist: process.env.HOST_WHITELIST ? process.env.HOST_WHITELIST.split(',') : []
+    },
     googleTagManager: process.env.GOOGLE_TAG_MANAGER_ID || 'GTM-MZ2S75K',
     googleOptimize: process.env.GOOGLE_OPTIMIZE_ID,
     googleAnalytics: process.env.GOOGLE_ANALYTICS,
@@ -135,6 +139,7 @@ module.exports = function(environment) {
     ENV.membershipAPI = 'http://example.com';
     ENV.platformEventsAPI = 'http://example.com';
     ENV.APP.autoboot = false;
+    ENV.fastboot.hostWhitelist = ['/.*/'];
 
   }
 
