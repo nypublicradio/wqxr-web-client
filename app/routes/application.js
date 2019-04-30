@@ -61,7 +61,9 @@ export default Route.extend(ApplicationRouteMixin, {
 
 
     // can't reference window in FastBoot, only execute in browser
+    // also, don't refresh tokens within fastboot.
     if (get(this, 'isFastBoot')) {
+      this.set('session.noRefresh', true);
       return;
     }
 

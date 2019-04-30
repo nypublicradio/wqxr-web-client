@@ -1,5 +1,6 @@
 {{#each imageGridItems as |image|}}
-  {{#nypr-brick-item item=image template='vertical' as |brick|}}
+  {{#nypr-brick-item item=(if image.attributes image.attributes (hash attributes=image))
+                     template='vertical' as |brick|}}
     {{#with brick.item.attributes as |item|}}
       <div class="item__img {{ item.template }}" style="{{brick.backgroundImage}}">
 

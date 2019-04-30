@@ -67,6 +67,10 @@ export default Mixin.create({
 
   actions: {
     loading() {
+      // can't use jquery in FastBoot, so don't execute next block
+      if (get(this, 'isFastBoot')){
+        return;
+      }
       $('main > section:last-of-type').css('opacity', 0.5)
     },
     pageNumberClicked(page) {
@@ -113,6 +117,10 @@ export default Mixin.create({
   },
 
   _scrollToOffset(channelType) {
+    // can't use jquery in FastBoot, so don't execute next block
+    if (get(this, 'isFastBoot')){
+      return;
+    }
     const { channel } = this.modelFor(channelType)
     const hasLinkroll = get(channel, 'hasLinkroll')
     const scrollTarget = hasLinkroll ? $('nav.nav-links').get(0) : $('.channel-title').get(0)

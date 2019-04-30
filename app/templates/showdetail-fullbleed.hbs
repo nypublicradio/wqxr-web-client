@@ -1,0 +1,27 @@
+{{#with model.show as |s|}}
+  {{#nypr-ui/hero gradient=true sticky=true noHeaderImage=true class='full-bleed__hero no-image' as |hero|}}
+    {{#hero.top as |top|}}
+      {{#top.left}}
+        {{#link-to 'index' class="full-bleed__logo-link gtm__click-tracking" data-action="Full Bleed WQXR logo" data-label=(concat s.title ' | ' (or s.showTitle s.channelTitle 'NPR Article'))}}
+          {{nypr-svg icon="left-arrow" className="full-bleed__back"}}
+          {{nypr-svg icon="wqxr-logo" className="full-bleed__logo"}}
+        {{/link-to}}
+      {{/top.left}}
+
+      {{#top.right}}
+        <span class="full-bleed__share-label">Share</span> {{nypr-story/share-buttons story=s via='WNYC' classNames='story-share-buttons'}}
+      {{/top.right}}
+    {{/hero.top}}
+    <div style="height:50px"></div>
+  {{/nypr-ui/hero}}
+
+  {{nypr-brick-item item=(hash attributes=model.episodes.currentEpisode.[0])}}
+
+
+  {{#if model.episodes}}
+    {{wqxr-image-grid imageGridItems=model.episodes.pastEpisodes class="full-bleed__image-grid"}}
+  {{/if}}
+
+{{/with}}
+
+{{site-chrome/site-footer}}

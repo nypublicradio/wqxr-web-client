@@ -16,12 +16,19 @@ export default Route.extend(PlayParamMixin, {
   fastboot: service(),
   isFastBoot: reads('fastboot.isFastBoot'),
 
-  model(params) {
+  beforeModel(transition) {
     const channelPathName = inflector.pluralize(this.routeName.split('-')[0]);
-    const listingSlug = `${channelPathName}/${params.slug}`;
+    const listingSlug = `${channelPathName}/${get(transition.params, 'show-detail.slug')}`;
     set(this, 'listingSlug', listingSlug);
 
-    let channel = this.store.findRecord('channel', listingSlug);
+    if (listingSlug == 'shows/elliott-forrest') {
+      //transition.send('disableChrome');
+      //this.transitionTo('show-detail-full-bleed', {slug: 'elliott-forrest'});
+    }
+  },
+
+  model(params) {
+    let channel = this.store.findRecord('channel', get(this, 'listingSlug'));
     let listenLive = this.store.findRecord('chunk', `shows-${params.slug}-listenlive`)
       .catch(() => '');
 
@@ -56,14 +63,21 @@ export default Route.extend(PlayParamMixin, {
   setupController(controller, model) {
     let { page_params = '' } = this.paramsFor(`${this.routeName}.page`);
     let [navSlug] = page_params.split('/');
+    if (get(this, 'listingSlug') == 'shows/elliott-forrest') {
+      //transition.send('disableChrome');
+      //this.transitionTo('show-detail.open-ears');
+      set(this, 'openEarsTemplate', true)
+    }
     controller.setProperties({
       channelType: this.routeName,
       defaultSlug: navSlug,
       model,
       session: get(this, 'session'),
-      adminURL: `${config.adminRoot}/admin`
+      adminURL: `${config.adminRoot}/admin`,
+      openEarsTemplate: get(this, 'openEarsTemplate')
     });
   },
+
 
   actions: {
     willTransition(transition) {
