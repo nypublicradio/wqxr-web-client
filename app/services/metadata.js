@@ -38,5 +38,6 @@ export default Service.extend({
     set(this, 'headData.image', mergedData.image);
     set(this, 'headData.feeds', mergedData.feeds);
     set(this, 'headData.mediaRoot', config.mediaRoot);
+    set(this, 'headData.publisherAPI', config.publisherAPI);
   }
 });
