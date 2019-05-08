@@ -7,6 +7,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
   titleToken: 'Profile',
   
   currentUser: service(),
+  headData: service(),
 
   model() {
     return this.get('currentUser.user');
@@ -16,4 +17,19 @@ export default Route.extend(AuthenticatedRouteMixin, {
     controller.send('updateEmailStatus', get(model, 'email'));
     return this._super(controller, model);
   },
+  actions: {
+    didTransition() {
+      this.get('headData').set('enableZendeskWidget', true);
+      //shows the zendesk widget if prev loaded
+      if (zE && typeof zE.show === "function") {
+        zE.show();
+      }
+    },
+    willTransition() {
+      //hide the zendesk Widget
+      if (zE && typeof zE.hide === "function") {
+        zE.hide();
+      }
+    }
+  }
 });

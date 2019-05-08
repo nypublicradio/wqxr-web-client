@@ -43,6 +43,12 @@
 
   <meta name="apple-itunes-app"  app-id="464130298">
 
+  {{#if meta.enableZendeskWidget}}
+    <!-- Start of wqxr Zendesk Widget script -->
+    <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=117c7feb-6ac9-4cb4-a899-4bfe1b363368"> </script>
+    <!-- End of wqxr Zendesk Widget script -->
+  {{/if}}
+
   {{#each meta.feeds as |feed|}}
     <link rel="alternate" type={{feed.type}} title={{feed.title}} href={{feed.href}}>
   {{/each}}
