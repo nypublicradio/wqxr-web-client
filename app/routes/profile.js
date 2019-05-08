@@ -3,8 +3,6 @@ import Route from '@ember/routing/route';
 import { get } from '@ember/object';
 import { inject as service } from '@ember/service';
 
-/* global zE */
-
 export default Route.extend(AuthenticatedRouteMixin, {
   titleToken: 'Profile',
   
@@ -23,14 +21,14 @@ export default Route.extend(AuthenticatedRouteMixin, {
     didTransition() {
       this.get('headData').set('enableZendeskWidget', true);
       //shows the zendesk widget if prev loaded
-      if (zE && typeof zE.show === "function") {
-        zE.show();
-      }
+      if (window.zE && typeof window.zE.show === "function") {
+         window.zE.show();
+       }
     },
     willTransition() {
       //hide the zendesk Widget
-      if (zE && typeof zE.hide === "function") {
-        zE.hide();
+      if (window.zE && typeof window.zE.hide === "function") {
+        window.zE.hide();
       }
     }
   }
