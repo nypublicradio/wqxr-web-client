@@ -79,6 +79,17 @@ export default function() {
     }
   });
   this.get('/v3/chunks/:id/', 'chunk');
+  this.get('/v3/wqxr_djangopages/*id', function(schema, {queryParams, params}) {
+    let { id } = params;
+    let page = schema.djangoPages.find(id);
+    if (!page) {
+      // try with queryParams
+      id += '?' + Object.keys(queryParams)
+        .map(p => `${p}=${queryParams[p]}`).join('&');
+      page = schema.djangoPages.find(id);
+    }
+    return page || new Response(404);
+  });
 
   /*------------------------------------------------------------
     identity management (account) endpoints
@@ -115,28 +126,6 @@ export default function() {
   this.passthrough(`${config.publisherAPI}/api/v1/dynamic-script-loader`);
   this.passthrough(`${config.publisherAPI}/api/v1/schedule/whats_on_today/*`);
   this.passthrough('/datanewswidget/**');
-
-  /*------------------------------------------------------------
-  ${webRoot}/* requests. Oddballs without the api namespace
-  --------------------------------------------------------------*/
-
-  this.get(`${config.webRoot}`, function(schema) {
-    let home = schema.djangoPages.find('/');
-    return home ? home.attrs.text : '';
-  });
-
-  this.get(`${config.webRoot}/*id`, function(schema, {queryParams, params}) {
-    let { id } = params;
-    let page = schema.djangoPages.find(id);
-    if (!page) {
-      // try with queryParams
-      id += '?' + Object.keys(queryParams)
-        .map(p => `${p}=${queryParams[p]}`).join('&');
-      page = schema.djangoPages.find(id);
-    }
-    return page || new Response(404);
-  });
-
 
   /*-------------------------------------------------------------
   auth microservice
