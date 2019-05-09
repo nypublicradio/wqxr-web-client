@@ -1,0 +1,56 @@
+<div class="l-constrained flatpage">
+  {{#if isFastBoot}}
+    <div class=" django-content flatpage-loader--loading">
+      Loading...
+    </div>
+  {{else if flatPage.content}}
+    <div class="django-content">
+      {{#if (eq flatPage.templateName 'flatpages/graphic_feature_plus.html')}}
+        <div class="article-description">
+          <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+          {{active-html html=flatPage.content }}
+        </div>
+      {{else}}
+        <div class="graphic-default">
+          <div class="grid_8 main l-col2of3">
+            <div class="page-titlegroup">
+              <h1 class="h1 h1--extrabold h1--mq-small">{{flatPage.title}}</h1>
+            </div>
+            <div class="article-tools clearfix">
+              <div class="share-tools clearfix">
+                <ul class="sharelinks clearfix">
+                  <li class="fa-hover facebook">
+                    <a title="Share on Facebook" class="fa-hover-link" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.wqxr.org%2Fabout%2F" data-share-via="facebook" data-story-title="About+WQXR" data-show-name="About+WQXR">
+                      <i class="fa fa-facebook fa-lg"></i>
+                    </a>
+                  </li>
+                  <li class="fa-hover twitter">
+                    <a title="Share on Twitter" class="fa-hover-link" href="https://twitter.com/intent/tweet/?text=About WQXR&amp;via=WQXR&amp;url=http%3A%2F%2Fwww.wqxr.org%2Fabout%2F" data-share-via="twitter" data-story-title="About+WQXR" data-show-name="About+WQXR">
+                      <i class="fa fa-twitter fa-lg"></i>
+                    </a>
+                  </li>
+                  <li class="fa-hover emails">
+                    <a title="Email a friend" class="fa-hover-link" href="mailto:?subject=About+WQXR&amp;body=http%3A%2F%2Fwww.wqxr.org%2Fabout%2F" data-share-via="email" data-story-title="About+WQXR" data-show-name="About+WQXR">
+                      <i class="fa fa-envelope fa-lg"></i>
+                    </a>
+                  </li>
+                  <li class="stfh edit-item" style="display: list-item;"><a data-url="flatpages/flatpage/83" class="stf " target="_blank" href="https://internal.wnyc.org/admin/flatpages/flatpage/83">Edit This</a></li>
+                </ul>
+              </div>
+              <script type="text/javascript">
+              $('#emailthislink').click(function() {
+                return loadEmailForm(item_ctype, item_pk);
+              });
+              </script><script type="text/x-original-location" data-script-id="0"></script>
+            </div>
+            <div class="article-description">
+              {{active-html html=flatPage.content}}
+            </div>
+          </div>
+          <div class="grid_4 sidebar l-col1of3">
+          </div>
+        </div>
+      {{/if}}
+    </div>
+  {{/if}}
+</div>
