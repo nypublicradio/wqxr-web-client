@@ -232,25 +232,25 @@ Cypress.Commands.add('mockApi', () => {
 
   //** Playlist **//
   cy.route(
-    '/playlist-daily/**',
+    '/api/v3/wqxr_djangopages/playlist-daily/**',
     'fixture:playlist-daily.html')
   .as('playlist-api');
 
   //** Schedule **//
   cy.route(
-    '/schedule/**',
+    '/api/v3/wqxr_djangopages/schedule/**',
     'fixture:schedule.html')
   .as('schedule-api');
 
   //** Events **//
   cy.route(
-    '/events/**',
+    '/api/v3/wqxr_djangopages/events/**',
     'fixture:events.html')
   .as('events-api');
 
   //** Videos **//
   cy.route(
-    '/videos/**',
+    '/api/v3/wqxr_djangopages/videos/**',
     'fixture:videos.html')
   .as('videos-api');
 
@@ -278,7 +278,7 @@ Cypress.Commands.add('mockApi', () => {
 
   //** Script Loader **//
   cy.route(
-    '/api/v1/dynamic-script-loader/?url=https://www.google.com/jsapi',
+    '/api/v1/dynamic-script-loader/**',
     'fixture:blank.js')
   .as('script-loader');
 });
