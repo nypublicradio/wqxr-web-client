@@ -123,8 +123,6 @@ Cypress.Commands.add('waitForPeople', () => {
 
 
 Cypress.Commands.add('mockApi', () => {
-  cy.route('/*', 'fixture:404.html').as('page-api');
-
   //** If an api response isn't specifically defined further below, default is to return a 404 **//
   cy.route({url: '/api/**', status: 404, response: {"errors":[{"status":"404","source":{"pointer":"/data/attributes/detail"},"detail":"Not found."}]}})
 
