@@ -115,7 +115,7 @@ templates:
             env | sed -n "s/^${ENV}_//p" >> .env
 
             export QA_BUILD="$QA_PREFIX/$CIRCLE_BRANCH"
-            export QA_URL="https:$DEMO_WQXR_URL?build=$QA_BUILD"
+            export QA_URL="$DEMO_WQXR_URL?build=$QA_BUILD"
 
             npx ember deploy ${LONG_ENV:-qa:$QA_BUILD} --verbose --activate
             mkdir -p /tmp/qa-builds
