@@ -10431,16 +10431,7 @@ nypr-auth@>=0.2.0, nypr-auth@nypublicradio/nypr-auth#7642c031a845d45f251c7c1ab2c
     ember-get-config "^0.2.2"
     ember-simple-auth "^1.7.0"
 
-nypr-django-for-ember@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/nypr-django-for-ember/-/nypr-django-for-ember-0.4.0.tgz#26c29b564f1a7939af69bad9ead2260b65fe70cd"
-  integrity sha512-jLeQxTvtpVU3lafowybhba7bX0A35v8HYIRU2RfvhfZ9CuLxJ7V7JKOA7iauS1TbtFbCqVpXSHOHg0ffFZqI6Q==
-  dependencies:
-    ember-cli-babel "^6.6.0"
-    ember-cli-htmlbars "^2.0.1"
-    ember-wormhole "^0.5.2"
-
-nypr-django-for-ember@nypublicradio/nypr-django-for-ember#f8963766b581c7d43413961bcb67e172efbdfa7d:
+nypr-django-for-ember@^0.4.0, nypr-django-for-ember@nypublicradio/nypr-django-for-ember#f8963766b581c7d43413961bcb67e172efbdfa7d:
   version "0.4.1"
   resolved "https://codeload.github.com/nypublicradio/nypr-django-for-ember/tar.gz/f8963766b581c7d43413961bcb67e172efbdfa7d"
   dependencies:

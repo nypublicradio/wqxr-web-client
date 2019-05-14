@@ -129,7 +129,7 @@
     "ember-hifi": "^1.15.0",
     "nypr-audio-services": "^0.5.6",
     "nypr-auth": "nypublicradio/nypr-auth#7642c031a845d45f251c7c1ab2c45e47892f4fa0",
-    "nypr-django-for-ember": "^0.4.0",
+    "nypr-django-for-ember": "nypublicradio/nypr-django-for-ember#f8963766b581c7d43413961bcb67e172efbdfa7d",
     "nypr-metrics": "^0.5.0",
     "nypr-player": "^0.4.0",
     "nypr-publisher-lib": "^0.5.0",
