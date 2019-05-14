@@ -21,7 +21,7 @@ export default Route.extend({
         if (!err.isAdapterError) {
           throw(err);
         } else {
-          this.transitionTo('404', `${config.WQXR_URL}/${flatpage_path}`);
+          this.transitionTo('404', `${flatpage_path}`);
         }
       });
   },
