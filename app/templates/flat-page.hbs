@@ -20,21 +20,21 @@
               <div class="share-tools clearfix">
                 <ul class="sharelinks clearfix">
                   <li class="fa-hover facebook">
-                    <a title="Share on Facebook" class="fa-hover-link" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.wqxr.org%2Fabout%2F" data-share-via="facebook" data-story-title="About+WQXR" data-show-name="About+WQXR">
+                    <a class="fa-hover-link" href="https://www.facebook.com/sharer/sharer.php?u={{url-encode absoluteURL}}" type="Facebook" data-action="Share Flatpage" data-label={{concat flatPage.title ' | Facebook'}}>
                       <i class="fa fa-facebook fa-lg"></i>
                     </a>
                   </li>
                   <li class="fa-hover twitter">
-                    <a title="Share on Twitter" class="fa-hover-link" href="https://twitter.com/intent/tweet/?text=About WQXR&amp;via=WQXR&amp;url=http%3A%2F%2Fwww.wqxr.org%2Fabout%2F" data-share-via="twitter" data-story-title="About+WQXR" data-show-name="About+WQXR">
+                    <a class="fa-hover-link" href="https://twitter.com/intent/tweet?url={{url-encode absoluteURL}}&text={{url-encode flatPage.title}}&via=WQXR" type="Twitter" data-action="Share Flatpage" data-label={{concat flatPage.title ' | Twitter'}}>
                       <i class="fa fa-twitter fa-lg"></i>
                     </a>
                   </li>
                   <li class="fa-hover emails">
-                    <a title="Email a friend" class="fa-hover-link" href="mailto:?subject=About+WQXR&amp;body=http%3A%2F%2Fwww.wqxr.org%2Fabout%2F" data-share-via="email" data-story-title="About+WQXR" data-show-name="About+WQXR">
+                    <a class="fa-hover-link" href="mailto:?subject={{url-encode flatPage.title}}&body={{url-encode absoluteURL}}" type="Email" data-actin="Share Flatpage" data-label={{concat flatPage.title ' | Email'}}>
                       <i class="fa fa-envelope fa-lg"></i>
                     </a>
                   </li>
-                  <li class="stfh edit-item" style="display: list-item;"><a data-url="flatpages/flatpage/83" class="stf " target="_blank" href="https://internal.wnyc.org/admin/flatpages/flatpage/83">Edit This</a></li>
+                  <li class="stfh edit-item" style="display: list-item;"><a data-url={{absoluteURL}} class="stf " target="_blank" href="{{adminRoot}}/admin/flatpages/flatpage/{{flatPage.id}}">Edit This</a></li>
                 </ul>
               </div>
               <script type="text/javascript">
