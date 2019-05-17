@@ -14,6 +14,7 @@ export default Route.extend(PlayParamMixin, {
     }
   },
   googleAds: service(),
+  metadata: service(),
   fastboot: service(),
   isFastBoot: reads('fastboot.isFastBoot'),
 
@@ -28,7 +29,11 @@ export default Route.extend(PlayParamMixin, {
   },
 
   model({ upstream_url }, { queryParams }) {
-    // django pages don't work w/ FastBoot, so only execute this in browser
+    // django pages don't work w/ FastBoot, so only execute this in browser.
+    // It is also a security concern to access django pages within fastboot,
+    // as retrieving a djangorendered page is a GET request, but the url passed
+    // on by the fastboot server to the django backend might not be. This is not
+    // ideal behavior for reasons described here: https://github.com/simplabs/ember-simple-auth/issues/944
     if (this.get('isFastBoot')) {
       return {'title': ''}
     }
@@ -42,17 +47,21 @@ export default Route.extend(PlayParamMixin, {
     if (qp.length) {
       upstream_url += `?${qp.join('&')}`;
     }
+
     return this.store.find('django-page', upstream_url)
       .catch(e => {
         if (e instanceof DS.NotFoundError) {
-          throw e;
+          this.transitionTo('flat-page', upstream_url)
         }
         retryFromServer(e, upstream_url)
       });
   },
 
-  afterModel() {
+  afterModel(transition) {
     get(this, 'googleAds').doTargeting();
+    this.get('metadata').setHeadData({
+      path: get(transition, 'intent.url'),
+    });
   },
 
   setupController(controller, model) {

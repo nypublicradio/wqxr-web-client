@@ -123,8 +123,6 @@ Cypress.Commands.add('waitForPeople', () => {
 
 
 Cypress.Commands.add('mockApi', () => {
-  cy.route('/*', 'fixture:404.html').as('page-api');
-
   //** If an api response isn't specifically defined further below, default is to return a 404 **//
   cy.route({url: '/api/**', status: 404, response: {"errors":[{"status":"404","source":{"pointer":"/data/attributes/detail"},"detail":"Not found."}]}})
 
@@ -232,25 +230,25 @@ Cypress.Commands.add('mockApi', () => {
 
   //** Playlist **//
   cy.route(
-    '/playlist-daily/**',
+    '/api/v3/wqxr_djangopages/playlist-daily/**',
     'fixture:playlist-daily.html')
   .as('playlist-api');
 
   //** Schedule **//
   cy.route(
-    '/schedule/**',
+    '/api/v3/wqxr_djangopages/schedule/**',
     'fixture:schedule.html')
   .as('schedule-api');
 
   //** Events **//
   cy.route(
-    '/events/**',
+    '/api/v3/wqxr_djangopages/events/**',
     'fixture:events.html')
   .as('events-api');
 
   //** Videos **//
   cy.route(
-    '/videos/**',
+    '/api/v3/wqxr_djangopages/videos/**',
     'fixture:videos.html')
   .as('videos-api');
 
@@ -278,7 +276,7 @@ Cypress.Commands.add('mockApi', () => {
 
   //** Script Loader **//
   cy.route(
-    '/api/v1/dynamic-script-loader/?url=https://www.google.com/jsapi',
+    '/api/v1/dynamic-script-loader/**',
     'fixture:blank.js')
   .as('script-loader');
 });

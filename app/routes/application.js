@@ -60,8 +60,10 @@ export default Route.extend(ApplicationRouteMixin, {
     get(this, 'currentUser').load();
 
 
-    // can't reference window in FastBoot, only execute in browser
+    // can't reference window in FastBoot, only execute in browser.
+    // make sure Fastboot instance doesn't try to refresh auth credentials.
     if (get(this, 'isFastBoot')) {
+      this.set('session.noRefresh', true);
       return;
     }
 
@@ -82,6 +84,11 @@ export default Route.extend(ApplicationRouteMixin, {
   },
 
   model() {
+    // django pages don't work w/ FastBoot, and these chunks are rendered with
+    // the django page component, so don't load these until the browser environment
+    if (get(this, 'isFastBoot')) {
+      return;
+    }
     return RSVP.hash({
       splashPage: this.store.findRecord('chunk', 'wqxr-global').catch(()=>'')
     });
