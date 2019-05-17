@@ -34,7 +34,9 @@
                       <i class="fa fa-envelope fa-lg"></i>
                     </a>
                   </li>
+                  {{#if isStaff}}
                   <li class="stfh edit-item" style="display: list-item;"><a data-url={{absoluteURL}} class="stf " target="_blank" href="{{adminRoot}}/admin/flatpages/flatpage/{{flatPage.id}}">Edit This</a></li>
+                  {{/if}}
                 </ul>
               </div>
               <script type="text/javascript">
