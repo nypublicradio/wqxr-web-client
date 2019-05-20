@@ -7,6 +7,7 @@ import config from 'wqxr-web-client/config/environment';
 export default Route.extend({
   dataLayer: service('nypr-metrics/data-layer'),
   metadata: service(),
+  session: service(),
   titleToken(model) {
     return model ? get(model, 'title') : '';
   },
@@ -33,11 +34,11 @@ export default Route.extend({
   },
   setupController(controller, model) {
     this._super(...arguments);
-    console.log(get(model, 'url'))
     controller.setProperties({
       flatPage: model,
       absoluteURL: config.webRoot + get(model, 'url'),
       adminRoot: config.adminRoot,
+      isStaff: get(this, 'session.data.isStaff')
     });
   },
   actions: {
