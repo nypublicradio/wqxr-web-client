@@ -79,7 +79,14 @@ export default function() {
     }
   });
   this.get('/v3/chunks/:id/', 'chunk');
-  this.get('/v3/wqxr_djangopages/*id', function(schema, {queryParams, params}) {
+
+  /*------------------------------------------------------------
+    wqxr legacy django pages
+  --------------------------------------------------------------*/
+
+  this.urlPrefix = config.wQXRLegacy;
+
+  this.get('/*id', function(schema, {queryParams, params}) {
     let { id } = params;
     let page = schema.djangoPages.find(id);
     if (!page) {

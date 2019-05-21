@@ -58,6 +58,7 @@ module.exports = function(environment) {
     moreShowsDiscoverStation: "archived-shows",
     moreShowsAPIKey: "mammoth",
     webRoot: process.env.WQXR_URL,
+    wQXRLegacy: process.env.WQXR_LEGACY,
     adminRoot: process.env.ADMIN_ROOT,
     authAPI: process.env.AUTH_SERVICE,
     membershipAPI: process.env.MEMBERSHIP_SERVICE,
@@ -135,6 +136,7 @@ module.exports = function(environment) {
     ENV.adminRoot = 'http://admin.example.com';
     ENV.etagAPI = 'http://example.com/api/v1/browser_id/';
     ENV.webRoot = 'http://example.com';
+    ENV.wQXRLegacy = 'http://example.com';
     ENV.authAPI = 'http://example.com';
     ENV.membershipAPI = 'http://example.com';
     ENV.platformEventsAPI = 'http://example.com';
