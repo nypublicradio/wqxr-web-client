@@ -230,25 +230,25 @@ Cypress.Commands.add('mockApi', () => {
 
   //** Playlist **//
   cy.route(
-    '/api/v3/wqxr_djangopages/playlist-daily/**',
+    '/playlist-daily/**',
     'fixture:playlist-daily.html')
   .as('playlist-api');
 
   //** Schedule **//
   cy.route(
-    '/api/v3/wqxr_djangopages/schedule/**',
+    '/schedule/**',
     'fixture:schedule.html')
   .as('schedule-api');
 
   //** Events **//
   cy.route(
-    '/api/v3/wqxr_djangopages/events/**',
+    '/events/**',
     'fixture:events.html')
   .as('events-api');
 
   //** Videos **//
   cy.route(
-    '/api/v3/wqxr_djangopages/videos/**',
+    '/videos/**',
     'fixture:videos.html')
   .as('videos-api');
 
