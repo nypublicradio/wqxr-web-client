@@ -48,6 +48,8 @@ Router.map(function() {
   });
   this.route('events', function() {
     this.route('event', {path: '*url_path'});
+    this.route('archive', {path: 'archive'});
+    this.route('date', {path: ':year/:month'});
   });
 
   this.route('videos');
@@ -63,6 +65,7 @@ Router.map(function() {
   this.route('reset');
   this.route('verify');
   this.route('set-password');
+  this.route('wqxr-api-redirect', { path: '/api/v3/wqxr_djangopages/*upstream_url' });
 
   // This is our catch all route that can render any existing page
   // from the django site. It will be used when there's nothing more
