@@ -10451,7 +10451,7 @@ nypr-django-for-ember@^0.4.0, nypr-django-for-ember@nypublicradio/nypr-django-fo
 
 nypr-fastboot@nypublicradio/nypr-fastboot#nc/fork:
   version "0.6.2"
-  resolved "https://codeload.github.com/nypublicradio/nypr-fastboot/tar.gz/f4181d4b615278816a5b01cc87c8f3683ac8a4b6"
+  resolved "https://codeload.github.com/nypublicradio/nypr-fastboot/tar.gz/ac9df791f39a3188ca3723de5371bc59fac09ee2"
   dependencies:
     "@sentry/node" "4.4.2"
     aws-sdk "^2.279.1"
