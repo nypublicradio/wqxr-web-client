@@ -3,6 +3,10 @@
     <section class="l-container l-container--touch-full wartop-chunk">
       {{django-page page=model.wartopChunk.pagecontent}}
     </section>
+  {{else if model.liveChunk}}
+    <section class="l-container l-container--touch-full">
+      {{django-page page=model.liveChunk.pagecontent}}
+    </section>
   {{/if}}
 
   <section class="l-container l-container--touch-full">
