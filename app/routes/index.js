@@ -28,6 +28,7 @@ export default Route.extend(PlayParamMixin, {
     // the django page component, so don't load these until the browser environment
     if (!this.get('fastboot.isFastBoot')) {
       hash.wartopChunk = this.store.findRecord('chunk', 'wqxr-wartop-home').catch(()=>'');
+      hash.liveChunk = this.store.findRecord('chunk', 'wqxr-live-home').catch(()=>'');
       hash.membershipChunk = this.store.findRecord('chunk', 'wqxr-membership-home').catch(() => '');
     }
     return RSVP.hash(hash);
