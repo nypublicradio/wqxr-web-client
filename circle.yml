@@ -30,7 +30,7 @@ templates:
   #############################################################################
   executor_node: &executor_node
     docker:
-      - image: circleci/node:8.10.0-browsers
+      - image: circleci/node:8.12.0-browsers
         environment:
           TERM: xterm
           JOBS: 2
