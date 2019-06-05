@@ -10402,9 +10402,10 @@ nypr-audio-services@^0.5.0, nypr-audio-services@^0.5.6:
     nypr-metrics "^0.5.0"
     nypr-ui "^0.4.0"
 
-nypr-auth@>=0.2.0, nypr-auth@nypublicradio/nypr-auth#7642c031a845d45f251c7c1ab2c45e47892f4fa0:
+nypr-auth@>=0.2.0, nypr-auth@nypublicradio/nypr-auth#479530fff261b0dbf95dcdc800a9c236a97e7200:
   version "0.2.3"
-  resolved "https://codeload.github.com/nypublicradio/nypr-auth/tar.gz/7642c031a845d45f251c7c1ab2c45e47892f4fa0"
+  uid "479530fff261b0dbf95dcdc800a9c236a97e7200"
+  resolved "https://codeload.github.com/nypublicradio/nypr-auth/tar.gz/479530fff261b0dbf95dcdc800a9c236a97e7200"
   dependencies:
     ember-cli-babel "^6.6.0"
     ember-get-config "^0.2.2"
