@@ -8,7 +8,7 @@ export default Route.extend(DeauthenticatedRouteMixin, {
   isFastBoot: reads('fastboot.isFastBoot'),
   titleToken: 'Validate',
 
-  setupController() {
+  renderTemplate() {
     // don't render this page in fastboot. It causes a double confirmation when
     // page loads.
     if (this.get('isFastBoot')){
