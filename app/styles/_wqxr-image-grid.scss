@@ -15,6 +15,7 @@
       margin: 0 10px;
       width: calc(33% - 18px);
       margin-bottom: 20px;
+      height: auto;
 
       @include mq($small-only) {
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -27,7 +28,6 @@
 
       .item__head {
         margin: 15px;
-        z-index:0;
       }
       .item__img {
         display: inline;
@@ -44,6 +44,10 @@
       .item__head__description {
         font-size: 14px;
         margin-top: 12px;
+      }
+
+      .item__head__listen-button {
+        padding: 8px 0;
       }
     }
 

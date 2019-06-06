@@ -89,10 +89,6 @@
 
   {{ newsletter-signup }}
 
-  {{#if model.wqxrHome.featuredItems}}
-    {{wqxr-image-grid imageGridItems=model.wqxrHome.featuredItems class="full-bleed__image-grid"}}
-  {{/if}}
-
   <section class="l-container l-container--touch-full">
     {{nypr-brick-grid items=model.wqxrHome.otherItems}}
   </section>
