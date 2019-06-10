@@ -49,7 +49,6 @@ Router.map(function() {
   this.route('events', function() {
     this.route('event', {path: '*url_path'});
     this.route('archive', {path: 'archive'});
-    this.route('date', {path: ':year/:month'});
   });
 
   this.route('videos');
