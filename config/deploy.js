@@ -31,6 +31,18 @@ module.exports = function(deployTarget) {
       allowOverwrite: true,
     },
 
+    redis: {
+      filePattern: 'index.json',
+      allowOverwrite: true
+    },
+
+    'ssh-tunnel': {
+      username: process.env.SSH_TUNNEL_USERNAME,
+      host: process.env.SSH_TUNNEL_HOST,
+      dstHost: process.env.SSH_TUNNEL_DESTINATION_HOST,
+      dstPort: process.env.SSH_TUNNEL_DESTINATION_PORT
+    },
+
     'fastboot-app-server-aws': {
       accessKeyId: process.env.AWS_ACCESS_KEY_ID,
       secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
