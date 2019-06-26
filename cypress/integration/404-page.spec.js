@@ -6,7 +6,6 @@ describe('404 page', () => {
       cy.visit(`/sdfjklkskd?fastboot=${fastbootStatus}`);
 
       cy.waitForApplication();
-      cy.wait('@flatpage-api');
       cy.wait('@platform-events');
     });
   });

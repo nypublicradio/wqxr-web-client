@@ -51,7 +51,7 @@ export default Route.extend(PlayParamMixin, {
     return this.store.find('django-page', upstream_url)
       .catch(e => {
         if (e instanceof DS.NotFoundError) {
-          this.transitionTo('flat-page', upstream_url)
+          this.transitionTo('404', upstream_url);
         }
         retryFromServer(e, upstream_url)
       });
