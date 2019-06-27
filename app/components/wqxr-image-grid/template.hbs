@@ -2,7 +2,6 @@
   {{#nypr-brick-item item=image template='vertical' as |brick|}}
     {{#with brick.item.attributes as |item|}}
       <div class="item__img {{ item.template }}" style="{{brick.backgroundImage}}">
-
       </div>
       <div class="item__head">
         <h2 class="item__head__headline">
@@ -17,6 +16,17 @@
         <div class="item__head__description">
           {{{or item.tease item.body}}}
         </div>
+        {{#if item.audio}}
+          <div class="item__head__listen-button">
+            {{#listen-button
+                type='blue-minion'
+                itemPK=item.slug
+                itemTitle=(or item.shortTitle item.title)
+                itemShow=(or item.showTitle item.channelTitle 'NPR Article')}}
+                Listen {{item.audioDurationReadable}}
+              {{/listen-button}}
+          </div>
+        {{/if}}
       </div>
         <a
           title={{or item.shortTitle item.title}}
