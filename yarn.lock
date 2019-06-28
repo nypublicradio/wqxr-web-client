@@ -10466,18 +10466,19 @@ nypr-audio-services@^0.5.0, nypr-audio-services@^0.5.6:
     nypr-metrics "^0.5.0"
     nypr-ui "^0.4.0"
 
-nypr-auth@>=0.2.0, nypr-auth@nypublicradio/nypr-auth#bscharenberg/wqxr-on-fastboot:
-  version "0.2.3"
-  uid "479530fff261b0dbf95dcdc800a9c236a97e7200"
-  resolved "https://codeload.github.com/nypublicradio/nypr-auth/tar.gz/479530fff261b0dbf95dcdc800a9c236a97e7200"
+nypr-auth@>=0.2.0, nypr-auth@^0.2.5:
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/nypr-auth/-/nypr-auth-0.2.5.tgz#2d81d952e450958411f68ddc2ba50862c5c868cc"
+  integrity sha512-NtlLcJjAS4zMTigv8F6PkmRbZN7QOoSubGimwn/QfdrbBKkfqvVf/0TFI3kGNIwNl7L9j7TtDqeQE4ewSJK/MQ==
   dependencies:
     ember-cli-babel "^6.6.0"
     ember-get-config "^0.2.2"
     ember-simple-auth "^1.7.0"
 
-nypr-django-for-ember@^0.4.0, nypr-django-for-ember@nypublicradio/nypr-django-for-ember#7f6cd52ac54cd706784587b6e751a728b8d9018d:
-  version "0.4.1"
-  resolved "https://codeload.github.com/nypublicradio/nypr-django-for-ember/tar.gz/7f6cd52ac54cd706784587b6e751a728b8d9018d"
+nypr-django-for-ember@^0.4.0, nypr-django-for-ember@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/nypr-django-for-ember/-/nypr-django-for-ember-0.4.2.tgz#b02b7470a5863c1a3ad2ae7221b2e19fda4c219a"
+  integrity sha512-GkGXCkDHTOdExZR4FcDrsHfVghCxSJzL+6UaG+0q2Ttb+Oa8Us2D0ZdiUF/GfU5Z+ikaGgCV6qgz3gYA5ADcVg==
   dependencies:
     ember-cli-babel "^6.6.0"
     ember-cli-htmlbars "^2.0.1"
@@ -10526,28 +10527,10 @@ nypr-player@^0.4.0:
     ember-moment "^7.4.1"
     nypr-ui "^0.4.0"
 
-nypr-publisher-lib@^0.5.0:
-  version "0.5.4"
-  resolved "https://registry.yarnpkg.com/nypr-publisher-lib/-/nypr-publisher-lib-0.5.4.tgz#1b02d3eac142a2e7ec53acf535318c414c14178c"
-  integrity sha512-Q7ujkfazVcmYqWMlekXxe9lEJ6R9r5IqJ+zB47bxb+nGj79pXpYGyWIo8uw5WwIeXNt4QR3Kbi68peRhbKpC7g==
-  dependencies:
-    broccoli-funnel "^2.0.1"
-    broccoli-merge-trees "^2.0.0"
-    ember-cli-babel "^6.6.0"
-    ember-cli-htmlbars "^2.0.1"
-    ember-cli-htmlbars-inline-precompile "^1.0.0"
-    ember-cli-sass "^7.0.0"
-    ember-click-outside "^0.1.12"
-    ember-font-awesome "^4.0.0-rc.3"
-    ember-get-config "^0.2.2"
-    liquid-fire "~0.29.1"
-    nypr-audio-services "^0.5.0"
-    nypr-django-for-ember "^0.4.0"
-    nypr-ui "^0.4.0"
-
-nypr-publisher-lib@nypublicradio/nypr-publisher-lib#f6a5725adaf4304110801f8d52bb919636dd0013:
+nypr-publisher-lib@^0.5.7:
   version "0.5.7"
-  resolved "https://codeload.github.com/nypublicradio/nypr-publisher-lib/tar.gz/f6a5725adaf4304110801f8d52bb919636dd0013"
+  resolved "https://registry.yarnpkg.com/nypr-publisher-lib/-/nypr-publisher-lib-0.5.7.tgz#8101e0b023ffcb34ef6d1d2a309e1bf1c0aa1e6e"
+  integrity sha512-r23UvM6wb46g7zYDf9kvPUf7ipKUAdQHzZmlq2gJQQyfUyCa7frC0ruMjUprlgYLKmxaU8ygm8f/2cYBQtvHzw==
   dependencies:
     broccoli-funnel "^2.0.1"
     broccoli-merge-trees "^2.0.0"
@@ -10563,29 +10546,10 @@ nypr-publisher-lib@nypublicradio/nypr-publisher-lib#f6a5725adaf4304110801f8d52bb
     nypr-django-for-ember "^0.4.0"
     nypr-ui "^0.5.0"
 
-nypr-ui@^0.4.0, nypr-ui@^0.4.1:
+nypr-ui@^0.4.0, nypr-ui@^0.4.1, nypr-ui@^0.5.0:
   version "0.4.7"
   resolved "https://registry.yarnpkg.com/nypr-ui/-/nypr-ui-0.4.7.tgz#eab6fd8ff4921b53b93745eafe2e26b3e3c549ae"
   integrity sha512-vIwAa+rORSMLFwmbtidnvZ8QzgCtTwh7Rx9vkOSmb1Q6cV9auN+RkPkVp7fiDir6Dd579+aIU8ZQT7tYjUV2kg==
-  dependencies:
-    ember-basic-dropdown "0.34.0"
-    ember-burger-menu "^3.1.0"
-    ember-cli-babel "^6.8.0"
-    ember-cli-htmlbars "^2.0.1"
-    ember-cli-htmlbars-inline-precompile "^1.0.0"
-    ember-cli-sass "^7.1.7"
-    ember-click-outside "0.1.11"
-    ember-composable-helpers "2.0.3"
-    ember-cookies "^0.3.0"
-    ember-holygrail-layout "^0.3.0"
-    ember-power-select "^1.9.2"
-    ivy-tabs "^3.3.0"
-    waypoints "^4.0.1"
-
-nypr-ui@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/nypr-ui/-/nypr-ui-0.5.0.tgz#7278ca1abd4a8d6301a989e7980d561fa67e8398"
-  integrity sha512-rEb/g//9dWT2czaby3FuMVMQ96zj0BOhln1ReFhRPX+D3uy1PrRGq4e2bRw7ajnWdLH8Ibx2w5PJl2TjtGHyUA==
   dependencies:
     ember-basic-dropdown "0.34.0"
     ember-burger-menu "^3.1.0"
