@@ -97,6 +97,9 @@ export default Route.extend(ApplicationRouteMixin, {
   actions: {
     error(error/*, transition*/) {
       if (error instanceof DS.NotFoundError) {
+        if (get(this, 'isFastBoot')) {
+            this.set('fastboot.response.statusCode', 404);
+        }
         this.transitionTo('404', error.url);
       } else {
         /* eslint-disable */
