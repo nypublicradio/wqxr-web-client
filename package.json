@@ -120,7 +120,8 @@
   },
   "ember-addon": {
     "paths": [
-      "lib/google-apis"
+      "lib/google-apis",
+      "lib/google-optimize"
     ]
   },
   "resolutions": {
