@@ -161,6 +161,9 @@ Cypress.Commands.add('mockApi', () => {
   cy.route('/api/v3/channel/shows/*', 'fixture:v3/channel/shows/__show')
     .as('channel-shows-api');
 
+  cy.route('/api/v3/channel/blogs/wqxr-blog', 'fixture:v3/channel/wqxr-blog')
+    .as('channel-wqxr-blog');
+
   cy.route(
       '/api/v3/buckets/*-shows-you-might-like/**',
       'fixture:v3/buckets/__show-shows-you-might-like')
