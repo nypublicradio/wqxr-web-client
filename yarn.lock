@@ -2974,7 +2974,7 @@ broccoli-stew@^1.4.2, broccoli-stew@^1.5.0:
     symlink-or-copy "^1.2.0"
     walk-sync "^0.3.0"
 
-broccoli-stew@^2.0.0, broccoli-stew@^2.0.1, broccoli-stew@^2.1.0:
+broccoli-stew@^2.0.1, broccoli-stew@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/broccoli-stew/-/broccoli-stew-2.1.0.tgz#ba73add17fda3b9b01d8cfb343a8b613b7136a0a"
   integrity sha512-tgCkuTWYl4uf7k7ib2D79KFEj2hCgnTUNPMnrCoAha0/4bywcNccmaZVWtL9Ex37yX5h5eAbnM/ak2ULoMwSSw==
@@ -4929,17 +4929,6 @@ ember-cli-fastboot@^2.0.4:
     md5-hex "^2.0.0"
     silent-error "^1.1.0"
 
-ember-cli-fastclick@^1.4.1:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/ember-cli-fastclick/-/ember-cli-fastclick-1.5.0.tgz#10562378f68cadb55266acc0a9a63317af389c7f"
-  integrity sha512-NgpFlHX9fia9hyuFTYu6SvchKHqAtFrtrKqqVMk/cx9iIWFeJ5D/cr9kR40R2OBTdea5B34JA27vnaD9b8BI0w==
-  dependencies:
-    broccoli-funnel "^2.0.1"
-    broccoli-merge-trees "^3.0.1"
-    broccoli-stew "^2.0.0"
-    ember-cli-babel "^6.6.0"
-    fastclick "^1.0.6"
-
 ember-cli-flash@^1.4.3:
   version "1.7.2"
   resolved "https://registry.yarnpkg.com/ember-cli-flash/-/ember-cli-flash-1.7.2.tgz#b08cc694103510c42945a8444ce104e426e0b904"
@@ -6725,11 +6714,6 @@ fastboot@^2.0.0, fastboot@^2.0.1:
     rsvp "^4.8.0"
     simple-dom "^1.4.0"
     source-map-support "^0.5.0"
-
-fastclick@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/fastclick/-/fastclick-1.0.6.tgz#161625b27b1a5806405936bda9a2c1926d06be6a"
-  integrity sha1-FhYlsnsaWAZAWTa9qaLBkm0Gvmo=
 
 faye-websocket@~0.10.0:
   version "0.10.0"
@@ -9986,10 +9970,6 @@ nypr-publisher-lib@^0.5.7, nypr-publisher-lib@nypublicradio/nypr-publisher-lib#c
   version "0.5.7"
   resolved "https://codeload.github.com/nypublicradio/nypr-publisher-lib/tar.gz/937509a7ee7119f4c27cd1dc503104c9788ff9bb"
   dependencies:
-    "@fortawesome/ember-fontawesome" "^0.1.14"
-    "@fortawesome/free-brands-svg-icons" "^5.10.1"
-    "@fortawesome/free-regular-svg-icons" "^5.10.1"
-    "@fortawesome/free-solid-svg-icons" "^5.10.1"
     broccoli-funnel "^2.0.1"
     broccoli-merge-trees "^2.0.0"
     ember-cli-babel "^6.6.0"
@@ -9997,6 +9977,7 @@ nypr-publisher-lib@^0.5.7, nypr-publisher-lib@nypublicradio/nypr-publisher-lib#c
     ember-cli-htmlbars-inline-precompile "^1.0.0"
     ember-cli-sass "^7.0.0"
     ember-click-outside "^0.1.12"
+    ember-font-awesome "^4.0.0-rc.3"
     ember-get-config "^0.2.2"
     liquid-fire "~0.29.1"
     nypr-audio-services "^0.5.0"
