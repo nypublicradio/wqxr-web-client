@@ -1,4 +1,4 @@
-// TODO: this should also run OK under Fastboot status,
+// TODO: this should also run OK under Fastboot status in Cypress,
 // but for reasons unclear as of this writing (2019-09-16),
 // it does not.
 describe('Full-bleed Story Page with Image Grid', () => {
