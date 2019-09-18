@@ -19,7 +19,7 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "cy:test": "start-server-and-test start http://localhost:4200 cy:run",
-    "cy:ci:run": "npx cypress run --reporter=junit --reporter-options 'mochaFile=test-results/test.xml' --spec=$(circleci tests glob cypress/integration/** | circleci tests split | awk -vORS=, '{ print $1 }' | sed 's/,$/\\n/')",
+    "cy:ci:run": "npx -q cypress run --reporter=junit --reporter-options 'mochaFile=test-results/test.xml' --spec=$(circleci tests glob cypress/integration/** | circleci tests split | awk -vORS=, '{ print $1 }' | sed 's/,$/\\n/')",
     "cy:ci:test": "start-server-and-test start http://localhost:4200 cy:ci:run",
     "fastboot": "node fastboot"
   },
