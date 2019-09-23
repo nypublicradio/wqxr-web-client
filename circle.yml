@@ -220,6 +220,7 @@ workflows:
           requires:
             - build
       - test_cypress:
+          <<: *filter_all
           requires:
             - build
       - deploy_static_demo:
