@@ -1,7 +1,7 @@
 describe('404 page', () => {
   ['true','false'].forEach(fastbootStatus => {
     it(`displays the 404 page (fastboot=${fastbootStatus})`, () => {
-      cy.fastbootCheck(`/bad-path-that-should-404/`, fastbootStatus);
+      cy.fastbootCheck(`/bad-path-that-should-404`, fastbootStatus);
 
       cy.request({
                     url: `/bad-path-that-should-404/?fastboot=${fastbootStatus}`,
