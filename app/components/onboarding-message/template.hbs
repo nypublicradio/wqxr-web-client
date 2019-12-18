@@ -1,7 +1,12 @@
+{{#liquid-if showOnboardingMessage}}
 <div class="onboarding-message-container">
-  <a href="#" class="onboarding-close">{{svg-jar "close"}}</a>
+  <a href="#" class="onboarding-close" {{action 'hideOnboardMessage'}}>{{svg-jar "close"}}</a>
   <div class="onboarding-title" data-test-element="title"> You're invited... </div>
   <p class="onboarding-body">...to our new, experimental WQXR.org! We want to hear what you think.</p>
-  <button class="onboarding-button">Visit the New WQXR.org</button>
+  <a class="onboarding-link" href="https://beta.wqxr.org/listen" target="_blank">
+    <div class="onboarding-button">Visit The New WQXR.org</div>
+  </a>
 </div>
+{{/liquid-if}}
+
 {{yield}}
