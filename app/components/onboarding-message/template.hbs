@@ -1,11 +1,15 @@
 {{#liquid-if showOnboardingMessage}}
 <div class="onboarding-message-container">
   <a href="#" class="onboarding-close" {{action 'hideOnboardMessage'}}>{{svg-jar "close"}}</a>
-  <div class="onboarding-title" data-test-element="title"> You're invited... </div>
-  <p class="onboarding-body">...to our new, experimental WQXR.org! We want to hear what you think.</p>
-  <a class="onboarding-link" href="https://beta.wqxr.org/listen" target="_blank">
-    <div class="onboarding-button">Visit The New WQXR.org</div>
-  </a>
+  <div class="onboarding-message-text-container">
+    <h2 class="onboarding-title" data-test-element="title"> You're invited... </h2>
+    <div class="second-half">
+    <p class="onboarding-body">...to our new, experimental WQXR.org! We want to hear what you think.</p>
+    <a class="onboarding-link" href="https://beta.wqxr.org/listen" target="_blank">
+      <div class="onboarding-button">Visit The New WQXR.org</div>
+    </a>
+    </div>
+  </div>
 </div>
 {{/liquid-if}}
 

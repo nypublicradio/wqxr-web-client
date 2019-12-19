@@ -1,5 +1,26 @@
+//COLORS
+$c-gray--dark: #333333;
+$c-denim-blue: #00518e;
+
+//FONTS 
+$font-heading: "Playfair Display";
+$font-body: "OpenSans-Regular", sans-serif; 
+$font-body-bold: "OpenSans-Bold", sans-serif;
+
+$font-cool-heading: 'Monoton', cursive;
+$font-pixel-heading: 'Press Start 2P', monospace;
+$font-pixel-body: 'OpenSans', monospace;
+
 .onboarding-message-container {
-  background: $c-gray--dark;
+  //background: $c-gray--dark;
+  background-image: url("../../public/assets/img/backgrounds/background-desktop.png");
+  padding: 10px;
+}
+
+.onboarding-message-text-container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
 }
 
 div, p { 
@@ -7,9 +28,8 @@ div, p {
 }
 
 .onboarding-close {
-  margin-left: auto;
-  margin-right: 8px;
-  margin-top: 8px;
+  position: sticky;
+  left: 10000px;
 
   svg {
     display: inline;
@@ -23,4 +43,45 @@ div, p {
   &:hover {
     opacity: 80%;
   }
+}
+
+
+a.onboarding-link {
+  height: 30px;
+  width: 30px;
+}
+
+.onboarding-button {
+  font-family: $font-body;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: $c-denim-blue;
+  border-color: white;
+  border-radius: 35px;
+  padding-top: 10px;
+  height: 30px;
+  width: 250px;
+  line-height: 1; 
+  background: white;
+  text-align: center;
+}
+
+.second-half {
+display: flex;
+flex-direction: row;
+}
+
+//MOBILE 
+@include mq($mobile) {
+
+  .onboarding-message-text-container {
+    text-align: center;
+  }
+  .second-half {
+    display: flex;
+    flex-direction: column;
+  }
+
 }

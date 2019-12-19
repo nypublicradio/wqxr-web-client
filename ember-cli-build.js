@@ -5,6 +5,12 @@ const env = EmberApp.env();
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
+    sassOptions: {
+      includePaths: [
+        'node_modules/include-media/dist',
+      ],
+      sourceMap: true,
+    },
     fingerprint: {
       enabled: env === 'production',
       prepend: process.env.FINGERPRINT_PREPEND_URL
