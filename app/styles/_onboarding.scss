@@ -11,8 +11,13 @@ $font-cool-heading: 'Monoton', cursive;
 $font-pixel-heading: 'Press Start 2P', monospace;
 $font-pixel-body: 'OpenSans', monospace;
 
+.test {
+ 
+  background: pink;
+}
+
 .onboarding-message-container {
-  display: flex;
+  // display: flex;
   background: $c-gray--dark;
   //background-image: url("../../public/assets/img/backgrounds/background-desktop.png");
   // @include responsive-background-image('/assets/img/backgrounds/background-desktop.png', '/assets/img/backgrounds/background-desktop.png');
@@ -21,9 +26,6 @@ $font-pixel-body: 'OpenSans', monospace;
   padding: 10px 30px;
 }
 
-.music-note { 
-  height: 100%;
-}
 
 .onboarding-message-text-container {
   display: flex;
