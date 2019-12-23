@@ -21,11 +21,10 @@ $font-pixel-body: 'OpenSans', monospace;
   background: $c-gray--dark;
   //background-image: url("../../public/assets/img/backgrounds/background-desktop.png");
   // @include responsive-background-image('/assets/img/backgrounds/background-desktop.png', '/assets/img/backgrounds/background-desktop.png');
-  background: blue url(public/assets/img/backgrounds/background-desktop.png) no-repeat scroll left top;
+  background: $c-denim-blue url(public/assets/img/backgrounds/background-desktop.png) no-repeat scroll left top;
   background-size: 100% 700px;
   padding: 10px 30px;
 }
-
 
 .onboarding-message-text-container {
   display: flex;
@@ -83,6 +82,15 @@ a.onboarding-link {
   text-align: center;
 }
 
+.first-half {
+  display: flex;
+  flex-direction: row;
+
+  svg {
+    padding-right: 10px;
+  }
+}
+
 .second-half {
   display: flex;
   flex-direction: row;
@@ -106,6 +114,11 @@ a.onboarding-link {
 
   .onboarding-message-text-container {
     text-align: center;
+  }
+
+  .first-half {
+    display: flex;
+    flex-direction: column;
   }
 
   .second-half {
