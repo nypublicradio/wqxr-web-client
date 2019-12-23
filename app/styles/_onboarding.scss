@@ -12,12 +12,8 @@ $font-pixel-heading: 'Press Start 2P', monospace;
 $font-pixel-body: 'OpenSans', monospace;
 
 .onboarding-message-container {
-  // display: flex;
-  background: $c-gray--dark;
-  // background-image: url("../../public/assets/img/backgrounds/background-desktop.png");
-  // @include responsive-background-image('/assets/img/backgrounds/background-desktop.png', '/assets/img/backgrounds/background-desktop.png');
-  background: $c-denim-blue url(public/assets/img/backgrounds/background-desktop.png);
-  background-size: 100% 1000px;
+  background: url(/assets/img/backgrounds/background-desktop.png);
+  background-size: cover;
   padding: 10px 30px;
 }
 
@@ -113,7 +109,7 @@ a.onboarding-link {
 
 //MOBILE 
 @include mq($mobile) {
-  
+
   .onboarding-message-container {
     padding: 10px 30px 20px;
   }
