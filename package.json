@@ -97,7 +97,7 @@
     "ember-wormhole": "^0.5.3",
     "eslint-plugin-ember": "^5.0.0",
     "glob": "7.1.1",
-    "grunt": "^1.0.1",
+    "grunt": "^1.0.4",
     "grunt-modernizr": "^1.0.3",
     "http-proxy": "^1.14.0",
     "imagesloaded": "^4.1.4",
