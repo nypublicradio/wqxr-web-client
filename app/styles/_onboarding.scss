@@ -11,18 +11,13 @@ $font-cool-heading: 'Monoton', cursive;
 $font-pixel-heading: 'Press Start 2P', monospace;
 $font-pixel-body: 'OpenSans', monospace;
 
-.test {
- 
-  background: pink;
-}
-
 .onboarding-message-container {
   // display: flex;
   background: $c-gray--dark;
-  //background-image: url("../../public/assets/img/backgrounds/background-desktop.png");
+  // background-image: url("../../public/assets/img/backgrounds/background-desktop.png");
   // @include responsive-background-image('/assets/img/backgrounds/background-desktop.png', '/assets/img/backgrounds/background-desktop.png');
-  background: $c-denim-blue url(public/assets/img/backgrounds/background-desktop.png) no-repeat scroll left top;
-  background-size: 100% 700px;
+  background: $c-denim-blue url(public/assets/img/backgrounds/background-desktop.png);
+  background-size: 100% 1000px;
   padding: 10px 30px;
 }
 
@@ -30,6 +25,7 @@ $font-pixel-body: 'OpenSans', monospace;
   display: flex;
   flex-direction: column;
   text-align: left;
+  width: 100%;
 }
 
 div, p { 
@@ -38,6 +34,16 @@ div, p {
 
 h3 { 
   margin-bottom: .5rem;
+}
+
+.text-and-note {
+  display: flex;
+  flex-direction: row;
+  padding: 0px 200px;
+}
+
+.onboarding-title, .onboarding-body {
+  padding-left: 25px
 }
 
 .onboarding-close {
@@ -82,13 +88,18 @@ a.onboarding-link {
   text-align: center;
 }
 
+.music-note-container {
+  padding-right: 20px;
+  padding-bottom: 20px;
+  svg {
+    width: 200%; 
+    height: 100%;
+  }
+}
+
 .first-half {
   display: flex;
   flex-direction: row;
-
-  svg {
-    padding-right: 10px;
-  }
 }
 
 .second-half {
@@ -97,23 +108,34 @@ a.onboarding-link {
 }
 
 .onboarding-body { 
-  padding-right: 10px;
   width: 100%;
 }
 
 //MOBILE 
 @include mq($mobile) {
-
-  h3 { 
-    margin-bottom: 0;
-  }
-
+  
   .onboarding-message-container {
     padding: 10px 30px 20px;
   }
 
   .onboarding-message-text-container {
     text-align: center;
+  }
+
+  .text-and-note {
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+  }
+
+  .music-note-container {
+    text-align: center;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    svg {
+      width: 26px;
+      height: 25px;
+    }
   }
 
   .first-half {
@@ -124,6 +146,11 @@ a.onboarding-link {
   .second-half {
     display: flex;
     flex-direction: column;
+  }
+
+  .onboarding-title, .onboarding-body { 
+    padding-left: 0px;
+    margin-bottom: 1rem;
   }
 
   .onboarding-button {

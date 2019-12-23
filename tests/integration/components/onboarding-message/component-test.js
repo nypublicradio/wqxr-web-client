@@ -22,6 +22,8 @@ module('Integration | Component | onboarding-message', function(hooks) {
     `);
 
     // assert.equal(this.element.textContent.trim(), 'template block text');
-    assert.dom('[data-test-element="title"]').hasText('You\'re invited...')
+    assert.dom('[data-test-element="title"]').hasText('You\'re invited...');
+    assert.dom('[data-test-element="body"]').hasText('...to our new, experimental WQXR.org! We want to hear what you think.');
+    assert.dom('[data-test-element="button"]').hasText('Visit The New WQXR.org');
   });
 });
