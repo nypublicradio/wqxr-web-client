@@ -1,9 +1,8 @@
 import DS from 'ember-data';
 import config from '../config/environment';
 import DataAdapterMixin from 'ember-simple-auth/mixins/data-adapter-mixin';
-import AdapterFetch from 'ember-fetch/mixins/adapter-fetch';
 
-export default DS.JSONAPIAdapter.extend(AdapterFetch, DataAdapterMixin, {
+export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
   authorize(xhr) {
     let headers = this.get('session').authorize({});
     for (var h in headers) {

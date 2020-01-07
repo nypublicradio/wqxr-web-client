@@ -1,9 +1,8 @@
 import DS from 'ember-data';
 import ENV from '../config/environment';
 import DataAdapterMixin from 'ember-simple-auth/mixins/data-adapter-mixin';
-import AdapterFetch from 'ember-fetch/mixins/adapter-fetch';
 
-export default DS.JSONAPIAdapter.extend(AdapterFetch, DataAdapterMixin, {
+export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
   // we are replacing authorize() here, since ember-fetch (needed for FastBoot)
   // overrides ember-simple-auth's ajaxOptions method, which calls authorize().
   // So instead, we do what we used to do in authorize() right here.
