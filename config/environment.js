@@ -65,6 +65,7 @@ module.exports = function(environment) {
     etagAPI: process.env.ETAG_API,
     publisherAPI: process.env.PUBLISHER_API,
     platformEventsAPI: process.env.PLATFORM_EVENTS_SERVICE,
+    pledgeDomain: process.env.PLEDGE_DOMAIN,
     wnycDonateURL: 'https://pledge3.wqxr.org/epledge/main?ref=button-donate-header',
     contentSecurityPolicy: {
       'connect-src': "'self' *.wnyc.net:* ws://*.wnyc.net:*",
