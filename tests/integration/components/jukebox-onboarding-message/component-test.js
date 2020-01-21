@@ -10,7 +10,7 @@ module('Integration | Component | onboarding-message', function(hooks) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`{{onboarding-message}}`);
+    await render(hbs`{{jukebox-onboarding-message}}`);
 
     assert.equal(this.element.textContent.trim(), '');
 

@@ -7,7 +7,6 @@ module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
     sassOptions: {
       includePaths: [
-        'node_modules/include-media/dist',
       ],
       sourceMap: true,
     },
@@ -21,6 +20,12 @@ module.exports = function(defaults) {
     storeConfigInMeta: env !== 'development',
     'mirage-support': {
       includeAll: true
+    },
+    svgJar: {
+      sourceDirs: [
+        'public',
+        'node_modules/nypr-icons/public'
+      ],
     },
     useWaypoints: true,
     'ember-cli-babel': { includePolyfill: true },

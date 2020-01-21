@@ -1,23 +1,3 @@
-// VARS
-$base-font: 16;
-$line-height: 24;
-$transition-timing: 250ms;
-$transition-timing-queue: 150ms;
-$spacing: 1.5rem;
-
-//COLORS
-$c-gray--dark: #333333;
-$c-denim-blue: #00518e;
-
-//FONTS 
-$font-heading: "Playfair Display";
-$font-body: "OpenSans-Regular", sans-serif; 
-$font-body-bold: "OpenSans-Bold", sans-serif;
-
-$font-cool-heading: 'Monoton', cursive;
-$font-pixel-heading: 'Press Start 2P', monospace;
-$font-pixel-body: 'OpenSans', monospace;
-
 // MIXINS and EXTENDS
 %clearfix {
     &:after {
