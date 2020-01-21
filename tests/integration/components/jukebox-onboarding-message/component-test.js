@@ -16,9 +16,9 @@ module('Integration | Component | onboarding-message', function(hooks) {
 
     // Template block usage:
     await render(hbs`
-      {{#onboarding-message}}
+      {{#jukebox-onboarding-message}}
         template block text
-      {{/onboarding-message}}
+      {{/jukebox-onboarding-message}}
     `);
 
     assert.dom('[data-test-element="title"]').hasText('You\'re invited...');
