@@ -5,6 +5,11 @@ const env = EmberApp.env();
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
+    sassOptions: {
+      includePaths: [
+      ],
+      sourceMap: true,
+    },
     fingerprint: {
       enabled: env === 'production',
       prepend: process.env.FINGERPRINT_PREPEND_URL
@@ -15,6 +20,12 @@ module.exports = function(defaults) {
     storeConfigInMeta: env !== 'development',
     'mirage-support': {
       includeAll: true
+    },
+    svgJar: {
+      sourceDirs: [
+        'public',
+        'node_modules/nypr-icons/public'
+      ],
     },
     useWaypoints: true,
     'ember-cli-babel': { includePolyfill: true },

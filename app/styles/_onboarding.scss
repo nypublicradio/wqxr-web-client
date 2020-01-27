@@ -1,0 +1,155 @@
+// VARS
+$base-font: 16;
+$line-height: 24;
+$transition-timing: 250ms;
+$transition-timing-queue: 150ms;
+$spacing: 1.5rem;
+
+//COLORS
+$c-denim-blue: #00518e;
+
+//FONTS 
+$font-body: "OpenSans-Regular", sans-serif; 
+
+.onboarding-message-container {
+  background: url(/assets/img/backgrounds/background-desktop.png);
+  background-size: cover;
+  padding: 10px 30px;
+}
+
+.onboarding-message-text-container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 100%;
+}
+
+div, p { 
+  color: white;
+}
+
+h3 { 
+  margin-bottom: .5rem;
+}
+
+.text-and-note {
+  display: flex;
+  flex-direction: row;
+  padding: 0px 200px;
+}
+
+.onboarding-title, .onboarding-body {
+  padding-left: 25px
+}
+
+.onboarding-close {
+  position: sticky;
+  left: 10000px;
+
+  svg {
+    display: inline;
+    height: 17px;
+    width: 17px;
+    path {
+      fill: white;
+    }
+  }
+
+  &:hover {
+    opacity: 80%;
+  }
+}
+
+a.onboarding-link {
+  height: 30px;
+  width: 30px;
+  position: sticky;
+  left: 100px;
+}
+
+.onboarding-button {
+  font-family: $font-body;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: $c-denim-blue;
+  border-color: white;
+  border-radius: 35px;
+  padding-top: 10px;
+  height: 30px;
+  width: 250px;
+  line-height: 1; 
+  background: white;
+  text-align: center;
+}
+
+.music-note-container {
+  padding-right: 20px;
+  padding-bottom: 20px;
+  svg {
+    width: 200%; 
+    height: 100%;
+  }
+}
+
+.first-half {
+  display: flex;
+  flex-direction: row;
+}
+
+.second-half {
+  display: flex;
+  flex-direction: row;
+}
+
+.onboarding-body { 
+  width: 100%;
+}
+
+//MOBILE 
+@include mq($mobile) {
+
+  .onboarding-message-container {
+    padding: 10px 30px 20px;
+  }
+
+  .onboarding-message-text-container {
+    text-align: center;
+  }
+
+  .text-and-note {
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+  }
+
+  .music-note-container {
+    text-align: center;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    svg {
+      width: 26px;
+      height: 25px;
+    }
+  }
+
+  .first-half {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .second-half {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .onboarding-title, .onboarding-body { 
+    padding-left: 0px;
+    margin-bottom: 1rem;
+  }
+
+  .onboarding-button {
+    width: 100%;
+  }
+}
