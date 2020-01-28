@@ -21,6 +21,7 @@ $font-body: "OpenSans-Regular", sans-serif;
   display: flex;
   flex-direction: column;
   text-align: left;
+  //text-align: center;
   width: 100%;
 }
 
@@ -149,7 +150,15 @@ a.onboarding-link {
     margin-bottom: 1rem;
   }
 
+  .onboarding-link-container {
+    display: flex;
+  }
+
+  a.onboarding-link {
+    left: 80px;
+  }
+
   .onboarding-button {
-    width: 100%;
+    max-width: 400px;
   }
 }
