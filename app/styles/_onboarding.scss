@@ -108,8 +108,9 @@ a.onboarding-link {
   width: 100%;
 }
 
-//MOBILE 
-@include mq($mobile) {
+//MOBILE and IPAD 
+
+@include mq($medium-only) {
 
   .onboarding-message-container {
     padding: 10px 30px 20px;
@@ -151,14 +152,11 @@ a.onboarding-link {
   }
 
   .onboarding-link-container {
-    display: flex;
-  }
-
-  a.onboarding-link {
-    left: 80px;
+    margin: auto 0;
   }
 
   .onboarding-button {
     max-width: 400px;
+    margin: auto;
   }
 }
