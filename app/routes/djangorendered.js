@@ -29,14 +29,6 @@ export default Route.extend(PlayParamMixin, {
   },
 
   model({ upstream_url }, { queryParams }) {
-    // django pages don't work w/ FastBoot, so only execute this in browser.
-    // It is also a security concern to access django pages within fastboot,
-    // as retrieving a djangorendered page is a GET request, but the url passed
-    // on by the fastboot server to the django backend might not be. This is not
-    // ideal behavior for reasons described here: https://github.com/simplabs/ember-simple-auth/issues/944
-    if (this.get('isFastBoot')) {
-      return {'title': ''}
-    }
     // This adds trailing slashes, because the server's redirect
     // doesn't otherwise work correctly due to the proxying I'm using
     // in development (which is neeeded due to CORs).
@@ -51,7 +43,7 @@ export default Route.extend(PlayParamMixin, {
     return this.store.find('django-page', upstream_url)
       .catch(e => {
         if (e instanceof DS.NotFoundError) {
-          this.transitionTo('404', upstream_url);
+          throw e;
         }
         retryFromServer(e, upstream_url)
       });
