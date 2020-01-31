@@ -15,6 +15,7 @@ $font-body: "OpenSans-Regular", sans-serif;
   background: url(/assets/img/backgrounds/background-desktop.png);
   background-size: cover;
   padding: 10px 30px;
+  margin-bottom: 10px;
 }
 
 .onboarding-message-text-container {
@@ -113,6 +114,7 @@ a.onboarding-link {
 
   .onboarding-message-container {
     padding: 10px 30px 20px;
+    margin-top: 0px;
   }
 
   .onboarding-message-text-container {
