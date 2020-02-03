@@ -73,10 +73,11 @@ Cypress.Commands.add('routeForChunk', (slug, content='<p>Test Chunk</p>') => {
   });
 });
 
-Cypress.Commands.add('fastbootCheck', (path = '/', fastbootStatus = true) => {
+Cypress.Commands.add('fastbootCheck', (path = '/', fastbootStatus = true, failOnStatusCode = true) => {
   cy.setCookie('ember-simple-auth-session', '{"authenticated":{}}');
   cy.request({
     url: `${path}/?fastboot=${fastbootStatus}`,
+    failOnStatusCode: failOnStatusCode,
     headers: {
       Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3"
     }

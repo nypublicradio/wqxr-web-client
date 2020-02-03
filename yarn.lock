@@ -9288,6 +9288,15 @@ nypr-django-for-ember@^0.4.0, nypr-django-for-ember@^0.4.2:
     ember-cli-htmlbars "^2.0.1"
     ember-wormhole "^0.5.2"
 
+nypr-django-for-ember@^0.4.3:
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/nypr-django-for-ember/-/nypr-django-for-ember-0.4.3.tgz#5285a7250d7e87b2e924d830b90b42979952db16"
+  integrity sha512-597ch744b2cyKc6rQGHWCbiUewzZNShKUcvmQo028ZFmTHLxRhJSCjaZydISdjDDY5Js/bdPuD6XivkIec4+vw==
+  dependencies:
+    ember-cli-babel "^6.6.0"
+    ember-cli-htmlbars "^2.0.1"
+    ember-wormhole "^0.5.2"
+
 nypr-fastboot@nypublicradio/nypr-fastboot#nc/fork:
   version "0.6.2"
   resolved "https://codeload.github.com/nypublicradio/nypr-fastboot/tar.gz/ac9df791f39a3188ca3723de5371bc59fac09ee2"
