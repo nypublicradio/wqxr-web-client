@@ -10,7 +10,7 @@ export default Component.extend({
 
   init() {
     this._super(...arguments);
-    if (this.get('fastboot.isFastboot') || this.get('cookies').exists(CANCELLED_COOKIE)) {
+    if (this.get('fastboot.isFastBoot') || this.get('cookies').exists(CANCELLED_COOKIE)) {
       return false;
     }
     this.set('showOnboardingMessage', true);
