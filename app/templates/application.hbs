@@ -26,8 +26,6 @@
   {{django-page page=model.splashPage.pagecontent}}
 {{/if}}
 
-{{jukebox-onboarding-message}}
-
 {{#if chromeDisabled}}
   {{outlet}}
 {{else if miniChrome}}
@@ -39,7 +37,6 @@
     {{outlet}}
   {{/site-chrome}}
 {{/if}}
-
 
 {{#nypr-player-integration as |integration|}}
   {{#liquid-if showPlayer class="nypr-player-wrapper"}}
