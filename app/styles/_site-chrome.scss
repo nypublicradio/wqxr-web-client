@@ -218,7 +218,6 @@ the DOM */
     bottom: 0;
 
     &.mod-sticky {
-      padding-bottom: 117px;
       position: fixed;
       left: 0;
       height: 100%;
@@ -438,6 +437,9 @@ the DOM */
   @include l-bottom;
 }
 
+.nypr-social-icons { 
+  background: #00aeff;
+}
 
 .sitechrome__nav-footer {
   position: fixed;
