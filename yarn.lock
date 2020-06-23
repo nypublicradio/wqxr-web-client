@@ -9339,9 +9339,10 @@ nypr-player@^0.4.0:
     ember-moment "^7.4.1"
     nypr-ui "^0.5.0"
 
-nypr-publisher-lib@nypublicradio/nypr-publisher-lib#406afee05fb01f27ddb24f2e5c886825d222f9a2:
-  version "0.5.7"
-  resolved "https://codeload.github.com/nypublicradio/nypr-publisher-lib/tar.gz/406afee05fb01f27ddb24f2e5c886825d222f9a2"
+nypr-publisher-lib@^0.5.8:
+  version "0.5.8"
+  resolved "https://registry.yarnpkg.com/nypr-publisher-lib/-/nypr-publisher-lib-0.5.8.tgz#8a126d44cc5f6cba2817a3fac79d5731ec6ba4af"
+  integrity sha512-QKVc9enPg5YbgC5r/eRBva3k50DZv27nlbj8yiFv55txQsBp+9lyelUtlhaMraUqegH0R6kRzrqSoMs4owtRhA==
   dependencies:
     "@fortawesome/ember-fontawesome" "^0.1.14"
     "@fortawesome/free-brands-svg-icons" "^5.10.1"
