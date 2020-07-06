@@ -1,5 +1,5 @@
 # WQXR Web Client
-[![CircleCI](https://img.shields.io/circleci/token/79cbe978f67ba6a90a048146da6f513d8001997a/project/github/nypublicradio/wqxr-web-client/master.svg?style=flat-square)](https://circleci.com/gh/nypublicradio/wqxr-web-client/tree/master) [![GitHub release](https://img.shields.io/github/release/nypublicradio/wqxr-web-client.svg?style=flat-square)](https://github.com/nypublicradio/wqxr-web-client/releases/latest) [![GitHub pull requests](https://img.shields.io/github/issues-pr/nypublicradio/wqxr-web-client.svg?style=flat-square)](https://github.com/nypublicradio/wqxr-web-client/pulls) [![GitHub contributors](https://img.shields.io/github/contributors/nypublicradio/wqxr-web-client.svg?style=flat-square)](https://github.com/nypublicradio/wqxr-web-client/graphs/contributors) 
+[![CircleCI](https://img.shields.io/circleci/token/79cbe978f67ba6a90a048146da6f513d8001997a/project/github/nypublicradio/wqxr-web-client/main.svg?style=flat-square)](https://circleci.com/gh/nypublicradio/wqxr-web-client/tree/main) [![GitHub release](https://img.shields.io/github/release/nypublicradio/wqxr-web-client.svg?style=flat-square)](https://github.com/nypublicradio/wqxr-web-client/releases/latest) [![GitHub pull requests](https://img.shields.io/github/issues-pr/nypublicradio/wqxr-web-client.svg?style=flat-square)](https://github.com/nypublicradio/wqxr-web-client/pulls) [![GitHub contributors](https://img.shields.io/github/contributors/nypublicradio/wqxr-web-client.svg?style=flat-square)](https://github.com/nypublicradio/wqxr-web-client/graphs/contributors) 
 
 This is a browser-based client for interfacing with the New York Public Radio digital infrastructure.  This Ember application renders all of www.wqxr.org using the preexisting Django server as a backend data source, consuming HTML documents and JSON payloads to present a dynamic interface. This gives us the benefits of a persistent in-browser application while still using the existing content and infrastructure.
 
@@ -44,7 +44,7 @@ $ ember serve --proxy https://wqxr.demo2.wnyc.net
 
 When we fetch pages from the Django app, we include the `X-WNYC-Ember` HTTP header. This allows Django to suppress certain things (like redundant Javascript libraries) that are unnecessary when the Ember app is managing the client side.
 
-[`module_wrapper.py`](https://github.com/nypublicradio/publisher/blob/master/puppy/util/module_wrapper.py) provides a very slim module system around all the legacy Javascript files. See [`app/services/legacy-loader.js`](https://github.com/nypublicradio/wqxr-web-client/blob/master/app/services/legacy-loader.js) for more detail.
+[`module_wrapper.py`](https://github.com/nypublicradio/publisher/blob/master/puppy/util/module_wrapper.py) provides a very slim module system around all the legacy Javascript files. See [`app/services/legacy-loader.js`](https://github.com/nypublicradio/wqxr-web-client/blob/main/app/services/legacy-loader.js) for more detail.
 
 ## Additional Documentation
 
@@ -54,14 +54,14 @@ See `docs/prototype-report.html` for the original writeup when this application 
 ### `ember-cli-mirage`
 We use [`ember-cli-mirage`](http://www.ember-cli-mirage.com/) to provide mock server output against which to develop. It's turned off by default in dev environments, controlled by the `USE_MIRAGE` envvar in your `.env` file. You can turn it on by setting `USE_MIRAGE` to `true`.
 
-Logging by `ember-cli-mirage` is turned off by default, due to how noisy the console becomes if it's turned on. This setting can be changed in [`mirage/config.js`](https://github.com/nypublicradio/wqxr-web-client/blob/master/mirage/config.js). Look for this line:
+Logging by `ember-cli-mirage` is turned off by default, due to how noisy the console becomes if it's turned on. This setting can be changed in [`mirage/config.js`](https://github.com/nypublicradio/wqxr-web-client/blob/main/mirage/config.js). Look for this line:
 ```
 this.logging = false;
 ```
 Set that to `true` and you'll see a line for all the requests that mirage handles, but be warned: there are many.
 
 ### `legacy-loader`
-`wqxr-web-client` parses `publisher`'s HTML output for `<script>` and `<link>` tags, which it then loads according to matching and ordering rules found in [`app/services/legacy-loader.js`](https://github.com/nypublicradio/wqxr-web-client/blob/master/app/services/legacy-loader.js). By default it will log when it has decided whether or not to load a legacy script. This setting can be turned off by commenting out the following line in [`config/environment.js`](https://github.com/nypublicradio/wqxr-web-client/blob/master/config/environment.js):
+`wqxr-web-client` parses `publisher`'s HTML output for `<script>` and `<link>` tags, which it then loads according to matching and ordering rules found in [`app/services/legacy-loader.js`](https://github.com/nypublicradio/wqxr-web-client/blob/main/app/services/legacy-loader.js). By default it will log when it has decided whether or not to load a legacy script. This setting can be turned off by commenting out the following line in [`config/environment.js`](https://github.com/nypublicradio/wqxr-web-client/blob/main/config/environment.js):
 ```
 ENV.LOG_LEGACY_LOADER = true;
 ```

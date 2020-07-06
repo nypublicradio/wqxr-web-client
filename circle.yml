@@ -47,7 +47,7 @@ templates:
   filter_demo: &filter_demo
     filters:
       branches:
-        only: master
+        only: main
       tags:
         only: demo
   filter_prod: &filter_prod
