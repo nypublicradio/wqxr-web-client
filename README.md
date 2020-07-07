@@ -30,10 +30,9 @@ We use [modernizr](https://modernizr.com/) to detect for certain browser feature
 1. `$ git clone git@github.com:nypublicradio/wqxr-web-client.git && cd wqxr-web-client`
 2. `$ git checkout <working branch>`
 3. `$ cp .env.sample .env`
-4. Edit `.env` with your `publisher` app location
-7. `$ npm install`
-8. `$ bower install`
-9. `$ grunt modernizr:dist`
+4. Edit `.env` with your `publisher` app location _if_ you don't want to use the _demo_ environment
+5. `$ npm install`
+6. `$ grunt modernizr:dist`
 
 The `publisher` service is not set up as a strictly data-only API server and will return HTML with embedded script tags that request against the domain root. To resolve this issue, you should run your local server with the proxy command:
 ```sh
