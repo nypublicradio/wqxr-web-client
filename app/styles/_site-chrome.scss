@@ -7,7 +7,7 @@
 }
 
 /* Hide certain elements based on window size. This must be done in css
-since the media service doesn't work in FastBoot, as it needs to access 
+since the media service doesn't work in FastBoot, as it needs to access
 the DOM */
 .sitechrome-search, .sitechrome-corner, .sitechrome__listen-desktop, .sitechrome__nav-footer {
   display: none;
@@ -437,7 +437,7 @@ the DOM */
   @include l-bottom;
 }
 
-.nypr-social-icons { 
+.nypr-social-icons {
   background: #00aeff;
 }
 
@@ -457,6 +457,7 @@ the DOM */
 .sitechrome-page-content-area {
   position: relative;
   margin-bottom: 2.4rem;
+  margin-top: 24px;
 
   .profile & {
     margin-bottom: 0;
