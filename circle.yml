@@ -215,31 +215,36 @@ workflows:
     jobs:
       - build:
           <<: *filter_all
-          #- test_ember:
-          #<<: *filter_all
-          #requires:
-          #  - build
-          #- test_cypress:
-          #<<: *filter_all
-          #requires:
-          #  - build
+      - test_ember:
+          <<: *filter_all
+          requires:
+            - build
+      - test_cypress:
+          <<: *filter_all
+          requires:
+            - build
       - deploy_static_demo:
           <<: *filter_demo
           requires:
-            - build
+            - test_ember
+            - test_cypress
       - deploy_ecs_demo:
           <<: *filter_demo
           requires:
-            - build
+            - test_ember
+            - test_cypress
       - deploy_static_prod:
           <<: *filter_prod
           requires:
-            - build
+            - test_ember
+            - test_cypress
       - deploy_ecs_prod:
           <<: *filter_prod
           requires:
-            - build
+            - test_ember
+            - test_cypress
       - deploy_static_qa:
           <<: *filter_qa
           requires:
-            - build
+            - test_ember
+            - test_cypress
