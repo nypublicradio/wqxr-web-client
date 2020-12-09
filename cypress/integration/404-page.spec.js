@@ -1,4 +1,3 @@
-/**
 describe('404 page', () => {
   ['true','false'].forEach(fastbootStatus => {
     it(`displays the 404 page (fastboot=${fastbootStatus})`, () => {
@@ -22,4 +21,3 @@ describe('404 page', () => {
     });
   });
 })
-**/
