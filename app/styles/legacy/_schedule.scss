@@ -45,8 +45,8 @@
       margin: 0;
     }
     /* hide the scrollbar, but keep it scrollable */
-    &::-webkit-scrollbar { 
-      display: none; 
+    &::-webkit-scrollbar {
+      display: none;
     }
   }
   ul.schedule-tabs li.ui-tabs-selected a {
@@ -307,4 +307,8 @@ ul.schedule-table {
     }
   }
 
+}
+
+#daily-schedule .station-nav ul.schedule-tabs {
+  display: none;
 }

@@ -67,3 +67,8 @@ ENV.LOG_LEGACY_LOADER = true;
 
 #### Metrics Adapters
 We use [`ember-metrics`](https://github.com/poteto/ember-metrics) to proxy analytics tracking to two backends, our Data Warehouse and Google Analytics. Debug output for the Data Warehouse adapter can be turned on by adding `debug` to the url's query string. GA debugging is handled using [a chrome extension](https://chrome.google.com/webstore/detail/google-analytics-debugger/jnkmfdileelhofjcijamephohjechhna?hl=en).
+
+
+#### Schedule page
+
+FYI - we hid the non WQXR streams from the schedule page with CSS in the _schedule.scss file.
