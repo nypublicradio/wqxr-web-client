@@ -9280,15 +9280,7 @@ nypr-auth@>=0.2.0, nypr-auth@^0.2.5:
     ember-get-config "^0.2.2"
     ember-simple-auth "^1.7.0"
 
-nypr-django-for-ember@^0.4.0, nypr-django-for-ember@^0.4.2:
-  version "0.4.2"
-  resolved "https://registry.yarnpkg.com/nypr-django-for-ember/-/nypr-django-for-ember-0.4.2.tgz#b02b7470a5863c1a3ad2ae7221b2e19fda4c219a"
-  dependencies:
-    ember-cli-babel "^6.6.0"
-    ember-cli-htmlbars "^2.0.1"
-    ember-wormhole "^0.5.2"
-
-nypr-django-for-ember@^0.4.3:
+nypr-django-for-ember@^0.4.0, nypr-django-for-ember@^0.4.2, nypr-django-for-ember@^0.4.3:
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/nypr-django-for-ember/-/nypr-django-for-ember-0.4.3.tgz#5285a7250d7e87b2e924d830b90b42979952db16"
   integrity sha512-597ch744b2cyKc6rQGHWCbiUewzZNShKUcvmQo028ZFmTHLxRhJSCjaZydISdjDDY5Js/bdPuD6XivkIec4+vw==
@@ -9339,10 +9331,10 @@ nypr-player@^0.4.0:
     ember-moment "^7.4.1"
     nypr-ui "^0.5.0"
 
-nypr-publisher-lib@^0.5.8:
-  version "0.5.8"
-  resolved "https://registry.yarnpkg.com/nypr-publisher-lib/-/nypr-publisher-lib-0.5.8.tgz#8a126d44cc5f6cba2817a3fac79d5731ec6ba4af"
-  integrity sha512-QKVc9enPg5YbgC5r/eRBva3k50DZv27nlbj8yiFv55txQsBp+9lyelUtlhaMraUqegH0R6kRzrqSoMs4owtRhA==
+nypr-publisher-lib@^0.5.10:
+  version "0.5.10"
+  resolved "https://registry.yarnpkg.com/nypr-publisher-lib/-/nypr-publisher-lib-0.5.10.tgz#2a40155db8d5c18add24c2d817f42033b07f78cc"
+  integrity sha512-DTYZBmSwP9JLc4zCqbGAa+3hRNeSIozkDs3x0sCg6rMbgz9rdTQtQzll6qJnw+olygyFWrpVN85UIgVenLCBIw==
   dependencies:
     "@fortawesome/ember-fontawesome" "^0.1.14"
     "@fortawesome/free-brands-svg-icons" "^5.10.1"
