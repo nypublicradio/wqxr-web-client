@@ -42,7 +42,7 @@
     "ember-cli-deploy-fastboot-app-server-aws": "^0.0.3",
     "ember-cli-deploy-gzip": "1.0.0",
     "ember-cli-deploy-json-config": "1.0.0",
-    "ember-cli-deploy-manifest": "1.1.0",
+    "ember-cli-deploy-manifest": "2.0.0",
     "ember-cli-deploy-redis": "1.0.2",
     "ember-cli-deploy-revision-data": "1.0.0",
     "ember-cli-deploy-s3": "1.1.0",
