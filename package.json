@@ -146,6 +146,7 @@
     "dotenv": "^7.0.0",
     "eslint-plugin-cypress": "^2.2.1",
     "fastboot-app-server": "^1.1.2-beta.1",
+    "https-proxy-agent": "2.2.4",
     "nypr-fastboot": "nypublicradio/nypr-fastboot#nc/fork",
     "nypr-icons": "https://github.com/nypublicradio/nypr-icons",
     "url-parse": "^1.4.3"
