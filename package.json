@@ -141,6 +141,7 @@
   },
   "dependencies": {
     "abortcontroller-polyfill": "^1.2.5",
+    "bl": "1.2.3",
     "cypress": "^3.2.0",
     "dot-prop": "4.2.1",
     "dotenv": "^7.0.0",
