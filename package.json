@@ -99,7 +99,7 @@
     "glob": "7.1.1",
     "grunt": "^1.0.4",
     "grunt-modernizr": "^1.0.3",
-    "http-proxy": "^1.14.0",
+    "http-proxy": "1.18.1",
     "imagesloaded": "^4.1.4",
     "jquery-migrate": "3.0.0",
     "liquid-fire": "^0.29.2",
