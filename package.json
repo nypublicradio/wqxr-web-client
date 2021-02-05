@@ -71,7 +71,7 @@
     "ember-data": "~3.0.0",
     "ember-export-application-global": "^2.0.0",
     "ember-feature-flags": "^5.0.0",
-    "ember-fetch": "^6.5.0",
+    "ember-fetch": "8.0.4",
     "ember-get-config": "^0.2.2",
     "ember-hifi": "^1.15.0",
     "ember-holygrail-layout": "^0.3.0",
