@@ -78,7 +78,7 @@
     "ember-hotjar": "byrnedo/ember-hotjar#045616e6d74b4e425b8610c55221320e64a496d5",
     "ember-load-initializers": "^1.0.0",
     "ember-maybe-import-regenerator": "^0.1.6",
-    "ember-moment": "7.6.0",
+    "ember-moment": "8.0.1",
     "ember-multiselect-checkboxes": "0.11.1",
     "ember-poll": "^1.2.0",
     "ember-query-method": "^0.2.0",
