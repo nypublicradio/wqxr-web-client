@@ -74,7 +74,7 @@
     "ember-fetch": "^6.5.0",
     "ember-get-config": "^0.2.2",
     "ember-hifi": "^1.15.0",
-    "ember-holygrail-layout": "^0.3.0",
+    "ember-holygrail-layout": "^0.3.1",
     "ember-hotjar": "byrnedo/ember-hotjar#045616e6d74b4e425b8610c55221320e64a496d5",
     "ember-load-initializers": "^1.0.0",
     "ember-maybe-import-regenerator": "^0.1.6",
