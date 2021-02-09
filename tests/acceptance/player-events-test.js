@@ -1,5 +1,5 @@
 import { click, visit, triggerEvent, find } from '@ember/test-helpers';
-import { module, test } from 'qunit';
+import { module, skip } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
 import config from 'wqxr-web-client/config/environment';
 
@@ -14,7 +14,7 @@ const setupHifi = app => {
 module('Acceptance | player events', function(hooks) {
   setupApplicationTest(hooks);
 
-  test('visiting /player-events', async function(assert) {
+  skip('visiting /player-events', async function(assert) {
     setupHifi(this.owner);
 
     let story = server.create('story', {title: "Test audio", audio: '/good/150000/test'});

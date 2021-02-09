@@ -4,7 +4,7 @@ import storyPage from 'wqxr-web-client/tests/pages/story';
 import config from 'wqxr-web-client/config/environment';
 
 import { setupApplicationTest } from 'ember-qunit';
-import { module } from 'qunit';
+import { module, skip } from 'qunit';
 
 import DummyConnection from 'ember-hifi/hifi-connections/dummy-connection';
 
@@ -48,7 +48,7 @@ module('Acceptance | Story Detail', function(hooks) {
     assert.ok(find('[data-test-selector=moderate]'), 'moderate control is visible');
   });
 
-  test('story pages with a play param', async function(assert) {
+  skip('story pages with a play param', async function(assert) {
     setupHifi(this.owner);
     let story = server.create('story');
     await visit(`story/${story.slug}/?play=${story.slug}`);

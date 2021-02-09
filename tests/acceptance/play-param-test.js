@@ -50,7 +50,7 @@ module('Acceptance | play param', function(hooks) {
     assert.ok(dj.play.calledWith('wnyc-fm939'), 'play should be called');
   });
 
-  test('loading a page with the ?play param', async function(assert) {
+  skip('loading a page with the ?play param', async function(assert) {
     let slug = 'foo';
 
     server.create('story', {slug, title: 'Foo', audio: '/good/15000/1'});
