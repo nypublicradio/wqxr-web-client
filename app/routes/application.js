@@ -78,8 +78,38 @@ export default Route.extend(ApplicationRouteMixin, {
 
     window.WNYC_LEGACY_LOADER = get(this, 'legacyLoader');
 
-    let pollFunction = () =>  get(this, 'store').findAll('stream');
+    let setShowMetadata = function(stream, show) {
+      let hostImageTemplateUrl = get(show, 'about.people.firstObject.image.template');
+      if (hostImageTemplateUrl) {
+        stream.set('hostImageTemplateUrl', hostImageTemplateUrl);
+      }
 
+      let hostImageCropSetting = get(show, 'about.people.firstObject.image.crop');
+      if (hostImageCropSetting) {
+        stream.set('hostImageCropSetting', hostImageCropSetting);
+      }
+    }
+
+    var self = this
+    let pollFunction = function() {
+      get(self, 'store').findAll('stream').then(function(streams) {
+        streams.forEach(function(stream) {
+          let showSlug = stream.get('currentShow') ? stream.get('currentShow').group_slug : null
+          if (showSlug) {
+            let show = get(self, 'store').peekRecord('show', showSlug);
+            if (show) {
+              setShowMetadata(stream, show)
+            } else {
+              get(self, 'store').findRecord('show', showSlug).then(function(show) {
+                setShowMetadata(stream, show)
+              });
+            }
+          }
+        })
+      });
+    }
+
+    pollFunction();
     get(this, 'poll').addPoll({interval: 10 * 1000, callback: pollFunction});
   },
 

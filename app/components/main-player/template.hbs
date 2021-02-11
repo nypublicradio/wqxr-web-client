@@ -1,5 +1,11 @@
-<div class="on-air-image"></div>
-<div class="on-air-label">ON AIR NOW</div>
-<div class="on-air-title">{{onAirTitle}}</div>
-<div class="listen-live-button">listen live</div>
+{{#if hostImageTemplateUrl}}
+    <img class="on-air-image" src="{{image-template hostImageTemplateUrl 200 200 hostImageCropSetting}}" />
+{{else}}
+    {{#if showImageUrl}}
+        <img class="on-air-image" src="{{showImageUrl}}" />
+    {{/if}}
+{{/if}}
+<div class="on-air-label">On Air Now</div>
+<div class="show-title">{{showTitle}}</div>
+<div class="listen-live-button">Listen Live</div>
 {{yield}}

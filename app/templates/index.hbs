@@ -10,7 +10,12 @@
   {{/if}}
 
   <section class="l-container l-container--touch-full">
-    {{#main-player onAirTitle='Mornings With Annie Bergen'}}
+    {{#main-player
+      showTitle=streams.firstObject.currentShow.showTitle
+      hostImageTemplateUrl=streams.firstObject.hostImageTemplateUrl
+      hostImageCropSetting=streams.firstObject.hostImageCropSetting
+      showImageUrl=streams.firstObject.currentShow.fullImage.url
+    }}
     {{/main-player}}
   </section>
 
