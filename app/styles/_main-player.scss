@@ -23,7 +23,7 @@ $font-body-bold: "OpenSans-Bold", sans-serif;
   @media (min-width: $medium) {
   // @include media(">=medium") {
     display: grid;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: minmax(min-content, max-content);
     grid-auto-rows: minmax(min-content, max-content);
     align-content: center;
     margin-bottom: 20px;
@@ -33,7 +33,7 @@ $font-body-bold: "OpenSans-Bold", sans-serif;
       grid-column-end: 2;
       grid-row-start: 1;
       grid-row-end: span 3;
-      margin: auto;
+      margin: auto 20px auto 20px;
     }
 
     .on-air-label {
@@ -108,7 +108,7 @@ $font-body-bold: "OpenSans-Bold", sans-serif;
     width: 108px;
   }
 
-  .on-air-title {
+  .show-title {
     color: #ffffff;
     font-family: "Lato", sans-serif;
     font-size: 32px;
