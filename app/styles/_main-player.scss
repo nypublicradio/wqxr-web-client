@@ -1,0 +1,132 @@
+$water-blue: #1277c4;
+$denim-blue: #00518E;
+/**
+ * Common Breakpoints
+ */
+ $xsmall: 360px;
+ $small: 550px;
+ $medium: 768px;
+ $large: 850px;
+ $xlarge: 1024px;
+ $xxlarge: 1200px;
+ $xxxlarge: 1500px;
+
+$font-heading: "Playfair Display";
+$font-body: "OpenSans-Regular", sans-serif;
+$font-body-bold: "OpenSans-Bold", sans-serif;
+
+.main-player {
+  display: flex;
+  flex-direction: column;
+  min-height: 344px;
+
+  @media (min-width: $medium) {
+  // @include media(">=medium") {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-auto-rows: minmax(min-content, max-content);
+    align-content: center;
+    margin-bottom: 20px;
+
+    .on-air-image {
+      grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row-start: 1;
+      grid-row-end: span 3;
+      margin: auto;
+    }
+
+    .on-air-label {
+      grid-column-start: 2;
+      grid-column-end: 3;
+      grid-row-start: 1;
+      grid-row-end: span 1;
+    }
+
+    .on-air-title {
+      grid-column-start: 2;
+      grid-column-end: 3;
+      grid-row-start: 2;
+      grid-row-end: span 1;
+    }
+
+    .listen-live-button {
+      grid-column-start: 2;
+      grid-column-end: 3;
+      grid-row-start: 3;
+      grid-row-end: span 1;
+    }
+  }
+
+  background: $water-blue url(/assets/img/backgrounds/main-player/background-desktop.png) no-repeat scroll left top;
+  background-size: 100% 100%;
+
+  /*
+  @include media("retina2x") {
+    background: $water-blue url(/images/backgrounds/background-desktop@2x.png) no-repeat scroll left top;
+    background-size: 100% 700px;
+  }
+  @include media("retina3x") {
+    background: $water-blue url(/images/backgrounds/background-desktop@3x.png) no-repeat scroll left top;
+    background-size: 100% 700px;
+  }
+
+  @include media("<medium") {
+    background: $water-blue url(/images/backgrounds/background-mobile.png) no-repeat scroll left -60px;
+    background-size: 100% auto;
+
+    @include media("retina2x") {
+      background: $water-blue url(/images/backgrounds/background-mobile@2x.png) no-repeat scroll left -60px;
+      background-size: 100% auto;
+    }
+    @include media("retina3x") {
+      background: $water-blue url(/images/backgrounds/background-mobile@3x.png) no-repeat scroll left -60px;
+      background-size: 100% auto;
+    }
+  }
+  */
+
+  .on-air-image {
+    height: 168px;
+    width: 168px;
+    border-radius: 134px;
+    background-color: gray;
+  }
+
+  .on-air-label {
+    background-color: #ffffff;
+    border-radius: 4px;
+    color: #0064b4;
+    font-family: $font-body;
+    font-size: 12px;
+    font-weight: 700;
+    height: 16px;
+    letter-spacing: 1.2px;
+    line-height: 16px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 108px;
+  }
+
+  .on-air-title {
+    color: #ffffff;
+    font-family: "Lato", sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 48px;
+  }
+
+  .listen-live-button {
+    background-color: #ffffff;
+    border-radius: 30px;
+    color: $denim-blue;
+    font-family: $font-body;
+    font-weight: bold;
+    height: 48px;
+    letter-spacing: 1.6px;
+    line-height: 48px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 234px;
+  }
+}
