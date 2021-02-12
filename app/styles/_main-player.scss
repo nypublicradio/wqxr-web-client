@@ -15,6 +15,13 @@ $font-heading: "Playfair Display";
 $font-body: "OpenSans-Regular", sans-serif;
 $font-body-bold: "OpenSans-Bold", sans-serif;
 
+.stream-banner-card {
+  border-top: none;
+}
+.stream-banner-card::before {
+  background-color: transparent;
+}
+
 .main-player {
   display: flex;
   flex-direction: column;
@@ -58,9 +65,6 @@ $font-body-bold: "OpenSans-Bold", sans-serif;
     }
   }
 
-  background: $water-blue url(/assets/img/backgrounds/main-player/background-desktop.png) no-repeat scroll left top;
-  background-size: 100% 100%;
-
   .on-air-image {
     height: 168px;
     width: 168px;
@@ -89,6 +93,7 @@ $font-body-bold: "OpenSans-Bold", sans-serif;
     font-size: 32px;
     font-weight: 700;
     line-height: 48px;
+    text-align: left;
   }
 
   .listen-live-button {
