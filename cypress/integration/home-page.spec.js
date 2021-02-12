@@ -12,8 +12,8 @@ describe('Home page', () => {
       cy.get('.header-ad-wrapper').should('exist');
       // WQXR Nav
       cy.get('#site-chrome').should('exist');
-      // Stream Banner
-      cy.get('.stream-banner').should('exist');
+      // Main Player
+      cy.get('.main-player').should('exist');
       // Featured Story
       cy.get('.story_default').should('exist');
       // Newsletter Signup

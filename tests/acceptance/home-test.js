@@ -11,11 +11,11 @@ module('Acceptance | home', function(hooks) {
     server.createList('stream', 7);
     server.createList('whats-on', 7);
   });
-
+  
   test('visiting /', async function(assert) {
     await visit('/');
 
-    assert.equal(findAll('.stream-banner').length, 1, 'stream banner should render');
+    assert.equal(findAll('.main-player').length, 1, 'main player should render');
   });
 
   skip('using stream banner', async function(assert) {
@@ -27,7 +27,7 @@ module('Acceptance | home', function(hooks) {
     let { title } = whatsOn4.attrs.current_playlist_item.catalog_entry;
     assert.ok(find('.streambanner-title').textContent.match(title), 'show display current playlist item');
   });
-
+  
   test('home page does dfp targeting', async function() /*assert*/{
     this.mock(this.owner.lookup('route:index').get('googleAds'))
       .expects('doTargeting')
