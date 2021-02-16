@@ -3,6 +3,10 @@
 {{else}}
     {{#if showImageUrl}}
         <img class="on-air-image" src="{{showImageUrl}}" />
+    {{else}}
+        {{#if streamImageUrl}}
+            <img class="on-air-image" src="{{streamImageUrl}}" />
+        {{/if}}
     {{/if}}
 {{/if}}
 <div class="on-air-label">On Air Now</div>
