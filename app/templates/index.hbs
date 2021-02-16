@@ -19,7 +19,7 @@
        {{/banner.header}}
 
       {{#main-player
-        showTitle=currentStream.currentShow.showTitle
+        onAirTitle=(if currentStream.currentShow.showTitle currentStream.currentShow.showTitle currentStream.name)
         hostImageTemplateUrl=currentStream.hostImageTemplateUrl
         hostImageCropSetting=currentStream.hostImageCropSetting
         showImageUrl=currentStream.currentShow.fullImage.url
