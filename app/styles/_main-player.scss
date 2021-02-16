@@ -53,7 +53,7 @@ $font-body-bold: "OpenSans-Bold", sans-serif;
     }
 
     .on-air-title {
-      align-self: top;
+      align-self: start;
       grid-column-start: 2;
       grid-column-end: 3;
       grid-row-start: 2;
@@ -74,10 +74,14 @@ $font-body-bold: "OpenSans-Bold", sans-serif;
     width: 168px;
     border-radius: 84px;
     background-color: gray;
-    margin-bottom: 16px;
+
+    @media (max-width: $medium) {
+      margin-bottom: 16px;
+    }
   }
 
   .on-air-label {
+    align-self: center;
     background-color: #ffffff;
     border-radius: 4px;
     color: #0064b4;
@@ -87,10 +91,13 @@ $font-body-bold: "OpenSans-Bold", sans-serif;
     height: 16px;
     letter-spacing: 1.2px;
     line-height: 16px;
-    margin-bottom: 8px;
     text-align: center;
     text-transform: uppercase;
     width: 108px;
+
+    @media (max-width: $medium) {
+      margin-bottom: 8px;
+    }
   }
 
   .on-air-title {
@@ -99,8 +106,10 @@ $font-body-bold: "OpenSans-Bold", sans-serif;
     font-size: 32px;
     font-weight: 700;
     line-height: 48px;
-    margin-bottom: 16px;
     text-align: left;
+    @media (max-width: $medium) {
+      margin-bottom: 16px;
+    }
   }
 
   .listen-live-button {
