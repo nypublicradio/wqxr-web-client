@@ -25,6 +25,7 @@ $font-body-bold: "OpenSans-Bold", sans-serif;
 .main-player {
   display: flex;
   flex-direction: column;
+  align-items: center;
   min-height: 344px;
 
   @media (min-width: $medium) {
@@ -73,6 +74,7 @@ $font-body-bold: "OpenSans-Bold", sans-serif;
     width: 168px;
     border-radius: 84px;
     background-color: gray;
+    margin-bottom: 16px;
   }
 
   .on-air-label {
@@ -85,6 +87,7 @@ $font-body-bold: "OpenSans-Bold", sans-serif;
     height: 16px;
     letter-spacing: 1.2px;
     line-height: 16px;
+    margin-bottom: 8px;
     text-align: center;
     text-transform: uppercase;
     width: 108px;
@@ -96,6 +99,7 @@ $font-body-bold: "OpenSans-Bold", sans-serif;
     font-size: 32px;
     font-weight: 700;
     line-height: 48px;
+    margin-bottom: 16px;
     text-align: left;
   }
 
