@@ -33,16 +33,16 @@ $font-body-bold: "OpenSans-Bold", sans-serif;
     align-content: center;
     display: grid;
     grid-template-columns: minmax(min-content, max-content);
-    grid-auto-rows: 24px 104px 48px;
+    grid-auto-rows: 24px 98px 48px;
     margin-bottom: 20px;
-    padding-left: 20px;
+    padding-left: 68px;
 
     .on-air-image {
       grid-column-start: 1;
       grid-column-end: 2;
       grid-row-start: 1;
       grid-row-end: span 3;
-      margin: auto 20px auto 0px;
+      margin: auto 24px auto 0px;
     }
 
     .on-air-label {
@@ -74,7 +74,7 @@ $font-body-bold: "OpenSans-Bold", sans-serif;
     border-radius: 2px;
     height: 168px;
     width: 168px;
-    
+
     &.round {
       border-radius: 84px;
     }
