@@ -5,7 +5,7 @@ import PlayParamMixin from 'wqxr-web-client/mixins/play-param';
 import DS from 'ember-data';
 import RSVP from 'rsvp';
 
-const STREAM_BG = '/assets/img/backgrounds/main-player/background-desktop.png';
+const STREAM_BG = '/assets/img/backgrounds/main-player/background-main-player.svg';
 
 export default Route.extend(PlayParamMixin, {
   googleAds:  service(),
