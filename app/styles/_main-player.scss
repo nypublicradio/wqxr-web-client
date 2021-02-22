@@ -23,17 +23,17 @@ $font-body-bold: "OpenSans-Bold", sans-serif;
 }
 
 .main-player {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   min-height: 344px;
 
   @media (min-width: $medium) {
   // @include media(">=medium") {
+    align-content: center;
     display: grid;
     grid-template-columns: minmax(min-content, max-content);
     grid-auto-rows: 24px 104px 48px;
-    align-content: center;
     margin-bottom: 20px;
     padding-left: 20px;
 
@@ -70,10 +70,14 @@ $font-body-bold: "OpenSans-Bold", sans-serif;
   }
 
   .on-air-image {
+    background-color: gray;
+    border-radius: 2px;
     height: 168px;
     width: 168px;
-    border-radius: 84px;
-    background-color: gray;
+    
+    &.round {
+      border-radius: 84px;
+    }
 
     @media (max-width: $medium) {
       margin-bottom: 16px;
