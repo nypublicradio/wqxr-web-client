@@ -4907,7 +4907,7 @@ ember-basic-dropdown@0.34.0, ember-basic-dropdown@^0.34.0:
     ember-native-dom-helpers "^0.5.4"
     ember-wormhole "^0.5.2"
 
-ember-body-class@2.0.0:
+ember-body-class@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ember-body-class/-/ember-body-class-2.0.0.tgz#84c04467c50fe7cbdb592e274e5e3a960c83f77f"
   integrity sha512-HZJmLelRcmoxsOidP6WMC7VBMUsCAtXsCOhi2C0d0oWAtmPdiadVwYPjVDd8v/yDh3rQ/f671GC0HGpdQl18+g==
