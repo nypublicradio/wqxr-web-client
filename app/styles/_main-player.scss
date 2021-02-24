@@ -27,6 +27,11 @@ $font-body-bold: "OpenSans-Bold", sans-serif;
   padding-left: 68px;
 }
 
+.stream-banner-dropdown {
+  left: -245px;
+  top: -6px;
+}
+
 .stream-banner__active-stream {
   background: rgba(0, 0, 0, 0.15);
   border-radius: 18px;
@@ -36,7 +41,7 @@ $font-body-bold: "OpenSans-Bold", sans-serif;
   height: 36px;
   letter-spacing: 1.2px;
   line-height: 36px;
-  min-width: 192px;
+  min-width: 235px;
   padding-left: 16px;
   padding-right: 16px;
   text-transform: uppercase;
