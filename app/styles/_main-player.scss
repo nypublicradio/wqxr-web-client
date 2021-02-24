@@ -22,11 +22,45 @@ $font-body-bold: "OpenSans-Bold", sans-serif;
   background-color: transparent;
 }
 
+.stream-banner-station {
+  justify-content: left;
+  padding-left: 68px;
+}
+
+.stream-banner__active-stream {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 18px;
+  color: #ffffff;
+  font-family: $font-body;
+  font-size: 12px;
+  height: 36px;
+  letter-spacing: 1.2px;
+  line-height: 36px;
+  min-width: 192px;
+  padding-left: 16px;
+  padding-right: 16px;
+  text-transform: uppercase;
+}
+
+.stream-banner__trigger {
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  color: #FFFFFF;
+  font-family: $font-body;
+  font-weight: bold;
+  font-size: 9.989px;
+  height: 24px;
+  justify-content: center;
+  letter-spacing: 1.6px;
+  width: 136px;
+}
+
 .main-player {
   align-items: center;
   display: flex;
   flex-direction: column;
-  min-height: 344px;
+  min-height: 240px;
 
   @media (min-width: $medium) {
   // @include media(">=medium") {
