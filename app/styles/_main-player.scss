@@ -106,6 +106,16 @@ $font-body-bold: "OpenSans-Bold", sans-serif;
       grid-row-start: 3;
       grid-row-end: span 1;
     }
+
+    .playlist-history {
+      grid-column-start: 3;
+      grid-column-end: 4;
+      grid-row-start: 1;
+      grid-row-end: span 3;
+      height: 100%;
+      margin-top: 0px;
+      width: 100%;
+    }
   }
 
   .on-air-image {
@@ -180,6 +190,103 @@ $font-body-bold: "OpenSans-Bold", sans-serif;
         @include blue-listen-spinner;
         @include blue-svg;
       }
+    }
+  }
+
+  .playlist-history {
+    display: flex;
+    flex-direction: column;
+    margin-top: 24px;
+
+    .current-track {
+      display: grid;
+      grid-template-columns: minmax(min-content, max-content);
+      grid-template-rows: minmax(min-content, max-content);
+
+      .dot {
+        align-self: center;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: span 1;
+      }
+
+      .line {
+        background-image: linear-gradient(#ffffff,#ffffff);
+        background-position: 7px 8px;
+        background-repeat: no-repeat;
+        background-size: 2px 100%;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: span 2;
+      }
+
+      .heading {
+        font-family: $font-body;
+        font-size: 12.64px;
+        font-weight: bold;
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: span 1;
+        justify-self: start;
+        letter-spacing: 1.6px;
+        margin-left: 20px;
+        text-transform: uppercase;
+      }
+
+      .song-metadata {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: span 1;
+        justify-content: first;
+        margin-left: 20px;
+        padding-bottom: 8px;
+        padding-top: 8px;
+        text-align: left;
+
+        .composer {
+          font-family: $font-body;
+          font-size: 18px;
+          font-weight: bold;
+          line-height: 22px;
+        }
+
+        .title {
+          font-family: $font-body;
+          font-size: 16px;
+          line-height: 24px;
+        }
+      }
+    }
+
+    .dot {
+      background-color: #ffffff;
+      border-radius: 8px;
+      height: 8px;
+      width: 8px;
+
+      &.mod-large {
+        border-radius: 16px;
+        height: 16px;
+        width: 16px;
+      }
+    }
+
+    .view-play-history {
+      border-bottom: none;
+      color: #ffffff;
+      font-family: $font-body;
+      font-size: 12.64px;
+      font-weight: bold;
+      letter-spacing: 1.6px;
+      line-height: 20px;
+      margin-left: 36px;
+      text-align: left;
+      text-decoration: underline;
+      text-transform: uppercase;
     }
   }
 }

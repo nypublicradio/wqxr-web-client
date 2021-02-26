@@ -21,4 +21,20 @@
 }}
 Listen Live
 {{/listen-button}}
+{{#if currentTrack}}
+<div class="playlist-history">
+    <div class="current-track">
+        <div class="dot mod-large"></div>
+        <div class="line"></div>
+        <div class="heading">Currently Playing</div>
+        {{#main-player/track-info
+            composerName=currentTrack.catalogEntry.composer.name
+            trackTitle=currentTrack.catalogEntry.title}}
+        {{/main-player/track-info}}
+    </div>
+    {{#link-to 'playlist-daily' (query-params scheduleStation=streamSlug) class='view-play-history'}}
+        View Play History
+    {{/link-to}}
+</div>
+{{/if}}
 {{yield}}
