@@ -10525,10 +10525,10 @@ nypr-django-for-ember@^0.4.0, nypr-django-for-ember@^0.4.2:
     ember-cli-htmlbars "^2.0.1"
     ember-wormhole "^0.5.2"
 
-nypr-django-for-ember@^0.4.3:
-  version "0.4.3"
-  resolved "https://registry.yarnpkg.com/nypr-django-for-ember/-/nypr-django-for-ember-0.4.3.tgz#5285a7250d7e87b2e924d830b90b42979952db16"
-  integrity sha512-597ch744b2cyKc6rQGHWCbiUewzZNShKUcvmQo028ZFmTHLxRhJSCjaZydISdjDDY5Js/bdPuD6XivkIec4+vw==
+nypr-django-for-ember@^0.4.4:
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/nypr-django-for-ember/-/nypr-django-for-ember-0.4.4.tgz#155fe0193cb8e9e2a07ecaeca7e79454d4ea7bba"
+  integrity sha512-OaHZcSieE5tBmu076vZVkeDswZWO6YSDlgxnKp0U+f20x2jyZGHD/xqYyLTK/GeDM1cer98g8aaS0QzL7RCryQ==
   dependencies:
     ember-cli-babel "^6.6.0"
     ember-cli-htmlbars "^2.0.1"
