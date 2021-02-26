@@ -10576,6 +10576,19 @@ nypr-player@^0.4.0:
     ember-moment "^7.4.1"
     nypr-ui "^0.5.0"
 
+nypr-player@^0.4.3:
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/nypr-player/-/nypr-player-0.4.3.tgz#8435ac7b8c09e291d66ef7ac012b2beb7e358250"
+  integrity sha512-DIgWPeV7XFcIxqONj7WJ+hjEdvFPXOSI/k6N4qtGKYOzOP3EQikyqNFJJYsi5TW1xEK6HlEtTE0qkiul6ZmdBw==
+  dependencies:
+    ember-cli-babel "^7.12.0"
+    ember-cli-htmlbars "^2.0.1"
+    ember-cli-moment-shim "^3.4.0"
+    ember-cli-sass "^7.0.0"
+    ember-hifi "^1.15.1"
+    ember-moment "^7.4.1"
+    nypr-ui "^0.5.0"
+
 nypr-publisher-lib@^0.5.10:
   version "0.5.10"
   resolved "https://registry.yarnpkg.com/nypr-publisher-lib/-/nypr-publisher-lib-0.5.10.tgz#2a40155db8d5c18add24c2d817f42033b07f78cc"
