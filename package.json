@@ -156,7 +156,7 @@
     "nypr-fastboot": "nypublicradio/nypr-fastboot#nc/fork",
     "nypr-icons": "https://github.com/nypublicradio/nypr-icons",
     "socket.io": "2.4.1",
-    "url-parse": "^1.4.3",
+    "url-parse": "^1.5.1",
     "websocket-extensions": "0.1.4"
   },
   "fastbootDependencies": [
