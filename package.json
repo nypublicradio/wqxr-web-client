@@ -155,7 +155,7 @@
     "node-sass": "4.14.1",
     "nypr-fastboot": "nypublicradio/nypr-fastboot#nc/fork",
     "nypr-icons": "https://github.com/nypublicradio/nypr-icons",
-    "socket.io": "2.4.1",
+    "socket.io": "^3.1.2",
     "url-parse": "^1.5.1",
     "websocket-extensions": "0.1.4"
   },
