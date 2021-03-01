@@ -148,7 +148,7 @@
     "elliptic": "6.5.4",
     "eslint-plugin-cypress": "^2.2.1",
     "fastboot-app-server": "^1.1.2-beta.1",
-    "https-proxy-agent": "2.2.4",
+    "https-proxy-agent": "^5.0.0",
     "ini": "^2.0.0",
     "jquery": "^3.5.1",
     "node-fetch": "^2.6.1",
