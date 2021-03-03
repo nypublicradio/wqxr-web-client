@@ -48,9 +48,9 @@ $font-body-bold: "OpenSans-Bold", sans-serif;
   height: 36px;
   letter-spacing: 1.2px;
   line-height: 36px;
-  min-width: 235px;
-  padding-left: 16px;
-  padding-right: 16px;
+  min-width: 180px;
+  padding-left: 24px;
+  padding-right: 24px;
   text-transform: uppercase;
 
   .sound-animation {
@@ -69,6 +69,7 @@ $font-body-bold: "OpenSans-Bold", sans-serif;
   height: 24px;
   justify-content: center;
   letter-spacing: 1.6px;
+  text-transform: uppercase;
   width: 136px;
 }
 
@@ -132,6 +133,7 @@ $font-body-bold: "OpenSans-Bold", sans-serif;
   }
 
   .on-air-label {
+    align-self: flex-start;
     background-color: #ffffff;
     border-radius: 4px;
     color: #0064b4;
@@ -188,6 +190,7 @@ $font-body-bold: "OpenSans-Bold", sans-serif;
     font-family: $font-body;
     font-weight: bold;
     height: 36px;
+    letter-spacing: 1.6px;
     padding: 0px;
     text-transform: uppercase;
     width: 234px;
@@ -237,8 +240,9 @@ $font-body-bold: "OpenSans-Bold", sans-serif;
   }
 
   .playlist-history {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: minmax(min-content, max-content);
+    grid-template-rows: minmax(min-content, max-content);
     margin-top: 32px;
     padding-left: 20px;
     padding-right: 20px;
@@ -266,36 +270,52 @@ $font-body-bold: "OpenSans-Bold", sans-serif;
       width: 100%;
     }
 
+    .dot {
+      background-color: #ffffff;
+      border-radius: 8px;
+      height: 8px;
+      width: 8px;
+
+      &.mod-large {
+        border-radius: 16px;
+        height: 16px;
+        width: 16px;
+      }
+    }
+
+    .dot {
+      grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row-start: 1;
+      grid-row-end: span 1;
+    }
+
+    .line {
+      background-image: linear-gradient(#ffffff,#ffffff);
+      background-position: 7px 8px;
+      background-repeat: no-repeat;
+      background-size: 2px calc(100% - 18px);;
+      grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row-start: 1;
+      grid-row-end: span 2;
+    }
+
     .current-track {
       display: grid;
+      grid-column-start: 2;
+      grid-column-end: 3;
+      grid-row-start: 1;
+      grid-row-end: span 1;
       grid-template-columns: minmax(min-content, max-content);
       grid-template-rows: minmax(min-content, max-content);
-
-      .dot {
-        align-self: center;
-        grid-column-start: 1;
-        grid-column-end: 2;
-        grid-row-start: 1;
-        grid-row-end: span 1;
-      }
-
-      .line {
-        background-image: linear-gradient(#ffffff,#ffffff);
-        background-position: 7px 8px;
-        background-repeat: no-repeat;
-        background-size: 2px 100%;
-        grid-column-start: 1;
-        grid-column-end: 2;
-        grid-row-start: 1;
-        grid-row-end: span 2;
-      }
 
       .heading {
         font-family: $font-body;
         font-size: 12.64px;
         font-weight: bold;
-        grid-column-start: 2;
-        grid-column-end: 3;
+        grid-column-start: 1;
+        grid-column-end: 2;
         grid-row-start: 1;
         grid-row-end: span 1;
         justify-self: start;
@@ -305,8 +325,8 @@ $font-body-bold: "OpenSans-Bold", sans-serif;
       }
 
       .song-metadata {
-        grid-column-start: 2;
-        grid-column-end: 3;
+        grid-column-start: 1;
+        grid-column-end: 2;
         grid-row-start: 2;
         grid-row-end: span 1;
         justify-content: first;
@@ -330,28 +350,19 @@ $font-body-bold: "OpenSans-Bold", sans-serif;
       }
     }
 
-    .dot {
-      background-color: #ffffff;
-      border-radius: 8px;
-      height: 8px;
-      width: 8px;
-
-      &.mod-large {
-        border-radius: 16px;
-        height: 16px;
-        width: 16px;
-      }
-    }
-
     .view-play-history {
       border-bottom: none;
       color: #ffffff;
       font-family: $font-body;
       font-size: 12.64px;
       font-weight: bold;
+      grid-column-start: 2;
+      grid-column-end: 3;
+      grid-row-start: 2;
+      grid-row-end: span 1;
       letter-spacing: 1.6px;
       line-height: 20px;
-      margin-left: 36px;
+      margin-left: 20px;
       margin-top: 8px;
       text-align: left;
       text-decoration: underline;
