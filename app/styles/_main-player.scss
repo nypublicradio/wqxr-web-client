@@ -34,9 +34,15 @@ $font-body-bold: "OpenSans-Bold", sans-serif;
   }
 }
 
-.stream-banner-dropdown {
-  left: -245px;
+.stream-banner .stream-banner-dropdown.ember-power-select-dropdown {
+  left: -210px;
   top: -6px;
+  width: 200px;
+
+  @media (min-width: $small) {
+    left: -245px;
+    width: 235px;
+  }
 }
 
 .stream-banner__active-stream {
@@ -249,6 +255,7 @@ $font-body-bold: "OpenSans-Bold", sans-serif;
     width: 100%;
 
     @media (min-width: $medium) {
+      align-self: start;
       grid-column-start: 1;
       grid-column-end: 3;
       grid-row-start: 4;
