@@ -146,7 +146,7 @@
     "dot-prop": "4.2.1",
     "dotenv": "^7.0.0",
     "elliptic": "6.5.4",
-    "eslint-plugin-cypress": "^2.2.1",
+    "eslint-plugin-cypress": "^2.11.2",
     "fastboot-app-server": "^3.0.0",
     "https-proxy-agent": "^5.0.0",
     "ini": "^2.0.0",
