@@ -164,7 +164,7 @@ $font-body-bold: "OpenSans-Bold", sans-serif;
     font-weight: bold;
     line-height: 35px;
     margin-bottom: 32px;
-    text-align: left;
+    text-align: center;
 
     @media (min-width: $medium) {
       align-self: start;
@@ -175,6 +175,7 @@ $font-body-bold: "OpenSans-Bold", sans-serif;
       grid-row-end: span 1;
       line-height: 30px;
       margin-bottom: 0px;
+      text-align: left;
     }
 
     @media (min-width: $xlarge) {
