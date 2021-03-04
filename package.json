@@ -141,23 +141,13 @@
   },
   "dependencies": {
     "abortcontroller-polyfill": "^1.2.5",
-    "bl": "1.2.3",
     "cypress": "^3.2.0",
-    "dot-prop": "4.2.1",
     "dotenv": "^7.0.0",
-    "elliptic": "6.5.4",
     "eslint-plugin-cypress": "^2.11.2",
     "fastboot-app-server": "^3.0.0",
-    "https-proxy-agent": "^5.0.0",
-    "ini": "^2.0.0",
-    "jquery": "^3.5.1",
-    "node-fetch": "^2.6.1",
-    "node-sass": "^5.0.0",
     "nypr-fastboot": "nypublicradio/nypr-fastboot#nc/fork",
     "nypr-icons": "https://github.com/nypublicradio/nypr-icons",
-    "socket.io": "^3.1.2",
-    "url-parse": "^1.5.1",
-    "websocket-extensions": "0.1.4"
+    "url-parse": "^1.5.1"
   },
   "fastbootDependencies": [
     "nypr-auth",
