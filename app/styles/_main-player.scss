@@ -53,9 +53,10 @@ $font-body-bold: "OpenSans-Bold", sans-serif;
     padding-right: 24px;
     text-align: center;
     text-transform: uppercase;
+    white-space: nowrap;
 
     .sound-animation {
-      width: 24px;
+      width: 36px;
     }
   }
 
