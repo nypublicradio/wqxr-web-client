@@ -35,48 +35,45 @@ $font-body-bold: "OpenSans-Bold", sans-serif;
 }
 
 .stream-banner .stream-banner-dropdown.ember-power-select-dropdown {
-  left: -210px;
-  top: -6px;
-  width: 200px;
-
-  @media (min-width: $small) {
-    left: -245px;
-    width: 235px;
-  }
-}
-
-.stream-banner__active-stream {
-  background: rgba(0, 0, 0, 0.15);
-  border-radius: 18px;
-  color: #ffffff;
-  font-family: $font-body;
-  font-size: 12px;
-  height: 36px;
-  letter-spacing: 1.2px;
-  line-height: 36px;
-  min-width: 180px;
-  padding-left: 24px;
-  padding-right: 24px;
-  text-transform: uppercase;
-
-  .sound-animation {
-    width: 24px;
-  }
+  top: 0px;
 }
 
 .stream-banner__trigger {
-  align-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  border-radius: 12px;
-  color: #FFFFFF;
-  font-family: $font-body;
-  font-weight: bold;
-  font-size: 9.989px;
-  height: 24px;
-  justify-content: center;
-  letter-spacing: 1.6px;
-  text-transform: uppercase;
-  width: 136px;
+  .stream-banner__active-stream {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 18px;
+    color: #ffffff;
+    font-family: $font-body;
+    font-size: 12px;
+    height: 36px;
+    letter-spacing: 1.2px;
+    line-height: 36px;
+    min-width: 180px;
+    padding-left: 24px;
+    padding-right: 24px;
+    text-align: center;
+    text-transform: uppercase;
+
+    .sound-animation {
+      width: 24px;
+    }
+  }
+
+  .more-streams-label {
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    color: #FFFFFF;
+    display: flex;
+    font-family: $font-body;
+    font-weight: bold;
+    font-size: 9.989px;
+    height: 24px;
+    justify-content: center;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    width: 136px;
+  }
 }
 
 .sitechrome-top {
