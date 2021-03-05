@@ -10,6 +10,6 @@ module('Integration | Component | stream-banner/dropdown', function(hooks) {
     this.set('stream', { 'name': 'WQXR 105.9' });
     await render(hbs`{{stream-banner/dropdown activeStream=stream}}`);
     assert.dom('.stream-banner__active-stream').hasText('WQXR 105.9');
-    assert.dom('.more-streams-label').hasText('+ More Streams');
+    assert.dom('.more-streams-label').hasText('');
   });
 });
