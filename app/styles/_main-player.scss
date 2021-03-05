@@ -46,7 +46,7 @@ $font-body-bold: "OpenSans-Bold", sans-serif;
   flex-direction: column;
   align-items: center;
 
-  @media (min-width: $medium) {
+  @media (min-width: $xsmall) {
     flex-direction: row;
   }
 
@@ -68,7 +68,7 @@ $font-body-bold: "OpenSans-Bold", sans-serif;
     text-transform: uppercase;
     white-space: nowrap;
 
-    @media (min-width: $medium) {
+    @media (min-width: $xsmall) {
       margin-bottom: 0px;
       margin-right: 10px;
     }
@@ -79,6 +79,17 @@ $font-body-bold: "OpenSans-Bold", sans-serif;
   }
 
   .more-streams-label {
+    &:after {
+      content: "+ More Streams";
+
+      @media (min-width: $xsmall) {
+        content: "+ Streams";
+      }
+
+      @media (min-width: $medium) {
+        content: "+ More Streams";
+      }
+    }
     align-items: center;
     border: 1px solid rgba(255, 255, 255, 0.7);
     border-radius: 12px;
