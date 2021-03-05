@@ -250,6 +250,10 @@ $font-body: "Open Sans", sans-serif;
     &.listen-button {
       border: none;
 
+      &:active {
+        background-color: #ffffff;
+      }
+
       &:hover {
         background-color: #ffffff;
         color: $water-blue;
@@ -262,6 +266,7 @@ $font-body: "Open Sans", sans-serif;
       &.blue-boss {
         @include blue-listen-spinner;
         @include blue-svg;
+        background-color: #ffffff;
       }
 
       .icon--play {
