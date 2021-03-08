@@ -142,7 +142,7 @@
   "dependencies": {
     "abortcontroller-polyfill": "^1.2.5",
     "cypress": "^3.2.0",
-    "dotenv": "^7.0.0",
+    "dotenv": "^8.2.0",
     "eslint-plugin-cypress": "^2.11.2",
     "fastboot-app-server": "^3.0.0",
     "nypr-fastboot": "nypublicradio/nypr-fastboot#nc/fork",
