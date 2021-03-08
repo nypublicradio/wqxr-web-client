@@ -10,7 +10,7 @@
   {{/if}}
 
   <section class="main-player-section">
-    {{#stream-banner background=background streams=streams as |currentStream banner|}}
+    {{#stream-banner class='l-container' background=background streams=streams as |currentStream banner|}}
        {{#banner.header as |header|}}
          {{component header.stationTitle}}
          {{#header.dropdown as |stream|}}
