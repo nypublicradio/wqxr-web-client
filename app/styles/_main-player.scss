@@ -26,7 +26,7 @@ $font-body: "Open Sans", sans-serif;
   justify-content: center;
   margin-bottom: 24px;
 
-  @media (min-width: $medium) {
+  @media only screen and (min-width: $medium) {
     justify-content: left;
     margin-bottom: 48px;
   }
@@ -44,7 +44,7 @@ $font-body: "Open Sans", sans-serif;
   flex-direction: column;
   align-items: center;
 
-  @media (min-width: $xsmall) {
+  @media only screen and (min-width: $xsmall) {
     flex-direction: row;
   }
 
@@ -66,7 +66,7 @@ $font-body: "Open Sans", sans-serif;
     text-transform: uppercase;
     white-space: nowrap;
 
-    @media (min-width: $xsmall) {
+    @media only screen and (min-width: $xsmall) {
       margin-bottom: 0px;
       margin-right: 10px;
     }
@@ -80,11 +80,11 @@ $font-body: "Open Sans", sans-serif;
     &:after {
       content: "+ More Streams";
 
-      @media (min-width: $xsmall) {
+      @media only screen and (min-width: $xsmall) {
         content: "+ Streams";
       }
 
-      @media (min-width: $medium) {
+      @media only screen and (min-width: $medium) {
         content: "+ More Streams";
       }
     }
@@ -106,12 +106,12 @@ $font-body: "Open Sans", sans-serif;
 
 .sitechrome-top {
   @media only screen and (min-width: 1025px) {
-    margin-bottom: 1rem;
+    margin-bottom: 0px;
   }
 }
 
 .sitechrome-page-content-area {
-  @media (min-width: 769px) {
+  @media only screen and (min-width: 769px) {
     margin-top: 0px;
   }
 }
@@ -122,6 +122,15 @@ $font-body: "Open Sans", sans-serif;
   background-repeat: no-repeat;
   background-size: cover;
   margin-bottom: 0px;
+
+  @media only screen and (min-width: $small) {
+    min-height: 344px;
+  }
+
+  @media only screen and (min-width: $large) {
+    margin-bottom: 1.5rem;
+    max-height: 344px;
+  }
 }
 
 .main-player {
@@ -129,7 +138,7 @@ $font-body: "Open Sans", sans-serif;
   display: flex;
   flex-direction: column;
 
-  @media (min-width: $medium) {
+  @media only screen and (min-width: $medium) {
     align-content: center;
     display: grid;
     grid-template-columns: minmax(min-content, max-content);
@@ -146,7 +155,7 @@ $font-body: "Open Sans", sans-serif;
     min-width: 120px;
     margin-bottom: 16px;
 
-    @media (min-width: $medium) {
+    @media only screen and (min-width: $medium) {
       grid-column-start: 1;
       grid-column-end: 2;
       grid-row-start: 1;
@@ -160,7 +169,7 @@ $font-body: "Open Sans", sans-serif;
 
     &.round {
       border-radius: 60px;
-      @media (min-width: $medium) {
+      @media only screen and (min-width: $medium) {
         border-radius: 84px;
       }
     }
@@ -179,7 +188,7 @@ $font-body: "Open Sans", sans-serif;
     text-transform: uppercase;
     width: 82px;
 
-    @media (min-width: $medium) {
+    @media only screen and (min-width: $medium) {
       font-size: 12px;
       grid-column-start: 2;
       grid-column-end: 3;
@@ -200,7 +209,7 @@ $font-body: "Open Sans", sans-serif;
     margin-bottom: 32px;
     text-align: center;
 
-    @media (min-width: $medium) {
+    @media only screen and (min-width: $medium) {
       align-self: start;
       font-size: 25.6289px;
       grid-column-start: 2;
@@ -212,7 +221,7 @@ $font-body: "Open Sans", sans-serif;
       text-align: left;
     }
 
-    @media (min-width: $xlarge) {
+    @media only screen and (min-width: $xlarge) {
       font-size: 32.437px;
       line-height: 36px;
     }
@@ -229,7 +238,7 @@ $font-body: "Open Sans", sans-serif;
     text-transform: uppercase;
     width: 234px;
 
-    @media (min-width: $medium) {
+    @media only screen and (min-width: $medium) {
       align-self: start;
       grid-column-start: 2;
       grid-column-end: 3;
@@ -239,7 +248,7 @@ $font-body: "Open Sans", sans-serif;
       width: 210px;
     }
 
-    @media (min-width: $xlarge) {
+    @media only screen and (min-width: $xlarge) {
       grid-column-start: 2;
       grid-column-end: 3;
       grid-row-start: 3;
@@ -287,7 +296,7 @@ $font-body: "Open Sans", sans-serif;
     padding-right: 20px;
     width: 100%;
 
-    @media (min-width: $medium) {
+    @media only screen and (min-width: $medium) {
       align-self: start;
       grid-column-start: 1;
       grid-column-end: 3;
@@ -299,7 +308,7 @@ $font-body: "Open Sans", sans-serif;
       width: 100%;
     }
 
-    @media (min-width: $large) {
+    @media only screen and (min-width: $large) {
       grid-column-start: 3;
       grid-column-end: 4;
       grid-row-start: 1;
