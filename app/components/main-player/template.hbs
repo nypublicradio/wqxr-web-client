@@ -1,11 +1,15 @@
 {{#if hostImageTemplateUrl}}
-    <img class="on-air-image round" src="{{image-template hostImageTemplateUrl 200 200 hostImageCropSetting}}" />
+    <img class="on-air-image round"
+         src="{{image-template hostImageTemplateUrl 200 200 hostImageCropSetting}}"
+         onerror="this.onerror=null;this.src='/assets/img/error/host.png'" />
 {{else}}
     {{#if showImageUrl}}
-        <img class="on-air-image" src="{{showImageUrl}}" />
+        <img class="on-air-image" src="{{showImageUrl}}"
+             onerror="this.onerror=null;this.src='/assets/img/error/host.png'" />
     {{else}}
         {{#if streamImageUrl}}
-            <img class="on-air-image" src="{{streamImageUrl}}" />
+            <img class="on-air-image" src="{{streamImageUrl}}"
+            onerror="this.onerror=null;this.src='/assets/img/error/host.png'" />
         {{/if}}
     {{/if}}
 {{/if}}
