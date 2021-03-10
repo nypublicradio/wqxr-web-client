@@ -13,6 +13,16 @@ $denim-blue: #00518E;
 
 $font-body: "Open Sans", sans-serif;
 
+.stream-banner {
+  padding-left: 0px;
+  padding-right: 0px;
+
+  @media only screen and (min-width: $medium) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
 .stream-banner-card {
   background-color: transparent;
   border-top: none;
@@ -59,9 +69,8 @@ $font-body: "Open Sans", sans-serif;
     line-height: 36px;
     margin-bottom: 16px;
     margin-right: 0px;
-    min-width: 180px;
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: 18px;
+    padding-right: 18px;
     text-align: center;
     text-transform: uppercase;
     white-space: nowrap;
@@ -99,8 +108,9 @@ $font-body: "Open Sans", sans-serif;
     height: 24px;
     justify-content: center;
     letter-spacing: 1.6px;
+    padding-left: 13px;
+    padding-right: 13px;
     text-transform: uppercase;
-    width: 136px;
   }
 }
 
