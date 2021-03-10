@@ -159,6 +159,8 @@ $font-body: "Open Sans", sans-serif;
 
   .on-air-image {
     background-color: #808080;
+    background-image: url('/assets/img/image-loading.gif');
+    background-repeat: no-repeat;
     border-radius: 2px;
     max-height: 120px;
     max-width: 120px;
