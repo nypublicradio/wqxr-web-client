@@ -11,7 +11,7 @@ import config from 'wqxr-web-client/config/environment';
 import moment from 'moment';
 
 import { setupApplicationTest } from 'ember-qunit';
-import { module } from 'qunit';
+import { module, skip } from 'qunit';
 
 import DummyConnection from 'ember-hifi/hifi-connections/dummy-connection';
 
@@ -241,7 +241,7 @@ module('Acceptance | Listing Page | viewing', function(hooks) {
     assert.ok(find('.sitechrome-btn'), 'donate chunk should reset after navigating');
   });
 
-  test('show pages with a play param', async function(assert) {
+  skip('show pages with a play param', async function(assert) {
     setupHifi(this.owner);
 
     let story = server.create('story');

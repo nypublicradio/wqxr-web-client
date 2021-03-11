@@ -1,7 +1,7 @@
 import { click, findAll, currentURL, visit, waitFor } from '@ember/test-helpers';
 import test from 'ember-sinon-qunit/test-support/test';
 import { setupApplicationTest } from 'ember-qunit';
-import { module } from 'qunit';
+import { module, skip } from 'qunit';
 
 import DummyConnection from 'ember-hifi/hifi-connections/dummy-connection';
 
@@ -34,7 +34,7 @@ module('Acceptance | streams', function(hooks) {
     );
   });
 
-  test('playing a stream', async function(assert) {
+  skip('playing a stream', async function(assert) {
     setupHifi(this.owner);
     server.createList('stream', 7);
     server.createList('whats-on', 7);

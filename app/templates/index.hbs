@@ -9,45 +9,26 @@
     </section>
   {{/if}}
 
-  <section class="l-container l-container--touch-full">
-    {{#stream-banner background=background streams=streams as |currentStream banner|}}
-      {{#banner.header as |header|}}
-        {{component header.stationTitle}}
-        {{#header.dropdown as |stream|}}
-          {{stream.name}}
-        {{/header.dropdown}}
-      {{/banner.header}}
+  <section class="main-player-section">
+    {{#stream-banner class='l-container' background=background streams=streams as |currentStream banner|}}
+       {{#banner.header as |header|}}
+         {{component header.stationTitle}}
+         {{#header.dropdown as |stream|}}
+           {{stream.name}}
+         {{/header.dropdown}}
+       {{/banner.header}}
 
-      {{#banner.details}}
-        {{#if currentStream.currentPiece}}
-          <h2 class="h2">{{currentStream.currentComposer.name}}</h2>
-          <h3 class="h3">{{currentStream.currentPiece}}</h3>
-        {{else}}
-          <h2 class="h2">{{currentStream.currentShow.showTitle}}</h2>
-          {{#if currentStream.currentShow.episodeTitle}}
-            <h3 class="h3">{{currentStream.currentShow.episodeTitle}}</h3>
-          {{/if}}
-        {{/if}}
-      {{/banner.details}}
-
-      {{#banner.controls}}
-        {{#listen-button
-          class='stream-banner-listenbutton nudge'
-          data-action="Clicked Play/Pause Stream: stream-banner"
-          data-label=currentStream.name
-          type='blue-boss'
-          itemPK=currentStream.slug
-          itemTitle=currentStream.name}}
-          Listen Live
-        {{/listen-button}}
-      {{/banner.controls}}
-
-      {{#if (and currentStream.currentComposer.name currentStream.currentPiece)}}
-        {{#link-to 'playlist-daily' (query-params scheduleStation=currentStream.slug) class='stream-banner-recently link--blue'}}
-          Recently played
-          {{nypr-svg className="icon rotate-minus90" icon="caret-down"}}
-        {{/link-to}}
-      {{/if}}
+      {{#main-player
+        onAirTitle=(if currentStream.currentShow.showTitle currentStream.currentShow.showTitle currentStream.name)
+        hostImageTemplateUrl=currentStream.hostImageTemplateUrl
+        hostImageCropSetting=currentStream.hostImageCropSetting
+        showImageUrl=currentStream.currentShow.fullImage.url
+        streamName=currentStream.name
+        streamSlug=currentStream.slug
+        streamImageUrl=currentStream.imageLogo
+        currentTrack=currentStream.currentPlaylistItem
+      }}
+      {{/main-player}}
     {{/stream-banner}}
   </section>
 

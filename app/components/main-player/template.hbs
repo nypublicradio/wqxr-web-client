@@ -1,0 +1,44 @@
+{{#if hostImageTemplateUrl}}
+    <img class="on-air-image round"
+         src="{{image-template hostImageTemplateUrl 200 200 hostImageCropSetting}}"
+         onerror="this.onerror=null;this.src='/assets/img/error/host.png'" />
+{{else}}
+    {{#if showImageUrl}}
+        <img class="on-air-image" src="{{showImageUrl}}"
+             onerror="this.onerror=null;this.src='/assets/img/error/host.png'" />
+    {{else}}
+        {{#if streamImageUrl}}
+            <img class="on-air-image" src="{{streamImageUrl}}"
+            onerror="this.onerror=null;this.src='/assets/img/error/host.png'" />
+        {{/if}}
+    {{/if}}
+{{/if}}
+<div class="on-air-label">On Air Now</div>
+<div class="on-air-title">{{onAirTitle}}</div>
+{{#listen-button
+    class='listen-live-button'
+    data-action="Clicked Play/Pause Stream: stream-banner"
+    data-label=streamName
+    itemPK=streamSlug
+    itemTitle=streamName
+    type='blue-boss'
+}}
+Listen Live
+{{/listen-button}}
+{{#if currentTrack}}
+<div class="playlist-history">
+    <div class="dot mod-large"></div>
+    <div class="line"></div>
+    <div class="current-track">
+        <div class="heading">Currently Playing</div>
+        {{#main-player/track-info
+            composerName=currentTrack.catalogEntry.composer.name
+            trackTitle=currentTrack.catalogEntry.title}}
+        {{/main-player/track-info}}
+    </div>
+    {{#link-to 'playlist-daily' (query-params scheduleStation=streamSlug) class='view-play-history'}}
+        View Play History
+    {{/link-to}}
+</div>
+{{/if}}
+{{yield}}
