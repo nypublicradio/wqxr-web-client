@@ -5,6 +5,8 @@ import PlayParamMixin from 'wqxr-web-client/mixins/play-param';
 import DS from 'ember-data';
 import RSVP from 'rsvp';
 
+const STREAM_BG = '/assets/img/backgrounds/transparent.png'
+
 export default Route.extend(PlayParamMixin, {
   googleAds:  service(),
   classNames: ['home'],
@@ -45,5 +47,6 @@ export default Route.extend(PlayParamMixin, {
       })
     });
     controller.set('streams', streams);
+    controller.set('background', STREAM_BG);
   }
 });
