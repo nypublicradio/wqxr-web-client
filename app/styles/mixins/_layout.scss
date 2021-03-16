@@ -7,7 +7,7 @@
 
 @mixin x-scrollable {
   > .scrollable-body {
-    background-color: $wqxrdarkblue;
+    background-color: $wqxrdarkdarkblue;
     overflow-x: scroll;
     white-space: nowrap;
     // 35% is with width of the gradient

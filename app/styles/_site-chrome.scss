@@ -38,7 +38,7 @@ the DOM */
 .sitechrome-top {
   padding-top: 20px;
   @extend %vertical-rhythm;
-  background: $wqxrblue;
+  background: $wqxrdarkdarkblue;
 
   @include mq($up-to-large) {
     margin-bottom: 0;
@@ -79,7 +79,7 @@ the DOM */
 }
 
 .sitechrome-nav {
-  background-color: $wqxrblue;
+  background-color: $wqxrdarkdarkblue;
   transition: all 50ms ease;
   //for mobile header snap
   width: 100%;
@@ -92,7 +92,7 @@ the DOM */
   }
 
   ul.alignright {
-    border-color: $wqxrblue;
+    border-color: $wqxrdarkdarkblue;
   }
 
   a,
@@ -265,7 +265,7 @@ the DOM */
   }
 
   &.nav--homepage {
-    background-color: $wqxrblue;
+    background-color: $wqxrdarkdarkblue;
 
     @include mq($large-and-up) {
       a,
@@ -279,7 +279,7 @@ the DOM */
       }
 
       ul.alignright {
-        border-color: $wqxrblue;
+        border-color: $wqxrdarkdarkblue;
       }
     }
   }
@@ -396,7 +396,7 @@ the DOM */
 .sitechrome-btn {
   display: inline-block;
   border-radius: 25px;
-  color: $wqxrblue;
+  color: $wqxrdarkdarkblue;
   border: none;
   padding: 2px 18px 2px 18px;
   background: white;
@@ -419,14 +419,14 @@ the DOM */
   flex-shrink: 0;
 
   @include mq($large-and-up) {
-    background: $wqxrdarkblue;
+    background: $wqxrdarkdarkblue;
     color: white;
     line-height: 36px;
 
     &:hover,
     &:focus {
       color: white;
-      background: rgba($wqxrdarkblue, 0.8);
+      background: rgba($wqxrdarkdarkblue, 0.8);
     }
   }
 
@@ -438,7 +438,7 @@ the DOM */
 }
 
 .nypr-social-icons {
-  background: #00aeff;
+  background-color: $wqxrdarkdarkblue;
 }
 
 .sitechrome__nav-footer {
