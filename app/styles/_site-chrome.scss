@@ -208,6 +208,10 @@ the DOM */
     .listen-ui {
       width: auto;
     }
+
+    &:hover {
+      color: #ffffff;
+    }
   }
 
   @include mq($large-and-up) {
