@@ -68,7 +68,7 @@
       <ul class="list list--noborder flush alignright--desktop list--inline-exceptdesktop list--spaced text--small-mobile">
 
         <li class="list-item list-item--nav">
-          <!-- if css media query returns true for large screens  -->
+          {{!-- if css media query returns true for large screens  --}}
             {{#listen-button
               type='white-hollow-small'
               itemPK=preferredStream.slug
@@ -79,7 +79,7 @@
               class='stream-launcher gtm__click-tracking sitechrome__listen-desktop'}}
               <span>Listen Live</span>
             {{/listen-button}}
-          <!-- else -->
+          {{!-- else --}}
             {{!-- This 'button' is a top nav item that looks like a link. it doesn't show an icon to reflect state --}}
             {{!-- So clicking will always trigger a play action (and not a pause), state is locked to 'is-paused'  --}}
             {{#listen-button
@@ -93,7 +93,7 @@
               playContext='nav'}}
               <span>Listen Live</span>
             {{/listen-button}}
-          <!-- if -->
+          {{!-- if --}}
         </li>
 
         <li id="ember776" class="list-item list-item--nav">
