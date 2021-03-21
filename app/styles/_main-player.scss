@@ -75,6 +75,10 @@ $font-body: "Open Sans", sans-serif;
     text-transform: uppercase;
     white-space: nowrap;
 
+    &:hover {
+      background: rgba(0,0,0,0.25);
+    }
+
     @media only screen and (min-width: $xsmall) {
       margin-bottom: 0px;
       margin-right: 10px;
@@ -98,6 +102,10 @@ $font-body: "Open Sans", sans-serif;
         content: "+ More Streams";
       }
     }
+    &:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
     align-items: center;
     border: 1px solid rgba(255, 255, 255, 0.7);
     border-radius: 12px;
@@ -250,6 +258,11 @@ $font-body: "Open Sans", sans-serif;
     padding: 0px;
     text-transform: uppercase;
     width: 234px;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0px 8px 12px rgba(0, 0, 0, .15);
+    }
 
     @media only screen and (min-width: $medium) {
       align-self: start;
