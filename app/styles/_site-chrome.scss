@@ -423,14 +423,14 @@ the DOM */
   flex-shrink: 0;
 
   @include mq($large-and-up) {
-    background: $wqxrdarkdarkblue;
+    background: $wqxrdarkblue;
     color: white;
     line-height: 36px;
 
     &:hover,
     &:focus {
       color: white;
-      background: rgba($wqxrdarkdarkblue, 0.8);
+      background: rgba($wqxrdarkblue, 0.8);
     }
   }
 
