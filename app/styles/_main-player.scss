@@ -59,7 +59,7 @@ $font-body: "Open Sans", sans-serif;
   }
 
   .stream-banner__active-stream {
-    background: rgba(0, 0, 0, 0.15);
+    background-color: rgba(0, 0, 0, 0.15);
     border-radius: 18px;
     color: #ffffff;
     font-family: $font-body;
@@ -74,6 +74,13 @@ $font-body: "Open Sans", sans-serif;
     text-align: center;
     text-transform: uppercase;
     white-space: nowrap;
+
+    transition-duration: .25s;
+    transition-property: background-color;
+    transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+    &:hover {
+      background-color: rgba(0,0,0,0.25);
+    }
 
     @media only screen and (min-width: $xsmall) {
       margin-bottom: 0px;
@@ -98,6 +105,14 @@ $font-body: "Open Sans", sans-serif;
         content: "+ More Streams";
       }
     }
+
+    transition-duration: .25s;
+    transition-property: background-color;
+    transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+    &:hover {
+      background-color: rgba(255,255,255,0.1);
+    }
+
     align-items: center;
     border: 1px solid rgba(255, 255, 255, 0.7);
     border-radius: 12px;
@@ -250,6 +265,14 @@ $font-body: "Open Sans", sans-serif;
     padding: 0px;
     text-transform: uppercase;
     width: 234px;
+
+    transition-duration: .25s;
+    transition-property: transform, box-shadow;
+    transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0px 8px 12px rgba(0, 0, 0, .15);
+    }
 
     @media only screen and (min-width: $medium) {
       align-self: start;

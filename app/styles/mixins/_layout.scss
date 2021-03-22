@@ -7,7 +7,7 @@
 
 @mixin x-scrollable {
   > .scrollable-body {
-    background-color: $wqxrdarkblue;
+    background-color: $wqxrdarkdarkblue;
     overflow-x: scroll;
     white-space: nowrap;
     // 35% is with width of the gradient
@@ -24,6 +24,6 @@
     top: 0;
     height: 100%;
     width: 15%;
-    background-image: linear-gradient(to right, rgba(0, 100, 180, 0.0), $wqxrdarkblue);
+    background-image: linear-gradient(to right, rgba(0, 100, 180, 0.0), $wqxrdarkdarkblue);
   }
 }
