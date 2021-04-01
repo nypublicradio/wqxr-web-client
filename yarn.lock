@@ -9920,9 +9920,28 @@ nypr-ads@^0.1.0:
     ember-cli-babel "^6.6.0"
     ember-cli-htmlbars "^2.0.1"
 
-nypr-audio-services@^0.6.0, nypr-audio-services@nypublicradio/nypr-audio-services#bkammin/WQXR-207_prevent_autoplay_on_stream_audio_ended:
+nypr-audio-services@^0.6.0:
   version "0.6.0"
   resolved "https://codeload.github.com/nypublicradio/nypr-audio-services/tar.gz/27fb33100a3dd180aefb888a1811448112ba555a"
+  dependencies:
+    ember-cli-babel "^7.12.0"
+    ember-cli-htmlbars "^2.0.1"
+    ember-cli-htmlbars-inline-precompile "^1.0.0"
+    ember-cli-sass "^7.0.0"
+    ember-diff-attrs "^0.2.1"
+    ember-fetch "^6.5.0"
+    ember-get-config "^0.2.2"
+    ember-hifi "^1.11.1"
+    ember-responsive "^3.0.0-beta.3"
+    ember-simple-auth "^1.3.0"
+    liquid-fire "^0.29.1"
+    nypr-metrics "^0.5.0"
+    nypr-ui "^0.5.0"
+
+nypr-audio-services@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/nypr-audio-services/-/nypr-audio-services-0.6.1.tgz#eeefee06b92fe1065716e8a95964236c04aac386"
+  integrity sha512-wylCZ19m4CHDKv5JA7cPuM8MANka/UPrV3VQbTMjniQuDm/EQEbpFkQ9YF+dzmXzPsOeqaaThk0m+m1UkF/7pA==
   dependencies:
     ember-cli-babel "^7.12.0"
     ember-cli-htmlbars "^2.0.1"
@@ -10018,9 +10037,10 @@ nypr-player@^0.4.3:
     ember-moment "^7.4.1"
     nypr-ui "^0.5.0"
 
-nypr-publisher-lib@nypublicradio/nypr-publisher-lib#bkammin/WQXR-207_prevent_autoplay_on_stream_audio_ended:
-  version "0.5.10"
-  resolved "https://codeload.github.com/nypublicradio/nypr-publisher-lib/tar.gz/d46cfc6542790d4ef1a5285f0744ea3c4db1087a"
+nypr-publisher-lib@^0.5.11:
+  version "0.5.11"
+  resolved "https://registry.yarnpkg.com/nypr-publisher-lib/-/nypr-publisher-lib-0.5.11.tgz#fb41ac73d98d12f55a03622b862b4c765cbb3694"
+  integrity sha512-lmPz81xKzhGBlnKieTO3diqAGmoyzv1QBoYqWNel75fQgglsljIevQGs1MIgqpLKt2Qg7GPocCX+rNcYLSWHRg==
   dependencies:
     "@fortawesome/ember-fontawesome" "^0.1.14"
     "@fortawesome/free-brands-svg-icons" "^5.10.1"
