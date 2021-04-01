@@ -5333,7 +5333,7 @@ ember-cli-version-checker@^2.0.0, ember-cli-version-checker@^2.1.0, ember-cli-ve
     resolve "^1.3.3"
     semver "^5.3.0"
 
-ember-cli-version-checker@^3.0.0, ember-cli-version-checker@^3.1.3:
+ember-cli-version-checker@^3.0.0:
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/ember-cli-version-checker/-/ember-cli-version-checker-3.1.3.tgz#7c9b4f5ff30fdebcd480b1c06c4de43bb51c522c"
   dependencies:
@@ -8762,20 +8762,6 @@ liquid-fire@^0.29.1, liquid-fire@^0.29.2, liquid-fire@~0.29.1:
     match-media "^0.2.0"
     velocity-animate "^1.5.1"
 
-liquid-fire@^0.31.0:
-  version "0.31.0"
-  resolved "https://registry.yarnpkg.com/liquid-fire/-/liquid-fire-0.31.0.tgz#6dc9f4785b5a06dcbe1a7ca4e8b130ac595ee2f5"
-  integrity sha512-KVI2vBB+6I1kvkOSD/S/Vjq5hYqlFw3zBLiRoCSIDj9LMWmm2GEKvQcmpxiqgsdjMS2VAFaqUd+9BJFRvCmIjA==
-  dependencies:
-    broccoli-funnel "^2.0.2"
-    broccoli-merge-trees "^3.0.2"
-    broccoli-stew "^2.1.0"
-    ember-cli-babel "^7.7.3"
-    ember-cli-htmlbars "^3.0.1"
-    ember-cli-version-checker "^3.1.3"
-    match-media "^0.2.0"
-    velocity-animate "^1.5.2"
-
 listr-silent-renderer@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/listr-silent-renderer/-/listr-silent-renderer-1.1.1.tgz#924b5a3757153770bf1a8e3fbf74b8bbf3f9242e"
@@ -9934,11 +9920,11 @@ nypr-ads@^0.1.0:
     ember-cli-babel "^6.6.0"
     ember-cli-htmlbars "^2.0.1"
 
-nypr-audio-services@^0.5.0:
-  version "0.5.9"
-  resolved "https://codeload.github.com/nypublicradio/nypr-audio-services/tar.gz/a7d599b43d30933ccee697673376e93582c93b4c"
+nypr-audio-services@^0.6.0:
+  version "0.6.0"
+  resolved "https://codeload.github.com/nypublicradio/nypr-audio-services/tar.gz/27fb33100a3dd180aefb888a1811448112ba555a"
   dependencies:
-    ember-cli-babel "^6.6.0"
+    ember-cli-babel "^7.12.0"
     ember-cli-htmlbars "^2.0.1"
     ember-cli-htmlbars-inline-precompile "^1.0.0"
     ember-cli-sass "^7.0.0"
@@ -9948,15 +9934,14 @@ nypr-audio-services@^0.5.0:
     ember-hifi "^1.11.1"
     ember-responsive "^3.0.0-beta.3"
     ember-simple-auth "^1.3.0"
-    eslint-plugin-ember "^5.0.0"
-    liquid-fire "^0.31.0"
-    nypr-metrics "0.7.1"
+    liquid-fire "^0.29.1"
+    nypr-metrics "^0.5.0"
     nypr-ui "^0.5.0"
 
-nypr-audio-services@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/nypr-audio-services/-/nypr-audio-services-0.6.0.tgz#17a0ec3092767be1b9d15cd0958cd99e403e2965"
-  integrity sha512-Q4NxdcutOk4ps15bAVDaGIXAwwGk0benJM8baJpP55Mh0Q+KSsW2GT+v3SPEWg58U4byTmbpoa7x2NCUfoGbvw==
+nypr-audio-services@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/nypr-audio-services/-/nypr-audio-services-0.6.1.tgz#eeefee06b92fe1065716e8a95964236c04aac386"
+  integrity sha512-wylCZ19m4CHDKv5JA7cPuM8MANka/UPrV3VQbTMjniQuDm/EQEbpFkQ9YF+dzmXzPsOeqaaThk0m+m1UkF/7pA==
   dependencies:
     ember-cli-babel "^7.12.0"
     ember-cli-htmlbars "^2.0.1"
@@ -10020,7 +10005,7 @@ nypr-fastboot@nypublicradio/nypr-fastboot#nc/fork:
     ember-cli-babel "^7.11.1"
     ember-cli-htmlbars "^4.0.0"
 
-nypr-metrics@0.7.1, nypr-metrics@^0.5.0, nypr-metrics@^0.5.1:
+nypr-metrics@^0.5.0, nypr-metrics@^0.5.1:
   version "0.5.4"
   resolved "https://registry.yarnpkg.com/nypr-metrics/-/nypr-metrics-0.5.4.tgz#8fcd3abec5412e8826951f034c2307334b8c3965"
   dependencies:
@@ -10052,10 +10037,10 @@ nypr-player@^0.4.3:
     ember-moment "^7.4.1"
     nypr-ui "^0.5.0"
 
-nypr-publisher-lib@^0.5.10:
-  version "0.5.10"
-  resolved "https://registry.yarnpkg.com/nypr-publisher-lib/-/nypr-publisher-lib-0.5.10.tgz#2a40155db8d5c18add24c2d817f42033b07f78cc"
-  integrity sha512-DTYZBmSwP9JLc4zCqbGAa+3hRNeSIozkDs3x0sCg6rMbgz9rdTQtQzll6qJnw+olygyFWrpVN85UIgVenLCBIw==
+nypr-publisher-lib@^0.5.11:
+  version "0.5.11"
+  resolved "https://registry.yarnpkg.com/nypr-publisher-lib/-/nypr-publisher-lib-0.5.11.tgz#fb41ac73d98d12f55a03622b862b4c765cbb3694"
+  integrity sha512-lmPz81xKzhGBlnKieTO3diqAGmoyzv1QBoYqWNel75fQgglsljIevQGs1MIgqpLKt2Qg7GPocCX+rNcYLSWHRg==
   dependencies:
     "@fortawesome/ember-fontawesome" "^0.1.14"
     "@fortawesome/free-brands-svg-icons" "^5.10.1"
@@ -10070,7 +10055,7 @@ nypr-publisher-lib@^0.5.10:
     ember-click-outside "^0.1.12"
     ember-get-config "^0.2.2"
     liquid-fire "~0.29.1"
-    nypr-audio-services "^0.5.0"
+    nypr-audio-services "^0.6.0"
     nypr-django-for-ember "^0.4.0"
     nypr-ui "^0.5.0"
 
@@ -12893,7 +12878,7 @@ vary@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
 
-velocity-animate@^1.5.1, velocity-animate@^1.5.2:
+velocity-animate@^1.5.1:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/velocity-animate/-/velocity-animate-1.5.2.tgz#5a351d75fca2a92756f5c3867548b873f6c32105"
 
