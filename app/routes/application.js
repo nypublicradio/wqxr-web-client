@@ -82,12 +82,21 @@ export default Route.extend(ApplicationRouteMixin, {
       let hostImageTemplateUrl = get(show, 'about.people.firstObject.image.template');
       if (hostImageTemplateUrl) {
         stream.set('hostImageTemplateUrl', hostImageTemplateUrl);
+      } else {
+        stream.set('hostImageTemplateUrl', undefined);
       }
 
       let hostImageCropSetting = get(show, 'about.people.firstObject.image.crop');
       if (hostImageCropSetting) {
         stream.set('hostImageCropSetting', hostImageCropSetting);
+      } else {
+        stream.set('hostImageCropSetting', undefined);
       }
+    }
+
+    let clearShowMetadata = function(stream) {
+      stream.set('hostImageTemplateUrl', undefined);
+      stream.set('hostImageCropSetting', undefined);
     }
 
     var self = this
@@ -95,7 +104,7 @@ export default Route.extend(ApplicationRouteMixin, {
       get(self, 'store').findAll('stream').then(function(streams) {
         streams.forEach(function(stream) {
           let showSlug = stream.get('currentShow') ? stream.get('currentShow').group_slug : null
-          if (showSlug) {
+          if (showSlug && showSlug !== 'airing') {
             let show = get(self, 'store').peekRecord('show', showSlug);
             if (show) {
               setShowMetadata(stream, show)
@@ -104,6 +113,8 @@ export default Route.extend(ApplicationRouteMixin, {
                 setShowMetadata(stream, show)
               });
             }
+          } else {
+            clearShowMetadata(stream);
           }
         })
       });
