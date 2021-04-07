@@ -101,7 +101,7 @@ export default Route.extend(ApplicationRouteMixin, {
 
     var self = this
     let pollFunction = function() {
-      get(self, 'store').findAll('stream').then(function(streams) {
+      get(self, 'store').findAll('stream', {reload: true}).then(function(streams) {
         streams.forEach(function(stream) {
           let showSlug = stream.get('currentShow') ? stream.get('currentShow').group_slug : null
           if (showSlug && showSlug !== 'airing') {
