@@ -80,22 +80,23 @@ export default Route.extend(ApplicationRouteMixin, {
 
     let setShowMetadata = function(stream, show) {
       let hostImageTemplateUrl = get(show, 'about.people.firstObject.image.template');
-      if (hostImageTemplateUrl) {
-        stream.set('hostImageTemplateUrl', hostImageTemplateUrl);
-      }
+      stream.set('hostImageTemplateUrl', hostImageTemplateUrl || undefined);
 
       let hostImageCropSetting = get(show, 'about.people.firstObject.image.crop');
-      if (hostImageCropSetting) {
-        stream.set('hostImageCropSetting', hostImageCropSetting);
-      }
+      stream.set('hostImageCropSetting', hostImageCropSetting || undefined);
+    }
+
+    let clearShowMetadata = function(stream) {
+      stream.set('hostImageTemplateUrl', undefined);
+      stream.set('hostImageCropSetting', undefined);
     }
 
     var self = this
     let pollFunction = function() {
-      get(self, 'store').findAll('stream').then(function(streams) {
+      get(self, 'store').findAll('stream', {reload: true}).then(function(streams) {
         streams.forEach(function(stream) {
           let showSlug = stream.get('currentShow') ? stream.get('currentShow').group_slug : null
-          if (showSlug) {
+          if (showSlug && showSlug !== 'airing') {
             let show = get(self, 'store').peekRecord('show', showSlug);
             if (show) {
               setShowMetadata(stream, show)
@@ -104,6 +105,8 @@ export default Route.extend(ApplicationRouteMixin, {
                 setShowMetadata(stream, show)
               });
             }
+          } else {
+            clearShowMetadata(stream);
           }
         })
       });
