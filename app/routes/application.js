@@ -80,18 +80,10 @@ export default Route.extend(ApplicationRouteMixin, {
 
     let setShowMetadata = function(stream, show) {
       let hostImageTemplateUrl = get(show, 'about.people.firstObject.image.template');
-      if (hostImageTemplateUrl) {
-        stream.set('hostImageTemplateUrl', hostImageTemplateUrl);
-      } else {
-        stream.set('hostImageTemplateUrl', undefined);
-      }
+      stream.set('hostImageTemplateUrl', hostImageTemplateUrl || undefined);
 
       let hostImageCropSetting = get(show, 'about.people.firstObject.image.crop');
-      if (hostImageCropSetting) {
-        stream.set('hostImageCropSetting', hostImageCropSetting);
-      } else {
-        stream.set('hostImageCropSetting', undefined);
-      }
+      stream.set('hostImageCropSetting', hostImageCropSetting || undefined);
     }
 
     let clearShowMetadata = function(stream) {
