@@ -40,8 +40,8 @@ Listen Live
     {{/if}}
 
     {{#if lastTrack}}
-        <div class="middle dot"></div>
-        <div class="track last-track">
+        <div class="middle dot {{if currentTrack "current-track-spacing"}}"></div>
+        <div class="track last-track {{if currentTrack "current-track-spacing"}}">
             <div class="heading">Last Played</div>
             {{#main-player/track-info
                 composerName=lastTrack.catalogEntry.composer.name
