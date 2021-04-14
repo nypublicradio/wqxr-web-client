@@ -19,4 +19,15 @@ export default StreamModel.extend({
 
     return ({shareText, shareUrl, via});
   }),
+  previousPlaylistItem: computed('previous', 'currentPlaylistItem', function() {
+    let lastTrack = get(this, "previous.firstObject");
+    if (lastTrack && !this._trackIsStale(lastTrack)) {
+      return lastTrack;
+    }
+    return null;
+  }),
+  _trackIsStale(track) {
+    let secondsSinceEpoch = Math.round(Date.now() / 1000)
+    return secondsSinceEpoch - track.startTimeTs > (60 * 60);
+  }
 })
