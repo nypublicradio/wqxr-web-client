@@ -1,6 +1,7 @@
 import StreamAdapter from 'nypr-publisher-lib/adapters/stream';
 import DataAdapterMixin from 'ember-simple-auth/mixins/data-adapter-mixin';
 import rsvp from 'rsvp';
+import fetch from 'fetch';
 
 const json = r => r.json();
 
