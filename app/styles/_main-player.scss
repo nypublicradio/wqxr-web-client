@@ -155,12 +155,11 @@ $font-body: "Open Sans", sans-serif;
   margin-bottom: 0px;
 
   @media only screen and (min-width: $small) {
-    min-height: 344px;
+    min-height: 310px;
   }
 
   @media only screen and (min-width: $large) {
     margin-bottom: 1.5rem;
-    max-height: 344px;
   }
 }
 
