@@ -19,4 +19,11 @@ export default StreamAdapter.extend(DataAdapterMixin, {
       whatsOn: fetch(`${base}/whats_on/?previous=1`).then(json),
     });
   },
+  findRecord(store, type, id/*, snapshot*/) {
+    let base = `${this.host}/${this.namespace}`;
+    return rsvp.hash({
+      stream: fetch(`${base}/list/streams/${id}/`).then(json),
+      whatsOn: fetch(`${base}/whats_on/${id}/1`).then(json),
+    });
+  },
 });
