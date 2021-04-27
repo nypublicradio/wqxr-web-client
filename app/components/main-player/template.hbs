@@ -34,7 +34,9 @@ Listen Live
             <div class="heading">Currently Playing</div>
             {{#main-player/track-info
                 composerName=currentTrack.catalogEntry.composer.name
-                trackTitle=currentTrack.catalogEntry.title}}
+                trackTitle=currentTrack.catalogEntry.title
+                ensembleName=currentTrack.catalogEntry.ensemble.name
+                conductorName=currentTrack.catalogEntry.conductor.name}}
             {{/main-player/track-info}}
         </div>
     {{/if}}
@@ -45,7 +47,9 @@ Listen Live
             <div class="heading">Last Played</div>
             {{#main-player/track-info
                 composerName=lastTrack.catalogEntry.composer.name
-                trackTitle=lastTrack.catalogEntry.title}}
+                trackTitle=lastTrack.catalogEntry.title
+                ensembleName=lastTrack.catalogEntry.ensemble.name
+                conductorName=lastTrack.catalogEntry.conductor.name}}
             {{/main-player/track-info}}
         </div>
     {{/if}}
