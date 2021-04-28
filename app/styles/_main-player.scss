@@ -40,6 +40,11 @@ $font-body: "Open Sans", sans-serif;
     justify-content: left;
     margin-bottom: 48px;
   }
+
+  @media only screen and (min-width: $large) {
+    justify-content: left;
+    margin-bottom: 0px;
+  }
 }
 
 .stream-banner .stream-banner-dropdown.ember-power-select-dropdown {
@@ -150,12 +155,11 @@ $font-body: "Open Sans", sans-serif;
   margin-bottom: 0px;
 
   @media only screen and (min-width: $small) {
-    min-height: 344px;
+    min-height: 310px;
   }
 
   @media only screen and (min-width: $large) {
     margin-bottom: 1.5rem;
-    max-height: 344px;
   }
 }
 
@@ -184,15 +188,20 @@ $font-body: "Open Sans", sans-serif;
     margin-bottom: 16px;
 
     @media only screen and (min-width: $medium) {
+      align-self: start;
       grid-column-start: 1;
       grid-column-end: 2;
       grid-row-start: 1;
       grid-row-end: span 3;
       min-height: 168px;
       min-width: 168px;
-      margin: auto 24px auto 0px;
+      margin: 0px 24px 0px 0px;
       max-height: 168px;
       max-width: 168px;
+    }
+
+    @media only screen and (min-width: $large) {
+      margin-top: 48px;
     }
 
     &.round {
@@ -225,6 +234,10 @@ $font-body: "Open Sans", sans-serif;
       line-height: 16px;
       letter-spacing: 1.2px;
       width: 105px;
+    }
+
+    @media only screen and (min-width: $large) {
+      margin-top: 48px;
     }
   }
 
@@ -349,7 +362,7 @@ $font-body: "Open Sans", sans-serif;
       grid-column-end: 4;
       grid-row-start: 1;
       grid-row-end: span 3;
-      margin-top: 0px;
+      margin-top: 20px;
       padding-left: 20px;
       padding-right: 20px;
       width: 100%;
@@ -366,13 +379,26 @@ $font-body: "Open Sans", sans-serif;
         height: 16px;
         width: 16px;
       }
-    }
 
-    .dot {
-      grid-column-start: 1;
-      grid-column-end: 2;
-      grid-row-start: 1;
-      grid-row-end: span 1;
+      &.top {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: span 1;
+      }
+
+      &.middle {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: span 1;
+        margin-left: 4px;
+        margin-top: 5px;
+
+        &.current-track-spacing {
+          margin-top: 21px;
+        }
+      }
     }
 
     .line {
@@ -383,15 +409,11 @@ $font-body: "Open Sans", sans-serif;
       grid-column-start: 1;
       grid-column-end: 2;
       grid-row-start: 1;
-      grid-row-end: span 2;
+      grid-row-end: span 3;
     }
 
-    .current-track {
+    .track {
       display: grid;
-      grid-column-start: 2;
-      grid-column-end: 3;
-      grid-row-start: 1;
-      grid-row-end: span 1;
       grid-template-columns: minmax(min-content, max-content);
       grid-template-rows: minmax(min-content, max-content);
 
@@ -435,6 +457,24 @@ $font-body: "Open Sans", sans-serif;
       }
     }
 
+    .current-track {
+      grid-column-start: 2;
+      grid-column-end: 3;
+      grid-row-start: 1;
+      grid-row-end: span 1;
+    }
+
+    .last-track {
+      grid-column-start: 2;
+      grid-column-end: 3;
+      grid-row-start: 2;
+      grid-row-end: span 1;
+
+      &.current-track-spacing {
+        margin-top: 16px;
+      }
+    }
+
     .view-play-history {
       border-bottom: none;
       color: #ffffff;
@@ -443,7 +483,7 @@ $font-body: "Open Sans", sans-serif;
       font-weight: bold;
       grid-column-start: 2;
       grid-column-end: 3;
-      grid-row-start: 2;
+      grid-row-start: 3;
       grid-row-end: span 1;
       letter-spacing: 1.6px;
       line-height: 20px;
