@@ -1,15 +1,13 @@
-{{#main-player/track-additional-info
-  ensembleName=ensembleName
-  conductorName=conductorName
-}}
+
   <div data-test-element="track-info-composer" class="composer">
     {{composerName}}
   </div>
   <div data-test-element="track-info-title" class="title">
     {{trackTitle}}
-    {{#if (or ensembleName conductorName)}}
-      <span class="info">Info</span>
-    {{/if}}
+    {{#main-player/track-additional-info
+      ensembleName=ensembleName
+      conductorName=conductorName
+    }}{{/main-player/track-additional-info}}
   </div>
-{{/main-player/track-additional-info}}
+
 

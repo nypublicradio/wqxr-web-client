@@ -453,17 +453,6 @@ $font-body: "Open Sans", sans-serif;
           font-family: $font-body;
           font-size: 16px;
           line-height: 24px;
-
-          .info {
-            font-family: $font-body;
-            font-size: 11.24px;
-            font-weight: bold;
-            letter-spacing: 1.1px;
-            line-height: 15.73px;
-            margin-left: 4px;
-            text-decoration: underline;
-            text-transform: uppercase;
-          }
         }
       }
     }
@@ -524,6 +513,20 @@ $font-body: "Open Sans", sans-serif;
     font-size: 12px;
     line-height: 1.5;
   }
+}
+
+.track-additional-info {
+  display: inline;
+  .toggle-box {
+    display: inline;
+    .toggle-box__trigger {
+      display: inline;
+      .toggle-box__label {
+        display: inline;
+      }
+    }
+  }
+
 }
 
 // from app/styles/mixins in nypr-jukeboxes
@@ -634,6 +637,17 @@ $arrow_width: 8px;
   .o-icon {
     display: inline-flex;
     justify-content: center;
+  }
+
+  .info {
+    font-family: $font-body;
+    font-size: 11.24px;
+    font-weight: bold;
+    letter-spacing: 1.1px;
+    line-height: 15.73px;
+    margin-left: 4px;
+    text-decoration: underline;
+    text-transform: uppercase;
   }
 }
 
