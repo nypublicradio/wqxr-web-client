@@ -21,8 +21,6 @@ module('Integration | Component | toggle-box', function(hooks) {
       {{/toggle-box}}
     `);
 
-    // target span b/c there's an icon with assistive text in the label
-    assert.dom('.toggle-box__label span.the-label').hasText('Toggle Box Label');
     await clickTrigger();
     assert.dom('.toggle-box__dropdown').hasText('Dropdown Contents');
   });
