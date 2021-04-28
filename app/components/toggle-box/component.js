@@ -1,9 +1,7 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
-import { scheduleOnce } from '@ember/runloop';
+import { scheduleOnce, later, cancel } from '@ember/runloop';
 import toggleBoxPositioner from '../../utils/toggle-box-positioner';
-import { task, timeout } from 'ember-concurrency';
-import Ember from 'ember';
 
 export default Component.extend({
   classNames: ['toggle-box'],
@@ -13,20 +11,14 @@ export default Component.extend({
   icon: 'caret-down',
   closeDelay: 5000,
   contentClass: '',
+  timer: 0,
 
   contentClasses: computed('theme', function() {
     return `toggle-box__dropdown ${this.theme} ${this.contentClass}`;
   }),
 
   calculatePosition(trigger, content, _destination, ref) {
-    // Positions of elements were being calculated before they had
-    // fully finished rendering. This ensures positioning is being
-    // calculated correctly by positioning again after render
-
     scheduleOnce('afterRender',() => {
-      let obj = toggleBoxPositioner(trigger, content, _destination, ref);
-      ref.dropdown.applyReposition(trigger, content, obj)
-
       // #calculatePosition is called without this component's context
       // so we have to reach into this component through the ref argument
       ref.dropdown.parentView.hookUpContentListeners(content, ref);
@@ -39,7 +31,7 @@ export default Component.extend({
     let _this = ref.dropdown.parentView;
 
     let autoclose = () => {
-      _this.autoClose.perform(ref.dropdown)
+      _this.autoclose(ref.dropdown);
     }
 
     contentElement.addEventListener('mouseenter', autoclose, true);
@@ -48,12 +40,13 @@ export default Component.extend({
     autoclose(); // trigger the first autoclose, which will be cancelled/deferred with element interaction
   },
 
-  autoClose: task(function*(dropdown) {
-    // restartable concurrency task will close dropdown after 5 seconds
-    // task is renewed when its called again
-
-    if (this.closeDelay && !Ember.testing) {
-      yield timeout(this.closeDelay);
+  autoclose: function(dropdown) {
+    if (this.timer) {
+      cancel(this.timer);
+      this.timer = 0;
+    }
+    this.timer = later(this, function() {
+      this.timer = 0;
 
       // These differ based on how they were called, unfortunately
       if (dropdown && dropdown.actions && dropdown.actions.close) {
@@ -62,7 +55,6 @@ export default Component.extend({
       else if (dropdown && dropdown.close) {
         dropdown.close();
       }
-    }
-
-  }).restartable(),
+    }, this.closeDelay);
+  },
 });
