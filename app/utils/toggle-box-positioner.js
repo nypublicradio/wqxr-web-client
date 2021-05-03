@@ -22,7 +22,7 @@ export default function calculatePosition(trigger, content, _destination, ref) {
   //content.setAttribute('data-h-pos', horizontalPosition);
 
   obj['style']['top'] = obj['style']['top'] + bottomOffset;
- 
+
   let idealCenter = triggerLeft + triggerWidth / 2;
   let idealRight = viewportWidth - (idealCenter + contentWidth / 2);
   let viewportMargin = 12; // space between popup and edge of screen
