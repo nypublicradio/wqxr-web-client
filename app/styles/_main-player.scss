@@ -580,6 +580,11 @@ $arrow_width: 8px;
 .toggle-box__dropdown {
   border-radius: 4px;
   padding: 20px 25px;
+  max-width: calc(100% - 24px);
+
+  @media only screen and (min-width: $xsmall) {
+    max-width: 300px;
+  }
 }
 
 // Default dark theme

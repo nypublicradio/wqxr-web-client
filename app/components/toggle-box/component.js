@@ -19,6 +19,9 @@ export default Component.extend({
 
   calculatePosition(trigger, content, _destination, ref) {
     scheduleOnce('afterRender',() => {
+      let obj = toggleBoxPositioner(trigger, content, _destination, ref);
+      ref.dropdown.applyReposition(trigger, content, obj)
+
       // #calculatePosition is called without this component's context
       // so we have to reach into this component through the ref argument
       ref.dropdown.parentView.hookUpContentListeners(content, ref);

@@ -1,15 +1,7 @@
 import defaultCalculatePosition from 'ember-basic-dropdown/utils/calculate-position';
 
-const ARROW_WIDTH = 16;
-
 export default function calculatePosition(trigger, content, _destination, ref) {
-  let icon = trigger.querySelector('.o-icon--caret svg')
-  if (icon) {
-    trigger = icon
-  }
-  arguments[0] = trigger;
-
-  // Use the default positioner, but using the ^ arrow as the trigger point to align by
+  // Get initial settings from the default positioner
   let obj = defaultCalculatePosition(...arguments)
 
   let {
@@ -20,21 +12,36 @@ export default function calculatePosition(trigger, content, _destination, ref) {
   let {
     width: contentWidth,
   } = content.getBoundingClientRect();
+  let viewportWidth = document.body.clientWidth || window.innerWidth;
 
-  let { verticalPosition, horizontalPosition } = obj;
+  let { verticalPosition/*, horizontalPosition*/ } = obj;
   let bottomOffset = (verticalPosition == 'above' ? -10 : 10);
 
   // Set these attributes on the dropdown object so we can put the tab in the right spot
   content.setAttribute('data-v-pos', verticalPosition);
-  content.setAttribute('data-h-pos', horizontalPosition);
+  //content.setAttribute('data-h-pos', horizontalPosition);
 
   obj['style']['top'] = obj['style']['top'] + bottomOffset;
+ 
+  let idealCenter = triggerLeft + triggerWidth / 2;
+  let idealRight = viewportWidth - (idealCenter + contentWidth / 2);
+  let viewportMargin = 12; // space between popup and edge of screen
 
-  if (horizontalPosition == 'left') {
-    obj['style']['left'] = Math.abs(triggerLeft - (contentWidth / 3) - (ARROW_WIDTH / 2) + (triggerWidth / 2) + 1);
+  var right = idealRight;
+  if (right < viewportMargin) {
+    // push to the left
+    right = viewportMargin;
   }
-  else if (horizontalPosition == 'center') {
-    obj['style']['left'] = Math.abs(triggerLeft - contentWidth / 2  + (triggerWidth / 2));
+
+  let leftOverflow = right + contentWidth + viewportMargin;
+  if (leftOverflow > viewportWidth) {
+    obj['style']['left'] = viewportMargin;
+    obj['horizontalPosition'] = "left";
+    delete obj['style']['right'];
+  } else {
+    obj['style']['right'] = right;
+    obj['horizontalPosition'] = "right";
+    delete obj['style']['left'];
   }
 
   // Apply ember-basic-dropdown's repositioning
