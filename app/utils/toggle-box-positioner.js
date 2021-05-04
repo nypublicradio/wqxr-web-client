@@ -10,17 +10,15 @@ export default function calculatePosition(trigger, content, _destination, ref) {
   } = trigger.getBoundingClientRect();
 
   let {
-    left: contentLeft,
     width: contentWidth,
   } = content.getBoundingClientRect();
   let viewportWidth = document.body.clientWidth || window.innerWidth;
 
-  let { verticalPosition/*, horizontalPosition*/ } = obj;
+  let { verticalPosition } = obj;
   let bottomOffset = (verticalPosition == 'above' ? -10 : 10);
 
   // Set these attributes on the dropdown object so we can put the tab in the right spot
   content.setAttribute('data-v-pos', verticalPosition);
-  //content.setAttribute('data-h-pos', horizontalPosition);
 
   obj['style']['top'] = obj['style']['top'] + bottomOffset;
 
