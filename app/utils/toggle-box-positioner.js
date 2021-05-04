@@ -10,6 +10,7 @@ export default function calculatePosition(trigger, content, _destination, ref) {
   } = trigger.getBoundingClientRect();
 
   let {
+    left: contentLeft,
     width: contentWidth,
   } = content.getBoundingClientRect();
   let viewportWidth = document.body.clientWidth || window.innerWidth;
@@ -45,7 +46,7 @@ export default function calculatePosition(trigger, content, _destination, ref) {
   }
 
   // Apply ember-basic-dropdown's repositioning
-  ref.dropdown.applyReposition(trigger, content, obj)
+  ref.dropdown.applyReposition(trigger, content, obj);
 
   return obj;
 }

@@ -19,8 +19,18 @@ export default Component.extend({
 
   calculatePosition(trigger, content, _destination, ref) {
     scheduleOnce('afterRender',() => {
-      let obj = toggleBoxPositioner(trigger, content, _destination, ref);
-      ref.dropdown.applyReposition(trigger, content, obj)
+      // position the caret
+      let {
+        left: triggerLeft,
+        width: triggerWidth,
+      } = trigger.getBoundingClientRect();
+
+      let {
+        left: contentLeft,
+      } = content.getBoundingClientRect();
+
+      let caretLeft = triggerLeft - contentLeft + (triggerWidth / 2) - 4;
+      _destination.style.setProperty("--caret-left-pos", caretLeft + "px");
 
       // #calculatePosition is called without this component's context
       // so we have to reach into this component through the ref argument
