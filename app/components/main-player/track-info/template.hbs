@@ -1,8 +1,14 @@
 
-<div data-test-element="track-info-composer" class="composer">
-  {{composerName}}
-</div>
-<div data-test-element="track-info-title" class="title">
-  {{trackTitle}}
-</div>
+  <div data-test-element="track-info-composer" class="composer">
+    {{composerName}}
+  </div>
+  <div data-test-element="track-info-title" class="title">
+    {{trackTitle}}
+    {{#main-player/track-additional-info
+      ensembleName=ensembleName
+      conductorName=conductorName
+      horizontalPosition="auto"
+    }}{{/main-player/track-additional-info}}
+  </div>
+
 
