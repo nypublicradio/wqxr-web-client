@@ -1,5 +1,5 @@
 {{!--
-  Using double link-to in order to get an active class on the li tag
+Using double link-to in order to get an active class on the li tag
 --}}
 
 {{way-point on-up=(action (mut sticky) false) on-down=(action (mut sticky) true)}}
@@ -9,31 +9,26 @@
     <div class="sitechrome-topbody">
       <div class="sitechrome-topbody-right">
         <!-- if css media query returns true for large screens -->
-          <div class="sitechrome-search">
-            {{search-box placeholder="Search" enter=(action "routeSearch") searchbox-class="searchbox--chrome"}}
-          </div>
+        <div class="sitechrome-search">
+          {{search-box placeholder="Search" enter=(action "routeSearch") searchbox-class="searchbox--chrome"}}
+        </div>
         <!-- else -->
-          <div class="sitechrome-logo">
-            <h1>
-              <span class="for-screenreaders">WQXR Navigation</span>
-              <a href="/"
-                class="link--nodecor wqxr-logo-nav gtm__click-tracking"
-                data-action="Side Navigation"
-                title="WQXR | New York Public Radio Home Page">
-                {{nypr-svg icon='wqxr-logo' className='icon--wqxr-logo-nav'}}
-              </a>
-            </h1>
-          </div>
+        <div class="sitechrome-logo">
+          <h1>
+            <span class="for-screenreaders">WQXR Navigation</span>
+            <a href="/" class="link--nodecor wqxr-logo-nav gtm__click-tracking" data-action="Side Navigation"
+              title="WQXR | New York Public Radio Home Page">
+              {{nypr-svg icon='wqxr-logo' className='icon--wqxr-logo-nav'}}
+            </a>
+          </h1>
+        </div>
         <!-- /if -->
         <div>
           <div class="sitechrome-topright">
             {{#if headerDonateChunk}}
-              {{{headerDonateChunk}}}
+            {{{headerDonateChunk}}}
             {{else}}
-              <a class="sitechrome-btn"
-              href={{donateURL}}
-              title="Donate"
-              target="_blank">Donate</a>
+            <a class="sitechrome-btn" href={{donateURL}} title="Donate" target="_blank">Donate</a>
             {{/if}}
 
             {{user-navigation isLoggedIn=session.isAuthenticated user=currentUser.user}}
@@ -47,16 +42,14 @@
   </div>
   <!-- .sitechrome-top -->
 
-  <nav class="l-page-nav sitechrome-nav {{if sticky 'mod-sticky'}} {{if isHomepage 'nav--homepage'}} mobile-x-scrollable">
+  <nav
+    class="l-page-nav sitechrome-nav {{if sticky 'mod-sticky'}} {{if isHomepage 'nav--homepage'}} mobile-x-scrollable">
     <!-- if css media query returns true for large screens -->
     <div class="sitechrome-corner">
       <h1>
         <span class="for-screenreaders">WQXR Navigation</span>
-        <a href="/"
-          class="link--nodecor wqxr-logo-nav gtm__click-tracking"
-          data-action="Side Navigation"
-          data-label="logo"
-          title="WQXR | New York Public Radio Home Page">
+        <a href="/" class="link--nodecor wqxr-logo-nav gtm__click-tracking" data-action="Side Navigation"
+          data-label="logo" title="WQXR | New York Public Radio Home Page">
           {{nypr-svg icon='wqxr-logo' className='icon--wqxr-logo-nav'}}
         </a>
       </h1>
@@ -65,94 +58,64 @@
     <div class="scrollable-body">
       <div class="box--desktop box--nopad-desktop">
 
-      <ul class="list list--noborder flush alignright--desktop list--inline-exceptdesktop list--spaced text--small-mobile">
+        <ul
+          class="list list--noborder flush alignright--desktop list--inline-exceptdesktop list--spaced text--small-mobile">
 
-        <li class="list-item list-item--nav">
-          {{!-- if css media query returns true for large screens  --}}
-            {{#listen-button
-              type='white-hollow-small'
-              itemPK=preferredStream.slug
-              itemTitle=preferredStream.name
-              playContext='nav'
-              data-action='Clicked Play/Pause Stream: nav'
-              data-label=preferredStream.name
-              class='stream-launcher gtm__click-tracking sitechrome__listen-desktop'}}
-              <span>Listen Live</span>
-            {{/listen-button}}
-          {{!-- else --}}
-            {{!-- This 'button' is a top nav item that looks like a link. it doesn't show an icon to reflect state --}}
-            {{!-- So clicking will always trigger a play action (and not a pause), state is locked to 'is-paused'  --}}
-            {{#listen-button
-              class='gtm__click-tracking sitechrome__listen-mobile'
-              data-action='Clicked Play/Pause Stream: nav'
-              data-label=preferredStream.name
-              type='vanilla'
-              state='is-paused'
-              itemPK=preferredStream.slug
-              itemTitle=preferredStream.name
-              playContext='nav'}}
-              <span>Listen Live</span>
-            {{/listen-button}}
-          {{!-- if --}}
-        </li>
-
-        <li id="ember776" class="list-item list-item--nav">
-          <a data-action="Side Navigation" href="https://beta.wqxr.org/?ref=nav-wqxr" target="_blank" rel="nofollow" id="ember779" class="inherit gtm__click-tracking">WQXR Lab</a>
-        </li>
-
-        {{#link-to 'stream' tagName='li' href=false class="list-item list-item--nav"}}
+          {{#link-to 'stream' tagName='li' href=false class="list-item list-item--nav"}}
           {{link-to 'All Streams' 'stream' class="inherit gtm__click-tracking" data-action="Side Navigation"}}
-        {{/link-to}}
-
-        {{#link-to 'playlist-daily' current-when="playlist-daily" tagName='li' href=false class="list-item list-item--nav"}}
-          {{link-to 'Play History' 'playlist-daily' class="inherit gtm__click-tracking" data-action="Side Navigation"}}
-        {{/link-to}}
-
-        {{#link-to 'schedule' current-when="schedule.date" tagName='li' href=false class="list-item list-item--nav"}}
-          {{link-to 'WQXR Schedule' 'schedule' class="inherit gtm__click-tracking" data-action="Side Navigation"}}
-        {{/link-to}}
-
-        {{#link-to 'show' current-when="show show-detail" tagName="li" href=false class="list-item list-item--nav"}}
-          {{link-to 'Programs' 'show' class="inherit gtm__click-tracking" data-action="Side Navigation"}}
-        {{/link-to}}
-
-        <li class="list-item list-item--nav">
-          <a href="http://www.newsounds.org" class="inherit gtm__click-tracking" data-action="Side Navigation" target="_blank">New Sounds</a>
-        </li>
-
-        {{#link-to 'events'  tagName='li' href=false class="list-item list-item--nav"}}
-          {{link-to 'Events' 'events' class="inherit gtm__click-tracking" data-action="Side Navigation"}}
-        {{/link-to}}
-
-        {{#link-to 'videos' tagName='li' href=false class="list-item list-item--nav"}}
-          {{link-to 'Videos' 'videos' class="inherit gtm__click-tracking" data-action="Side Navigation"}}
-        {{/link-to}}
-
-        <!-- if css media query does not return true for large screens   -->
-          {{#link-to 'djangorendered' 'search/' tagName='li' href=false class="list-item list-item--nav sitechrome-search__mobile"}}
-            {{link-to 'Search' 'djangorendered' 'search/' class="inherit gtm__click-tracking" data-action="Side Navigation"}}
           {{/link-to}}
-        <!-- unless -->
 
-      </ul>
-    </div>
-    <!-- .box -->
+          {{#link-to 'playlist-daily' current-when="playlist-daily" tagName='li' href=false class="list-item
+          list-item--nav"}}
+          {{link-to 'Play History' 'playlist-daily' class="inherit gtm__click-tracking" data-action="Side Navigation"}}
+          {{/link-to}}
+
+          {{#link-to 'schedule' current-when="schedule.date" tagName='li' href=false class="list-item list-item--nav"}}
+          {{link-to 'WQXR Schedule' 'schedule' class="inherit gtm__click-tracking" data-action="Side Navigation"}}
+          {{/link-to}}
+
+          {{#link-to 'show' current-when="show show-detail" tagName="li" href=false class="list-item list-item--nav"}}
+          {{link-to 'Programs' 'show' class="inherit gtm__click-tracking" data-action="Side Navigation"}}
+          {{/link-to}}
+
+          <li class="list-item list-item--nav">
+            <a href="http://www.newsounds.org" class="inherit gtm__click-tracking" data-action="Side Navigation"
+              target="_blank">New Sounds</a>
+          </li>
+
+          {{#link-to 'events' tagName='li' href=false class="list-item list-item--nav"}}
+          {{link-to 'Events' 'events' class="inherit gtm__click-tracking" data-action="Side Navigation"}}
+          {{/link-to}}
+
+          {{#link-to 'videos' tagName='li' href=false class="list-item list-item--nav"}}
+          {{link-to 'Videos' 'videos' class="inherit gtm__click-tracking" data-action="Side Navigation"}}
+          {{/link-to}}
+
+          <!-- if css media query does not return true for large screens   -->
+          {{#link-to 'djangorendered' 'search/' tagName='li' href=false class="list-item list-item--nav
+          sitechrome-search__mobile"}}
+          {{link-to 'Search' 'djangorendered' 'search/' class="inherit gtm__click-tracking" data-action="Side
+          Navigation"}}
+          {{/link-to}}
+          <!-- unless -->
+
+        </ul>
+      </div>
+      <!-- .box -->
     </div>
     <!-- .x-scrollable-body -->
 
     <!-- if css media query returns true for large screens -->
-      <div class="sitechrome__nav-footer"
-        class="gtm__click-tracking-container"
-        data-action="Nav Social Link">
-        {{nypr-social-icons title="Follow WQXR" items=socialIcons}}
-      </div>
+    <div class="sitechrome__nav-footer" class="gtm__click-tracking-container" data-action="Nav Social Link">
+      {{nypr-social-icons title="Follow WQXR" items=socialIcons}}
+    </div>
     <!-- /if -->
   </nav>
 
   <div class="l-full sitechrome-page-content-area">
 
     {{#each flashMessages.queue as |flash|}}
-       {{flash-message flash=flash}}
+    {{flash-message flash=flash}}
     {{/each}}
 
     {{yield}}
