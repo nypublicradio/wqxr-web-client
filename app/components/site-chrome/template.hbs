@@ -61,6 +61,35 @@ Using double link-to in order to get an active class on the li tag
         <ul
           class="list list--noborder flush alignright--desktop list--inline-exceptdesktop list--spaced text--small-mobile">
 
+          <li class="list-item list-item--nav">
+            {{!-- if css media query returns true for large screens --}}
+            {{#listen-button
+            type='white-hollow-small'
+            itemPK=preferredStream.slug
+            itemTitle=preferredStream.name
+            playContext='nav'
+            data-action='Clicked Play/Pause Stream: nav'
+            data-label=preferredStream.name
+            class='stream-launcher gtm__click-tracking sitechrome__listen-desktop'}}
+            <span>Listen Live</span>
+            {{/listen-button}}
+            {{!-- else --}}
+            {{!-- This 'button' is a top nav item that looks like a link. it doesn't show an icon to reflect state --}}
+            {{!-- So clicking will always trigger a play action (and not a pause), state is locked to 'is-paused' --}}
+            {{#listen-button
+            class='gtm__click-tracking sitechrome__listen-mobile'
+            data-action='Clicked Play/Pause Stream: nav'
+            data-label=preferredStream.name
+            type='vanilla'
+            state='is-paused'
+            itemPK=preferredStream.slug
+            itemTitle=preferredStream.name
+            playContext='nav'}}
+            <span>Listen Live</span>
+            {{/listen-button}}
+            {{!-- if --}}
+          </li>
+
           {{#link-to 'stream' tagName='li' href=false class="list-item list-item--nav"}}
           {{link-to 'All Streams' 'stream' class="inherit gtm__click-tracking" data-action="Side Navigation"}}
           {{/link-to}}
@@ -71,7 +100,7 @@ Using double link-to in order to get an active class on the li tag
           {{/link-to}}
 
           {{#link-to 'schedule' current-when="schedule.date" tagName='li' href=false class="list-item list-item--nav"}}
-          {{link-to 'WQXR Schedule' 'schedule' class="inherit gtm__click-tracking" data-action="Side Navigation"}}
+          {{link-to 'Schedule' 'schedule' class="inherit gtm__click-tracking" data-action="Side Navigation"}}
           {{/link-to}}
 
           {{#link-to 'show' current-when="show show-detail" tagName="li" href=false class="list-item list-item--nav"}}
