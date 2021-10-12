@@ -120,6 +120,11 @@ Using double link-to in order to get an active class on the li tag
           {{link-to 'Videos' 'videos' class="inherit gtm__click-tracking" data-action="Side Navigation"}}
           {{/link-to}}
 
+          <li class="list-item list-item--nav">
+            <a href="https://www.nypublicradio.org/support/" class="inherit gtm__click-tracking" data-action="Side Navigation"
+              target="_blank"><span><i class="fa fa-external-link" aria-hidden="true"></i></span> Support Us</a>
+          </li>
+
           <!-- if css media query does not return true for large screens   -->
           {{#link-to 'djangorendered' 'search/' tagName='li' href=false class="list-item list-item--nav
           sitechrome-search__mobile"}}
