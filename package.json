@@ -115,7 +115,7 @@
     "nypr-metrics": "^0.5.1",
     "nypr-player": "^0.4.3",
     "nypr-publisher-lib": "^0.5.12",
-    "nypr-ui": "github:nypublicradio/nypr-ui#f29f203a3601f7d24e2d6b841be4fb901baff576",
+    "nypr-ui": "github:nypublicradio/nypr-ui#2e01bd965cdffa0e730927004d95270053310b18",
     "qunit-dom": "^0.6.2",
     "start-server-and-test": "^1.12.0",
     "torii": "^0.10.1"
