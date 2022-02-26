@@ -148,7 +148,7 @@
     "fastboot-app-server": "^1.1.2-beta.1",
     "nypr-fastboot": "nypublicradio/nypr-fastboot#nc/fork",
     "nypr-icons": "https://github.com/nypublicradio/nypr-icons",
-    "url-parse": "^1.5.1"
+    "url-parse": "^1.5.8"
   },
   "fastbootDependencies": [
     "nypr-auth",
