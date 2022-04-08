@@ -352,13 +352,4 @@ module('Acceptance | profile', function(hooks) {
 
     assert.equal(findAll('.nypr-social-connect__link').length, 1);
   });
-
-  test('logged in without fb account does not show manage link', async function(assert) {
-    server.create('user');
-    authenticateSession({access_token: 'foo'});
-
-    await visit('/profile');
-
-    assert.equal(findAll('.nypr-social-connect__link').length, 0);
-  });
 });
