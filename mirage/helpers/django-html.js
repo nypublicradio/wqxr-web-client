@@ -1100,7 +1100,7 @@ var HTML = `<html>
       })
 
 
-                  wnyc.ads["rightRail"] = googletag.defineSlot("/6483581/rectangle/wnyc_rectangle", [[300, 250], [300, 600]], "rightRail")
+                  wnyc.ads["rightRail"] = googletag.defineSlot("/1007549/WQXR/wqxr_rectangle", [[300, 250], [300, 600]], "rightRail")
               .addService(googletag.pubads());
 
 
