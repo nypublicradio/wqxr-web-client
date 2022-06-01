@@ -1083,12 +1083,12 @@ var HTML = `<html>
       googletag.cmd.push(function() {
 
       var leaderboard_mapping = googletag.sizeMapping()
-          .addSize([0, 0], [300, 50])
+          .addSize([0, 0], [320, 50])
           .addSize([758, 0], [728, 90])
           .addSize([1020, 0], [970, 415])
           .build()
 
-      wnyc.ads.leaderboard = googletag.defineSlot("/6483581/leaderboard/wnyc_leaderboard", [[970, 415], [728, 90], [300, 50]], "leaderboard")
+      wnyc.ads.leaderboard = googletag.defineSlot("/6483581/leaderboard/wnyc_leaderboard", [[970, 415], [728, 90], [320, 50]], "leaderboard")
           .defineSizeMapping(leaderboard_mapping)
           .addService(googletag.pubads());
 
@@ -1100,7 +1100,7 @@ var HTML = `<html>
       })
 
 
-                  wnyc.ads["rightRail"] = googletag.defineSlot("/6483581/rectangle/wnyc_rectangle", [[300, 250], [300, 600]], "rightRail")
+                  wnyc.ads["rightRail"] = googletag.defineSlot("/1007549/WQXR/wqxr_rectangle", [[300, 250], [300, 600]], "rightRail")
               .addService(googletag.pubads());
 
 
