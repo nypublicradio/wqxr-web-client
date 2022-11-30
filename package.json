@@ -96,7 +96,7 @@
     "ember-truth-helpers": "2.0.0",
     "ember-waypoints": "nypublicradio/ember-waypoints#afffe72",
     "ember-wormhole": "^0.5.3",
-    "eslint-plugin-ember": "^5.0.0",
+    "eslint-plugin-ember": "^8.14.0",
     "glob": "7.1.6",
     "grunt": "^1.0.4",
     "grunt-modernizr": "^2.1.1",
