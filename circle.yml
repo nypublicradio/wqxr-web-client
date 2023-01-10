@@ -228,23 +228,28 @@ workflows:
           requires:
             - test_ember
             - test_cypress
+          context: "AWS Deploy"
       - deploy_ecs_demo:
           <<: *filter_demo
           requires:
             - test_ember
             - test_cypress
+          context: "AWS Deploy"
       - deploy_static_prod:
           <<: *filter_prod
           requires:
             - test_ember
             - test_cypress
+          context: "AWS Deploy"
       - deploy_ecs_prod:
           <<: *filter_prod
           requires:
             - test_ember
             - test_cypress
+          context: "AWS Deploy"
       - deploy_static_qa:
           <<: *filter_qa
           requires:
             - test_ember
             - test_cypress
+          context: "AWS Deploy"
