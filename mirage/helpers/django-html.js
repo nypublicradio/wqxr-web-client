@@ -799,7 +799,7 @@ var HTML = `<html>
                           <li><a href="/about/">About WNYC</a></li>
                           <li><a href="http://www.nypublicradio.org/underwriting/wnyc">Become a Sponsor</a></li>
                           <li><a href="/press/">Press</a></li>
-                          <li><a href="/careers">Jobs</a></li>
+                          <li><a href="https://nypublicradio.org/careers/">Jobs</a></li>
                           <li><a href="/mobile">iOS &amp; Android App</a></li>
                       </ul>
 
