@@ -17,8 +17,6 @@ import {
   currentSession
 } from 'ember-simple-auth/test-support';
 //import 'wqxr-web-client/tests/helpers/with-feature';
-import dummySuccessProviderFb from 'wqxr-web-client/tests/helpers/torii-dummy-success-provider-fb';
-import { registerMockOnInstance } from 'wqxr-web-client/tests/helpers/register-mock';
 
 module('Acceptance | login', function(hooks) {
   setupApplicationTest(hooks);
