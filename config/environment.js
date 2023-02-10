@@ -1,11 +1,11 @@
 'use strict';
 
-module.exports = function(environment) {
+module.exports = function ( environment ) {
 
   function usingProxy() {
-    return !!process.argv.filter(function (arg) {
-      return arg.indexOf('--proxy') === 0;
-    }).length;
+    return !!process.argv.filter( function ( arg ) {
+      return arg.indexOf( '--proxy' ) === 0;
+    } ).length;
   }
 
   const ALIEN_DOM_ROOT = environment === 'test' ? '#ember-testing' : 'body';
@@ -17,9 +17,9 @@ module.exports = function(environment) {
     locationType: 'trailing-history',
     historySupportMiddleware: true,
     emberHifi: {
-      connections: [{
+      connections: [ {
         name: 'NativeAudio'
-      }],
+      } ],
     },
     'ember-cli-mirage': {
       autostart: true // https://github.com/samselikoff/ember-cli-mirage/blob/master/CHANGELOG.md#how-it-works-in-different-types-of-tests
@@ -41,7 +41,7 @@ module.exports = function(environment) {
     },
     // required for what's on widget compat
     exportApplicationGlobal: true,
-    QP_WHITELIST: ['q', 'scheduleStation', 'next', 'n'], // see puppy/settings/base_settings.py
+    QP_WHITELIST: [ 'q', 'scheduleStation', 'next', 'n' ], // see puppy/settings/base_settings.py
 
     flashMessageDefaults: {
       preventDuplicates: true,
@@ -65,7 +65,7 @@ module.exports = function(environment) {
     etagAPI: process.env.ETAG_API,
     publisherAPI: process.env.PUBLISHER_API,
     platformEventsAPI: process.env.PLATFORM_EVENTS_SERVICE,
-    wnycDonateURL: 'https://pledge3.wqxr.org/epledge/main?ref=button-donate-header',
+    wnycDonateURL: 'https://pledge.wqxr.org/support/wqxr?utm_source=wqxr&utm_medium=wqxr&utm_campaign=donate-button ',
     contentSecurityPolicy: {
       'connect-src': "'self' *.wnyc.net:* ws://*.wnyc.net:*",
       'style-src': "'self' 'unsafe-inline' *.wnyc.net:* *.wnyc.org cloud.typography.com fonts.googleapis.com www.google.com platform.twitter.com",
@@ -93,7 +93,7 @@ module.exports = function(environment) {
       toRemove: `${ALIEN_DOM_ROOT} > :not(.ember-view):not(#fb-root), ${ALIEN_DOM_ROOT} > head > link[rel=stylesheet]:not([href*=assets])`
     },
     fastboot: {
-      hostWhitelist: process.env.HOST_WHITELIST ? process.env.HOST_WHITELIST.split(',') : []
+      hostWhitelist: process.env.HOST_WHITELIST ? process.env.HOST_WHITELIST.split( ',' ) : []
     },
     googleTagManager: process.env.GOOGLE_TAG_MANAGER_ID || 'GTM-MZ2S75K',
     googleOptimize: process.env.GOOGLE_OPTIMIZE_ID,
@@ -102,7 +102,7 @@ module.exports = function(environment) {
 
   };
 
-  if (environment === 'development') {
+  if ( environment === 'development' ) {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
@@ -111,7 +111,7 @@ module.exports = function(environment) {
     // ENV.LOG_LEGACY_LOADER = true;
 
     var mirageEnabled = !usingProxy();
-    ENV['ember-cli-mirage'] = {
+    ENV[ 'ember-cli-mirage' ] = {
       // Mirage should be doing this automatically, but
       // it consideres the http-proxies we have in server/proxies
       // as a "proxy". We only want mirage to be disabled if we've
@@ -120,7 +120,7 @@ module.exports = function(environment) {
     };
   }
 
-  if (environment === 'test') {
+  if ( environment === 'test' ) {
     // Testem prefers this...
     ENV.locationType = 'none';
 
@@ -141,11 +141,11 @@ module.exports = function(environment) {
     ENV.membershipAPI = 'http://example.com';
     ENV.platformEventsAPI = 'http://example.com';
     ENV.APP.autoboot = false;
-    ENV.fastboot.hostWhitelist = ['/.*/'];
+    ENV.fastboot.hostWhitelist = [ '/.*/' ];
 
   }
 
-  if (environment === 'production') {
+  if ( environment === 'production' ) {
 
   }
 
