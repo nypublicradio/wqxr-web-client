@@ -236,6 +236,10 @@ ul.schedule-table {
   display: none;
 }
 
+.site-container .grid_4 {
+  position: sticky;
+  top: 0;
+}
 
 
 @include mq($medium-only) {
@@ -264,7 +268,11 @@ ul.schedule-table {
   }
 
   .site-container .grid_4 {
-    display: none;
+    position: static;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
   }
 
   ul.schedule-dates {
