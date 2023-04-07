@@ -236,11 +236,21 @@ ul.schedule-table {
   display: none;
 }
 
-.site-container .grid_4 {
-  position: sticky;
-  top: 0;
+.schedule-date .site-container .grid_4.sidebar {
+  position: static;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
+@include mq($medium-and-up) {
+  .schedule-date .site-container .grid_4.sidebar.sidebar_main {
+    position: sticky;
+    top: 0;
+    width: auto;
+  }
+}
 
 @include mq($medium-only) {
   .schedule-playlists,
@@ -265,14 +275,6 @@ ul.schedule-table {
 
   ul.schedule-table li.details .program .text {
       margin: 0;
-  }
-
-  .site-container .grid_4 {
-    position: static;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
   }
 
   ul.schedule-dates {
