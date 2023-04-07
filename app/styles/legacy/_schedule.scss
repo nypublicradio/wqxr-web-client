@@ -243,8 +243,7 @@ ul.schedule-table {
   align-items: center;
   width: 100%;
 }
-
-@include mq($medium-and-up) {
+@media only screen and (min-width: 1160px) {
   .schedule-date .site-container .grid_4.sidebar {
     display: inline;
     width: 300px;
