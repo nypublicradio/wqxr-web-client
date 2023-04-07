@@ -246,9 +246,10 @@ ul.schedule-table {
 
 @include mq($medium-and-up) {
   .schedule-date .site-container .grid_4.sidebar.sidebar_main {
+    display: inline;
     position: sticky;
     top: 0;
-    width: auto;
+    width: 300px;
   }
 }
 
