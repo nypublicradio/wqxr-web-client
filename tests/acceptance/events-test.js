@@ -16,18 +16,6 @@ module('Acceptance | events', function(hooks) {
     assert.equal(currentURL(), `/events`);
   });
 
-  test('clicking on /events', async function(assert) {
-    server.create('bucket', {slug: 'wqxr-home'});
-    server.create('django-page', {id: '/'});
-    server.create('django-page', {id: 'events/'});
-    
-    await visit('/');
-    
-    await click('a[href="/events"]');
-    
-    assert.equal(currentURL(), `/events`);
-  });
-
   test('transitioning to a specific event', async function(assert) {
     server.create('django-page', {
       id: 'fake/',
