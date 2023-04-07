@@ -245,11 +245,13 @@ ul.schedule-table {
 }
 
 @include mq($medium-and-up) {
-  .schedule-date .site-container .grid_4.sidebar.sidebar_main {
+  .schedule-date .site-container .grid_4.sidebar {
     display: inline;
+    width: 300px;
+  }
+  .schedule-date .site-container .grid_4.sidebar.sidebar_main {
     position: sticky;
     top: 0;
-    width: 300px;
   }
 }
 
