@@ -236,24 +236,6 @@ ul.schedule-table {
   display: none;
 }
 
-.schedule-date .site-container .grid_4.sidebar {
-  position: static;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-@media only screen and (min-width: 1160px) {
-  .schedule-date .site-container .grid_4.sidebar {
-    display: inline;
-    width: 300px;
-  }
-  .schedule-date .site-container .grid_4.sidebar.sidebar_main {
-    position: sticky;
-    top: 0;
-  }
-}
-
 @include mq($medium-only) {
   .schedule-playlists,
   ul.schedule-dates,
