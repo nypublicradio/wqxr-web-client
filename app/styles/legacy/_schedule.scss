@@ -236,8 +236,6 @@ ul.schedule-table {
   display: none;
 }
 
-
-
 @include mq($medium-only) {
   .schedule-playlists,
   ul.schedule-dates,
@@ -261,10 +259,6 @@ ul.schedule-table {
 
   ul.schedule-table li.details .program .text {
       margin: 0;
-  }
-
-  .site-container .grid_4 {
-    display: none;
   }
 
   ul.schedule-dates {
