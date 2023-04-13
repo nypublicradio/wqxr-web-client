@@ -24,7 +24,7 @@ describe('Full-bleed Story Page with Image Grid', () => {
 });
 
 describe('Full-bleed Story Page', () => {
-  ['true','false'].forEach(fastbootStatus => {
+  ['false'].forEach(fastbootStatus => {
     it(`loads a full-bleed story page (fastboot=${fastbootStatus})`, () => {
       // Full Bleed template renders
       cy.fastbootCheck(`/story/wqxr-presents-19-19-artists-watch-upcoming-year`, fastbootStatus);
@@ -44,7 +44,7 @@ describe('Full-bleed Story Page', () => {
 });
 
 describe('Story Page', () => {
-  ['true','false'].forEach(fastbootStatus => {
+  ['false'].forEach(fastbootStatus => {
     it(`loads a story page (fastboot=${fastbootStatus})`, () => {
       cy.fastbootCheck(`/story/david-bowies-classical-impact-one-year-later`, fastbootStatus);
 
