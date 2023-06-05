@@ -1,8 +1,7 @@
-FROM node:12.12
+FROM node:10.6-alpine
 RUN mkdir -p /code \
-    && apt-get autoclean \
-    && apt-get update -y \
-    && apt-get install -y \
+    && apk update \
+    && apk add  \
         unzip
 WORKDIR /code
 COPY package.json ./
