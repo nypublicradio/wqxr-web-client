@@ -1,7 +1,8 @@
-FROM node:10.6-alpine
+FROM node:14.21-bullseye
 RUN mkdir -p /code \
-    && apk update \
-    && apk add  \
+    && apt-get autoclean \
+    && apt-get update -y \
+    && apt-get install -y \
         unzip
 WORKDIR /code
 COPY package.json ./
