@@ -1,4 +1,4 @@
-FROM node:10
+FROM node:10.6-alpine
 RUN mkdir -p /code \
     && apt-get autoclean \
     && apt-get update -y \
