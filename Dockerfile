@@ -1,4 +1,4 @@
-FROM node:10
+FROM node:14.21-bullseye
 RUN mkdir -p /code \
     && apt-get autoclean \
     && apt-get update -y \
