@@ -2,7 +2,7 @@
   "baseUrl": "http://localhost:4200",
   "blacklistHosts": [
     "www.googletagmanager.com",
-    "www.googletagservices.com",
+    "securepubads.g.doubleclick.net",
     "fonts.googleapis.com",
     "google-analytics.com",
     "maps.googleapis.com",
