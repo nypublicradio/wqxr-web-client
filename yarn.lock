@@ -10055,10 +10055,10 @@ nypr-player@^0.4.3:
     ember-moment "^7.4.1"
     nypr-ui "^0.5.0"
 
-nypr-publisher-lib@^0.5.12:
-  version "0.5.12"
-  resolved "https://registry.yarnpkg.com/nypr-publisher-lib/-/nypr-publisher-lib-0.5.12.tgz#83fe4931166c785c97cc79f26ec265d50387e088"
-  integrity sha512-n9TThigaEp327DN8AAqXqtu8xzgcVS7cIF0jUoe/tDk3jY54fxjpmdAIHei5aIoZdb21X30GG1CPn+q6PNio6A==
+nypr-publisher-lib@^0.5.14:
+  version "0.5.14"
+  resolved "https://registry.yarnpkg.com/nypr-publisher-lib/-/nypr-publisher-lib-0.5.14.tgz#fac3501541875ffc9b64ba89e545edf6568d9769"
+  integrity sha512-ktt13v8B9XKCFIF2UYrD6Ssepo2PF+EyrRcjgp7XWaatiQmWxWH+/KR4NfyHBNPXQl/ZQla1oFHJcnRbo6pwpg==
   dependencies:
     "@fortawesome/ember-fontawesome" "^0.1.14"
     "@fortawesome/free-brands-svg-icons" "^5.10.1"
