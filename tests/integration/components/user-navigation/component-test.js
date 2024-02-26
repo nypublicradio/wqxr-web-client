@@ -14,7 +14,7 @@ module('Integration | Component | user navigation', function(hooks) {
 
   test('it renders', async function(assert) {
     await render(hbs`{{user-navigation}}`);
-    assert.equal(findAll('.user-nav-signup').length, 1);
+    assert.equal(findAll('.user-nav-membercenter').length, 1);
   });
 
   test('it shows the login state', async function(assert) {
