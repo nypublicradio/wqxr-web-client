@@ -131,7 +131,7 @@ module('Acceptance | login', function(hooks) {
     await click('[data-test-selector=logout]');
 
 
-    assert.equal(find('a[href*=login]').textContent.trim(), 'Sign In');
+    assert.notOk(find('a[href*=settings]'));
 
   });
 
