@@ -17,8 +17,6 @@ import {
   currentSession
 } from 'ember-simple-auth/test-support';
 //import 'wqxr-web-client/tests/helpers/with-feature';
-import dummySuccessProviderFb from 'wqxr-web-client/tests/helpers/torii-dummy-success-provider-fb';
-import { registerMockOnInstance } from 'wqxr-web-client/tests/helpers/register-mock';
 
 module('Acceptance | login', function(hooks) {
   setupApplicationTest(hooks);
@@ -135,70 +133,8 @@ module('Acceptance | login', function(hooks) {
 
   });
 
-  test('Log in with Facebook button is visible at load', async function(assert) {
+  test('Log in with Facebook button is not visible at load', async function(assert) {
     await visit('/login');
-    assert.ok(find('button'));
-  });
-
-  test('Successful facebook login redirects', async function(assert) {
-    server.create('bucket', {slug: 'wqxr-home'});
-    server.create('django-page', {id: '/'});
-    let user = server.create('user', 'facebook');
-    let facebookProvider = this.owner.lookup('torii-provider:facebook-connect');
-    this.stub(facebookProvider, 'open').resolves({
-       accessToken: 'abcdef',
-       expiresIn: 6000,
-       userId: '123456',
-       provider: 'facebook-connect'
-    });
-    await visit('/login');
-
-    await click('button');
-
-    assert.equal(currentURL(), '/');
-    assert.ok(currentSession().get('isAuthenticated'), 'Session is authenticated');
-    assert.equal(find('.user-nav-greeting').textContent.trim(), user.given_name);
-    assert.equal(find('.user-nav-avatar > img').getAttribute('src'), user.picture);
-  });
-
-  test('Facebook login with no email shows alert', async function(assert) {
-    server.create('user');
-    registerMockOnInstance(this.owner, 'torii-provider:facebook-connect', dummySuccessProviderFb);
-    server.get('/v1/session', () => {
-      return new Response(400, {}, { "errors": {
-        "code": "MissingAttributeException",
-        "message": "A provider account could not be created because one or more attributes were not available from the provider. Permissions may have been declined.",
-        "values": ["email"] }
-      });
-    });
-
-    let facebookProvider = this.owner.lookup('torii-provider:facebook-connect');
-    this.stub(facebookProvider, 'open').resolves({
-       accessToken: 'abcdef',
-       expiresIn: 6000,
-       userId: '123456',
-       provider: 'facebook-connect'
-    });
-
-    await visit('/login');
-
-    await click('button');
-
-    assert.equal(currentURL(), '/login');
-    assert.equal(find('.alert-warning').textContent.trim(), "Unfortunately, we can't authorize your account without permission to view your email address.");
-    assert.ok(!currentSession(this.application).get('isAuthenticated'), 'Session is not authenticated');
-  });
-
-  test('Unsuccessful facebook login shows alert', async function(assert) {
-    let facebookProvider = this.owner.lookup('torii-provider:facebook-connect');
-    this.stub(facebookProvider, 'open').rejects({});
-
-    await visit('/login');
-
-    await click('button');
-
-    assert.equal(currentURL(), '/login');
-    assert.equal(find('.alert-warning').textContent.trim(), "We're sorry, but we weren't able to log you in through Facebook.");
-    assert.ok(!currentSession(this.application).get('isAuthenticated'), 'Session is not authenticated');
+    assert.notOk(find('button.account-form-btn--facebook'));
   });
 });
