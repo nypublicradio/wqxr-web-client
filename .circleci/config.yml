@@ -1,0 +1,205 @@
+version: 2.1
+
+orbs:
+  nypr-deploy: nypr/nypr-deploy@0.0.81
+
+filter_all: &filter_all
+  filters:
+    branches:
+      only: /.*/
+    tags:
+      only: /.*/
+
+filter_demo: &filter_demo
+  filters:
+    branches:
+      only: main
+    tags:
+      only: demo
+
+filter_prod: &filter_prod
+  filters:
+    branches:
+      ignore: /.*/
+    tags:
+      only: /^v[0-9]+\.[0-9]+\.[0-9]+/
+
+filter_qa: &filter_qa
+  filters:
+    tags:
+      ignore: /.*/
+    branches:
+      only: /[A-Za-z-_]+/[A-Za-z-_\d]+/
+
+
+  cache: &cache
+    key: v3-{{arch}}-{{ checksum "yarn.lock" }}-{{ checksum ".circleci/config.yml" }}
+  cache_deploy: &cache_deploy
+    key: v2-deploy-{{ checksum ".circleci/config.yml" }}
+  cache_modernizr: &cache_modernizr
+    key: v2-modernizr-{{ .Revision }}
+
+  executor_node: &executor_node
+    docker:
+      - image: circleci/node:10-browsers
+        environment:
+          TERM: xterm
+          JOBS: 2
+  executor_python: &executor_python
+    docker:
+      - image: circleci/python:3.6
+
+  deploy_static: &deploy_static
+    <<: *executor_node
+    steps:
+      - checkout
+      - restore_cache:
+          <<: *cache
+      - restore_cache:
+          <<: *cache_modernizr
+      - run:
+          name: Deploy to S3
+          command: |
+            env | sed -n 's/^DEPLOY_//p' > .env
+            env | sed -n "s/^${ENV}_//p" >> .env
+
+            export QA_BUILD="$QA_PREFIX/$CIRCLE_BRANCH"
+            export QA_URL="$DEMO_WQXR_URL?build=$QA_BUILD"
+
+            npx ember deploy ${LONG_ENV:-qa:$QA_BUILD} --verbose --activate
+            mkdir -p /tmp/qa-builds
+
+            if [[ -z "$LONG_ENV" ]]; then
+              echo "<a href=\"$QA_URL\">$QA_URL</a>" \
+                >> /tmp/qa-builds/$CIRCLE_SHA1.html
+            fi
+      - store_artifacts:
+          path: /tmp/qa-builds
+
+workflows:
+  build-test-deploy:
+    jobs:
+      - build:
+          <<: *filter_all
+      - test_ember:
+          <<: *filter_all
+          requires:
+            - build
+      - test_cypress:
+          <<: *filter_all
+          requires:
+            - build
+      - deploy_static_demo:
+          <<: *filter_demo
+          requires:
+            - test_ember
+            - test_cypress
+          context: "AWS Deploy"
+      - deploy_static_prod:
+          <<: *filter_prod
+          requires:
+            - test_ember
+            - test_cypress
+          context: "AWS Deploy"
+      - nypr-deploy/build_and_deploy:
+          <<: *filter_demo
+          name: "Deploy Demo Fastboot"
+          context: "AWS Deploy"
+          repo: "wqxr-web-client"
+          service: "wqxr-web-client"
+          cluster: "fastboot"
+          cpu: 512
+          memory: 1024
+          requires:
+            - build
+            - test_ember
+            - test_cypress
+            - deploy_static_demo
+      - nypr-deploy/build_and_deploy:
+          <<: *filter_prod
+          name: "Deploy Production Fastboot"
+          context: "AWS Deploy"
+          repo: "wqxr-web-client"
+          service: "wqxr-web-client"
+          cluster: "fastboot"
+          cpu: 512
+          memory: 1024
+          requires:
+            - build
+            - test_ember
+            - test_cypress
+            - deploy_static_prod
+          
+jobs:
+  build:
+    <<: *executor_node
+    steps:
+      - checkout
+      - restore_cache:
+          <<: *cache
+      - run:
+          name: Install Node Dependencies
+          command: |
+            [ -d ./node_modules ] || yarn --pure-lockfile
+      - save_cache:
+          <<: *cache
+          paths:
+            - node_modules
+            - /home/circleci/.cache/Cypress
+      - restore_cache:
+          <<: *cache_modernizr
+      - run:
+          name: Build Modernizr
+          command: |
+            [ -f vendor/modernizr/modernizr-build.js ] || npx grunt modernizr:dist
+      - save_cache:
+          <<: *cache_modernizr
+          paths:
+            - vendor/modernizr/modernizr-build.js
+
+  test_ember:
+    <<: *executor_node
+    steps:
+      - checkout
+      - restore_cache:
+          <<: *cache
+      - restore_cache:
+          <<: *cache_modernizr
+      - run:
+          name: Test Ember
+          command: |
+            cp .env.sample .env
+            npx ember test -r xunit
+          environment:
+            CIRCLE_TEST_REPORTS: test-results
+      - store_test_results:
+          path: test-results/
+
+  test_cypress:
+    <<: *executor_node
+    steps:
+      - checkout
+      - restore_cache:
+          <<: *cache
+      - restore_cache:
+          <<: *cache_modernizr
+      - run: sudo apt-get install libgconf-2-4
+      - run: cp .env.sample .env
+      - run:
+          name: Run Cypress tests in parallel
+          command: yarn run cy:ci:test
+      - store_test_results:
+          path: test-results/
+
+  deploy_static_demo:
+    environment:
+      ENV: DEMO
+      LONG_ENV: demo
+    <<: *deploy_static
+  
+  deploy_static_prod:
+    environment:
+      ENV: PROD
+      LONG_ENV: production
+    <<: *deploy_static
+  
