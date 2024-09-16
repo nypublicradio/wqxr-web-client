@@ -190,6 +190,8 @@ jobs:
           command: yarn run cy:ci:test
       - store_test_results:
           path: test-results/
+      - store_artifacts:
+          path: cypress/videos
 
   deploy_static_demo:
     environment:
