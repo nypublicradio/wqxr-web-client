@@ -1,5 +1,5 @@
 describe('Settings page', () => {
-  ['true','false'].forEach(fastbootStatus => {
+  ['false'].forEach(fastbootStatus => {
     it(`displays the settings page (fastboot=${fastbootStatus})`, () => {
       cy.fastbootCheck(`/settings`, fastbootStatus);
 

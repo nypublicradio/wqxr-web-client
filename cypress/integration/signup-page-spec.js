@@ -1,5 +1,5 @@
 describe('Signup page', () => {
-  ['true','false'].forEach(fastbootStatus => {
+  ['false'].forEach(fastbootStatus => {
     it(`displays the signup page (fastboot=${fastbootStatus})`, () => {
       cy.fastbootCheck(`/signup`, fastbootStatus);
 

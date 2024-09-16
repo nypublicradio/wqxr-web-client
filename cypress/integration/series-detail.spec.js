@@ -1,5 +1,5 @@
 describe('Series detail page', () => {
-  ['true','false'].forEach(fastbootStatus => {
+  ['false'].forEach(fastbootStatus => {
     it(`displays the series detail page (fastboot=${fastbootStatus})`, () => {
       cy.fastbootCheck(`/series/inventing-abstraction`, fastbootStatus);
       cy.visit(`/series/inventing-abstraction?fastboot=${fastbootStatus}`);

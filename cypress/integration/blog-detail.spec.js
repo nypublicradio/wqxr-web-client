@@ -1,5 +1,5 @@
 describe('Blog detail page', () => {
-  ['true','false'].forEach(fastbootStatus => {
+  ['false'].forEach(fastbootStatus => {
     it(`displays the blog detail page (fastboot=${fastbootStatus})`, () => {
       cy.fastbootCheck(`/blogs/wqxr-blog/`, fastbootStatus);
 

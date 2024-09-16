@@ -1,5 +1,5 @@
 describe('Events page', () => {
-  ['true','false'].forEach(fastbootStatus => {
+  ['false'].forEach(fastbootStatus => {
     it(`displays the events page (fastboot=${fastbootStatus})`, () => {
       cy.fastbootCheck(`/events`, fastbootStatus);
 

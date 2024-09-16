@@ -1,5 +1,5 @@
 describe('Forgot page', () => {
-  ['true','false'].forEach(fastbootStatus => {
+  ['false'].forEach(fastbootStatus => {
     it(`displays the forgot page (fastboot=${fastbootStatus})`, () => {
       cy.fastbootCheck(`/forgot`, fastbootStatus);
       

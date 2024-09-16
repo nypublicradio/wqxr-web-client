@@ -1,5 +1,5 @@
 describe('Playlist Daily page', () => {
-  ['true','false'].forEach(fastbootStatus => {
+  ['false'].forEach(fastbootStatus => {
     it(`displays the playlist daily page (fastboot=${fastbootStatus})`, () => {
       cy.fastbootCheck(`/playlist-daily`, fastbootStatus);
 

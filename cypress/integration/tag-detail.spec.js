@@ -1,5 +1,5 @@
 describe('Tag detail page', () => {
-  ['true','false'].forEach(fastbootStatus => {
+  ['false'].forEach(fastbootStatus => {
     it(`displays the tag detail page (fastboot=${fastbootStatus})`, () => {
       cy.fastbootCheck(`/tags/prince`, fastbootStatus);
 

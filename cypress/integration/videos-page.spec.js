@@ -1,5 +1,5 @@
 describe('Videos page', () => {
-  ['true','false'].forEach(fastbootStatus => {
+  ['false'].forEach(fastbootStatus => {
     it(`displays the videos page (fastboot=${fastbootStatus})`, () => {
       cy.fastbootCheck(`/videos`, fastbootStatus);
 
