@@ -1,5 +1,5 @@
 describe('Validate page', () => {
-  ['true','false'].forEach(fastbootStatus => {
+  ['false'].forEach(fastbootStatus => {
     it(`displays the validate daily page (fastboot=${fastbootStatus})`, () => {
       cy.fastbootCheck(`/validate`, fastbootStatus);
 

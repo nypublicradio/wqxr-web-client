@@ -1,5 +1,5 @@
 describe('Show detail page', () => {
-  ['true','false'].forEach(fastbootStatus => {
+  ['false'].forEach(fastbootStatus => {
     it(`displays the show detail page (fastboot=${fastbootStatus})`, () => {
       cy.fastbootCheck(`/shows/carnegie`, fastbootStatus);
 

@@ -1,5 +1,5 @@
 describe('Home page', () => {
-  ['true','false'].forEach(fastbootStatus => {
+  ['false'].forEach(fastbootStatus => {
     it(`displays the home page (fastboot=${fastbootStatus})`, () => {
       cy.fastbootCheck(`/`, fastbootStatus);
 

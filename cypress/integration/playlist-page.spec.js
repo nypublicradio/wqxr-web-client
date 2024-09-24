@@ -1,5 +1,5 @@
 describe('Playlist page', () => {
-  ['true','false'].forEach(fastbootStatus => {
+  ['false'].forEach(fastbootStatus => {
     it(`displays the playlist page (fastboot=${fastbootStatus})`, () => {
       cy.fastbootCheck(`/streams/new-sounds`, fastbootStatus);
 

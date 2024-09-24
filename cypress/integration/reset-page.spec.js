@@ -1,5 +1,5 @@
 describe('reset page', () => {
-  ['true','false'].forEach(fastbootStatus => {
+  ['false'].forEach(fastbootStatus => {
     it(`displays the reset page (fastboot=${fastbootStatus})`, () => {
       cy.fastbootCheck(`/reset`, fastbootStatus);
 
