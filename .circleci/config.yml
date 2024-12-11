@@ -105,6 +105,7 @@ workflows:
           cpu: 512
           memory: 1024
           use_firelens: true
+          env: demo
           requires:
             - build
             - test_ember
@@ -118,6 +119,7 @@ workflows:
           cluster: "fastboot"
           cpu: 512
           memory: 1024
+          env: prod
           use_firelens: true
           requires:
             - build
