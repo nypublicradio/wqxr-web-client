@@ -1,4 +1,4 @@
-FROM node:14.21-bullseye
+FROM node:22.23.4-bookworm
 RUN mkdir -p /code \
     && apt-get autoclean \
     && apt-get update -y \
